@@ -15,7 +15,7 @@ namespace UpgradesSystem.Test
 
         [ContextMenu(nameof(TryPurchaseUpgrade))]
         private void TryPurchaseUpgrade() =>
-            Debug.Log(_upgradeFlyweight.Create().TryPurchase(ResourceQuotaItem.DictionaryFrom(_resources), out Dictionary<ResourceType, int> a)
+            Debug.Log(_upgradeFlyweight.Create().TryPurchase(ResourceQuotaItem.DictionaryFrom(_resources), out _)
                       ? "Upgrade purchased successfully"
                       : "Upgrade purchase failed");
     }
