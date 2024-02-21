@@ -15,9 +15,9 @@ namespace UpgradesSystem.Resource
             _applicableUpgrade = applicableUpgrade;
         }
 
-        public bool TryPurchase(Dictionary<ResourceType, int> resourceQuantityPairs)
+        public bool TryPurchase(Dictionary<ResourceType, int> resourceQuantityPairs, out Dictionary<ResourceType, int> purchaseCost)
         {
-            bool success = _resourceUpgrade.TryPurchase(resourceQuantityPairs);
+            bool success = _resourceUpgrade.TryPurchase(resourceQuantityPairs, out purchaseCost);
             if (success)
                 _applicableUpgrade.Apply();
 

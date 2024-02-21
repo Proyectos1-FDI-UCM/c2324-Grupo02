@@ -12,8 +12,9 @@ namespace UpgradesSystem.Resource
             _cost = cost;
         }
 
-        public readonly bool TryPurchase(Dictionary<ResourceType, int> resourceQuantityPairs)
+        public readonly bool TryPurchase(Dictionary<ResourceType, int> resourceQuantityPairs, out Dictionary<ResourceType, int> purchaseCost)
         {
+            purchaseCost = new Dictionary<ResourceType, int>(_cost);
             Dictionary<ResourceType, int> cost = new Dictionary<ResourceType, int>(_cost);
             foreach (var resource in resourceQuantityPairs)
             {

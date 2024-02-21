@@ -5,7 +5,7 @@ using UnityEngine;
 namespace UpgradesSystem.Flyweight
 {
     [Serializable]
-    internal struct ResourceQuotaItem
+    public struct ResourceQuotaItem
     {
         [field: SerializeField]
         public ResourceType Resource { get; private set; }
