@@ -196,7 +196,7 @@ MonoBehaviour:
   _radius: 10
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
 --- !u!212 &218574051
 SpriteRenderer:
   m_ObjectHideFlags: 0

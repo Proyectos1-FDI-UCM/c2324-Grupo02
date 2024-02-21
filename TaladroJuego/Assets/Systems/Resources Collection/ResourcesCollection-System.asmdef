@@ -1,0 +1,16 @@
+{
+    "name": "ResourcesCollection-System",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3feb9ba737620d945b4e16a1ef158cf5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

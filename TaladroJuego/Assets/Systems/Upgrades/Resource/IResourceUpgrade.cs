@@ -5,6 +5,6 @@ namespace UpgradesSystem.Resource
 {
     public interface IResourceUpgrade
     {
-        bool TryPurchase(Dictionary<ResourceType, int> resourceQuantityPairs);
+        bool TryPurchase(Dictionary<ResourceType, int> resourceQuantityPairs, out Dictionary<ResourceType, int> purchaseCost);
     }
 }

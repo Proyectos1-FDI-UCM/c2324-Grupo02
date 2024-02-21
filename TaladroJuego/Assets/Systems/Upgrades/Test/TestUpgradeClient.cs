@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UpgradesSystem.Flyweight;
 using UpgradesSystem.Resource;
@@ -14,7 +15,7 @@ namespace UpgradesSystem.Test
 
         [ContextMenu(nameof(TryPurchaseUpgrade))]
         private void TryPurchaseUpgrade() =>
-            Debug.Log(_upgradeFlyweight.Create().TryPurchase(ResourceQuotaItem.DictionaryFrom(_resources))
+            Debug.Log(_upgradeFlyweight.Create().TryPurchase(ResourceQuotaItem.DictionaryFrom(_resources), out _)
                       ? "Upgrade purchased successfully"
                       : "Upgrade purchase failed");
     }
