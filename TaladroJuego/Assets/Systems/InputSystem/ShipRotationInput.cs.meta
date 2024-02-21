@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 519a89281b97bc945a2b5b0f4a98236f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _rotateInputActionReference: {fileID: -3356006780441114159, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
+  - _rotateCanceledInputActionReference: {fileID: -6507887385962866190, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
+  - _thrustInputActionReference: {fileID: 5025922071406065053, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
