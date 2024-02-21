@@ -5,26 +5,26 @@ using UnityEngine;
 namespace UpgradesSystem.Flyweight
 {
     [Serializable]
-    public struct ResourceQuotaItem
+    public struct ResourceQuantityItem
     {
         [field: SerializeField]
         public ResourceType Resource { get; private set; }
 
         [field: SerializeField]
-        public int Quota { get; private set; }
+        public int Quantity { get; private set; }
 
-        public ResourceQuotaItem(ResourceType resource, int quota)
+        public ResourceQuantityItem(ResourceType resource, int quantity)
         {
             Resource = resource;
-            Quota = quota;
+            Quantity = quantity;
         }
 
-        public static Dictionary<ResourceType, int> DictionaryFrom(IEnumerable<ResourceQuotaItem> quotaItems)
+        public static Dictionary<ResourceType, int> DictionaryFrom(IEnumerable<ResourceQuantityItem> quotaItems)
         {
             var quota = new Dictionary<ResourceType, int>();
             foreach (var quotaItem in quotaItems)
-                if (!quota.TryAdd(quotaItem.Resource, quotaItem.Quota))
-                    quota[quotaItem.Resource] += quotaItem.Quota;
+                if (!quota.TryAdd(quotaItem.Resource, quotaItem.Quantity))
+                    quota[quotaItem.Resource] += quotaItem.Quantity;
 
             return quota;
         }

@@ -10,14 +10,14 @@ namespace UpgradesSystem.Flyweight
     internal class QuotaResourceUpgradeFlyweight : ResourceUpgradeFlyweight
     {
         [SerializeField]
-        private ResourceQuotaItem[] _resourceQuotaItems;
+        private ResourceQuantityItem[] _resourceQuotaItems;
         [SerializeField]
         private ApplicableUpgradeFlyweight _applicableUpgradeFlyweight;
 
         public override IResourceUpgrade Create()
         {
             return new ApplicableResourceUpgrade(
-                new ResourceUpgrade(ResourceQuotaItem.DictionaryFrom(_resourceQuotaItems)),
+                new ResourceUpgrade(ResourceQuantityItem.DictionaryFrom(_resourceQuotaItems)),
                 _applicableUpgradeFlyweight.Create());
         }
     }

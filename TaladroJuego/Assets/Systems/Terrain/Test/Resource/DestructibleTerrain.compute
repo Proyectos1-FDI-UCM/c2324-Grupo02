@@ -1,0 +1,54 @@
+#pragma kernel ModifyTerain
+
+struct TerrainModificationSource
+{
+	float3 positionWS;
+	float radius;
+	float strength;
+	float falloff;
+};
+
+#define MAX_SOURCES 32
+uniform StructuredBuffer<TerrainModificationSource> _Sources;
+uniform uint _SourceCount;
+
+uniform RWTexture2D<float> _TerrainResult;
+uniform float4x4 _ClipToWorldMatrix;
+
+uniform uint4 _TextureOffsetAndSize;
+
+uint2 TextureCoordinatesFromID(uint2 id)
+{
+	return id + _TextureOffsetAndSize.xy;
+}
+
+bool IsIDInTexture(uint2 id)
+{
+	return all((TextureCoordinatesFromID(id) < _TextureOffsetAndSize.zw));
+}
+
+[numthreads(16,16,1)]
+void ModifyTerain(uint3 id : SV_DispatchThreadID)
+{
+	if (!IsIDInTexture(id.xy))
+		return;
+
+	float2 uv = TextureCoordinatesFromID(id) / _TextureOffsetAndSize.zw;
+	float3 positionWS = mul(_ClipToWorldMatrix, float4(uv * 2.0f - 1.0f, 0.0f, 1.0f)).xyz;
+
+	float height = 0.0f;
+	for (uint i = 0; i < _SourceCount; i++)
+	{
+		TerrainModificationSource source = _Sources[i];
+
+		float3 displacementToSource = source.positionWS - positionWS;
+		float distance = length(displacementToSource);
+		if (distance < source.radius)
+		{
+			float falloff = 1.0f - saturate(distance / source.radius);
+			height += source.strength * falloff;
+		}
+	}
+
+	_TerrainResult[id.xy] = height;
+}

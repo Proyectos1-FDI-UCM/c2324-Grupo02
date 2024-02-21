@@ -1,24 +1,24 @@
-using StatusSystem;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class StatusTestingComponent : MonoBehaviour
+namespace StatusSystem.Test
 {
-    [SerializeField] private ClampedStatusParameter _clampedStatusParameter;
-
-    [SerializeField] private float _valueToChange;
-
-
-    [ContextMenu(nameof(AugmentValue))]
-    private void AugmentValue()
+    internal class StatusTestingComponent : MonoBehaviour
     {
-        _clampedStatusParameter.AugmentValue(_valueToChange);
-    }
+        [SerializeField] private ClampedStatusParameter _clampedStatusParameter;
 
-    [ContextMenu(nameof(ReduceValue))]
-    private void ReduceValue()
-    {
-        _clampedStatusParameter.ReduceValue(_valueToChange);
+        [SerializeField] private float _valueToChange;
+
+
+        [ContextMenu(nameof(AugmentValue))]
+        private void AugmentValue()
+        {
+            _clampedStatusParameter.AugmentValue(_valueToChange);
+        }
+
+        [ContextMenu(nameof(ReduceValue))]
+        private void ReduceValue()
+        {
+            _clampedStatusParameter.ReduceValue(_valueToChange);
+        }
     }
 }

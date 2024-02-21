@@ -3,10 +3,13 @@ using UpgradesSystem.Client;
 using UpgradesSystem.Flyweight;
 using UpgradesSystem.Resource;
 
-namespace UpgradesSystem.Test
+namespace ResourceCollectionSystem.Test
 {
-    internal class TestUpgradeClient : MonoBehaviour, IUpgradeClient
+    internal class TestResourcesContainerClient : MonoBehaviour, IUpgradeClient
     {
+        [SerializeField]
+        private ResourcesConainer _resourcesContainer;
+
         [SerializeField]
         private ResourceUpgradeFlyweight _upgradeFlyweight;
 
@@ -14,7 +17,14 @@ namespace UpgradesSystem.Test
         private ResourceQuantityItem[] _resources;
 
         public bool TryPurchase(IResourceUpgrade upgrade) =>
-            upgrade.TryPurchase(ResourceQuantityItem.DictionaryFrom(_resources), out _);
+            _resourcesContainer.TryPurchase(upgrade);
+
+        [ContextMenu(nameof(SetResources))]
+        private void SetResources()
+        {
+            foreach (var resource in _resources)
+                _resourcesContainer.AccountForResource(resource.Resource, resource.Quantity);
+        }
 
         [ContextMenu(nameof(TryPurchaseUpgrade))]
         private void TryPurchaseUpgrade() =>

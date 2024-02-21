@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
-using UpgradesSystem;
 using UpgradesSystem.Client;
 using UpgradesSystem.Flyweight;
 using UpgradesSystem.Resource;
@@ -10,28 +8,24 @@ using UpgradesSystem.Resource;
 namespace ResourceCollectionSystem
 {
     [CreateAssetMenu(fileName = "Resources Container", menuName = "Resources Container")]
-    public class ResourcesConainer : ScriptableObject, IUpgradeClient
+    internal class ResourcesConainer : ScriptableObject, IUpgradeClient
     {
-        public UnityEvent<ResourceType, int> resourceModified;
+        [field: SerializeField]
+        public UnityEvent<ResourceType, int> ResourceModified { get; private set; }
 
         private Dictionary<ResourceType, int> _resourceQuantities;
 
-        private void Awake()
+        private void OnEnable()
         {
             _resourceQuantities = new Dictionary<ResourceType, int>();
         }
-        public void AccountForResource(ResourceType resource)
-        {
 
-            if (_resourceQuantities.TryGetValue(resource, out int a))
-            {
-                _resourceQuantities[resource]++;
-            }
-            else
-            {
-                _resourceQuantities.Add(resource, 1);
-            }
-            resourceModified.Invoke(resource, _resourceQuantities[resource]);
+        public void AccountForResource(ResourceType resource, int quantity)
+        {
+            if (!_resourceQuantities.TryAdd(resource, quantity))
+                _resourceQuantities[resource] += quantity;
+
+            ResourceModified.Invoke(resource, _resourceQuantities[resource]);
         }
 
         public bool TryPurchase(IResourceUpgrade upgrade)
@@ -40,18 +34,15 @@ namespace ResourceCollectionSystem
 
             if (purchased)
             {
-                foreach(KeyValuePair<ResourceType, int> resourceAndCost in cost)
+                foreach (KeyValuePair<ResourceType, int> resourceAndCost in cost)
                 {
                     _resourceQuantities[resourceAndCost.Key] -= resourceAndCost.Value;
-                    resourceModified.Invoke(resourceAndCost.Key, _resourceQuantities[resourceAndCost.Key]);
+                    ResourceModified.Invoke(resourceAndCost.Key, _resourceQuantities[resourceAndCost.Key]);
                 }
-                
             }
 
             return purchased;
         }
-
-
     }
 }
 
