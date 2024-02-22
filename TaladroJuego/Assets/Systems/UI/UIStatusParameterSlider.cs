@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIStatusParameterSlider : MonoBehaviour
+namespace UISystem
 {
-    private Slider statusParamSlider;
-
-    public void UpdateUISlider(float quantity)
+    public class UIStatusParameterSlider : MonoBehaviour
     {
-        statusParamSlider.value = quantity;
-    }
+        private Slider statusParamSlider;
 
-    private void Awake()
-    {
-        statusParamSlider = GetComponent<Slider>();
+        public void UpdateUISlider(float quantity)
+        {
+            statusParamSlider.value = quantity;
+        }
+
+        private void Awake()
+        {
+            statusParamSlider = GetComponent<Slider>();
+        }
     }
 }
+

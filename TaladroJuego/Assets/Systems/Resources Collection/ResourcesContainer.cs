@@ -8,7 +8,7 @@ using UpgradesSystem.Resource;
 namespace ResourceCollectionSystem
 {
     [CreateAssetMenu(fileName = "Resources Container", menuName = "Resources Container")]
-    internal class ResourcesConainer : ScriptableObject, IUpgradeClient
+    public class ResourcesContainer : ScriptableObject, IUpgradeClient
     {
         [field: SerializeField]
         public UnityEvent<ResourceType, int> ResourceModified { get; private set; }

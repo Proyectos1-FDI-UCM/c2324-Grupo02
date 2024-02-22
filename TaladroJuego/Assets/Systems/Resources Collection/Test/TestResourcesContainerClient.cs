@@ -8,7 +8,7 @@ namespace ResourceCollectionSystem.Test
     internal class TestResourcesContainerClient : MonoBehaviour, IUpgradeClient
     {
         [SerializeField]
-        private ResourcesConainer _resourcesContainer;
+        private ResourcesContainer _resourcesContainer;
 
         [SerializeField]
         private ResourceUpgradeFlyweight _upgradeFlyweight;
