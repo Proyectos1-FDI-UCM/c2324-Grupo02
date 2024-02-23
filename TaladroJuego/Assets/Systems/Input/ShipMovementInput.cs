@@ -1,21 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using MovementSystem.Facade;
 
 namespace InputSystem
 {
-    internal class ShipMovementInput : MonoBehaviour
+    public class ShipMovementInput : MonoBehaviour
     {
 
         [SerializeField] private InputActionReference _thrustInputActionReference;
 
 
-        [SerializeField] IMovementFacade<Vector2>  shipDirectionalMovementFacade;
+        private IMovementFacade<Vector2>  shipDirectionalMovementFacade;
 
 
-        [SerializeField]bool _thrustActivated = false;
+        private bool _thrustActivated = false;
 
 
         private void Awake()
@@ -47,7 +45,7 @@ namespace InputSystem
         }
 
 
-        void SwitchThrust()
+        public void SwitchThrust()
         {
             _thrustActivated = !_thrustActivated;
         }
