@@ -79,10 +79,10 @@ namespace TerrainSystem.Test
 
         public bool TryInitialize()
         {
-            _temporaryTerrainTexture0 = new RenderTexture(1024, 1024, 0, RenderTextureFormat.RG16);
+            _temporaryTerrainTexture0 = new RenderTexture(_terrainRenderTexture.width, _terrainRenderTexture.height, 0, RenderTextureFormat.RG16);
             _temporaryTerrainTexture0.enableRandomWrite = true;
 
-            _temporaryTerrainTexture1 = new RenderTexture(1024, 1024, 0, RenderTextureFormat.ARGB32);
+            _temporaryTerrainTexture1 = new RenderTexture(_terrainRenderTexture.width, _terrainRenderTexture.height, 0, RenderTextureFormat.ARGB32);
             _temporaryTerrainTexture1.enableRandomWrite = true;
 
             _sourcesBuffer = new ComputeBuffer(_sourcesData.Length, TerrainModificationSource.SizeOf(), ComputeBufferType.Structured);
@@ -125,6 +125,14 @@ namespace TerrainSystem.Test
 
             const string TERRAIN_TEXTURES_NAME = "_TerrainTextures";
             _terrainComputeShader.SetTexture(kernel, TERRAIN_TEXTURES_NAME, _terrainTextures);
+
+            const string TERRAIN_TEXTURES_OFFSET_AND_SIZE_NAME = "_TerrainTexturesOffsetAndSize";
+            _terrainComputeShader.SetInts(
+                TERRAIN_TEXTURES_OFFSET_AND_SIZE_NAME,
+                0,
+                0,
+                _terrainTextures.width,
+                _terrainTextures.height);
 
             const string TERRAIN_VISUALS_NAME = "_TerrainVisuals";
             _terrainComputeShader.SetTexture(kernel, TERRAIN_VISUALS_NAME, _temporaryTerrainTexture1);

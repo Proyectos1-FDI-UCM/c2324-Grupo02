@@ -22,6 +22,8 @@ uniform float4x4 _ClipToWorldMatrix;
 uniform uint4 _TextureOffsetAndSize;
 
 uniform Texture2DArray<float4> _TerrainTextures;
+uniform uint4 _TerrainTexturesOffsetAndSize;
+
 uniform RWTexture2D<float4> _TerrainVisuals;
 
 uint2 TextureCoordinatesFromID(uint2 id)
@@ -33,9 +35,9 @@ float2 UVFromID(uint2 id)
 {
 	float2 uv = id / float2(_TextureOffsetAndSize.zw);
 #if UNITY_UV_STARTS_AT_TOP
-	return uv;
-#else
 	return uv * float2(1.0f, -1.0f) + float2(0.0f, 1.0f);
+#else
+	return uv;
 #endif
 }
 
@@ -75,6 +77,22 @@ float udTriangle( in float3 v1, in float3 v2, in float3 v3, in float3 p )
                   dot(nor,p1)*dot(nor,p1)/dot2(nor) );
 }
 
+float sdCone( float3 p, float2 q )
+{
+  // c is the sin/cos of the angle, h is height
+  // Alternatively pass q instead of (c,h),
+  // which is the point at the base in 2D
+  //float2 q = h*float2(c.x/c.y,-1.0);
+    
+  float2 w = float2( length(p.xz), p.y );
+  float2 a = w - q*clamp( dot(w,q)/dot(q,q), 0.0, 1.0 );
+  float2 b = w - q*float2( clamp( w.x/q.x, 0.0, 1.0 ), 1.0 );
+  float k = sign( q.y );
+  float d = min(dot( a, a ),dot(b, b));
+  float s = max( k*(w.x*q.y-w.y*q.x),k*(w.y-q.y)  );
+  return sqrt(d)*sign(s);
+}
+
 [numthreads(16,16,1)]
 void InitializeTerrain(uint3 id : SV_DispatchThreadID)
 {
@@ -94,7 +112,7 @@ void ModifyTerrain(uint3 id : SV_DispatchThreadID)
 	float4 positionWS = mul(_ClipToWorldMatrix, float4(uv * 2.0f - 1.0f, 0.0f, 1.0f));
 	positionWS /= positionWS.w;
 
-	float2 sourceContribution = 0.0f;
+	float2 sourcesContribution = 0.0f;
 	[unroll]
 	for (uint i = 0; i < MAX_SOURCES; i++)
 	{
@@ -106,19 +124,19 @@ void ModifyTerrain(uint3 id : SV_DispatchThreadID)
 		float3 t1 = float3(source.positionWS.xy, 0.0f) + float3(1.0f, 1.0f, 0.0f);
 		float3 t2 = float3(source.positionWS.xy, 0.0f) + float3(0.0f, -1.0f, 0.0f);
 
-		float distance = udTriangle(t0, t1, t2, float3(positionWS.xy, 0.0f));
-		if (distance < source.radius)
-		{
-			float falloff = pow(1.0f - saturate(distance / source.radius), source.falloff);
-			sourceContribution.x += source.strength * falloff;
-			sourceContribution.y += EncodedTerrainTypeFrom(source.type) * falloff;
-		}
+		//float distance = udTriangle(t0, t1, t2, float3(positionWS.xy, 0.0f));
+		float distance = max(sdCone(float3(positionWS.xy - source.positionWS.xy, 0.0f), float2(0.5f, 1.0f)), 0.0f);
+		float falloff = pow(1.0f - saturate(distance / source.radius), source.falloff);
+		sourcesContribution.x += source.strength * falloff;
+		sourcesContribution.y += EncodedTerrainTypeFrom(source.type) * falloff;
 	}
+
+	sourcesContribution.y /= _SourceCount;
 
 	float2 current = _TerrainResult[id.xy];
 	_TerrainResult[id.xy] =
-		(current * current.x * 0.5f +
-		 sourceContribution * sourceContribution.x * 0.5f * (1.0f - current.x * 0.5f));
+		sourcesContribution.x * sourcesContribution.xy +
+		(1.0f - sourcesContribution.x) * current.xy;
 }
 
 [numthreads(16,16,1)]
@@ -130,6 +148,6 @@ void ApplyVisuals(uint3 id : SV_DispatchThreadID)
 	float2 encoded = _TerrainResult[id.xy];
 	uint type = TerrainTypeFromEncoded(encoded.y);
 
-	float3 color = _TerrainTextures[uint3(id.xy % 512, type)].xyz;
+	float3 color = _TerrainTextures[uint3(id.xy % _TerrainTexturesOffsetAndSize.zw, type)].xyz;
 	_TerrainVisuals[id.xy] = float4(color, 1.0f);
 }
