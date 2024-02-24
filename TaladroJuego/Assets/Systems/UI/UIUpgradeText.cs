@@ -8,8 +8,8 @@ namespace UISystem
 {
     internal class UIUpgradeText : MonoBehaviour
     {
-        private int mejora = 0;
-        bool desbloqueo1 = false;
+        public  float mejora = 0;
+        public bool desbloqueo1 = false;
     
         private TMP_Text _upgradeTextMesh;
         void Awake()
@@ -28,24 +28,44 @@ namespace UISystem
         {
             _upgradeTextMesh.text = text;
         }
+        public void MejoraCaller (float mejorar)
+        {
+            mejora = mejorar;
+        }
         private void UpgradeChooser()
         {
-            if (desbloqueo1 && mejora == 1)
+            if ( mejora == 1)
             {
-
+                string text = "Last fart 50H 30C";
+                ChangeButtonText(text);
             }
             else if (mejora == 0)
             {
                 string text = "No Desbloqueada";
                 ChangeButtonText(text);
             }
-            else if ( desbloqueo1 &&  mejora == 2)
+            else if (   mejora == 2)
             {
-
+                string text = "Velocidad  50H 30C";
+                ChangeButtonText(text);
+            }
+            else if (mejora == 3 && desbloqueo1)
+            {
+                string text = "Velocidad 2 50H 30C";
+                ChangeButtonText(text);
+            }
+            else if (mejora == 3 && !desbloqueo1)
+            {
+                mejora++;
+            }
+            else if (mejora == 4)
+            {
+                string text = "Mayor vida 50H 30C";
+                ChangeButtonText(text);
             }
 
 
-           
+
         }
             
     }
