@@ -30,6 +30,12 @@ namespace UISystem.MVP
                 this.name = name;
                 this.description = description;
             }
+
+            public void Deconstruct(out string name, out string description)
+            {
+                name = this.name;
+                description = this.description;
+            }
         }
     }
 }

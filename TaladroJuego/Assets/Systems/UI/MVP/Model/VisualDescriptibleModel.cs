@@ -45,6 +45,14 @@ namespace UISystem.MVP
                 this.name = name;
                 this.description = description;
             }
+
+            public void Deconstruct(out Sprite sprite, out string name, out string description)
+            {
+                sprite = this.sprite;
+                name = this.name;
+                description = this.description;
+            }
         }
     }
+
 }
