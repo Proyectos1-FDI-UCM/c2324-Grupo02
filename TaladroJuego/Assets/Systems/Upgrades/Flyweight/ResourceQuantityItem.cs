@@ -21,7 +21,7 @@ namespace UpgradesSystem.Flyweight
 
         public static Dictionary<ResourceType, int> DictionaryFrom(IEnumerable<ResourceQuantityItem> quotaItems)
         {
-            var quota = new Dictionary<ResourceType, int>();
+            Dictionary<ResourceType, int> quota = new Dictionary<ResourceType, int>();
             foreach (var quotaItem in quotaItems)
                 if (!quota.TryAdd(quotaItem.Resource, quotaItem.Quantity))
                     quota[quotaItem.Resource] += quotaItem.Quantity;

@@ -5,13 +5,11 @@ using UnityEngine.Experimental.Playables;
 using ResourceCollectionSystem;
 using UpgradesSystem.Flyweight;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using System.Diagnostics.Tracing;
 using TMPro;
 
 namespace UISystem
 {
-    internal class UIInventoryRepresentator : MonoBehaviour
+    internal class ResourceCollectionObserver : MonoBehaviour
     {
         [SerializeField] private GameObject[] _squares;
         private ResourceSlot[] _slots;

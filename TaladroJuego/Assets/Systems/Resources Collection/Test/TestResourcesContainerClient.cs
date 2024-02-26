@@ -19,8 +19,8 @@ namespace ResourceCollectionSystem.Test
         public bool TryPurchase(IResourceUpgrade upgrade) =>
             _resourcesContainer.TryPurchase(upgrade);
 
-        [ContextMenu(nameof(SetResources))]
-        private void SetResources()
+        [ContextMenu(nameof(AddResources))]
+        private void AddResources()
         {
             foreach (var resource in _resources)
                 _resourcesContainer.AccountForResource(resource.Resource, resource.Quantity);

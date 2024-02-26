@@ -1,3 +1,4 @@
+using MVPFramework.Presenter;
 using ResourceCollectionSystem;
 using System;
 using TMPro;
@@ -7,44 +8,38 @@ using UnityEngine.EventSystems;
 
 namespace UISystem.MVP.Presenter
 {
-    internal class UpgradeButtonsPresenter : MonoBehaviour
+    internal class UpgradeButtonPresenter : MonoBehaviour, IPresenter<UpgradeButtonPresenter.UpgradeButton, DescriptibleUpgradeFlyweight>
     {
         [Serializable]
-        private struct UpgradeButton
+        public struct UpgradeButton
         {
             [field: SerializeField]
             public EventTrigger EventTrigger { get; private set; }
 
             [field: SerializeField]
             public TMP_Text Label { get; private set; }
+
+            public UpgradeButton(EventTrigger eventTrigger, TMP_Text label)
+            {
+                EventTrigger = eventTrigger;
+                Label = label;
+            }
         }
-
-        [SerializeField]
-        private UpgradeButton[] _upgradeButtons;
-
-        [SerializeField]
-        private DescriptibleUpgradeFlyweight[] _descriptibleUpgrades;
 
         [SerializeField]
         private ResourcesContainer _resourcesContainer;
 
-        public void Present()
+        public bool TryPresentElementWith(UpgradeButton element, DescriptibleUpgradeFlyweight model)
         {
-            for (int i = 0; i < _upgradeButtons.Length && i < _descriptibleUpgrades.Length; i++)
-            {
-                UpgradeButton button = _upgradeButtons[i];
-                DescriptibleEventTriggerView view = new DescriptibleEventTriggerView(
-                    new EventTriggerView(button.EventTrigger, true),
-                    new TextView(button.Label));
+            DescriptibleEventTriggerView view = new DescriptibleEventTriggerView(
+                new EventTriggerView(element.EventTrigger, true),
+                new TextView(element.Label));
 
-
-                DescriptibleUpgradeFlyweight model = _descriptibleUpgrades[i];
-                view.TryUpdateWith(model.Capture().name);
-                view.TryUpdateWith(new EventTriggerView.PressConfiuration((data) =>
+            return view.TryUpdateWith(model.Capture().name)
+                && view.TryUpdateWith(new EventTriggerView.PressConfiuration((data) =>
                 {
                     _resourcesContainer.TryPurchase(model.Create());
                 }));
-            }
         }
     }
 }

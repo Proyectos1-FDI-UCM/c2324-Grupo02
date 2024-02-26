@@ -1,10 +1,6 @@
 using DamageSystem.Handler;
 using StatusSystem;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-
 
 namespace DamageSystem.Test
 {
@@ -17,8 +13,8 @@ namespace DamageSystem.Test
             _handler = GetComponent<DamageHandler>();
         }
 
-        [ContextMenu("testButton")]
-        private void Test()
+        [ContextMenu(nameof(DebugNearbyDamagedEntities))]
+        private void DebugNearbyDamagedEntities()
         {
             IStatusParameter[] damagedObjects; 
             damagedObjects = _handler.Damage();
