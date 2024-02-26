@@ -125,8 +125,9 @@ void ModifyTerrain(uint3 id : SV_DispatchThreadID)
 		float3 t2 = float3(source.positionWS.xy, 0.0f) + float3(0.0f, -1.0f, 0.0f);
 
 		//float distance = udTriangle(t0, t1, t2, float3(positionWS.xy, 0.0f));
-		float distance = max(sdCone(float3(positionWS.xy - source.positionWS.xy, 0.0f), float2(0.5f, 1.0f)), 0.0f);
-		float falloff = pow(1.0f - saturate(distance / source.radius), source.falloff);
+		float distance = max(sdCone(float3(positionWS.xy - source.positionWS.xy, 0.0f), float2(0.5f, 1.0f)) - source.radius, 0.0f);
+		
+		float falloff = 1.0f - saturate(distance / source.falloff);
 		sourcesContribution.x += source.strength * falloff;
 		sourcesContribution.y += EncodedTerrainTypeFrom(source.type) * falloff;
 	}

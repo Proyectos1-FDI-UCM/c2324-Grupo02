@@ -1,5 +1,4 @@
-﻿using Codice.CM.Common.Tree;
-using MovementSystem.Profile;
+﻿using MovementSystem.Profile;
 using UnityEngine;
 
 namespace MovementSystem.Facade
