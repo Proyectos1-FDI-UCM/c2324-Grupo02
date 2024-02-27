@@ -6,6 +6,7 @@ namespace UpgradesSystem.Resource
     internal readonly struct ResourceUpgrade : IResourceUpgrade
     {
         private readonly Dictionary<ResourceType, int> _cost;
+        public IReadOnlyDictionary<ResourceType, int> PurchaseCost => _cost;
 
         public ResourceUpgrade(Dictionary<ResourceType, int> cost)
         {

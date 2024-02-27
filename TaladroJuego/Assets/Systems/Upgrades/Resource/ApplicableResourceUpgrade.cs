@@ -8,6 +8,7 @@ namespace UpgradesSystem.Resource
     {
         private readonly IResourceUpgrade _resourceUpgrade;
         private readonly IApplicableUpgrade _applicableUpgrade;
+        public IReadOnlyDictionary<ResourceType, int> PurchaseCost => _resourceUpgrade.PurchaseCost;
 
         public ApplicableResourceUpgrade(IResourceUpgrade resourceUpgrade, IApplicableUpgrade applicableUpgrade)
         {

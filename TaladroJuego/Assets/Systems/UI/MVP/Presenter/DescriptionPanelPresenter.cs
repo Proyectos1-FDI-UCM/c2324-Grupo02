@@ -34,21 +34,19 @@ namespace UISystem.MVP.Presenter
 
         public bool TryPresentElementWith(DescriptionPanel element, IModel<DescriptibleModel.Data> model)
         {
-            DescriptibleTextView titleView = new DescriptibleTextView(
-                new TextView(element.Title),
-                new TextView(element.Description));
-
             (string title, string description) = model.Capture();
-            return titleView.TryUpdateWith((title, description));
+            return new DescriptibleTextView(
+                new TextView(element.Title),
+                new TextView(element.Description))
+                .TryUpdateWith((title, description));
         }
 
         public bool TryPresentElementWith(DescriptionPanel element, IModel<(string title, string description)> model)
         {
-            DescriptibleTextView titleView = new DescriptibleTextView(
+            return new DescriptibleTextView(
                 new TextView(element.Title),
-                new TextView(element.Description));
-
-            return titleView.TryUpdateWith(model.Capture());
+                new TextView(element.Description))
+                .TryUpdateWith(model.Capture());
         }
     }
 }

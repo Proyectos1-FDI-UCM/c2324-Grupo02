@@ -1,16 +1,27 @@
-﻿using MVPFramework.Model;
-using MVPFramework.Presenter;
-using System;
+﻿using System;
 using TMPro;
+using UISystem.Data;
 using UISystem.MVP.Model;
 using UISystem.MVP.View;
+using MVPFramework.Model;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static UISystem.MVP.Presenter.DescriptionPanelPresenter;
 using static UISystem.MVP.Presenter.UpgradeButtonPresenter;
+using static UISystem.MVP.Presenter.LabeledIconPresenter;
 
 using ButtonPresenter = MVPFramework.Presenter.IPresenter
     <UISystem.MVP.Presenter.UpgradeButtonPresenter.UpgradeButton, UISystem.MVP.Model.DescriptibleUpgradeFlyweight, UISystem.MVP.View.DescriptibleEventTriggerView>;
+
+using PanelPresenter = MVPFramework.Presenter.IPresenter
+    <UISystem.MVP.Presenter.DescriptionPanelPresenter.DescriptionPanel, MVPFramework.Model.IModel<UISystem.MVP.Model.DescriptibleModel.Data>>;
+
+using LabelIconPresenter = MVPFramework.Presenter.IPresenter
+    <UISystem.MVP.Presenter.LabeledIconPresenter.LabeledIcon, MVPFramework.Model.IModel<(UnityEngine.Sprite icon, string label)>>;
+using UnityEngine.UI;
+using System.Linq;
+using System.Collections.Generic;
+using UpgradesSystem.Flyweight;
 
 namespace UISystem.MVP.Presenter
 {
@@ -19,6 +30,9 @@ namespace UISystem.MVP.Presenter
 #if UNITY_EDITOR
         [SerializeField]
         private GameObject[] _upgradeButtonRoots;
+
+        [SerializeField]
+        private GameObject[] _resourceIconRoots;
 #endif
         [SerializeField]
         private UpgradeButton[] _upgradeButtons;
@@ -30,15 +44,23 @@ namespace UISystem.MVP.Presenter
         private DescriptionPanel _descriptionPanel;
 
         [SerializeField]
+        private LabeledIcon[] _resourceIcons;
+
+        [SerializeField]
+        private ResourceSpriteBinder _resourceSpriteBinder;
+
+        [SerializeField]
         private bool _presentOnStart;
 
         private ButtonPresenter _upgradeButtonsPresenter;
-        private IPresenter<DescriptionPanel, IModel<DescriptibleModel.Data>> _descriptionPanelPresenter;
+        private PanelPresenter _descriptionPanelPresenter;
+        private LabelIconPresenter _resourceIconPresenter;
 
         private void Awake()
         {
-            _upgradeButtonsPresenter = GetComponentInChildren<IPresenter<UpgradeButton, DescriptibleUpgradeFlyweight, DescriptibleEventTriggerView>>();
-            _descriptionPanelPresenter = GetComponentInChildren<IPresenter<DescriptionPanel, IModel<DescriptibleModel.Data>>>();
+            _upgradeButtonsPresenter = GetComponentInChildren<ButtonPresenter>();
+            _descriptionPanelPresenter = GetComponentInChildren<PanelPresenter>();
+            _resourceIconPresenter = GetComponentInChildren<LabelIconPresenter>();
         }
 
         private void Start()
@@ -57,6 +79,22 @@ namespace UISystem.MVP.Presenter
                 {
                     _descriptionPanel.Root.SetActive(true);
                     _descriptionPanelPresenter.TryPresentElementWith(_descriptionPanel, model);
+
+                    KeyValuePair<ResourceType, int>[] upgradeCosts = model.Create().PurchaseCost.ToArray();
+                    for (int j = 0; j < _resourceIcons.Length; j++)
+                    {
+                        LabeledIcon labeledIcon = _resourceIcons[j];
+                        labeledIcon.Root.SetActive(j < upgradeCosts.Length);
+
+                        if (j >= upgradeCosts.Length)
+                            continue;
+                        KeyValuePair<ResourceType, int> resourceCost = upgradeCosts[j];
+                        _resourceIconPresenter.TryPresentElementWith(
+                            labeledIcon, (Model<(Sprite, string)>)(
+                                _resourceSpriteBinder.TryGetSpriteFrom(resourceCost.Key, out Sprite s) ? s : null,
+                                $"x{resourceCost.Value}"));
+                    }
+                    
                 }));
                 view.TryUpdateWith(new EventTriggerView.ExitConfiguration((data) =>
                 {
@@ -67,16 +105,23 @@ namespace UISystem.MVP.Presenter
 
         private void OnValidate()
         {
-            if (_upgradeButtons != null && _upgradeButtons.Length != 0)
-                return;
+            if (_upgradeButtons == null || _upgradeButtons.Length == 0)
+                _upgradeButtons = Array.ConvertAll(
+                            _upgradeButtonRoots,
+                            root => new UpgradeButton(
+                                root.GetComponentInChildren<EventTrigger>(),
+                                root.GetComponentInChildren<TMP_Text>()));
 
-            _upgradeButtons = Array.ConvertAll(
-                _upgradeButtonRoots,
-                root => new UpgradeButton(
-                    root.GetComponentInChildren<EventTrigger>(),
-                    root.GetComponentInChildren<TMP_Text>()));
+            if (_resourceIcons == null || _resourceIcons.Length == 0)
+                _resourceIcons = Array.ConvertAll(
+                    _resourceIconRoots,
+                    root => new LabeledIcon(
+                        root,
+                        root.GetComponentInChildren<Image>(),
+                        root.GetComponentInChildren<TMP_Text>()));
 
             _upgradeButtonRoots = new GameObject[0];
+            _resourceIconRoots = new GameObject[0];
         }
     }
 }

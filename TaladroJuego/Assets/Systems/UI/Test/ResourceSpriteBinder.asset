@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c75d15baa2f4b949b76541b58697053, type: 3}
+  m_Name: ResourceSpriteBinder
+  m_EditorClassIdentifier: 
+  _resourceSpritePairs:
+  - <Type>k__BackingField: 0
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 5fc69157df8c923478fd9655aa2ca173, type: 3}
+  - <Type>k__BackingField: 1
+    <Sprite>k__BackingField: {fileID: 3625043607559282579, guid: b67ae0dfd84c6e04bbead1b9b1e15018, type: 3}
+  - <Type>k__BackingField: 2
+    <Sprite>k__BackingField: {fileID: 7482667652216324306, guid: 90d87a7de6cb93b4daf39f1af0d2ccc7, type: 3}
+  - <Type>k__BackingField: 3
+    <Sprite>k__BackingField: {fileID: 7482667652216324306, guid: 23b94cd6072f59845931b96a2957f73f, type: 3}
+  - <Type>k__BackingField: 4
+    <Sprite>k__BackingField: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - <Type>k__BackingField: 5
+    <Sprite>k__BackingField: {fileID: -2135585597343286014, guid: c407c3e501541b744b98fd1177ec78ba, type: 3}
+  - <Type>k__BackingField: 6
+    <Sprite>k__BackingField: {fileID: 2747690628134850419, guid: d6b0bd8c37b1f6b408b6fe681523a7a1, type: 3}
