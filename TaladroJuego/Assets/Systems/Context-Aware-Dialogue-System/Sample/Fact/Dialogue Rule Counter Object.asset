@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398c357627599a64b916c8444d1bdd6e, type: 3}
+  m_Name: Dialogue Rule Counter Object
+  m_EditorClassIdentifier: 
+  _ruleObject: {fileID: 11400000, guid: d1961ff4c7db1af41a529a8e7a0ea9f6, type: 2}
+  _dispatchCountFact:
+    _value: 1

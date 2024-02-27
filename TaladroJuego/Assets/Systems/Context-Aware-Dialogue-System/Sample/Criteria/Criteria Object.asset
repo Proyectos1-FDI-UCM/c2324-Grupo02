@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbcd2608bf4aa74e9c2bd91ed9192ce, type: 3}
+  m_Name: Criteria Object
+  m_EditorClassIdentifier: 
+  _simultaneousCriteria:
+    _conditions:
+    - rid: 9131109185211858969
+  references:
+    version: 2
+    RefIds:
+    - rid: 9131109185211858969
+      type: {class: IntegerFactCriteriaConditionFactory/IntegerFactCriteriaCondition,
+        ns: ContextualDialogueSystem.Rule.Criteria.Condition.Factory, asm: ContextAwareDialogueSystem}
+      data:
+        _condition:
+          _factObject: {fileID: 11400000, guid: 38b672016940f3f48a03790a264eec12,
+            type: 2}
+          <Condition>k__BackingField:
+            rid: 9131109185211858970
+    - rid: 9131109185211858970
+      type: {class: IntegerFactCriteriaConditionFactory/OrderingCondition, ns: ContextualDialogueSystem.Rule.Criteria.Condition.Factory,
+        asm: ContextAwareDialogueSystem}
+      data:
+        _condition:
+          _value: 1
+          _orderingComparison: 0

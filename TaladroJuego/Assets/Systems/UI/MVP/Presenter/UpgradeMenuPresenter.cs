@@ -9,6 +9,9 @@ using UnityEngine.EventSystems;
 using static UISystem.MVP.Presenter.DescriptionPanelPresenter;
 using static UISystem.MVP.Presenter.UpgradeButtonPresenter;
 
+using ButtonPresenter = MVPFramework.Presenter.IPresenter
+    <UISystem.MVP.Presenter.UpgradeButtonPresenter.UpgradeButton, UISystem.MVP.Model.DescriptibleUpgradeFlyweight, UISystem.MVP.View.DescriptibleEventTriggerView>;
+
 namespace UISystem.MVP.Presenter
 {
     internal class UpgradeMenuPresenter : MonoBehaviour
@@ -29,7 +32,7 @@ namespace UISystem.MVP.Presenter
         [SerializeField]
         private bool _presentOnStart;
 
-        private IPresenter<UpgradeButton, DescriptibleUpgradeFlyweight, DescriptibleEventTriggerView> _upgradeButtonsPresenter;
+        private ButtonPresenter _upgradeButtonsPresenter;
         private IPresenter<DescriptionPanel, IModel<DescriptibleModel.Data>> _descriptionPanelPresenter;
 
         private void Awake()
