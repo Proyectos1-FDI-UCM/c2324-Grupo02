@@ -1,8 +1,12 @@
-﻿using MVPFramework.Presenter;
+﻿using MVPFramework.Model;
+using MVPFramework.Presenter;
 using System;
 using TMPro;
+using UISystem.MVP.Model;
+using UISystem.MVP.View;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UISystem.MVP.Presenter.DescriptionPanelPresenter;
 using static UISystem.MVP.Presenter.UpgradeButtonPresenter;
 
 namespace UISystem.MVP.Presenter
@@ -20,13 +24,18 @@ namespace UISystem.MVP.Presenter
         private DescriptibleUpgradeFlyweight[] _descriptibleUpgrades;
 
         [SerializeField]
+        private DescriptionPanel _descriptionPanel;
+
+        [SerializeField]
         private bool _presentOnStart;
 
-        private IPresenter<UpgradeButton, DescriptibleUpgradeFlyweight> _presenter;
+        private IPresenter<UpgradeButton, DescriptibleUpgradeFlyweight, DescriptibleEventTriggerView> _upgradeButtonsPresenter;
+        private IPresenter<DescriptionPanel, IModel<DescriptibleModel.Data>> _descriptionPanelPresenter;
 
         private void Awake()
         {
-            _presenter = GetComponentInChildren<IPresenter<UpgradeButton, DescriptibleUpgradeFlyweight>>();
+            _upgradeButtonsPresenter = GetComponentInChildren<IPresenter<UpgradeButton, DescriptibleUpgradeFlyweight, DescriptibleEventTriggerView>>();
+            _descriptionPanelPresenter = GetComponentInChildren<IPresenter<DescriptionPanel, IModel<DescriptibleModel.Data>>>();
         }
 
         private void Start()
@@ -38,7 +47,19 @@ namespace UISystem.MVP.Presenter
         public void Present()
         {
             for (int i = 0; i < _upgradeButtons.Length && i < _descriptibleUpgrades.Length; i++)
-                _presenter.TryPresentElementWith(_upgradeButtons[i], _descriptibleUpgrades[i]);
+            {
+                DescriptibleUpgradeFlyweight model = _descriptibleUpgrades[i];
+                DescriptibleEventTriggerView view = _upgradeButtonsPresenter.PresentElementWith(_upgradeButtons[i], model);
+                view.TryUpdateWith(new EventTriggerView.EnterConfiguration((data) =>
+                {
+                    _descriptionPanel.Root.SetActive(true);
+                    _descriptionPanelPresenter.TryPresentElementWith(_descriptionPanel, model);
+                }));
+                view.TryUpdateWith(new EventTriggerView.ExitConfiguration((data) =>
+                {
+                    _descriptionPanel.Root.SetActive(false);
+                }));
+            }
         }
 
         private void OnValidate()

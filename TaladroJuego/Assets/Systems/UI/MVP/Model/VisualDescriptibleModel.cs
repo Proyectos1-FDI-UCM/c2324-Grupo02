@@ -1,7 +1,7 @@
 ﻿using MVPFramework.Model;
 using UnityEngine;
 
-namespace UISystem.MVP
+namespace UISystem.MVP.Model
 {
     [CreateAssetMenu(fileName = "Visual Descriptible Model", menuName = "UI/MVP/VisualDescriptibleModel")]
     internal class VisualDescriptibleModel : ScriptableObject,

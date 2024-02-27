@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f04b956dbe1c2e4f8cbc5609ce9b1dd, type: 3}
-  m_Name: Descriptible Model
+  m_Script: {fileID: 11500000, guid: 6fc2e555994c0c84aa003f4094a9fdd5, type: 3}
+  m_Name: Emergency Fart I
   m_EditorClassIdentifier: 
-  _name: Fuel Efficiency I
-  _description: Decreases fuel consumption by a 15%.
+  _message: Your are now capable of escaping from the mouth of death when out of
+    "artificial" gas.
