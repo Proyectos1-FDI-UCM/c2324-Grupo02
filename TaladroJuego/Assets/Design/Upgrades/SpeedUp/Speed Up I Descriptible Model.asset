@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b348a071cf73b34dae307f43731e84a, type: 3}
-  m_Name: Speed Up I Flyweight
+  m_Script: {fileID: 11500000, guid: 6f04b956dbe1c2e4f8cbc5609ce9b1dd, type: 3}
+  m_Name: Speed Up I Descriptible Model
   m_EditorClassIdentifier: 
-  _resourceQuotaItems:
-  - <Resource>k__BackingField: 1
-    <Quantity>k__BackingField: 5
-  _applicableUpgradeFlyweight: {fileID: 0}
+  _name: 
+  _description: 
