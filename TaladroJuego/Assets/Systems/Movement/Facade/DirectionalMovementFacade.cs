@@ -5,7 +5,7 @@ namespace MovementSystem.Facade
 {
     internal class DirectionalMovementFacade : MonoBehaviour, IMovementFacade<Vector2>
     {
-
+        [SerializeField]
         private Rigidbody2D _myRigidboy;
         private ISpeedProvider _speedProvider;
 
@@ -20,7 +20,6 @@ namespace MovementSystem.Facade
 
         private void Awake()
         {
-            _myRigidboy = GetComponent<Rigidbody2D>();
             _speedProvider = GetComponentInChildren<ISpeedProvider>();
         }
     }

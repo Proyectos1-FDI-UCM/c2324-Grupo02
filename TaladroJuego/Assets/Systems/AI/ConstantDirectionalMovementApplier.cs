@@ -6,8 +6,9 @@ using UnityEngine;
 
 namespace AISystem
 {
-    public class ConstantDownwardsMovementApplier : MonoBehaviour
+    public class ConstantDirectionalMovementApplier : MonoBehaviour
     {
+        [SerializeField] private Vector2 _direction;
         private IMovementFacade<Vector2> _movementFacade;
 
         private void Awake()
@@ -17,7 +18,7 @@ namespace AISystem
 
         private void FixedUpdate()
         {
-            _movementFacade.Move(Vector2.down);
+            _movementFacade.Move(_direction);
         }
     }
 }
