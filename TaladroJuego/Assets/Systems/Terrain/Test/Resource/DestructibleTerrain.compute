@@ -79,6 +79,8 @@ float udTriangle( in float3 v1, in float3 v2, in float3 v3, in float3 p )
 
 float sdCone( float3 p, float2 q )
 {
+	//temp hotfix
+    return length(p);
   // c is the sin/cos of the angle, h is height
   // Alternatively pass q instead of (c,h),
   // which is the point at the base in 2D

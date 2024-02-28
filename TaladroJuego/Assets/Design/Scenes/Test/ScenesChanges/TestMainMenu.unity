@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 243211369}
   - component: {fileID: 243211368}
   m_Layer: 5
-  m_Name: Options text
+  m_Name: Settings text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,9 +256,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'OPTIONS
-
-'
+  m_text: SETTINGS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -466,7 +464,7 @@ GameObject:
   - component: {fileID: 419168343}
   - component: {fileID: 419168342}
   m_Layer: 5
-  m_Name: Options button
+  m_Name: Settings button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,10 +485,10 @@ RectTransform:
   - {fileID: 1254041737}
   m_Father: {fileID: 337545398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000022464, y: -87}
-  m_SizeDelta: {x: 310.0593, y: 60.4632}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -0.000022464, y: 180}
+  m_SizeDelta: {x: 310.0593, y: 60.463196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419168342
 MonoBehaviour:
@@ -1005,10 +1003,10 @@ RectTransform:
   - {fileID: 1989025550}
   m_Father: {fileID: 337545398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000022464, y: -228}
-  m_SizeDelta: {x: 310.0593, y: 60.4632}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -0.000022464, y: 39}
+  m_SizeDelta: {x: 310.0593, y: 60.463196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &610019000
 MonoBehaviour:
@@ -1054,7 +1052,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1298061144}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ScenesManager, Assembly-CSharp
         m_MethodName: GameQuit
         m_Mode: 1
@@ -1459,8 +1457,9 @@ GameObject:
   m_Component:
   - component: {fileID: 940455317}
   - component: {fileID: 940455316}
+  - component: {fileID: 940455318}
   m_Layer: 0
-  m_Name: OptionsManager
+  m_Name: SceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1498,6 +1497,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &940455318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940455315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8f92ba2ee2a784d9dd804c1d781f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _options: {fileID: 940455316}
 --- !u!1 &1035184974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,7 +2008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'OPTIONS
+  m_text: 'SETTINGS
 
 '
   m_isRightToLeft: 0
@@ -2150,51 +2162,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1298061143
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1298061145}
-  - component: {fileID: 1298061144}
-  m_Layer: 0
-  m_Name: SceneManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1298061144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298061143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a8f92ba2ee2a784d9dd804c1d781f53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _options: {fileID: 940455316}
---- !u!4 &1298061145
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298061143}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 524.2314, y: 337.48962, z: 2.5624392}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1305256409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,10 +2547,10 @@ RectTransform:
   - {fileID: 512492082}
   m_Father: {fileID: 337545398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000011444, y: 54}
-  m_SizeDelta: {x: 310.0593, y: 60.4632}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0.000011444, y: 321}
+  m_SizeDelta: {x: 310.0593, y: 60.463196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1528889026
 MonoBehaviour:
@@ -2629,8 +2596,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1298061144}
-        m_TargetAssemblyTypeName: ScenesManager, Assembly-CSharp
+      - m_Target: {fileID: 940455318}
+        m_TargetAssemblyTypeName: ScenesManager, Menu-System
         m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
@@ -2638,7 +2605,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TGame
+          m_StringArgument: TestGame
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1528889027
@@ -2744,7 +2711,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9a580aedaa749c945bd55a0dfe38bab2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3052,7 +3019,7 @@ GameObject:
   - component: {fileID: 2100667888}
   - component: {fileID: 2100667887}
   m_Layer: 5
-  m_Name: OptionsMenuPanel
+  m_Name: SettingsMenuPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3150,14 +3117,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c7f41989973b0e14db55dcb2b8a804f0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3337,6 +3304,5 @@ SceneRoots:
   - {fileID: 473722332}
   - {fileID: 1429215101}
   - {fileID: 1305256413}
-  - {fileID: 1298061145}
   - {fileID: 940455317}
   - {fileID: 869064641}
