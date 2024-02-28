@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Design/Scenes/Test/ScenesChanges/TMainMenu.unity
     guid: ab466e05b3ac6dc43a5abed558361165
   - enabled: 1
-    path: Assets/Design/Scenes/Test/ScenesChanges/TGame.unity
+    path: Assets/Design/Scenes/Test/ScenesChanges/TestGame.unity
     guid: 2aef20f8c7a000442b4d2444269dbe25
   - enabled: 1
     path: Assets/Design/Scenes/Release/Sprint 02-03/GameScene.unity
