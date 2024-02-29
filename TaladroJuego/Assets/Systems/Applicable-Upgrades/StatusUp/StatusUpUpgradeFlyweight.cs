@@ -38,6 +38,7 @@ namespace ApplicableUpgradesSystem
 
             if (statusParameter != null)
             {
+                Debug.Log("Subiendo Status");
                 return new StatusUpApplicableUpgrade(statusParameter, _valueToAdd);
             }
             else

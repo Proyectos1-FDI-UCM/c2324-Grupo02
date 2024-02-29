@@ -14,6 +14,9 @@ namespace InputSystem
 
 
         private bool _thrustActivated = false;
+        private bool _fuelIsEmpty = false;
+
+        [SerializeField] private float _minFuel;
 
 
         private void Awake()
@@ -25,7 +28,7 @@ namespace InputSystem
 
         private void FixedUpdate()
         {
-            if (_thrustActivated) shipDirectionalMovementFacade.Move(transform.up);
+            if (_thrustActivated && !_fuelIsEmpty) shipDirectionalMovementFacade.Move(transform.up);
             else shipDirectionalMovementFacade.Move(Vector2.zero);
         }
 
@@ -42,6 +45,16 @@ namespace InputSystem
         private void OnThrustInputStarted(InputAction.CallbackContext obj)
         {
             SwitchThrust();
+        }
+
+        public void StopEngine()
+        {
+             _fuelIsEmpty = true;
+        }
+
+        public void TryStartEngine(float value)
+        {
+            if (_fuelIsEmpty && value > _minFuel) _fuelIsEmpty = false;
         }
 
 

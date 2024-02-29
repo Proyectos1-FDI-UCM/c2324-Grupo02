@@ -1,3 +1,16 @@
 {
-	"name": "Status-System"
+    "name": "Status-System",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5fe1a7051da84684795c07638617f98e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
