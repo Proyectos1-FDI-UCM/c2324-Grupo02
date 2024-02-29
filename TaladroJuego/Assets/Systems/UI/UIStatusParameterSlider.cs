@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 namespace UISystem
 {
-    public class UIStatusParameterSlider : MonoBehaviour
+    internal class UIStatusParameterSlider : MonoBehaviour
     {
-        private Slider statusParamSlider;
+        private Slider _statusParamSlider;
 
         public void UpdateUISlider(float quantity)
         {
-            statusParamSlider.value = quantity;
+            _statusParamSlider.value = quantity;
         }
 
         private void Awake()
         {
-            statusParamSlider = GetComponent<Slider>();
+            _statusParamSlider = GetComponentInChildren<Slider>();
         }
     }
 }

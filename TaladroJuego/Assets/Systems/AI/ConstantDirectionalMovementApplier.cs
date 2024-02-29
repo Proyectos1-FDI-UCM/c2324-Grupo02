@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace AISystem
 {
-    public class ConstantDirectionalMovementApplier : MonoBehaviour
+    internal class ConstantDirectionalMovementApplier : MonoBehaviour
     {
         [SerializeField] private Vector2 _direction;
         private IMovementFacade<Vector2> _movementFacade;
@@ -18,7 +18,7 @@ namespace AISystem
 
         private void FixedUpdate()
         {
-            _movementFacade.Move(_direction);
+            _movementFacade.Move(_direction.normalized);
         }
     }
 }

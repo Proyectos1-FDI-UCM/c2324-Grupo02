@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Experimental.Playables;
 using ResourceCollectionSystem;
-using UpgradesSystem.Flyweight;
-using UnityEngine.UI;
+using System.Collections.Generic;
 using TMPro;
+using UISystem.Data;
+using UnityEngine;
+using UnityEngine.UI;
+using UpgradesSystem.Flyweight;
 
 namespace UISystem
 {
@@ -13,7 +12,7 @@ namespace UISystem
     {
         [SerializeField] private GameObject[] _squares;
         private ResourceSlot[] _slots;
-        [SerializeField] Sprite[] _sprites;
+        [SerializeField] private ResourceSpriteBinder _spriteBinder;
         [SerializeField] Sprite _emptySlot;
         [SerializeField] private ResourcesContainer _container;
 
@@ -48,41 +47,10 @@ namespace UISystem
 
                 _slots[i] = new ResourceSlot(square.GetComponentInChildren<TMP_Text>(), square.GetComponentInChildren<Image>(), false);
             }
-
-            
-                
-            
         }
-        //public void UptdateInventory(ResourceType resource, int quantity)
-        //{
-        //    if (quantity == 0)
-        //    {
-        //        _squares[(int) resource].GetComponentInChildren<TMP_Text>().text = string.Empty;
-        //        _squares[(int)resource].GetComponentInChildren<Image>().sprite = _sprites[_sprites.Length - 1];
-        //    }
-        //    else
-        //    {
-        //        _squares[(int)resource].GetComponentInChildren<TMP_Text>().text = "x" + quantity.ToString();
-        //        _squares[(int)resource].GetComponentInChildren<Image>().sprite = _sprites[(int)resource];
-        //    }
-        //}
-
         public void UpdateInventory(ResourceType resource, int quantity)
         {
-            if(_resourceSlotPairs.TryGetValue(resource, out ResourceSlot slot))
-            {
-                if(quantity != 0)
-                {
-                    slot.Text.text = $"x{quantity}";
-                    slot.Image.sprite = _sprites[(int)resource];
-                }
-                else
-                {
-                    slot.Text.text = string.Empty;
-                    slot.Image.sprite = _emptySlot;
-                }
-            }
-            else
+            if (!_resourceSlotPairs.TryGetValue(resource, out ResourceSlot slot))
             {
                 int i = 0;
                 while (i < _slots.Length && _slots[i].Occupied) i++;
@@ -90,7 +58,17 @@ namespace UISystem
                 _slots[i] = new ResourceSlot(_slots[i].Text, _slots[i].Image, true);
                 _resourceSlotPairs[resource] = _slots[i];
 
-                UpdateInventory(resource, quantity);
+            }
+
+            if (quantity != 0 && _spriteBinder.TryGetSpriteFrom(resource, out Sprite sprite))
+            {
+                slot.Text.text = $"x{quantity}";
+                slot.Image.sprite = sprite;
+            }
+            else
+            {
+                slot.Text.text = string.Empty;
+                slot.Image.sprite = _emptySlot;
             }
         }
     }

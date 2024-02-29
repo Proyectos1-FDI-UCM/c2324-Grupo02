@@ -6,7 +6,7 @@ namespace DamageSystem.Locator
 {
     internal class TriggerStatusParameterLocator : MonoBehaviour, IStatusParameterLocator
     {
-       
+        [SerializeField] private LayerMask _layerMask;
 
         private List<IStatusParameter> _foundObjects;
 
@@ -18,7 +18,8 @@ namespace DamageSystem.Locator
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<IStatusParameter>(out IStatusParameter statusParameter))
+            if ((((1 << collision.gameObject.layer) & _layerMask) != 0) 
+                && TryGetStatusInChildren(collision.gameObject, out IStatusParameter statusParameter))
             {
                 _foundObjects.Add(statusParameter);
             }
@@ -26,12 +27,17 @@ namespace DamageSystem.Locator
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<IStatusParameter>(out IStatusParameter statusParameter))
+            if ((((1 << collision.gameObject.layer) & _layerMask) != 0)
+                && TryGetStatusInChildren(collision.gameObject, out IStatusParameter statusParameter))
             {
                 _foundObjects.Remove(statusParameter);
             }
         }
 
+        private bool TryGetStatusInChildren(GameObject parent, out IStatusParameter statusParameter)
+        {
+            return (statusParameter = parent.GetComponentInChildren<IStatusParameter>()) != null;
+        }
 
         public IStatusParameter[] TryGetStatus()
         {
