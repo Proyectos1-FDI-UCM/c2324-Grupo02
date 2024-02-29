@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0e831b7671f2d46a59d56d10dd04f3, type: 3}
   m_Name: Restore Health Descriptible Upgrade
   m_EditorClassIdentifier: 
-  _upgradeFlyweight: {fileID: 11400000, guid: 5e2966d00d5c9e9479dc5be2d58481f4, type: 2}
-  _descriptibleModel: {fileID: 11400000, guid: 7e262367b19b49e4ea9c515e999b8a19, type: 2}
+  _upgradeFlyweight: {fileID: 11400000, guid: 9ea00a9babc1bc0409e062db0a07436f, type: 2}
+  _descriptibleModel: {fileID: 11400000, guid: 9c85d5edd98f7d945a6325940d51ea19, type: 2}
