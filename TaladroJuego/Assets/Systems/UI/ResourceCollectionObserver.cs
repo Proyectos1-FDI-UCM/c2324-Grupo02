@@ -58,6 +58,8 @@ namespace UISystem
                 _slots[i] = new ResourceSlot(_slots[i].Text, _slots[i].Image, true);
                 _resourceSlotPairs[resource] = _slots[i];
 
+                slot = _slots[i];
+
             }
 
             if (quantity != 0 && _spriteBinder.TryGetSpriteFrom(resource, out Sprite sprite))

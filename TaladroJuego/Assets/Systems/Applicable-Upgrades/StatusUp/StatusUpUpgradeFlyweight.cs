@@ -40,7 +40,11 @@ namespace ApplicableUpgradesSystem
             {
                 return new StatusUpApplicableUpgrade(statusParameter, _valueToAdd);
             }
-            else return NullUpgrade.Instance;
+            else
+            {
+                Debug.Log(UpgradeStatusUpEvent);
+                return NullUpgrade.Instance;
+            }
         }
     }
 }

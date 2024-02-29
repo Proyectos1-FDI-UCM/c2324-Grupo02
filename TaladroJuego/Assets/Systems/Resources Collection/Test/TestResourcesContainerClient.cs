@@ -20,7 +20,7 @@ namespace ResourceCollectionSystem.Test
             _resourcesContainer.TryPurchase(upgrade);
 
         [ContextMenu(nameof(AddResources))]
-        private void AddResources()
+        public void AddResources()
         {
             foreach (var resource in _resources)
                 _resourcesContainer.AccountForResource(resource.Resource, resource.Quantity);

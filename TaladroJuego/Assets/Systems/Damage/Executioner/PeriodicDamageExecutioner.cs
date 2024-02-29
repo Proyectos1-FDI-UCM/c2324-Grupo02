@@ -36,10 +36,8 @@ namespace DamageSystem.Executioner
 
             while (true)
             {
-                foreach (IStatusParameter status in _damageHandler.Damage())
-                {
-                    Debug.Log(status);
-                }
+                _damageHandler.Damage();
+                
                 yield return wait;
             }
         }
