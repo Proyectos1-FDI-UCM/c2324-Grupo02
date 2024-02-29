@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b348a071cf73b34dae307f43731e84a, type: 3}
-  m_Name: Speed Up I Flyweight
+  m_Name: Restore Health Flyweight
   m_EditorClassIdentifier: 
   _resourceQuotaItems:
-  - <Resource>k__BackingField: 1
-    <Quantity>k__BackingField: 5
-  _applicableUpgradeFlyweight: {fileID: 11400000, guid: 399f4dfc2d8247a40b35107264b4cd6f, type: 2}
+  - <Resource>k__BackingField: 0
+    <Quantity>k__BackingField: 10
+  _applicableUpgradeFlyweight: {fileID: 11400000, guid: e0bd8924b805e3848bec5d241f510e2b, type: 2}

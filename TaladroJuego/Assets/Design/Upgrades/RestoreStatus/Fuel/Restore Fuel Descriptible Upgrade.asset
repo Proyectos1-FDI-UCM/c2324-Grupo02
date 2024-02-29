@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e0e831b7671f2d46a59d56d10dd04f3, type: 3}
-  m_Name: Speed Up I Descriptible Upgrade Flyweight
+  m_Name: Restore Fuel Descriptible Upgrade
   m_EditorClassIdentifier: 
-  _upgradeFlyweight: {fileID: 11400000, guid: 82a51ebe873e102439177cdc2d714c7a, type: 2}
-  _descriptibleModel: {fileID: 11400000, guid: a0b7b4c2b3685114fa5afd4c5d637866, type: 2}
+  _upgradeFlyweight: {fileID: 11400000, guid: 5e2966d00d5c9e9479dc5be2d58481f4, type: 2}
+  _descriptibleModel: {fileID: 11400000, guid: 7e262367b19b49e4ea9c515e999b8a19, type: 2}

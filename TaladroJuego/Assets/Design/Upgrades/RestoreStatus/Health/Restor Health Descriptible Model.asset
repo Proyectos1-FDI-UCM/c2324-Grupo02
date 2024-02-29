@@ -10,9 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f04b956dbe1c2e4f8cbc5609ce9b1dd, type: 3}
-  m_Name: Speed Up I Descriptible Model
+  m_Name: Restor Health Descriptible Model
   m_EditorClassIdentifier: 
-  _name: Stronger drill!
-  _description: 'Harder, better, faster, stronger!
-
-    50% base strength buff'
+  _name: Fuel Up!
+  _description: Restore some fuel, quite handy!

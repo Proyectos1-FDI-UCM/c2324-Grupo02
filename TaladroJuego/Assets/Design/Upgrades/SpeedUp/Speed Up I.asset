@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f010a66205588409720af17d9bf688, type: 3}
   m_Name: Speed Up I
   m_EditorClassIdentifier: 
-  _factor: 1.1
+  _factor: 1.5
