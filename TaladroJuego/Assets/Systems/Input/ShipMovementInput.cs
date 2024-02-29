@@ -19,7 +19,7 @@ namespace InputSystem
         private void Awake()
         {
             SubscribeMovementInputs();
-            shipDirectionalMovementFacade = GetComponent<IMovementFacade<Vector2>>();
+            shipDirectionalMovementFacade = GetComponentInChildren<IMovementFacade<Vector2>>();
 
         }
 

@@ -1,7 +1,10 @@
 {
     "name": "Menu-System",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:31df7eab38ffe9347a0a3eddd50382e4",
+        "GUID:4efaa7d0f042faa49bd9e295a34111b1"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

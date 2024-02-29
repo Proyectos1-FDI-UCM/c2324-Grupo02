@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class ScenesManager : MonoBehaviour
+
+namespace MenusSystem
 {
-    [SerializeField]
-    private Options _options;
-
-   public void ChangeScene(string newScene)
+    internal class ScenesManager : MonoBehaviour
     {
-        SceneManager.LoadScene(newScene);
-        _options.ShowSoundImage();
-    }
+        [SerializeField]
+        private Options _options;
 
-    public void GameQuit()
-    {
-        Application.Quit();
+        public void ChangeScene(string newScene)
+        {
+            SceneManager.LoadScene(newScene);
+            _options.ShowSoundImage();
+        }
+
+        public void GameQuit()
+        {
+            Application.Quit();
+        }
     }
 }

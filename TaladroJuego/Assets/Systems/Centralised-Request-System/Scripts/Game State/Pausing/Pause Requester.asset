@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8846ea49158b8234b942d8f3ee912cf4, type: 3}
   m_Name: Pause Requester
   m_EditorClassIdentifier: 
+  _isPaused: 0
   <OnPauseRequested>k__BackingField:
     m_PersistentCalls:
       m_Calls: []

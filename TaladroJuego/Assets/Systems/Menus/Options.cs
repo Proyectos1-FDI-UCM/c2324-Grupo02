@@ -4,71 +4,72 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Options : MonoBehaviour
-{
-
-    //sounds
-    [SerializeField]
-    private Slider _soundSlider;
-    [SerializeField]
-    private float _soundSliderValue = 0;
-    [SerializeField]
-    private Image _muteImage;
-    [SerializeField]
-    private Image _soundImage;
-
-
-    //full screen 
-    [SerializeField]
-    private Toggle _fullScreenToggle;
-
-    void Start()
+namespace MenusSystem {
+    internal class Options : MonoBehaviour
     {
-        //sound
-        _soundSlider.value = PlayerPrefs.GetFloat("audioVolume", 0.5f);
-        AudioListener.volume = _soundSlider.value;
-        ShowSoundImage();
 
-        //full screen
-        if (Screen.fullScreen)
+        //sounds
+        [SerializeField]
+        private Slider _soundSlider;
+        [SerializeField]
+        private float _soundSliderValue = 0;
+        [SerializeField]
+        private Image _muteImage;
+        [SerializeField]
+        private Image _soundImage;
+
+
+        //full screen 
+        [SerializeField]
+        private Toggle _fullScreenToggle;
+
+        void Start()
         {
-            _fullScreenToggle.isOn = true;
+            //sound
+            _soundSlider.value = PlayerPrefs.GetFloat("audioVolume", 0.5f);
+            AudioListener.volume = _soundSlider.value;
+            ShowSoundImage();
+
+            //full screen
+            if (Screen.fullScreen)
+            {
+                _fullScreenToggle.isOn = true;
+            }
+            else
+            {
+                _fullScreenToggle.isOn = false;
+            }
         }
-        else
+
+
+
+        public void ChangeSoundSlider(float value)
         {
-            _fullScreenToggle.isOn = false;
+            _soundSliderValue = value;
+            PlayerPrefs.SetFloat("audioVolume", _soundSliderValue);
+            AudioListener.volume = _soundSlider.value;
+            ShowSoundImage();
+
+        }
+
+        public void ShowSoundImage()
+        {
+            if (_soundSliderValue == 0)
+            {
+                _soundImage.enabled = false;
+                _muteImage.enabled = true;
+            }
+
+            else
+            {
+                _muteImage.enabled = false;
+                _soundImage.enabled = true;
+            }
+        }
+
+        public void ActivateFullScreen(bool fullScreen)
+        {
+            Screen.fullScreen = fullScreen;
         }
     }
-
-
-
-    public void ChangeSoundSlider(float value)
-    {
-        _soundSliderValue = value;
-        PlayerPrefs.SetFloat("audioVolume", _soundSliderValue);
-        AudioListener.volume = _soundSlider.value;
-        ShowSoundImage();
-
-    }
-
-    public void ShowSoundImage()
-    {
-        if (_soundSliderValue == 0)
-        {
-            _soundImage.enabled = false;
-            _muteImage.enabled = true;
-        }
-            
-        else
-        {
-            _muteImage.enabled = false;
-            _soundImage.enabled = true;
-        }
-    }
-
-    public void ActivateFullScreen(bool fullScreen)
-    {
-        Screen.fullScreen = fullScreen;
-    }
-
 }
