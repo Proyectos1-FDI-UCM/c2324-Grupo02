@@ -13,7 +13,7 @@ namespace UISystem.MVP.View
             _image = image;
         }
 
-        public bool TryUpdateWith(Sprite model) =>
-            _image.sprite = model;
+        public bool TryUpdateWith(Sprite sprite) =>
+            _image.sprite = sprite;
     }
 }

@@ -123,7 +123,7 @@ namespace TerrainSystem.Test
                     _temporaryTerrainTexture0.width,
                     _temporaryTerrainTexture0.height);
 
-            const string TERRAIN_TEXTURES_NAME = "_TerrainTextures";
+            const string TERRAIN_TEXTURES_NAME = "_TerrainTypesTextures";
             _terrainComputeShader.SetTexture(kernel, TERRAIN_TEXTURES_NAME, _terrainTextures);
 
             const string TERRAIN_TEXTURES_OFFSET_AND_SIZE_NAME = "_TerrainTexturesOffsetAndSize";

@@ -1,12 +1,12 @@
 namespace MVPFramework.Presenter
 {
-    public interface IPresenter<in TElement, in TModel>
+    public interface IPresenter<in TView>
     {
-        bool TryPresentElementWith(TElement element, TModel model);
+        bool TryUpdate(TView view);
     }
 
-    public interface IPresenter<in TElement, in TModel, out TView>
+    public interface IPresenter<in TView, in TModel>
     {
-        TView PresentElementWith(TElement element, TModel model1);
+        bool TryUpdate(TView view, TModel model);
     }
 }

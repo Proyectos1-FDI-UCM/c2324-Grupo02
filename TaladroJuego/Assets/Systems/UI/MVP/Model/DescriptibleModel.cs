@@ -1,12 +1,11 @@
 ﻿using MVPFramework.Model;
 using UnityEngine;
+using static UISystem.MVP.Model.DescriptibleModel;
 
 namespace UISystem.MVP.Model
 {
     [CreateAssetMenu(fileName = "Descriptible Model", menuName = "UI/MVP/DescriptibleModel")]
-    internal class DescriptibleModel : ScriptableObject,
-        IModel<DescriptibleModel.Data>,
-        IModel<(string name, string description)>
+    internal class DescriptibleModel : ScriptableObject, IModel<TitledDescription>
     {
         [SerializeField]
         private string _name;
@@ -15,25 +14,22 @@ namespace UISystem.MVP.Model
         [TextArea]
         private string _description;
 
-        public Data Capture() => new Data(_name, _description);
+        public TitledDescription Capture() => new TitledDescription(_name, _description);
 
-        (string name, string description) IModel<(string name, string description)>.Capture() =>
-            (_name, _description);
-
-        public readonly struct Data
+        public readonly struct TitledDescription
         {
-            public readonly string name;
+            public readonly string title;
             public readonly string description;
 
-            public Data(string name, string description)
+            public TitledDescription(string title, string description)
             {
-                this.name = name;
+                this.title = title;
                 this.description = description;
             }
 
-            public void Deconstruct(out string name, out string description)
+            public void Deconstruct(out string title, out string description)
             {
-                name = this.name;
+                title = this.title;
                 description = this.description;
             }
         }

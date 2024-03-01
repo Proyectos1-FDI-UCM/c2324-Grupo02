@@ -1,7 +1,7 @@
 namespace MVPFramework.View
 {
-    public interface IView<in TModel>
+    public interface IView<in TUpdate>
     {
-        bool TryUpdateWith(TModel model);
+        bool TryUpdateWith(TUpdate status);
     }
 }

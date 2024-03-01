@@ -1,0 +1,297 @@
+#pragma kernel InitializeTerrainTexture
+
+#pragma kernel CopyToTerrainTexture
+#pragma kernel CopyFromTerrainTexture
+
+#pragma kernel ModifyTerrainTexture
+#pragma kernel ModifyTerrainWindow
+#pragma kernel CopyToVisualsFromWindow
+
+struct TerrainModificationSource
+{
+	float3 positionWS;
+	float3 rotationWS;
+
+	uint sdfType;
+	float radius;
+	float strength;
+	float falloff;
+
+	uint type;
+};
+
+struct TexturedTerrainModificationSource
+{
+	float3 positionWS;
+	float3 rotationWS;
+
+	uint alphaTextureIndex;
+	uint2 alphaTextureSize;
+
+	float radius;
+	float strength;
+	float falloff;
+
+	uint type;
+};
+
+// --- Modification Sources ---
+#define MAX_SOURCES 32
+uniform StructuredBuffer<TerrainModificationSource> _Sources;
+uniform uint _SourceCount;
+
+uniform StructuredBuffer<TexturedTerrainModificationSource> _TexturedSources;
+uniform Texture2DArray<float> _SourcesAlphaTextures;
+uniform uint _TexturedSourceCount;
+// --- --- ---
+
+
+// --- Terrain Types ---
+//#define MAX_TERRAIN_TYPES 32
+uniform RWBuffer<float> _TerrainModifications;
+uniform uint _TerrainTypesCount;
+
+uniform Texture2DArray<float4> _TerrainTypesTextures;
+uniform uint2 _TerrainTypesTexturesSize;
+// --- --- ---
+
+
+// --- Results and Data ---
+uniform RWTexture2D<float> _TerrainTexture;
+uniform uint2 _TerrainTextureSize;
+
+uniform RWTexture2D<float> _TerrainWindowTexture;
+uniform uint4 _TerrainWindowTextureSizeAndOffset;
+
+uniform RWTexture2D<float4> _TerrainWindowVisualsTexture;
+
+uniform float4x4 _ClipToWorldMatrix;
+uniform uint _InitializationTerrainType;
+// --- --- ---
+
+uint2 TextureCoordinatesFromWindowedID(uint2 id)
+{
+	return id + _TerrainWindowTextureSizeAndOffset.zw;
+}
+
+uint2 WindowedTextureCoordinatesFromTextureID(uint2 id)
+{
+	return id - _TerrainWindowTextureSizeAndOffset.zw;
+}
+
+float2 TextureUVFromID(uint2 id)
+{
+	float2 uv = id.xy / float2(_TerrainTextureSize);
+#if UNITY_UV_STARTS_AT_TOP
+	return uv * float2(1.0f, -1.0f) + float2(0.0f, 1.0f);
+#else
+	return uv;
+#endif
+}
+
+float2 WindowedTextureUVFromID(uint2 id)
+{
+	float2 uv = id.xy / float2(_TerrainWindowTextureSizeAndOffset.xy);
+#if UNITY_UV_STARTS_AT_TOP
+	return uv * float2(1.0f, -1.0f) + float2(0.0f, 1.0f);
+#else
+	return uv;
+#endif
+}
+
+bool IsIDInTexture(uint2 id)
+{
+	return all(id < _TerrainTextureSize.xy);
+}
+
+bool IsIDInWindowedTexture(uint2 id)
+{
+	return all(id < _TerrainWindowTextureSizeAndOffset.xy);
+}
+
+float EncodedTerrainTypeFrom(uint type)
+{
+	return type / float(_TerrainTypesCount);
+}
+
+uint TerrainTypeFromEncoded(float encoded)
+{
+	return uint(encoded * float(_TerrainTypesCount));
+};
+
+// https://iquilezles.org/articles/distfunctions
+float dot2( in float3 v ) { return dot(v,v); }
+float udTriangle( in float3 v1, in float3 v2, in float3 v3, in float3 p )
+{
+    float3 v21 = v2 - v1; float3 p1 = p - v1;
+    float3 v32 = v3 - v2; float3 p2 = p - v2;
+    float3 v13 = v1 - v3; float3 p3 = p - v3;
+    float3 nor = cross( v21, v13 );
+
+    return sqrt( (sign(dot(cross(v21,nor),p1)) + 
+                  sign(dot(cross(v32,nor),p2)) + 
+                  sign(dot(cross(v13,nor),p3))<2.0) 
+                  ?
+                  min( min( 
+                  dot2(v21*clamp(dot(v21,p1)/dot2(v21),0.0,1.0)-p1), 
+                  dot2(v32*clamp(dot(v32,p2)/dot2(v32),0.0,1.0)-p2) ), 
+                  dot2(v13*clamp(dot(v13,p3)/dot2(v13),0.0,1.0)-p3) )
+                  :
+                  dot(nor,p1)*dot(nor,p1)/dot2(nor) );
+}
+
+float sdCone( float3 p, float2 q )
+{
+	//temp hotfix
+  //  return length(p);
+  //// c is the sin/cos of the angle, h is height
+  // Alternatively pass q instead of (c,h),
+  // which is the point at the base in 2D
+  //float2 q = h*float2(c.x/c.y,-1.0);
+    
+  float2 w = float2( length(p.xz), p.y );
+  float2 a = w - q*clamp( dot(w,q)/dot(q,q), 0.0, 1.0 );
+  float2 b = w - q*float2( clamp( w.x/q.x, 0.0, 1.0 ), 1.0 );
+  float k = sign( q.y );
+  float d = min(dot( a, a ),dot(b, b));
+  float s = max( k*(w.x*q.y-w.y*q.x),k*(w.y-q.y)  );
+  return sqrt(d)*sign(s);
+}
+
+float SDFFromType(float3 p, uint type)
+{
+	return length(p);
+}
+
+float SDFFromTexture(float3 p, uint alphaTextureIndex)
+{
+	// TODO
+	return length(p);
+}
+
+float SourceContributionWithTypedSDF(float3 positionWS, TerrainModificationSource source)
+{
+	float distanceToSource = max(
+		SDFFromType(float3(positionWS.xy - source.positionWS.xy, 0.0f), source.sdfType) - source.radius,
+		0.0f);
+
+	float falloff = 1.0f - saturate(distanceToSource / source.falloff);
+	return source.strength * falloff;
+}
+
+float SourceContributionWithTexturedSDF(float3 positionWS, TexturedTerrainModificationSource source)
+{
+	float distanceToSource = max(
+		SDFFromTexture(float3(positionWS.xy - source.positionWS.xy, 0.0f), source.alphaTextureIndex) - source.radius,
+		0.0f);
+
+	float falloff = 1.0f - saturate(distanceToSource / source.falloff);
+	return source.strength * falloff;
+}
+
+void AlphaBlend(float source, float contribution, inout float destination)
+{
+	destination = source * contribution + destination * (1.0f - contribution);
+}
+
+[numthreads(32,32,1)]
+void InitializeTerrainTexture(uint3 id : SV_DispatchThreadID)
+{
+	if (!IsIDInTexture(id.xy))
+		return;
+
+	_TerrainTexture[id.xy] = EncodedTerrainTypeFrom(_InitializationTerrainType);
+}
+
+[numthreads(32,32,1)]
+void CopyToTerrainTexture(uint3 id : SV_DispatchThreadID)
+{
+	if (!IsIDInWindowedTexture(id.xy))
+		return;
+
+	uint2 textureID = TextureCoordinatesFromWindowedID(id.xy);
+	if (!IsIDInTexture(textureID))
+		return;
+
+	_TerrainTexture[textureID] = _TerrainWindowTexture[id.xy];
+}
+
+[numthreads(32,32,1)]
+void CopyFromTerrainTexture(uint3 id : SV_DispatchThreadID)
+{
+	if (!IsIDInWindowedTexture(id.xy))
+		return;
+
+	uint2 textureID = TextureCoordinatesFromWindowedID(id.xy);
+	if (!IsIDInTexture(textureID))
+		return;
+
+	_TerrainWindowTexture[id.xy] = _TerrainTexture[textureID];
+}
+
+[numthreads(32,32,1)]
+void ModifyTerrainTexture(uint3 id : SV_DispatchThreadID)
+{
+	if (!IsIDInTexture(id.xy))
+		return;
+
+	float2 uv = TextureUVFromID(id.xy);
+	float4 positionWS = mul(_ClipToWorldMatrix, float4(uv * 2.0f - 1.0f, 0.0f, 1.0f));
+	positionWS /= positionWS.w;
+
+	[unroll]
+	for (uint i = 0; i < MAX_SOURCES; i++)
+	{
+		if (i >= _SourceCount)
+			break;
+
+		TerrainModificationSource source = _Sources[i];
+		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
+
+		float currentEncodedTerrainType = _TerrainWindowTexture[id.xy].x;
+		AlphaBlend(EncodedTerrainTypeFrom(source.type), contribution, _TerrainTexture[id.xy]);
+
+		float difference = abs(contribution * EncodedTerrainTypeFrom(source.type) - currentEncodedTerrainType);
+		_TerrainModifications[TerrainTypeFromEncoded(currentEncodedTerrainType)] += difference;
+	}
+}
+
+[numthreads(32,32,1)]
+void ModifyTerrainWindow(uint3 id : SV_DispatchThreadID)
+{
+	if (!IsIDInWindowedTexture(id.xy))
+		return;
+
+	float2 uv = WindowedTextureUVFromID(id.xy);
+	float4 positionWS = mul(_ClipToWorldMatrix, float4(uv * 2.0f - 1.0f, 0.0f, 1.0f));
+	positionWS /= positionWS.w;
+
+	[unroll]
+	for (uint i = 0; i < MAX_SOURCES; i++)
+	{
+		if (i >= _SourceCount)
+			break;
+
+		TerrainModificationSource source = _Sources[i];
+		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
+
+		float currentEncodedTerrainType = _TerrainWindowTexture[id.xy].x;
+		AlphaBlend(EncodedTerrainTypeFrom(source.type), contribution, _TerrainWindowTexture[id.xy]);
+
+		float difference = abs(contribution * EncodedTerrainTypeFrom(source.type) - currentEncodedTerrainType);
+		_TerrainModifications[TerrainTypeFromEncoded(currentEncodedTerrainType)] += difference;
+	}
+}
+
+[numthreads(32,32,1)]
+void CopyToVisualsFromWindow(uint3 id : SV_DispatchThreadID)
+{
+	if (!IsIDInWindowedTexture(id.xy))
+		return;
+
+	float2 encoded = _TerrainWindowTexture[id.xy];
+	uint type = TerrainTypeFromEncoded(encoded.y);
+
+	float3 color = _TerrainTypesTextures[uint3(id.xy % _TerrainTypesTexturesSize.xy, type)].xyz;
+	_TerrainWindowVisualsTexture[id.xy] = float4(color, 1.0f);
+}

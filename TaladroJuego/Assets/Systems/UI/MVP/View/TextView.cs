@@ -12,15 +12,15 @@ namespace UISystem.MVP.View
             _text = text;
         }
 
-        public bool TryUpdateWith(string model)
+        public bool TryUpdateWith(string text)
         {
-            _text.text = model;
+            _text.text = text;
             return true;
         }
 
-        public bool TryUpdateWith(TMP_Text model)
+        public bool TryUpdateWith(TMP_Text textMeshPro)
         {
-            _text.text = model.text;
+            _text.text = textMeshPro.text;
             return true;
         }
     }

@@ -1,13 +1,13 @@
 ﻿using MVPFramework.Model;
 using UnityEngine;
+using static UISystem.MVP.Model.DescriptibleModel;
+using static UISystem.MVP.Model.VisualDescriptibleModel;
 
 namespace UISystem.MVP.Model
 {
     [CreateAssetMenu(fileName = "Visual Descriptible Model", menuName = "UI/MVP/VisualDescriptibleModel")]
-    internal class VisualDescriptibleModel : ScriptableObject,
-        IModel<VisualDescriptibleModel.Data>,
-        IModel<(string name, string description)>,
-        IModel<(Sprite sprite, string name, string description)>
+    internal class VisualDescriptibleModel : ScriptableObject, IModel<PortrayedDescription>,
+        IModel<TitledDescription>
     {
         [SerializeField]
         private Sprite _sprite;
@@ -15,42 +15,34 @@ namespace UISystem.MVP.Model
         [SerializeField]
         private DescriptibleModel _descriptible;
 
-        public Data Capture() => new Data(_sprite, _descriptible.Capture());
+        public PortrayedDescription Capture() => new PortrayedDescription(_descriptible.Capture(), _sprite);
+        TitledDescription IModel<TitledDescription>.Capture() => _descriptible.Capture();
 
-        (string name, string description) IModel<(string name, string description)>.Capture() =>
-            ((IModel<(string name, string description)>)_descriptible).Capture();
-
-        (Sprite sprite, string name, string description) IModel<(Sprite sprite, string name, string description)>.Capture()
+        public readonly struct PortrayedDescription
         {
-            (string name, string description) = ((IModel<(string name, string description)>)_descriptible).Capture();
-            return (_sprite, name, description);
-        }
-
-        public readonly struct Data
-        {
-            public readonly string name;
+            public readonly string title;
             public readonly string description;
             public readonly Sprite sprite;
 
-            public Data(Sprite sprite, DescriptibleModel.Data data)
+            public PortrayedDescription(TitledDescription data, Sprite sprite)
             {
-                this.sprite = sprite;
-                name = data.name;
+                title = data.title;
                 description = data.description;
-            }
-
-            public Data(Sprite sprite, string name, string description)
-            {
                 this.sprite = sprite;
-                this.name = name;
-                this.description = description;
             }
 
-            public void Deconstruct(out Sprite sprite, out string name, out string description)
+            public PortrayedDescription(string title, string description, Sprite sprite)
             {
-                sprite = this.sprite;
-                name = this.name;
+                this.title = title;
+                this.description = description;
+                this.sprite = sprite;
+            }
+
+            public void Deconstruct(out string title, out string description, out Sprite sprite)
+            {
+                title = this.title;
                 description = this.description;
+                sprite = this.sprite;
             }
         }
     }
