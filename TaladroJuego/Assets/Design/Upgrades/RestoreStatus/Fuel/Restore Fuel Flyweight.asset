@@ -15,4 +15,4 @@ MonoBehaviour:
   _resourceQuotaItems:
   - <Resource>k__BackingField: 0
     <Quantity>k__BackingField: 10
-  _applicableUpgradeFlyweight: {fileID: 11400000, guid: e0bd8924b805e3848bec5d241f510e2b, type: 2}
+  _applicableUpgradeFlyweight: {fileID: 11400000, guid: df8a78b4a46e35447ab10859cfb9c5df, type: 2}
