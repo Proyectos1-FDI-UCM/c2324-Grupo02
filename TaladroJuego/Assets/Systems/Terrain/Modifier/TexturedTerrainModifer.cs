@@ -9,7 +9,7 @@ namespace TerrainSystem.Modifier
 {
     internal class TexturedTerrainModifer : MonoBehaviour, ITerrainModifier<TexturedTerrainModificationSource>
     {
-        public bool TryModify<URequester>(URequester requester, IReadOnlyList<ITerrainModificationSource> modificationSources) where URequester : ITerrainModifierRequester<TexturedTerrainModificationSource>
+        public bool TryModify<URequester>(URequester requester, IReadOnlyCollection<ITerrainModificationSource> modificationSources) where URequester : ITerrainModifierRequester<TexturedTerrainModificationSource>
         {
             return requester.TryModifyWith(Array.ConvertAll(modificationSources.ToArray(), ModificationSourceFrom));
         }

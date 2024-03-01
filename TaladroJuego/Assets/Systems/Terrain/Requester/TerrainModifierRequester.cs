@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace TerrainSystem.Requester
 {
+    [CreateAssetMenu(fileName = "TerrainModifierRequester", menuName = "Terrain/Requester/TerrainModifierRequester")]
     internal class TerrainModifierRequester : ScriptableObject,
         ITerrainModifierRequestable<ITerrainModifier<TerrainModificationSource>>,
         ITerrainModifierRequestable<ITerrainModifier<TexturedTerrainModificationSource>>,
@@ -53,6 +54,46 @@ namespace TerrainSystem.Requester
                 32,
                 sizeof(float));
 
+            _sourcesBuffer = new ComputeBuffer(
+                32,
+                TerrainModificationSource.SIZE_OF);
+
+            _accessor = new TerrainModificationShaderAccessor(
+                _terrainComputeShader,
+                _terrainTexture,
+                _terrainWindowTexture,
+                _sourcesBuffer,
+                _terrainModificationsBuffer);
+        }
+
+        public void Initialize()
+        {
+            _camera = Camera.main;
+
+            _terrainTexture = new RenderTexture(
+                _testSize.x,
+                _testSize.y,
+                0,
+                RenderTextureFormat.R8,
+                RenderTextureReadWrite.Linear);
+            _terrainTexture.enableRandomWrite = true;
+
+            _terrainWindowTexture = new RenderTexture(
+                _testSize.x,
+                _testSize.y,
+                0,
+                RenderTextureFormat.R8,
+                RenderTextureReadWrite.Linear);
+            _terrainWindowTexture.enableRandomWrite = true;
+
+            _terrainModificationsBuffer = new ComputeBuffer(
+                32,
+                sizeof(float));
+
+            _sourcesBuffer = new ComputeBuffer(
+                32,
+                TerrainModificationSource.SIZE_OF);
+
             _accessor = new TerrainModificationShaderAccessor(
                 _terrainComputeShader,
                 _terrainTexture,
@@ -75,22 +116,15 @@ namespace TerrainSystem.Requester
 
         public bool TryModifyTextureWithTyped(TerrainModificationSource[] sources)
         {
-            _sourcesBuffer?.Release();
+            //_sourcesBuffer?.Release();
 
-            _sourcesBuffer = new ComputeBuffer(
-                sources.Length,
-                TerrainModificationSource.SIZE_OF);
+            //_sourcesBuffer = new ComputeBuffer(
+            //    sources.Length,
+            //    TerrainModificationSource.SIZE_OF);
             _sourcesBuffer.SetData(sources);
 
-            int kernel = _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_MODIFY_TERRAIN_TEXTURE);
-
-            _accessor.ConfigureTypeSources(kernel, sources.Length);
-            _accessor.ConfigureTerrainTypes(kernel, _terrainTypesTextures);
-
-            _accessor.ConfigureTerrainTexture(kernel);
-            _accessor.ConfigureTerrainTextureWindow(kernel);
-
-            _accessor.ConfigureCameraMatrices(_camera);
+            Configure(sources, _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_MODIFY_TERRAIN_TEXTURE));
+            Configure(sources, _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_COPY_FROM_TERRAIN_TEXTURE));
 
             _accessor.DispatchModifyTerrain();
 
@@ -99,22 +133,16 @@ namespace TerrainSystem.Requester
 
         public bool TryModifyWindowWithTyped(TerrainModificationSource[] sources)
         {
-            _sourcesBuffer?.Release();
+            //_sourcesBuffer?.Release();
 
-            _sourcesBuffer = new ComputeBuffer(
-                sources.Length,
-                TerrainModificationSource.SIZE_OF);
+            //_sourcesBuffer = new ComputeBuffer(
+            //    sources.Length,
+            //    TerrainModificationSource.SIZE_OF);
             _sourcesBuffer.SetData(sources);
 
-            int kernel = _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_MODIFY_TERRAIN_WINDOW);
-
-            _accessor.ConfigureTypeSources(kernel, sources.Length);
-            _accessor.ConfigureTerrainTypes(kernel, _terrainTypesTextures);
-
-            _accessor.ConfigureTerrainTexture(kernel);
-            _accessor.ConfigureTerrainTextureWindow(kernel);
-
-            _accessor.ConfigureCameraMatrices(_camera);
+            Configure(sources, _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_COPY_FROM_TERRAIN_TEXTURE));
+            Configure(sources, _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_MODIFY_TERRAIN_WINDOW));
+            Configure(sources, _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_COPY_TO_TERRAIN_TEXTURE));
 
             _accessor.DispatchModifyWindow();
 
@@ -123,22 +151,15 @@ namespace TerrainSystem.Requester
 
         public bool TryModifyTextureWithTextured(TexturedTerrainModificationSource[] sources)
         {
-            _sourcesBuffer?.Release();
+            //_sourcesBuffer?.Release();
 
-            _sourcesBuffer = new ComputeBuffer(
-                sources.Length,
-                TerrainModificationSource.SIZE_OF);
+            //_sourcesBuffer = new ComputeBuffer(
+            //    sources.Length,
+            //    TerrainModificationSource.SIZE_OF);
             _sourcesBuffer.SetData(sources);
 
-            int kernel = _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_MODIFY_TERRAIN_TEXTURE);
-
-            _accessor.ConfigureTexturedSources(kernel, sources.Length);
-            _accessor.ConfigureTerrainTypes(kernel, _terrainTypesTextures);
-
-            _accessor.ConfigureTerrainTexture(kernel);
-            _accessor.ConfigureTerrainTextureWindow(kernel);
-
-            _accessor.ConfigureCameraMatrices(_camera);
+            Configure(sources, _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_MODIFY_TERRAIN_TEXTURE));
+            Configure(sources, _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_COPY_FROM_TERRAIN_TEXTURE));
 
             _accessor.DispatchModifyTerrain();
 
@@ -147,15 +168,35 @@ namespace TerrainSystem.Requester
 
         public bool TryModifyWindowWithTextured(TexturedTerrainModificationSource[] sources)
         {
-            _sourcesBuffer?.Release();
+            //_sourcesBuffer?.Release();
 
-            _sourcesBuffer = new ComputeBuffer(
-                sources.Length,
-                TerrainModificationSource.SIZE_OF);
+            //_sourcesBuffer = new ComputeBuffer(
+            //    sources.Length,
+            //    TerrainModificationSource.SIZE_OF);
             _sourcesBuffer.SetData(sources);
 
-            int kernel = _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_MODIFY_TERRAIN_TEXTURE);
+            Configure(sources, _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_COPY_FROM_TERRAIN_TEXTURE));
+            Configure(sources, _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_MODIFY_TERRAIN_WINDOW));
+            Configure(sources, _accessor.GetKernel(TerrainModificationShaderAccessor.KERNEL_COPY_TO_TERRAIN_TEXTURE));
 
+            _accessor.DispatchModifyWindow();
+
+            return true;
+        }
+
+        private void Configure(TerrainModificationSource[] sources, int kernel)
+        {
+            _accessor.ConfigureTypeSources(kernel, sources.Length);
+            _accessor.ConfigureTerrainTypes(kernel, _terrainTypesTextures);
+
+            _accessor.ConfigureTerrainTexture(kernel);
+            _accessor.ConfigureTerrainTextureWindow(kernel);
+
+            _accessor.ConfigureCameraMatrices(_camera);
+        }
+
+        private void Configure(TexturedTerrainModificationSource[] sources, int kernel)
+        {
             _accessor.ConfigureTexturedSources(kernel, sources.Length);
             _accessor.ConfigureTerrainTypes(kernel, _terrainTypesTextures);
 
@@ -163,10 +204,6 @@ namespace TerrainSystem.Requester
             _accessor.ConfigureTerrainTextureWindow(kernel);
 
             _accessor.ConfigureCameraMatrices(_camera);
-
-            _accessor.DispatchModifyWindow();
-
-            return true;
         }
 
         public void Retrieve(RenderTexture destination)
@@ -176,8 +213,18 @@ namespace TerrainSystem.Requester
             _accessor.ConfigureTerrainTypes(kernel, _terrainTypesTextures);
             _accessor.ConfigureTerrainTextureWindow(kernel);
 
-            _accessor.ConfigureVisuals(kernel, destination);
-            _accessor.Dispatch(kernel, new Vector3(destination.width, destination.height, 1));
+            RenderTexture visuals = new RenderTexture(destination.descriptor)
+            {
+                width = _terrainWindowTexture.width,
+                height = _terrainWindowTexture.height,
+                enableRandomWrite = true
+            };
+
+            _accessor.ConfigureVisuals(kernel, visuals);
+            _accessor.Dispatch(kernel, new Vector3(visuals.width, visuals.height, 1));
+
+            Graphics.Blit(visuals, destination);
+            visuals.Release();
         }
 
         public bool TryModifyWith(TerrainModificationSource[] sources) =>
@@ -189,13 +236,13 @@ namespace TerrainSystem.Requester
         bool ITerrainModifierRequestable<ITerrainModifier<TerrainModificationSource>>.TryInitializeTerrainTo(uint type) =>
             TryInitializeTerrainTo(type);
 
-        bool ITerrainModifierRequestable<ITerrainModifier<TerrainModificationSource>>.TryModifyWith<UModifier>(UModifier modifier, IReadOnlyList<ITerrainModificationSource> modificationSources) =>
+        bool ITerrainModifierRequestable<ITerrainModifier<TerrainModificationSource>>.TryModifyWith<UModifier>(UModifier modifier, IReadOnlyCollection<ITerrainModificationSource> modificationSources) =>
             modifier.TryModify(this, modificationSources);
 
         bool ITerrainModifierRequestable<ITerrainModifier<TexturedTerrainModificationSource>>.TryInitializeTerrainTo(uint type) =>
             TryInitializeTerrainTo(type);
 
-        bool ITerrainModifierRequestable<ITerrainModifier<TexturedTerrainModificationSource>>.TryModifyWith<UModifier>(UModifier modifier, IReadOnlyList<ITerrainModificationSource> modificationSources) =>
+        bool ITerrainModifierRequestable<ITerrainModifier<TexturedTerrainModificationSource>>.TryModifyWith<UModifier>(UModifier modifier, IReadOnlyCollection<ITerrainModificationSource> modificationSources) =>
             modifier.TryModify(this, modificationSources);
     }
 }

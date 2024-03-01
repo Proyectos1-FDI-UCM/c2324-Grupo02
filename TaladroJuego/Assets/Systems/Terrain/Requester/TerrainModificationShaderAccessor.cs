@@ -46,10 +46,12 @@ namespace TerrainSystem.Requester
         public void ConfigureCameraMatrices(Camera camera)
         {
             const string CLIP_TO_WORLD_MATRIX_NAME = "_ClipToWorldMatrix";
+            //camera.matrix
+            //Render
             Matrix4x4 projectionMatrix = GL.GetGPUProjectionMatrix(camera.projectionMatrix, false);
             _terrainComputeShader.SetMatrix(
                 CLIP_TO_WORLD_MATRIX_NAME,
-                (camera.worldToCameraMatrix * projectionMatrix).inverse);
+                (projectionMatrix * camera.worldToCameraMatrix).inverse);
         }
 
         public void ConfigureInitializationTerrainType(uint type)

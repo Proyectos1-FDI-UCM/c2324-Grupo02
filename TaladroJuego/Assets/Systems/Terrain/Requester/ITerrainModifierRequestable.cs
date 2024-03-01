@@ -8,7 +8,7 @@ namespace TerrainSystem.Requester
     {
         bool TryInitializeTerrainTo(uint type);
 
-        bool TryModifyWith<UModifier>(UModifier modifier, IReadOnlyList<ITerrainModificationSource> modificationSources)
+        bool TryModifyWith<UModifier>(UModifier modifier, IReadOnlyCollection<ITerrainModificationSource> modificationSources)
             where UModifier : TModifier;
     }
 }

@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 73478234}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.75, y: 0.39, z: 0}
+  m_LocalPosition: {x: 1, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -320,7 +320,7 @@ Camera:
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 3.953125
+  orthographic size: 8.03125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -345,7 +345,7 @@ Transform:
   m_GameObject: {fileID: 477421520}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -486,6 +486,63 @@ Transform:
   - {fileID: 946986585}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &591074616
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1741784776457609888, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: m_Name
+      value: Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
 --- !u!1 &946986584
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +587,7 @@ GameObject:
   - component: {fileID: 1028271407}
   - component: {fileID: 1028271410}
   - component: {fileID: 1028271409}
+  - component: {fileID: 1028271411}
   m_Layer: 5
   m_Name: Terrain RawImage
   m_TagString: Untagged
@@ -603,21 +661,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072d202153ff25c49ba7da9ddb1e64f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _terrainComputeShader: {fileID: 7200000, guid: 440ea0a8f581f6b4b9e05a7d12122302, type: 3}
-  _camera: {fileID: 477421522}
-  _sourcesData:
-  - <Source>k__BackingField: {fileID: 73478235}
-    <Radius>k__BackingField: 0
-    <Strength>k__BackingField: 1
-    <Falloff>k__BackingField: 0
-    <Type>k__BackingField: 0
+  _terrainTexture: {fileID: 8400000, guid: f7537b18922042840b898e6b2c1ef7e7, type: 2}
+  _data:
   - <Source>k__BackingField: {fileID: 946986585}
-    <Radius>k__BackingField: 0
+    <Radius>k__BackingField: 1
     <Strength>k__BackingField: 1
-    <Falloff>k__BackingField: 0
-    <Type>k__BackingField: 3
-  _terrainTextures: {fileID: 18700000, guid: abe2b18ae9382514da49a9dcae619aa7, type: 3}
-  _terrainRenderTexture: {fileID: 8400000, guid: f7537b18922042840b898e6b2c1ef7e7, type: 2}
+    <Falloff>k__BackingField: 1
+    <Type>k__BackingField: 2
+  _terrainModifierRequester: {fileID: 11400000, guid: 99d9dacc53a57954593e7758ae8199ec, type: 2}
 --- !u!114 &1028271410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,7 +681,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d40d2f0c49523458918f28684d4580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _terrainDestructionTest: {fileID: 1028271409}
+--- !u!114 &1028271411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028271405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7553460a8eaab4597210e14f47b51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1135104747
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,3 +901,4 @@ SceneRoots:
   - {fileID: 1135104750}
   - {fileID: 535336298}
   - {fileID: 1931878054}
+  - {fileID: 591074616}

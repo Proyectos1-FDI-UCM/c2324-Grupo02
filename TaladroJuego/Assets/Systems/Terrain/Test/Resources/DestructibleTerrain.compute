@@ -171,9 +171,9 @@ float SDFFromTexture(float3 p, uint alphaTextureIndex)
 
 float SourceContributionWithTypedSDF(float3 positionWS, TerrainModificationSource source)
 {
-	float distanceToSource = max(
-		SDFFromType(float3(positionWS.xy - source.positionWS.xy, 0.0f), source.sdfType) - source.radius,
-		0.0f);
+	// TODO
+	float distanceToSource = (
+		SDFFromType(float3(positionWS.xy - source.positionWS.xy, 0.0f), source.sdfType) - source.radius);
 
 	float falloff = 1.0f - saturate(distanceToSource / source.falloff);
 	return source.strength * falloff;
@@ -248,7 +248,7 @@ void ModifyTerrainTexture(uint3 id : SV_DispatchThreadID)
 		TerrainModificationSource source = _Sources[i];
 		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
 
-		float currentEncodedTerrainType = _TerrainWindowTexture[id.xy].x;
+		float currentEncodedTerrainType = _TerrainTexture[id.xy].x;
 		AlphaBlend(EncodedTerrainTypeFrom(source.type), contribution, _TerrainTexture[id.xy]);
 
 		float difference = abs(contribution * EncodedTerrainTypeFrom(source.type) - currentEncodedTerrainType);
@@ -289,8 +289,8 @@ void CopyToVisualsFromWindow(uint3 id : SV_DispatchThreadID)
 	if (!IsIDInWindowedTexture(id.xy))
 		return;
 
-	float2 encoded = _TerrainWindowTexture[id.xy];
-	uint type = TerrainTypeFromEncoded(encoded.y);
+	float encoded = _TerrainWindowTexture[id.xy].x;
+	uint type = TerrainTypeFromEncoded(encoded);
 
 	float3 color = _TerrainTypesTextures[uint3(id.xy % _TerrainTypesTexturesSize.xy, type)].xyz;
 	_TerrainWindowVisualsTexture[id.xy] = float4(color, 1.0f);

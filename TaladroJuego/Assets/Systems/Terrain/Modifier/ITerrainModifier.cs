@@ -6,7 +6,7 @@ namespace TerrainSystem.Modifier
 {
     public interface ITerrainModifier<out TModificationSource>
     {
-        bool TryModify<URequester>(URequester requester, IReadOnlyList<ITerrainModificationSource> modificationSources)
+        bool TryModify<URequester>(URequester requester, IReadOnlyCollection<ITerrainModificationSource> modificationSources)
             where URequester : ITerrainModifierRequester<TModificationSource>;
     }
 }
