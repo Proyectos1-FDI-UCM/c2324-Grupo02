@@ -10966,7 +10966,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 2.96875
       objectReference: {fileID: 0}
     - target: {fileID: -4746020446810350804, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Enabled
@@ -15478,7 +15478,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8302cd5f7d78bc44e88d4c7911164bbc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 253559e250af05f42b36e46f3614924e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
