@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 5246431345024854658}
   - component: {fileID: 8192837083233604389}
   - component: {fileID: 2080240913382698954}
+  - component: {fileID: 5888117168991372100}
   m_Layer: 0
   m_Name: Clamped Fuel
   m_TagString: Untagged
@@ -190,10 +191,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minValue: 0
   _maxValue: 100
-  _statusParameter: {fileID: 2384763123888165454}
+  _statusParameter: {fileID: 650023317807121636}
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4979840087889875631}
+        m_TargetAssemblyTypeName: InputSystem.ShipMovementInput, Input-System
+        m_MethodName: StopEngine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <ReachedMax>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
@@ -211,7 +224,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _statusParameterObject: {fileID: 8192837083233604389}
   _upgrades:
-  - {fileID: 11400000, guid: e0bd8924b805e3848bec5d241f510e2b, type: 2}
+  - {fileID: 11400000, guid: df8a78b4a46e35447ab10859cfb9c5df, type: 2}
+--- !u!114 &5888117168991372100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702065889599936155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6840fda6bac59ee41a43c14078d95e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 383083186636943588}
+  _valueToReduce: 0.025
+  _statusParameterObject: {fileID: 8192837083233604389}
 --- !u!1 &1741784776457609888
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +304,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &961868096781358924
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -372,6 +400,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4979840087889875631}
+        m_TargetAssemblyTypeName: InputSystem.ShipMovementInput, Input-System
+        m_MethodName: TryStartEngine
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3702497244366780798
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _thrustInputActionReference: {fileID: 5025922071406065053, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
+  _minFuel: 0
 --- !u!114 &2520298870134232695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,6 +604,10 @@ GameObject:
   m_Component:
   - component: {fileID: 133004323081666714}
   - component: {fileID: 942135301393297369}
+  - component: {fileID: 3305586843106324146}
+  - component: {fileID: 3604413961107066945}
+  - component: {fileID: 6656177396435431444}
+  - component: {fileID: 7278769866872851096}
   m_Layer: 0
   m_Name: Drill Hitbox
   m_TagString: Untagged
@@ -620,6 +665,61 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.31428573
+--- !u!114 &3305586843106324146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316059467464958202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 5
+--- !u!114 &3604413961107066945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316059467464958202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65a3534dbf73a9408f26372ecfa2afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageHandler: {fileID: 6656177396435431444}
+  _interval: 0.5
+  _startOnStart: 1
+--- !u!114 &6656177396435431444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316059467464958202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c147d4a70ad30634a99da311c2b27229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7278769866872851096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316059467464958202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325830814e300f2408b9472009746179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &4441569652198993171
 GameObject:
   m_ObjectHideFlags: 0
