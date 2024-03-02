@@ -62,7 +62,7 @@ namespace TerrainSystem.Requester
                 (int)type);
         }
 
-        public void ConfigureTerrainTexture(int kernel)
+        public void ConfigureTerrainTexture(int kernel, Vector2 currentOffset)
         {
             const string TERRAIN_TEXTURE_NAME = "_TerrainTexture";
             _terrainComputeShader.SetTexture(
@@ -70,13 +70,13 @@ namespace TerrainSystem.Requester
                 TERRAIN_TEXTURE_NAME,
                 _terrainTexture);
 
-            const string TERRAIN_TEXTURE_SIZE_NAME = "_TerrainTextureSize";
+            const string TERRAIN_TEXTURE_SIZE_AND_OFFSET_NAME = "_TerrainTextureSizeAndOffset";
             _terrainComputeShader.SetVector(
-                TERRAIN_TEXTURE_SIZE_NAME,
-                new Vector2(_terrainTexture.width, _terrainTexture.height));
+                TERRAIN_TEXTURE_SIZE_AND_OFFSET_NAME,
+                new Vector4(_terrainTexture.width, _terrainTexture.height, currentOffset.x, currentOffset.y));
         }
 
-        public void ConfigureTerrainTextureWindow(int kernel)
+        public void ConfigureTerrainTextureWindow(int kernel, Vector2 currentOffset)
         {
             const string TERRAIN_WINDOW_TEXTURE_NAME = "_TerrainWindowTexture";
             _terrainComputeShader.SetTexture(
@@ -90,9 +90,8 @@ namespace TerrainSystem.Requester
                 new Vector4(
                     _terrainWindowTexture.width,
                     _terrainWindowTexture.height,
-                    0,
-                    0));
-            // TODO
+                    currentOffset.x,
+                    currentOffset.y));
         }
 
         public void ConfigureTerrainTypes(int kernel, Texture2DArray terrainTextureTypes)

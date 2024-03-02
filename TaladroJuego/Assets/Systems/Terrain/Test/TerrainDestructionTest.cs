@@ -63,8 +63,6 @@ namespace TerrainSystem.Test
         private TerrainModifierRequester _terrainModifierRequester;
         private ITerrainModifierRequestable<ITerrainModifier<TerrainModificationSource>> _terrainModifierRequestable;
 
-        //private TerrainModificationSource[] _terrainModificationSources;
-
         private ITerrainModifier<TerrainModificationSource> _terrainModifier;
 
         private void Awake()
@@ -83,10 +81,16 @@ namespace TerrainSystem.Test
         {
             ITerrainModificationSource[] sources = Array.ConvertAll(_data, source => (ITerrainModificationSource)source);
             _terrainModifierRequestable.TryModifyWith(_terrainModifier, Array.AsReadOnly(sources));
-            //_terrainModificationSources = Array.ConvertAll(_data, source => TerrainModificationSource.From(source, 0));
-            
-            //_terrainModifierRequester.TryModifyTextureWithTyped(_terrainModificationSources);
+
             _terrainModifierRequester.Retrieve(_terrainTexture);
+
+            //float[] modifications = new float[32];
+            //_terrainModifierRequester.Retrieve(modifications);
+            //for (int i = 0; i < modifications.Length; i++)
+            //{
+            //    float modification = modifications[i];
+            //    Debug.Log($"Modification {i}: {modification}");
+            //}
         }
     }
 }
