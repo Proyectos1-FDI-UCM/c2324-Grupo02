@@ -341,9 +341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 1022428642}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -604,9 +604,9 @@ RectTransform:
   - {fileID: 1575972797}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -345.60004}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36893316
@@ -963,9 +963,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 7
   _statusParameter: {fileID: 1985115158}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -2588,9 +2588,9 @@ RectTransform:
   - {fileID: 64543032}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -217.60002}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &235092018
@@ -2932,9 +2932,9 @@ RectTransform:
   - {fileID: 421333436}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -166.40001}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &248012818
@@ -3381,9 +3381,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 1754971967}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -4446,9 +4446,9 @@ RectTransform:
   - {fileID: 1829258615}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -12.8}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414114430
@@ -4743,10 +4743,6 @@ PrefabInstance:
     - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 5888117168991372100, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
-      propertyPath: _valueToReduce
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5446,9 +5442,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 1481006173}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -5502,9 +5498,9 @@ RectTransform:
   - {fileID: 145813753}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -140.8}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &528349642
@@ -5992,9 +5988,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 7
   _statusParameter: {fileID: 100976108}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -6058,9 +6054,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 1840145110}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -6114,9 +6110,9 @@ RectTransform:
   - {fileID: 1851554638}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -115.200005}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &593059448
@@ -7694,9 +7690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 1774704565}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -8849,9 +8845,9 @@ RectTransform:
   - {fileID: 1361693939}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -64}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954896977
@@ -9377,9 +9373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 104024697}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -9851,9 +9847,9 @@ RectTransform:
   - {fileID: 268665224}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -243.20003}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094974098
@@ -10815,7 +10811,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 4.859375
       objectReference: {fileID: 0}
     - target: {fileID: -4746020446810350804, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Enabled
@@ -11227,9 +11223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 499932983}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -11293,9 +11289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 1472725514}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -11783,9 +11779,9 @@ RectTransform:
   - {fileID: 378178158}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -268.80002}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319665629
@@ -12158,9 +12154,9 @@ RectTransform:
   - {fileID: 507735907}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -38.4}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1354681746
@@ -12464,9 +12460,9 @@ RectTransform:
   - {fileID: 1598363086}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -320.00003}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1376869740
@@ -13051,9 +13047,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 1100159749}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -13410,9 +13406,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 1914080527}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -13466,9 +13462,9 @@ RectTransform:
   - {fileID: 744574422}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -89.600006}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545753130
@@ -13601,9 +13597,9 @@ RectTransform:
   - {fileID: 33591247}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -192.00002}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1548313190
@@ -13858,9 +13854,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 917958744}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -14889,9 +14885,9 @@ RectTransform:
   - {fileID: 1948600860}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -294.40002}
   m_SizeDelta: {x: 76.8, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1628836097
@@ -15650,9 +15646,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 1824689539}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -16348,9 +16344,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 764925460}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -17317,9 +17313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 7
   _statusParameter: {fileID: 1402261652}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -17725,9 +17721,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 1740213666}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -17991,9 +17987,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 5
   _statusParameter: {fileID: 742701661}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:

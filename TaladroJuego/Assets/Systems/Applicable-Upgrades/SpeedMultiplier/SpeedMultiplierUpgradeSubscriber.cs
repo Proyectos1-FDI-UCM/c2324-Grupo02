@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using MovementSystem.Profile;
 
-namespace ApplicableUpgradesSystem
+namespace ApplicableUpgradesSystem.SpeedMultiplierUpgrade
 {
     internal class SpeedMultiplierUpgradeSubscriber : MonoBehaviour
     {

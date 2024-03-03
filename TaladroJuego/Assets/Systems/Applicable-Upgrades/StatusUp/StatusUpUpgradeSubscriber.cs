@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting;
 using RequireAttributes;
-namespace ApplicableUpgradesSystem
+namespace ApplicableUpgradesSystem.StatusUp
 {
     internal class StatusUpUpgradeSubscriber : MonoBehaviour
     {
