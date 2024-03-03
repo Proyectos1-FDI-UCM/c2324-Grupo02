@@ -13,8 +13,9 @@ namespace UISystem
         [SerializeField] private GameObject[] _squares;
         private ResourceSlot[] _slots;
         [SerializeField] private ResourceSpriteBinder _spriteBinder;
-        [SerializeField] Sprite _emptySlot;
+        [SerializeField] private Sprite _slotBackground;
         [SerializeField] private ResourcesContainer _container;
+
 
         private Dictionary<ResourceType, ResourceSlot> _resourceSlotPairs;
 
@@ -45,7 +46,7 @@ namespace UISystem
             {
                 GameObject square = _squares[i];
 
-                _slots[i] = new ResourceSlot(square.GetComponentInChildren<TMP_Text>(), square.GetComponentInChildren<Image>(), false);
+                _slots[i] = new ResourceSlot(square.GetComponentInChildren<TMP_Text>(), square.transform.GetChild(1).GetChild(0).GetComponent<Image>(), false);
             }
         }
         public void UpdateInventory(ResourceType resource, int quantity)
@@ -60,17 +61,14 @@ namespace UISystem
 
                 slot = _slots[i];
 
+                _squares[i].transform.GetChild(1).GetChild(0).GetComponent<Image>().color = Color.white;
+                _squares[i].transform.GetChild(1).GetComponent<Image>().sprite = _slotBackground;
             }
 
-            if (quantity != 0 && _spriteBinder.TryGetSpriteFrom(resource, out Sprite sprite))
+            if (_spriteBinder.TryGetSpriteFrom(resource, out Sprite sprite))
             {
-                slot.Text.text = $"x{quantity}";
+                slot.Text.text = $"{quantity}"; // Falta meter texto con 3 dígitos siempre
                 slot.Image.sprite = sprite;
-            }
-            else
-            {
-                slot.Text.text = string.Empty;
-                slot.Image.sprite = _emptySlot;
             }
         }
     }
