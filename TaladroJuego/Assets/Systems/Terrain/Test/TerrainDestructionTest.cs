@@ -1,7 +1,8 @@
 using System;
-using TerrainSystem.Modifier;
-using TerrainSystem.Requester;
-using TerrainSystem.Source;
+using TerrainSystem.Data;
+using TerrainSystem.Data.Flyweight;
+using TerrainSystem.Requestable;
+using TerrainSystem.Requestable.Retriever;
 using UnityEngine;
 
 namespace TerrainSystem.Test
@@ -11,86 +12,112 @@ namespace TerrainSystem.Test
         [Serializable]
         public struct Data : ITerrainModificationSource
         {
-            private readonly struct Configuration : ITerrainModificationConfiguration
-            {
-                public float Radius { get; }
-                public float Strength { get; }
-                public float Falloff { get; }
-
-                public Configuration(float radius, float strength, float falloff)
-                {
-                    Radius = radius;
-                    Strength = strength;
-                    Falloff = falloff;
-                }
-            }
-
             [field: SerializeField]
             public Transform Source { get; private set; }
 
             [field: SerializeField]
-            [field: Min(0)]
-            public float Radius { get; private set; }
+            public TexturedTerrainModificationSourceFlyweight Flyweight { get; private set; }
 
-            [field: SerializeField]
-            [field: Min(0)]
-            public float Strength { get; private set; }
-
-            [field: SerializeField]
-            [field: Min(0)]
-            public float Falloff { get; private set; }
-
-            [field: SerializeField]
-            public uint Type { get; private set; }
-
-            public ITerrainModificationConfiguration GetConfiguration() =>
-                new Configuration(Radius, Strength, Falloff);
-
-            public Vector3 GetPosition() => Source.position;
-
-            public Quaternion GetRotation() => Source.rotation;
-
-            public uint GetTerrainType() => Type;
+            public readonly Vector3 GetPosition() => Source.position;
+            public readonly Quaternion GetRotation() => Source.rotation;
         }
-
-        [SerializeField]
-        private RenderTexture _terrainTexture;
 
         [SerializeField]
         private Data[] _data;
 
         [SerializeField]
-        private TerrainModifierRequester _terrainModifierRequester;
-        private ITerrainModifierRequestable<ITerrainModifier<TerrainModificationSource>> _terrainModifierRequestable;
+        private Camera _camera;
 
-        private ITerrainModifier<TerrainModificationSource> _terrainModifier;
+        [SerializeField]
+        private ComputeShader _terrainComputeShader;
+
+        [SerializeField]
+        private Vector2Int _terrainSize;
+
+        [SerializeField]
+        private Vector2Int _terrainWindowSize;
+
+        private const int MAX_TERRAIN_TYPES = 32;
+        private RenderTexture _terrainRenderTexture;
+        private RenderTexture _terrainWindowRenderTexture;
+
+        private ComputeBuffer _typedSourcesBuffer;
+        private ComputeBuffer _texturedSourcesBuffer;
+        private ComputeBuffer _terrainModificationsBuffer;
+
+        [SerializeField]
+        private Texture2DArray _alphaTextures;
+
+        [SerializeField]
+        private Texture2DArray _visualsTextures;
+
+        [SerializeField]
+        private RenderTexture _visualsTexture;
+
+        private TerrainModifierRequestable _terrainModifierRequestable;
+        private ITerrainDataRetriever<RenderTexture> _terrainDataRetriever;
 
         private void Awake()
         {
-            _terrainModifierRequestable = _terrainModifierRequester;
-            _terrainModifierRequester.Initialize();
-            _terrainModifier = GetComponent<ITerrainModifier<TerrainModificationSource>>();
+            _terrainRenderTexture = new RenderTexture(
+                _terrainSize.x, _terrainSize.y, 0,
+                RenderTextureFormat.R8, RenderTextureReadWrite.Linear)
+            {
+                filterMode = FilterMode.Point,
+                enableRandomWrite = true
+            };
+
+            _terrainWindowRenderTexture = new RenderTexture(
+                _terrainWindowSize.x, _terrainWindowSize.y, 0,
+                RenderTextureFormat.R8, RenderTextureReadWrite.Linear)
+            {
+                filterMode = FilterMode.Point,
+                enableRandomWrite = true
+            };
+
+            const int MAX_SOURCES = 32;
+            _typedSourcesBuffer = new ComputeBuffer(MAX_SOURCES, TerrainModificationSource.SIZE_OF);
+
+            _texturedSourcesBuffer = new ComputeBuffer(MAX_SOURCES, TexturedTerrainModificationSource.SIZE_OF);
+
+            _terrainModificationsBuffer = new ComputeBuffer(MAX_TERRAIN_TYPES, sizeof(float));
+
+            _terrainModifierRequestable = new TerrainModifierRequestable(
+                _terrainComputeShader,
+                _terrainWindowRenderTexture,
+                _typedSourcesBuffer,
+                _texturedSourcesBuffer,
+                _terrainModificationsBuffer,
+                _alphaTextures);
+
+            _terrainDataRetriever = new TerrainVisualsRetriever(_terrainComputeShader, _visualsTextures, _terrainWindowRenderTexture, _camera);
         }
 
         private void Start()
         {
-            _terrainModifierRequestable.TryInitializeTerrainTo(0);
+            _terrainModifierRequestable.InitializeTerrainWith(0, _camera, _terrainRenderTexture);
+        }
+
+        private void FixedUpdate()
+        {
+            _terrainModifierRequestable.texturedTerrainModifierRequestable.ConfigureWith(_data.Length, MAX_TERRAIN_TYPES, _terrainRenderTexture, _camera);
+            _terrainModifierRequestable.ModifyTerrainWith(Array.ConvertAll(_data, d => d.Flyweight.CreateFrom(d)), _camera, _terrainRenderTexture);
         }
 
         private void LateUpdate()
         {
-            ITerrainModificationSource[] sources = Array.ConvertAll(_data, source => (ITerrainModificationSource)source);
-            _terrainModifierRequestable.TryModifyWith(_terrainModifier, Array.AsReadOnly(sources));
-
-            _terrainModifierRequester.Retrieve(_terrainTexture);
-
-            //float[] modifications = new float[32];
-            //_terrainModifierRequester.Retrieve(modifications);
-            //for (int i = 0; i < modifications.Length; i++)
-            //{
-            //    float modification = modifications[i];
-            //    Debug.Log($"Modification {i}: {modification}");
-            //}
+            _terrainDataRetriever.Retrieve(_visualsTexture);
         }
+
+        private void OnDestroy()
+        {
+            _terrainRenderTexture.Release();
+            _terrainWindowRenderTexture.Release();
+
+            _typedSourcesBuffer.Release();
+            _texturedSourcesBuffer.Release();
+            _terrainModificationsBuffer.Release();
+        }
+
     }
 }

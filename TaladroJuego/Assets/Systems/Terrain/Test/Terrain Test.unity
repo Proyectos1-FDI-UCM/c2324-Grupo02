@@ -397,9 +397,7 @@ GameObject:
   - component: {fileID: 1028271406}
   - component: {fileID: 1028271408}
   - component: {fileID: 1028271407}
-  - component: {fileID: 1028271410}
   - component: {fileID: 1028271409}
-  - component: {fileID: 1028271411}
   m_Layer: 5
   m_Name: Terrain RawImage
   m_TagString: Untagged
@@ -473,48 +471,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072d202153ff25c49ba7da9ddb1e64f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _terrainTexture: {fileID: 8400000, guid: f7537b18922042840b898e6b2c1ef7e7, type: 2}
   _data:
-  - <Source>k__BackingField: {fileID: 73478235}
-    <Radius>k__BackingField: 5
-    <Strength>k__BackingField: 1
-    <Falloff>k__BackingField: 0.75
-    <Type>k__BackingField: 1
-  - <Source>k__BackingField: {fileID: 946986585}
-    <Radius>k__BackingField: 5
-    <Strength>k__BackingField: 1
-    <Falloff>k__BackingField: 0.75
-    <Type>k__BackingField: 1
   - <Source>k__BackingField: {fileID: 919343967}
-    <Radius>k__BackingField: 0.075
-    <Strength>k__BackingField: 1
-    <Falloff>k__BackingField: 0.75
-    <Type>k__BackingField: 2
-  _terrainModifierRequester: {fileID: 11400000, guid: 99d9dacc53a57954593e7758ae8199ec, type: 2}
---- !u!114 &1028271410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028271405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10d40d2f0c49523458918f28684d4580, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1028271411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028271405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b7553460a8eaab4597210e14f47b51f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    <Flyweight>k__BackingField: {fileID: 11400000, guid: 6c5a77a758335294d83f7489fb4551fb, type: 2}
+  _camera: {fileID: 1696626248}
+  _terrainComputeShader: {fileID: 7200000, guid: 440ea0a8f581f6b4b9e05a7d12122302, type: 3}
+  _terrainSize: {x: 1920, y: 2880}
+  _terrainWindowSize: {x: 640, y: 360}
+  _alphaTextures: {fileID: 18700000, guid: b6774e341e9bdac459683539c91bd8f3, type: 3}
+  _visualsTextures: {fileID: 18700000, guid: abe2b18ae9382514da49a9dcae619aa7, type: 3}
+  _visualsTexture: {fileID: 8400000, guid: f7537b18922042840b898e6b2c1ef7e7, type: 2}
 --- !u!1 &1135104747
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +569,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 11.234375
+      value: 7.625
       objectReference: {fileID: 0}
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
