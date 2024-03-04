@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace TerrainSystem.Test
 {
+    [Obsolete]
     internal class TerrainDestructionTest : MonoBehaviour
     {
         [Serializable]

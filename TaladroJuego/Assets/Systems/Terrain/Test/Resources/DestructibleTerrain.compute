@@ -201,7 +201,7 @@ float SDFFromTexture(float3 p, uint alphaTextureIndex, uint2 alphaTextureSize, f
 {
 	float2 uv = (p.xy / alphaTextureScale.xy) * 0.5f + 0.5f;
 	uint2 textureID = uint2(uv * float2(alphaTextureSize)); 
-	return max(1.0f - _SourcesAlphaTextures[uint3(textureID, alphaTextureIndex)].x, sdBox(p, alphaTextureScale)) * length(p);
+	return max((1.0f - _SourcesAlphaTextures[uint3(textureID, alphaTextureIndex)].x)  * length(p), sdBox(p, alphaTextureScale));
 }
 
 float SourceContributionWithTypedSDF(float3 positionWS, TerrainModificationSource source)

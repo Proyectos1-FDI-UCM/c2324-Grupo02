@@ -1,0 +1,18 @@
+{
+    "name": "Terrain-Resources-System",
+    "rootNamespace": "",
+    "references": [
+        "GUID:bf3bea7b2c567644da66422a5730a689",
+        "GUID:7bb5b74307eecb5469aebffee988c44f",
+        "GUID:3feb9ba737620d945b4e16a1ef158cf5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

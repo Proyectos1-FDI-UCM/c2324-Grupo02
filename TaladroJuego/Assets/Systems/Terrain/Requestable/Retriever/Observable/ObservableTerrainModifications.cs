@@ -9,7 +9,11 @@ namespace TerrainSystem.Requestable.Retriever.Observable
         private IObservableTerrainData<TerrainModification> _observableTerrainData;
         [SerializeField]
         [Min(0.0f)]
-        private float _threshold;
+        private float _lowerThreshold;
+
+        [SerializeField]
+        [Min(0.0f)]
+        private float _upperThreshold;
 
         public event EventHandler<TerrainModification> DataRetrieved;
 
@@ -26,7 +30,8 @@ namespace TerrainSystem.Requestable.Retriever.Observable
 
         private void OnModificationRetrieved(object sender, TerrainModification e)
         {
-            if (Mathf.Abs(e.amount) > _threshold)
+            float absAmount = Mathf.Abs(e.amount);
+            if (absAmount > _lowerThreshold && absAmount < _upperThreshold)
                 DataRetrieved?.Invoke(this, e);
         }
     }
