@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TerrainSystem.Requestable.Retriever
 {
@@ -12,9 +11,16 @@ namespace TerrainSystem.Requestable.Retriever
             _modificationsBuffer = modificationsBuffer;
         }
 
-        public void Retrieve(float[] destination)
+        public void Retrieve(in float[] destination)
         {
             _modificationsBuffer.GetData(destination);
+        }
+
+        public float[] Retrieve()
+        {
+            float[] destination = new float[_modificationsBuffer.count];
+            Retrieve(in destination);
+            return destination;
         }
     }
 }

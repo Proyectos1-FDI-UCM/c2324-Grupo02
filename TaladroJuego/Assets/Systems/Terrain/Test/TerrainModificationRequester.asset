@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61960dcedb7a1c40ab3bcc3869a7c07, type: 3}
+  m_Name: TerrainModificationRequester
+  m_EditorClassIdentifier: 
+  _terrainModificationShader: {fileID: 7200000, guid: 440ea0a8f581f6b4b9e05a7d12122302, type: 3}
+  _visualsTextures: {fileID: 18700000, guid: abe2b18ae9382514da49a9dcae619aa7, type: 3}
+  _alphaTextures: {fileID: 18700000, guid: b6774e341e9bdac459683539c91bd8f3, type: 3}

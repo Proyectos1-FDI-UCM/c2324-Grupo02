@@ -18,7 +18,7 @@ namespace TerrainSystem.Requestable.Retriever
             _camera = camera;
         }
 
-        public void Retrieve(RenderTexture destination)
+        public void Retrieve(in RenderTexture destination)
         {
             int kernel = _accessor.kernelCopyToVisualsFromWindow;
             _accessor.ConfigureTerrainTypes(kernel, _terrainTypesTextures);
@@ -43,6 +43,18 @@ namespace TerrainSystem.Requestable.Retriever
 
             Graphics.Blit(visuals, destination);
             visuals.Release();
+        }
+
+        public RenderTexture Retrieve()
+        {
+            RenderTexture destination = new RenderTexture(_terrainWindowTexture.descriptor)
+            {
+                width = _terrainWindowTexture.width,
+                height = _terrainWindowTexture.height,
+                enableRandomWrite = true
+            };
+            Retrieve(in destination);
+            return destination;
         }
     }
 }
