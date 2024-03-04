@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6544041472658791036}
   - component: {fileID: 3467475116317657967}
   - component: {fileID: 7681384308352119825}
+  - component: {fileID: 5902663306640868604}
   m_Layer: 0
   m_Name: Clamped Health
   m_TagString: Untagged
@@ -46,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 100
   _statusParameter: {fileID: 2384763123888165454}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -82,6 +83,21 @@ MonoBehaviour:
   _statusParameterObject: {fileID: 3467475116317657967}
   _upgrades:
   - {fileID: 11400000, guid: e0bd8924b805e3848bec5d241f510e2b, type: 2}
+--- !u!114 &5902663306640868604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221026061916007890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b4d4647e426fb44a866382857f66d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusParameter: {fileID: 3467475116317657967}
+  _upgrades:
+  - {fileID: 11400000, guid: c8f2b68a356dc344b96f77b72bc63f8f, type: 2}
 --- !u!1 &1549801747418667160
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +169,7 @@ GameObject:
   - component: {fileID: 5246431345024854658}
   - component: {fileID: 8192837083233604389}
   - component: {fileID: 2080240913382698954}
+  - component: {fileID: 7865833632931750982}
   - component: {fileID: 5888117168991372100}
   m_Layer: 0
   m_Name: Clamped Fuel
@@ -189,9 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659ed2b27c916b4aacb454139e33a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minValue: 0
   _maxValue: 100
   _statusParameter: {fileID: 650023317807121636}
+  _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -225,6 +242,21 @@ MonoBehaviour:
   _statusParameterObject: {fileID: 8192837083233604389}
   _upgrades:
   - {fileID: 11400000, guid: df8a78b4a46e35447ab10859cfb9c5df, type: 2}
+--- !u!114 &7865833632931750982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702065889599936155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b4d4647e426fb44a866382857f66d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusParameter: {fileID: 8192837083233604389}
+  _upgrades:
+  - {fileID: 11400000, guid: e9b9a963b1ddc424a89a293e388df2c6, type: 2}
 --- !u!114 &5888117168991372100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 383083186636943588}
-  _valueToReduce: 0.025
+  _valueToReduce: 0.1
   _statusParameterObject: {fileID: 8192837083233604389}
 --- !u!1 &1741784776457609888
 GameObject:

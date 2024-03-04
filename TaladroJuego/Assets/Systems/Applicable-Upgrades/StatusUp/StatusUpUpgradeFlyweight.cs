@@ -7,7 +7,7 @@ using UpgradesSystem.Applicable;
 using UpgradesSystem.Flyweight.Applicable;
 using MovementSystem.Profile;
 
-namespace ApplicableUpgradesSystem
+namespace ApplicableUpgradesSystem.StatusUp
 {
     [CreateAssetMenu(menuName = "Upgrades/Flyweight/Applicable/StatusUp")]
     internal class StatusUpUpgradeFlyweight : ApplicableUpgradeFlyweight

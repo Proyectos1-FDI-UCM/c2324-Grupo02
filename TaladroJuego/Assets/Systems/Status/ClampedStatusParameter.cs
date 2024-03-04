@@ -4,14 +4,24 @@ using UnityEngine.UIElements;
 
 namespace StatusSystem
 {
-    internal class ClampedStatusParameter : MonoBehaviour, IStatusParameter
+    public class ClampedStatusParameter : MonoBehaviour, IStatusParameter
     {
-        [SerializeField] private float _minValue, _maxValue;
+        [SerializeField] private float _maxValue;
         [SerializeField] private StatusParameter _statusParameter;
+        [SerializeField]
+        private float _minValue;
+
         [field: SerializeField] public UnityEvent  ReachedMin { get; private set; }
         [field: SerializeField] public UnityEvent ReachedMax { get; private set; }
+        public float MaxValue
+        {
+            get { return _maxValue; }
+            set
+            {
+                _maxValue = value;
+            }
+        }
 
-        
         public void AugmentValue(float value)
         {
             _statusParameter.AugmentValue(value);
