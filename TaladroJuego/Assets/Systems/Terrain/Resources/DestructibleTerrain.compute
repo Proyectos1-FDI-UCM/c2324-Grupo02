@@ -10,7 +10,7 @@
 
 #pragma multi_compile_local __ USE_TYPED_SDF USE_TEXTURED_SDF
 
-#define SMOD(x, m) (((x % m) + m) % m)
+#define SMOD(x, m) ((((x) % (m)) + (m)) % (m))
 
 struct TerrainModificationSource
 {
@@ -256,9 +256,7 @@ void CopyToTerrainTexture(uint3 id : SV_DispatchThreadID)
 	if (!IsIDInWindowedTexture(id.xy))
 		return;
 
-	// Lol again
-	//uint2 textureID = TextureCoordinatesFromWindowedID(id.xy);
-	_TerrainTexture[SMOD(id.xy + _TerrainWindowTextureSizeAndOffset.zw, _TerrainTextureSizeAndOffset.xy)] = _TerrainWindowTexture[id.xy];
+	_TerrainTexture[SMOD((int2(id.xy) + _TerrainWindowTextureSizeAndOffset.zw - _TerrainTextureSizeAndOffset.zw), _TerrainTextureSizeAndOffset.xy)] = _TerrainWindowTexture[id.xy];
 }
 
 [numthreads(32,32,1)]
@@ -267,8 +265,7 @@ void CopyFromTerrainTexture(uint3 id : SV_DispatchThreadID)
 	if (!IsIDInWindowedTexture(id.xy))
 		return;
 
-	// Ill-defined SMOD but works
-	_TerrainWindowTexture[id.xy] = _TerrainTexture[SMOD(id.xy + _TerrainWindowTextureSizeAndOffset.zw, _TerrainTextureSizeAndOffset.xy)];
+	_TerrainWindowTexture[id.xy] = _TerrainTexture[SMOD((int2(id.xy) + _TerrainWindowTextureSizeAndOffset.zw  - _TerrainTextureSizeAndOffset.zw), _TerrainTextureSizeAndOffset.xy)];
 }
 
 [numthreads(32,32,1)]
@@ -277,30 +274,40 @@ void ModifyTerrainTexture(uint3 id : SV_DispatchThreadID)
 	if (!IsIDInTexture(id.xy))
 		return;
 
-	float2 uv = WindowedTextureUVFromID(SMOD(WindowedTextureCoordinatesFromTextureID(int2(id.xy)), _TerrainTextureSizeAndOffset.xy));
+	float2 uv = WindowedTextureUVFromID(int2(id.xy) - (_TerrainWindowTextureSizeAndOffset.zw - _TerrainTextureSizeAndOffset.zw));
+	float2 minUV = WindowedTextureUVFromID(-(_TerrainWindowTextureSizeAndOffset.zw - _TerrainTextureSizeAndOffset.zw));
+	float2 maxUV = WindowedTextureUVFromID(_TerrainTextureSizeAndOffset.xy - (_TerrainWindowTextureSizeAndOffset.zw - _TerrainTextureSizeAndOffset.zw));
+
 	float4 positionWS = mul(_ClipToWorldMatrix, float4(uv * 2.0f - 1.0f, 0.0f, 1.0f));
 	positionWS /= positionWS.w;
+	float4 minPositionWS = mul(_ClipToWorldMatrix, float4(minUV * 2.0f - 1.0f, 0.0f, 1.0f));
+	minPositionWS /= minPositionWS.w;
+	float4 maxPositionWS = mul(_ClipToWorldMatrix, float4(maxUV * 2.0f - 1.0f, 0.0f, 1.0f));
+	maxPositionWS /= maxPositionWS.w;
 
 	[unroll]
 	for (uint i = 0; i < MAX_SOURCES; i++)
 	{
-#if defined( USE_TYPED_SDF )
+#if ( USE_TYPED_SDF )
 		if (i >= _SourceCount)
 			break;
 
 		TerrainModificationSource source = _Sources[i];
+		source.positionWS = SMOD(source.positionWS - minPositionWS.xyz, maxPositionWS.xyz - minPositionWS.xyz) + minPositionWS.xyz;
 		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
-#elif defined( USE_TEXTURED_SDF )
+#elif ( USE_TEXTURED_SDF )
 		if (i >= _TexturedSourceCount)
 			break;
 
 		TexturedTerrainModificationSource source = _TexturedSources[i];
+		source.positionWS = SMOD(source.positionWS - minPositionWS.xyz, maxPositionWS.xyz - minPositionWS.xyz) + minPositionWS.xyz;
 		float contribution = SourceContributionWithTexturedSDF(positionWS.xyz, source);
 #else
 		if (i >= _SourceCount)
 			break;
 
 		TerrainModificationSource source = _Sources[i];
+		source.positionWS = SMOD(source.positionWS - minPositionWS.xyz, maxPositionWS.xyz - minPositionWS.xyz) + minPositionWS.xyz;
 		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
 #endif
 
@@ -326,13 +333,13 @@ void ModifyTerrainWindow(uint3 id : SV_DispatchThreadID)
 	[unroll]
 	for (uint i = 0; i < MAX_SOURCES; i++)
 	{
-#if defined( USE_TYPED_SDF )
+#if ( USE_TYPED_SDF )
 		if (i >= _SourceCount)
 			break;
 
 		TerrainModificationSource source = _Sources[i];
 		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
-#elif defined( USE_TEXTURED_SDF )
+#elif ( USE_TEXTURED_SDF )
 		if (i >= _TexturedSourceCount)
 			break;
 

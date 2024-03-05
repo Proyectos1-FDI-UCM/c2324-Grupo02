@@ -11,7 +11,7 @@ namespace TerrainSystem.Data.Flyweight
         private int _alphaTextureIndex;
 
         [SerializeField]
-        private Texture2D _alphaTexture;
+        private Vector2Int _alphaTextureSize;
 
         [SerializeField]
         private Vector3 _alphaTextureScale;
@@ -32,13 +32,12 @@ namespace TerrainSystem.Data.Flyweight
                 _positionOffset + terrainModificationSource.GetPosition(),
                 _rotationOffset - terrainModificationSource.GetRotation().eulerAngles,
                 (uint)_alphaTextureIndex,
-                new Vector2Int(_alphaTexture.width, _alphaTexture.height),
+                _alphaTextureSize,
                 _alphaTextureScale,
                 configuration.Radius,
                 configuration.Strength,
                 configuration.Falloff,
                 configuration.Type);
-            // TODO - Bind
         }
     }
 

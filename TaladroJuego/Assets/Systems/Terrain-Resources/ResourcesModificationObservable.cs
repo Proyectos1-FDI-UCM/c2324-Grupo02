@@ -1,4 +1,4 @@
-using ResourceCollectionSystem;
+using System;
 using System.Collections.Generic;
 using TerrainSystem.Requestable.Retriever.Observable;
 using UnityEngine;
@@ -6,16 +6,24 @@ using UpgradesSystem.Flyweight;
 
 namespace TerrainResourcesSystem
 {
-    internal class ResourcesModificationObserver : MonoBehaviour
+    internal class ResourcesModificationObservable : MonoBehaviour, IObservableTerrainData<ResourceQuantityItem>
     {
         [SerializeField]
-        private ResourcesContainer _resourcesContainer;
+        private ResourceTerrainTypeBinder _resourceTerrainTypeBinder;
 
         [SerializeField]
         private float _conversionRate;
         private readonly Dictionary<uint, TerrainModification> _cumulatedModifications = new Dictionary<uint, TerrainModification>();
 
         private IObservableTerrainData<TerrainModification> _modificationsTerrainData;
+
+        public float ConversionRate
+        {
+            get => _conversionRate;
+            set => _conversionRate = value; 
+        }
+
+        public event EventHandler<ResourceQuantityItem> DataRetrieved;
 
         private void Awake()
         {
@@ -31,17 +39,10 @@ namespace TerrainResourcesSystem
         private void OnDataRetrieved(object sender, TerrainModification e)
         {
             TerrainModification cumulated = AccountForTerrainModification(e);
-            //Debug.Log($"Cumulated: {cumulated.terrainType} - {cumulated.amount}");
             if (ConvertsToResource(cumulated, out float excess, out ResourceQuantityItem resourceQuantityItem))
-                _resourcesContainer.AccountForResource(resourceQuantityItem.Resource, resourceQuantityItem.Quantity);
+                DataRetrieved?.Invoke(this, resourceQuantityItem);
 
             _cumulatedModifications[e.terrainType] = new TerrainModification(e.terrainType, excess);
-
-            bool ConvertsToResource(TerrainModification modification, out float excess, out ResourceQuantityItem resourceQuantityItem)
-            {
-                resourceQuantityItem = FromModification(modification, out excess);
-                return resourceQuantityItem.Quantity > 0;
-            }
         }
 
         private TerrainModification AccountForTerrainModification(TerrainModification e)
@@ -52,14 +53,20 @@ namespace TerrainResourcesSystem
             return _cumulatedModifications[e.terrainType];
         }
 
-        private ResourceQuantityItem FromModification(TerrainModification modification, out float excess)
+        private bool ConvertsToResource(TerrainModification modification, out float excess, out ResourceQuantityItem resourceQuantityItem) =>
+            TryGetFromModification(modification, out excess, out resourceQuantityItem)
+            && resourceQuantityItem.Quantity > 0;
+
+        private bool TryGetFromModification(TerrainModification modification, out float excess, out ResourceQuantityItem resourceQuantityItem)
         {
-            float convertedAmount = modification.amount * _conversionRate;
+            float convertedAmount = modification.amount * ConversionRate;
             int amount = Mathf.FloorToInt(convertedAmount);
 
-            excess = (convertedAmount - amount) / _conversionRate;
-            // TODO - Dictionary
-            return new ResourceQuantityItem((ResourceType)modification.terrainType, amount);
+            excess = (convertedAmount - amount) / ConversionRate;
+
+            bool exists = _resourceTerrainTypeBinder.TryGetResourceTypeFrom(modification.terrainType, out ResourceType type);
+            resourceQuantityItem = new ResourceQuantityItem(type, amount);
+            return exists;
         }
     }
 }

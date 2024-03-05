@@ -49,6 +49,12 @@ namespace UISystem
                 _slots[i] = new ResourceSlot(square.GetComponentInChildren<TMP_Text>(), square.transform.GetChild(1).GetChild(0).GetComponent<Image>(), false);
             }
         }
+
+        private void OnDestroy()
+        {
+            _container.ResourceModified.RemoveListener(UpdateInventory);
+        }
+
         public void UpdateInventory(ResourceType resource, int quantity)
         {
             if (!_resourceSlotPairs.TryGetValue(resource, out ResourceSlot slot))
@@ -67,7 +73,7 @@ namespace UISystem
 
             if (_spriteBinder.TryGetSpriteFrom(resource, out Sprite sprite))
             {
-                slot.Text.text = $"{quantity}"; // Falta meter texto con 3 dígitos siempre
+                slot.Text.text = $"{quantity:D3}";
                 slot.Image.sprite = sprite;
             }
         }

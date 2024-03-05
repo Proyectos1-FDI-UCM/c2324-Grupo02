@@ -27,17 +27,15 @@ namespace TerrainSystem.Accessor
 
         public void ConfigureKernel(int kernel, Texture terrainTexture, Camera camera)
         {
-            Vector2 cameraSize = new Vector2(
-                camera.orthographicSize * camera.aspect,
-                camera.orthographicSize) * 2.0f;
             _shaderAccessor.ConfigureTerrainTexture(
                 kernel,
                 terrainTexture,
-                (camera.transform.position / cameraSize) * new Vector2(terrainTexture.width, terrainTexture.height));
+                Vector2.zero);
             _shaderAccessor.ConfigureTerrainTextureWindow(
                 kernel,
                 _terrainWindowTexture,
-                (camera.transform.position / cameraSize) * new Vector2(_terrainWindowTexture.width, _terrainWindowTexture.height));
+                (Vector2.one * 0.5f - (Vector2)camera.WorldToViewportPoint(Vector2.zero))
+                    * new Vector2(_terrainWindowTexture.width, _terrainWindowTexture.height));
 
             _shaderAccessor.ConfigureCameraMatrices(camera);
         }

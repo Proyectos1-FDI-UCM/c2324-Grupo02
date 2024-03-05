@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _terrainModificationShader: {fileID: 7200000, guid: 440ea0a8f581f6b4b9e05a7d12122302, type: 3}
   _visualsTextures: {fileID: 18700000, guid: 3ca7b7b2a0400244fa23670bb9d85acd, type: 3}
-  _alphaTextures: {fileID: 18700000, guid: b6774e341e9bdac459683539c91bd8f3, type: 3}
+  _alphaTextures: {fileID: 18700000, guid: cfcf15fcdc676aa4eb4db20ceff3803b, type: 3}
   _intialTerrainType: 0
+  _debugTerrainRenderTexture: {fileID: 8400000, guid: 73ef322cffb64ea479537f6f19f16ae2, type: 2}

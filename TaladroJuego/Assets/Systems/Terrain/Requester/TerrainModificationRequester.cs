@@ -31,6 +31,10 @@ namespace TerrainSystem.Requester
         [Min(0)]
         private int _intialTerrainType;
 
+        //[SerializeField]
+        //[Obsolete]
+        //private RenderTexture _debugTerrainRenderTexture;
+
         private List<ITerrainModificationSourceFlyweight<TerrainModificationSource>> _typedSources;
         private List<ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource>> _texturedSources;
 
@@ -158,6 +162,7 @@ namespace TerrainSystem.Requester
                 .ModifyTerrainWith(Array.ConvertAll(_texturedSources.ToArray(), CreateTextured), _camera, _terrainRenderTexture);
 
             ModificationRequested?.Invoke(this, EventArgs.Empty);
+            //Graphics.Blit(_terrainRenderTexture, _debugTerrainRenderTexture);
 
             static TerrainModificationSource CreateTyped(ITerrainModificationSourceFlyweight<TerrainModificationSource> source) =>
                 source.Create();
