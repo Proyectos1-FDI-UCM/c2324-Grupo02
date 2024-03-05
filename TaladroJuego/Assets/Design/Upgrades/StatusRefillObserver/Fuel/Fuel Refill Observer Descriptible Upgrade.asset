@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0e831b7671f2d46a59d56d10dd04f3, type: 3}
+  m_Name: Fuel Refill Observer Descriptible Upgrade
+  m_EditorClassIdentifier: 
+  _upgradeFlyweight: {fileID: 11400000, guid: 93a605572269650458715e06c3dbfae1, type: 2}
+  _descriptibleModel: {fileID: 11400000, guid: 99d0c975c06737a458a849ed35590c54, type: 2}

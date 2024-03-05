@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace StatusSystem
 {
-    internal class StatusParameter : MonoBehaviour, IStatusParameter
+    public class StatusParameter : MonoBehaviour, IStatusParameter
     {
         [SerializeField] private float _statusValue = 0.0f;
 
