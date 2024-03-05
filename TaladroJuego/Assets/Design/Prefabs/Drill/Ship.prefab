@@ -65,6 +65,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: dde60c5c9d5c1e24f9aeef4520618f1c, type: 2}
+        m_TargetAssemblyTypeName: PauseRequesterObject, Centralised-Request-System
+        m_MethodName: RequestPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   <ReachedMax>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
@@ -108,6 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8708206004692333652}
   - component: {fileID: 2384763123888165454}
+  - component: {fileID: 627019354486945276}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -158,6 +171,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &627019354486945276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549801747418667160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a8861d138f5e224d95f3f4d32d517dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusParameter: {fileID: 2384763123888165454}
+  _upgrades:
+  - {fileID: 11400000, guid: e0bd8924b805e3848bec5d241f510e2b, type: 2}
 --- !u!1 &1702065889599936155
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662717982296132980}
   - component: {fileID: 650023317807121636}
+  - component: {fileID: 906262222856906038}
   m_Layer: 0
   m_Name: Fuel
   m_TagString: Untagged
@@ -444,6 +473,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &906262222856906038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3330652055722489186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a8861d138f5e224d95f3f4d32d517dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusParameter: {fileID: 650023317807121636}
+  _upgrades:
+  - {fileID: 11400000, guid: df8a78b4a46e35447ab10859cfb9c5df, type: 2}
 --- !u!1 &3702497244366780798
 GameObject:
   m_ObjectHideFlags: 0
