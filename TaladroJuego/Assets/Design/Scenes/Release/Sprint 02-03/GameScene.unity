@@ -13010,7 +13010,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 3.75
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: -4746020446810350804, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Enabled
@@ -16879,11 +16879,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575972796}
   m_CullTransparentMesh: 1
---- !u!4 &1576993612 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 421742126751466264, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
-  m_PrefabInstance: {fileID: 437606192}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1579748072
 GameObject:
   m_ObjectHideFlags: 0
@@ -22194,16 +22189,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072d202153ff25c49ba7da9ddb1e64f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _terrainComputeShader: {fileID: 7200000, guid: 440ea0a8f581f6b4b9e05a7d12122302, type: 3}
+  _data: []
   _camera: {fileID: 145533561}
-  _sourcesData:
-  - <Source>k__BackingField: {fileID: 1576993612}
-    <Radius>k__BackingField: 0.5
-    <Strength>k__BackingField: 1
-    <Falloff>k__BackingField: 0
-    <Type>k__BackingField: 3
-  _terrainTextures: {fileID: 18700000, guid: abe2b18ae9382514da49a9dcae619aa7, type: 3}
-  _terrainRenderTexture: {fileID: 8400000, guid: f7537b18922042840b898e6b2c1ef7e7, type: 2}
+  _terrainComputeShader: {fileID: 7200000, guid: 440ea0a8f581f6b4b9e05a7d12122302, type: 3}
+  _terrainSize: {x: 0, y: 0}
+  _terrainWindowSize: {x: 0, y: 0}
+  _alphaTextures: {fileID: 0}
+  _visualsTextures: {fileID: 0}
+  _visualsTexture: {fileID: 0}
 --- !u!114 &2046741627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22216,7 +22209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d40d2f0c49523458918f28684d4580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _terrainDestructionTest: {fileID: 2046741626}
 --- !u!114 &2046741628
 MonoBehaviour:
   m_ObjectHideFlags: 0
