@@ -7,16 +7,17 @@ namespace UISystem
 {
     internal class UIStatusParameterSlider : MonoBehaviour
     {
-        private Slider _statusParamSlider;
+        private Image _statusParamSlider;
 
         public void UpdateUISlider(float quantity)
         {
-            _statusParamSlider.value = quantity;
+            _statusParamSlider.fillAmount = quantity/100;
+            print(quantity);
         }
 
         private void Awake()
         {
-            _statusParamSlider = GetComponentInChildren<Slider>();
+            _statusParamSlider = GetComponent<Image>();
         }
     }
 }

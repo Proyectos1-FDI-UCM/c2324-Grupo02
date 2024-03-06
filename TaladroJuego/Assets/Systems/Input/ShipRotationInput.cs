@@ -16,6 +16,9 @@ namespace InputSystem
 
         [SerializeField] Vector2 _targetDirection;
 
+        //Stop with fuel related things
+        private bool _fuelIsEmpty = false;
+        [SerializeField] private float _minFuel;
         private void Awake()
         {
             SubscribeMovementInputs();
@@ -25,7 +28,7 @@ namespace InputSystem
 
         private void FixedUpdate()
         {
-            shipRotationMovementFacade.Move(_targetDirection);
+            if(!_fuelIsEmpty) shipRotationMovementFacade.Move(_targetDirection);
         }
 
         private void SubscribeMovementInputs()
@@ -48,6 +51,16 @@ namespace InputSystem
         private void OnRotateInputCanceled(InputAction.CallbackContext obj)
         {
             _targetDirection = Vector2.zero;
+        }
+
+        public void SwitchRotationEnabled()
+        {
+            _fuelIsEmpty = !_fuelIsEmpty;
+        }
+
+        public void TryEnableRotation(float value)
+        {
+            if (_fuelIsEmpty && value > _minFuel) SwitchRotationEnabled();
         }
 
         #region ENABLE / DISABLE INPUTACTIONS
