@@ -7,7 +7,7 @@ using UpgradesSystem.Flyweight.Applicable;
 namespace UpgradesSystem.Flyweight
 {
     [CreateAssetMenu(fileName = "QuotaResourceUpgradeFlyweight", menuName = "Upgrades/Flyweight/QuotaResourceUpgradeFlyweight")]
-    internal class QuotaResourceUpgradeFlyweight : ResourceUpgradeFlyweight
+    public class QuotaResourceUpgradeFlyweight : ResourceUpgradeFlyweight
     {
         [SerializeField]
         private ResourceQuantityItem[] _resourceQuotaItems;
