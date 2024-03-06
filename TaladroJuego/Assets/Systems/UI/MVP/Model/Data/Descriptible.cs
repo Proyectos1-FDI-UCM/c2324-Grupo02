@@ -1,11 +1,11 @@
 ﻿using MVPFramework.Model;
 using UnityEngine;
-using static UISystem.MVP.Model.DescriptibleModel;
+using static UISystem.MVP.Model.Data.Descriptible;
 
-namespace UISystem.MVP.Model
+namespace UISystem.MVP.Model.Data
 {
     [CreateAssetMenu(fileName = "Descriptible Model", menuName = "UI/MVP/DescriptibleModel")]
-    internal class DescriptibleModel : ScriptableObject, IModel<TitledDescription>
+    internal class Descriptible : ScriptableObject, IModel<TitledDescription>
     {
         [SerializeField]
         private string _name;

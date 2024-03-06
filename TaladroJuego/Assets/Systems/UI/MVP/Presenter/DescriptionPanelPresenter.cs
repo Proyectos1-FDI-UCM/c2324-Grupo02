@@ -2,7 +2,7 @@
 using MVPFramework.Presenter;
 using MVPFramework.View;
 using UnityEngine;
-using static UISystem.MVP.Model.DescriptibleModel;
+using static UISystem.MVP.Model.Descriptible;
 using static UISystem.MVP.View.DescriptibleTextView;
 
 namespace UISystem.MVP.Presenter
