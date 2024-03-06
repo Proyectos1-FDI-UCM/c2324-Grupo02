@@ -6,7 +6,7 @@ using UpgradesSystem.Flyweight;
 
 namespace TerrainResourcesSystem
 {
-    internal class ResourcesModificationObservable : MonoBehaviour, IObservableTerrainData<ResourceQuantityItem>
+    public class ResourcesModificationObservable : MonoBehaviour, IObservableTerrainData<ResourceQuantityItem>
     {
         [SerializeField]
         private ResourceTerrainTypeBinder _resourceTerrainTypeBinder;
