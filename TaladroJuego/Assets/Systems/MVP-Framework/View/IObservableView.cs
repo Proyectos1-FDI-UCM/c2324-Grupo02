@@ -2,12 +2,13 @@
 
 namespace MVPFramework.View
 {
-    public interface IObservableView<TDelegate>
-        where TDelegate : Delegate
+    public interface IObservableView
     {
-        void Subscribe<UDelegate>(UDelegate observer)
-            where UDelegate : TDelegate;
-        void Unsubscribe<UDelegate>(UDelegate observer)
-            where UDelegate : TDelegate;
+        event EventHandler ViewEvent;
+    }
+
+    public interface IObservableView<T>
+    {
+        event EventHandler<T> ViewEvent;
     }
 }

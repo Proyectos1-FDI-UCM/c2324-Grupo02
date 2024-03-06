@@ -1,46 +1,63 @@
-using MVPFramework.Model;
 using MVPFramework.Presenter;
-using MVPFramework.View;
 using ResourceCollectionSystem;
-using System.Collections.Generic;
+using System;
+using TMPro;
+using UISystem.MVP.Model;
 using UISystem.MVP.View;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UISystem.MVP.Model.DescriptibleUpgradeFlyweight;
-using static UISystem.MVP.View.EventTriggerView;
 
 namespace UISystem.MVP.Presenter
 {
-    internal class UpgradeButtonPresenter : MonoBehaviour, IPresenter<LabeledEventTriggerView, IModel<DescriptibleUpgrade>>,
-        IObserverPresenter<IObservableView<PressConfiuration>>
+    internal class UpgradeButtonPresenter : MonoBehaviour,
+        IPresenter<UpgradeButtonPresenter.UpgradeButton, DescriptibleUpgradeFlyweight>,
+        IPresenter<UpgradeButtonPresenter.UpgradeButton, DescriptibleUpgradeFlyweight, DescriptibleEventTriggerView>
     {
+        [Serializable]
+        public struct UpgradeButton
+        {
+            [field: SerializeField]
+            public EventTrigger EventTrigger { get; private set; }
+
+            [field: SerializeField]
+            public TMP_Text Label { get; private set; }
+
+            public UpgradeButton(EventTrigger eventTrigger, TMP_Text label)
+            {
+                EventTrigger = eventTrigger;
+                Label = label;
+            }
+        }
+
         [SerializeField]
         private ResourcesContainer _resourcesContainer;
-        private readonly Dictionary<IObservableView<PressConfiuration>, IModel<DescriptibleUpgrade>> _viewModels =
-            new Dictionary<IObservableView<PressConfiuration>, IModel<DescriptibleUpgrade>>();
 
-        public void ConnectTo(IObservableView<PressConfiuration> view)
+        public bool TryPresentElementWith(UpgradeButton element, DescriptibleUpgradeFlyweight model)
         {
-            view.Unsubscribe<PressConfiuration>(OnButtonPress);
-            view.Subscribe<PressConfiuration>(OnButtonPress);
+            DescriptibleEventTriggerView view = new DescriptibleEventTriggerView(
+                new EventTriggerView(element.EventTrigger, true),
+                new TextView(element.Label));
+
+            return view.TryUpdateWith(model.Capture().name)
+                && view.TryUpdateWith(new EventTriggerView.PressConfiuration((data) =>
+                {
+                    _resourcesContainer.TryPurchase(model.Create());
+                }));
         }
 
-        public void DisconnectFrom(IObservableView<PressConfiuration> view)
+        public DescriptibleEventTriggerView PresentElementWith(UpgradeButton element, DescriptibleUpgradeFlyweight model)
         {
-            _viewModels.Remove(view);
-            view.Unsubscribe<PressConfiuration>(OnButtonPress);
-        }
+            DescriptibleEventTriggerView view = new DescriptibleEventTriggerView(
+                new EventTriggerView(element.EventTrigger, false),
+                new TextView(element.Label));
 
-        private void OnButtonPress(IObservableView<PressConfiuration> view, BaseEventData baseEventData)
-        {
-            _ = _viewModels.TryGetValue(view, out IModel<DescriptibleUpgrade> model)
-                && _resourcesContainer.TryPurchase(model.Capture().upgrade);
-        }
+            view.TryUpdateWith(model.Capture().name);
+            view.TryUpdateWith(new EventTriggerView.PressConfiuration((data) =>
+            {
+                _resourcesContainer.TryPurchase(model.Create());
+            }));
 
-        public bool TryUpdate(LabeledEventTriggerView view, IModel<DescriptibleUpgrade> model)
-        {
-            _viewModels[view] = model;
-            return view.TryUpdateWith(model.Capture().title);
+            return view;
         }
     }
 }
