@@ -8,7 +8,7 @@ using UISystem.MVP.Model;
 using UISystem.MVP.View;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UISystem.MVP.Model.Descriptible;
+using static UISystem.MVP.Model.DescriptibleModel;
 using static UISystem.MVP.Model.DescriptibleUpgradeFlyweight;
 using static UISystem.MVP.View.DescriptibleTextView;
 using static UISystem.MVP.View.EventTriggerView;

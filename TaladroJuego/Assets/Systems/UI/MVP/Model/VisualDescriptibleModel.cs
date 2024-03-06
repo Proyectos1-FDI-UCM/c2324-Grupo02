@@ -1,19 +1,19 @@
 ﻿using MVPFramework.Model;
 using UnityEngine;
-using static UISystem.MVP.Model.Data.Descriptible;
-using static UISystem.MVP.Model.Data.VisualDescriptible;
+using static UISystem.MVP.Model.DescriptibleModel;
+using static UISystem.MVP.Model.VisualDescriptibleModel;
 
-namespace UISystem.MVP.Model.Data
+namespace UISystem.MVP.Model
 {
     [CreateAssetMenu(fileName = "Visual Descriptible Model", menuName = "UI/MVP/VisualDescriptibleModel")]
-    internal class VisualDescriptible : ScriptableObject, IModel<PortrayedDescription>,
+    internal class VisualDescriptibleModel : ScriptableObject, IModel<PortrayedDescription>,
         IModel<TitledDescription>
     {
         [SerializeField]
         private Sprite _sprite;
 
         [SerializeField]
-        private Descriptible _descriptible;
+        private DescriptibleModel _descriptible;
 
         public PortrayedDescription Capture() => new PortrayedDescription(_descriptible.Capture(), _sprite);
         TitledDescription IModel<TitledDescription>.Capture() => _descriptible.Capture();

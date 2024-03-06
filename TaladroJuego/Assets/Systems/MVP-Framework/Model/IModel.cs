@@ -1,7 +1,7 @@
 namespace MVPFramework.Model
 {
-    public interface IModel<out TData>
+    public interface IModel<out TState>
     {
-        TData Capture();
+        TState Capture();
     }
 }

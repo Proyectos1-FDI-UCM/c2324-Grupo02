@@ -2,7 +2,7 @@
 using MVPFramework.Presenter;
 using MVPFramework.View;
 using UnityEngine;
-using static UISystem.MVP.Model.VisualDescriptible;
+using static UISystem.MVP.Model.VisualDescriptibleModel;
 using static UISystem.MVP.View.IconLabelView;
 
 namespace UISystem.MVP.Presenter

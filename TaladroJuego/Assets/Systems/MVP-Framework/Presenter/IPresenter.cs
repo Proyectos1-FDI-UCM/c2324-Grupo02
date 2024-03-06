@@ -1,7 +1,12 @@
 namespace MVPFramework.Presenter
 {
-    public interface IPresenter<in TUpdate>
+    public interface IPresenter<in TView>
     {
-        bool TryUpdateWith(TUpdate status);
+        bool TryUpdate(TView view);
+    }
+
+    public interface IPresenter<in TView, in TModel>
+    {
+        bool TryUpdate(TView view, TModel model);
     }
 }

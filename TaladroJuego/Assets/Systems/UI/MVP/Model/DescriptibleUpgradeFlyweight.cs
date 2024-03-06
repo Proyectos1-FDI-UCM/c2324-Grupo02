@@ -2,10 +2,10 @@
 using UnityEngine;
 using UpgradesSystem.Flyweight;
 using UpgradesSystem.Resource;
-using static UISystem.MVP.Model.Data.Descriptible;
-using static UISystem.MVP.Model.Data.DescriptibleUpgradeFlyweight;
+using static UISystem.MVP.Model.DescriptibleModel;
+using static UISystem.MVP.Model.DescriptibleUpgradeFlyweight;
 
-namespace UISystem.MVP.Model.Data
+namespace UISystem.MVP.Model
 {
     [CreateAssetMenu(fileName = "Descriptible Upgrade Flyweight", menuName = "UI/DescriptibleUpgradeFlyweight")]
     internal class DescriptibleUpgradeFlyweight : ResourceUpgradeFlyweight,
@@ -16,10 +16,10 @@ namespace UISystem.MVP.Model.Data
         private ResourceUpgradeFlyweight _upgradeFlyweight;
 
         [SerializeField]
-        private Descriptible _descriptible;
+        private DescriptibleModel _descriptibleModel;
 
-        public DescriptibleUpgrade Capture() => new DescriptibleUpgrade(_descriptible.Capture(), _upgradeFlyweight.Create());
-        TitledDescription IModel<TitledDescription>.Capture() => _descriptible.Capture();
+        public DescriptibleUpgrade Capture() => new DescriptibleUpgrade(_descriptibleModel.Capture(), _upgradeFlyweight.Create());
+        TitledDescription IModel<TitledDescription>.Capture() => _descriptibleModel.Capture();
         
         public override IResourceUpgrade Create()
         {

@@ -1,14 +1,14 @@
 ﻿namespace MVPFramework.Model
 {
-    public readonly struct Model<TData> : IModel<TData>
+    public readonly struct Model<TState> : IModel<TState>
     {
-        private readonly TData _state;
+        private readonly TState _state;
 
-        public Model(TData model) => _state = model;
+        public Model(TState model) => _state = model;
 
-        public TData Capture() => _state;
+        public TState Capture() => _state;
 
-        public static implicit operator TData(Model<TData> model) => model._state;
-        public static implicit operator Model<TData>(TData model) => new Model<TData>(model);
+        public static implicit operator TState(Model<TState> model) => model._state;
+        public static implicit operator Model<TState>(TState model) => new Model<TState>(model);
     }
 }
