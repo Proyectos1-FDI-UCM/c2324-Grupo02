@@ -42,7 +42,7 @@ struct TexturedTerrainModificationSource
 };
 
 // --- Modification Sources ---
-#define MAX_SOURCES 32
+//#define MAX_SOURCES 32
 uniform StructuredBuffer<TerrainModificationSource> _Sources;
 uniform uint _SourceCount;
 
@@ -244,26 +244,25 @@ void ModifyTerrainTexture(uint3 id : SV_DispatchThreadID)
 	float4 maxPositionWS = mul(_ClipToWorldMatrix, float4(maxUV * 2.0f - 1.0f, 0.0f, 1.0f));
 	maxPositionWS /= maxPositionWS.w;
 
-	[unroll]
-	for (uint i = 0; i < MAX_SOURCES; i++)
-	{
 #if ( USE_TYPED_SDF )
-		if (i >= _SourceCount)
-			break;
-
+	[loop]
+	for (uint i = 0; i < _SourceCount; i++)
+	{
 		TerrainModificationSource source = _Sources[i];
 		source.positionWS = SMOD(source.positionWS - minPositionWS.xyz, maxPositionWS.xyz - minPositionWS.xyz) + minPositionWS.xyz;
 		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
 #elif ( USE_TEXTURED_SDF )
-		if (i >= _TexturedSourceCount)
-			break;
+	[loop]
+	for (uint i = 0; i < _TexturedSourceCount; i++)
+	{
 
 		TexturedTerrainModificationSource source = _TexturedSources[i];
 		source.positionWS = SMOD(source.positionWS - minPositionWS.xyz, maxPositionWS.xyz - minPositionWS.xyz) + minPositionWS.xyz;
 		float contribution = SourceContributionWithTexturedSDF(positionWS.xyz, source);
 #else
-		if (i >= _SourceCount)
-			break;
+	[loop]
+	for (uint i = 0; i < _SourceCount; i++)
+	{
 
 		TerrainModificationSource source = _Sources[i];
 		source.positionWS = SMOD(source.positionWS - minPositionWS.xyz, maxPositionWS.xyz - minPositionWS.xyz) + minPositionWS.xyz;
@@ -289,25 +288,22 @@ void ModifyTerrainWindow(uint3 id : SV_DispatchThreadID)
 	float4 positionWS = mul(_ClipToWorldMatrix, float4(uv * 2.0f - 1.0f, 0.0f, 1.0f));
 	positionWS /= positionWS.w;
 
-	[unroll]
-	for (uint i = 0; i < MAX_SOURCES; i++)
-	{
 #if ( USE_TYPED_SDF )
-		if (i >= _SourceCount)
-			break;
-
+	[loop]
+	for (uint i = 0; i < _SourceCount; i++)
+	{
 		TerrainModificationSource source = _Sources[i];
 		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
 #elif ( USE_TEXTURED_SDF )
-		if (i >= _TexturedSourceCount)
-			break;
-
+	[loop]
+	for (uint i = 0; i < _TexturedSourceCount; i++)
+	{
 		TexturedTerrainModificationSource source = _TexturedSources[i];
 		float contribution = SourceContributionWithTexturedSDF(positionWS.xyz, source);
 #else
-		if (i >= _SourceCount)
-			break;
-
+	[loop]
+	for (uint i = 0; i < _SourceCount; i++)
+	{
 		TerrainModificationSource source = _Sources[i];
 		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
 #endif

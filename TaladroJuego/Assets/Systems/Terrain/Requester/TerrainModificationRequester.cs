@@ -52,7 +52,7 @@ namespace TerrainSystem.Requester
         private ITerrainDataRetriever<float[]> _terrainModificationsRetriever;
 
         public const int MAX_TERRAIN_TYPES = 32;
-        public const int MAX_TERRAIN_SOURCES = 32;
+        public const int MAX_TERRAIN_SOURCES = 256;
         public bool Initialized { get; private set; }
 
         public event EventHandler ModificationRequested;
@@ -90,8 +90,8 @@ namespace TerrainSystem.Requester
             InitializeRenderTextures(terrainTextureSize, terrainWindowTextureSize);
             InitializeBuffers();
 
-            _typedSources = new List<ITerrainModificationSourceFlyweight<TerrainModificationSource>>(MAX_TERRAIN_SOURCES);
-            _texturedSources = new List<ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource>>(MAX_TERRAIN_SOURCES);
+            _typedSources = new List<ITerrainModificationSourceFlyweight<TerrainModificationSource>>();
+            _texturedSources = new List<ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource>>();
 
             _terrainModifierRequestable = new TerrainModifierRequestable(
                 _terrainModificationShader,
