@@ -25,7 +25,7 @@ namespace InputSystem
 
         public void SwitchPause() {
             _isGamePaused = !_isGamePaused;
-            _HUDPanel.SetActive(!_isGamePaused);
+            //_HUDPanel.SetActive(!_isGamePaused);
             _settingsPanel.SetActive(_isGamePaused);
 
             if (_isGamePaused) _pauseRequester.RequestPause();
