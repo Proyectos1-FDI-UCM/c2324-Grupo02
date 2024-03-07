@@ -20,7 +20,7 @@ namespace TerrainSystem.Data.Flyweight
                 terrainModificationSource.GetPosition(),
                 -terrainModificationSource.GetRotation().eulerAngles,
                 (uint)_sdfType,
-                configuration.Radius,
+                new Vector4(configuration.Size.x, configuration.Size.y, configuration.Size.z, configuration.Radius),
                 configuration.Strength,
                 configuration.Falloff,
                 configuration.Type);

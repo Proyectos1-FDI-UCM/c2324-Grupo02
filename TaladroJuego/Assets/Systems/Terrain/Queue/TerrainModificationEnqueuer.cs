@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using TerrainSystem.Data;
+﻿using TerrainSystem.Data;
 using TerrainSystem.Data.Flyweight;
 using TerrainSystem.Requester;
 using UnityEngine;

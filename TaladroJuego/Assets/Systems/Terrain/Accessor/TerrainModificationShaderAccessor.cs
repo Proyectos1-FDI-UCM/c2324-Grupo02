@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Profiling;
 using UnityEngine.Rendering;
 
 namespace TerrainSystem.Accessor
@@ -195,11 +196,17 @@ namespace TerrainSystem.Accessor
                 dimensions.y / groupSizeY,
                 dimensions.z / groupSizeZ));
 
+#if UNITY_EDITOR
+            Profiler.BeginSample("TerrainModificationShader.Dispatch");
+#endif
             _terrainComputeShader.Dispatch(
                 kernel,
                 threadGroups.x,
                 threadGroups.y,
                 threadGroups.z);
+#if UNITY_EDITOR
+            Profiler.EndSample();
+#endif
         }
 
         public void DispatchIntializeTerrain(Texture terrainTexture)

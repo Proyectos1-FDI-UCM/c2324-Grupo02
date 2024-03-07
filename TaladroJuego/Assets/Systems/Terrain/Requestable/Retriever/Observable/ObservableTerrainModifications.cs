@@ -31,7 +31,7 @@ namespace TerrainSystem.Requestable.Retriever.Observable
         private void OnModificationRetrieved(object sender, TerrainModification e)
         {
             float absAmount = Mathf.Abs(e.amount);
-            if (absAmount > _lowerThreshold && absAmount < _upperThreshold)
+            if (absAmount >= _lowerThreshold && absAmount < _upperThreshold)
                 DataRetrieved?.Invoke(this, e);
         }
     }

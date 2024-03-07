@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7595823221513419534}
   - component: {fileID: 3212899583800744054}
   - component: {fileID: 6974182885474682973}
+  - component: {fileID: 4863631896860975680}
   - component: {fileID: 843003885825509049}
   - component: {fileID: 1492559800729188808}
   - component: {fileID: 817183633039270676}
@@ -31,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 2217449776686239663}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -809.19995, y: 435.04004, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2203810958691944408}
@@ -87,7 +88,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceTerrainTypeBinder: {fileID: 11400000, guid: ef3f74f8ee1c5c145ae8c2a8d56f5588, type: 2}
-  _conversionRate: 1.5
+  _conversionRate: 2
+--- !u!114 &4863631896860975680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2217449776686239663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54f8e061411bd0419dc7716f150ca0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _terrainTypeSpeedProfilesPairs:
+  - <MovementProfile>k__BackingField: {fileID: 11400000, guid: 5f3d34d2b6bcdd0479b75486a1d021a1, type: 2}
+    <TerrainType>k__BackingField: 0
+  - <MovementProfile>k__BackingField: {fileID: 11400000, guid: 3aa2f2f3954cbc74f99bb2d71b91d389, type: 2}
+    <TerrainType>k__BackingField: 3
+  _speedRegister: {fileID: 0}
 --- !u!114 &843003885825509049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lowerThreshold: 0.01
-  _upperThreshold: 0.1
+  _upperThreshold: 0.5
 --- !u!114 &1492559800729188808
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342b1153790faaf49bdf9f09aa5038fc, type: 3}
   m_Name: TerrainModificationSource
   m_EditorClassIdentifier: 
-  _sdfType: 0
+  _sdfType: 1
   _configuration: {fileID: 11400000, guid: 6f3198ec5bb24bc44845b8a121e63357, type: 2}

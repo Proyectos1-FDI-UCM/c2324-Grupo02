@@ -1,7 +1,10 @@
 {
-    "name": "Terrain-System",
+    "name": "Terrain-Movement-System",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:bf3bea7b2c567644da66422a5730a689",
+        "GUID:4efaa7d0f042faa49bd9e295a34111b1"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

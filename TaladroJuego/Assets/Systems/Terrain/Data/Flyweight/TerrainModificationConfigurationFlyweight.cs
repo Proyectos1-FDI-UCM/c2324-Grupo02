@@ -8,12 +8,14 @@ namespace TerrainSystem.Data.Flyweight
     {
         private readonly struct Configuration : ITerrainModificationConfiguration
         {
+            public Vector3 Size { get; }
             public float Radius { get; }
             public float Strength { get; }
             public float Falloff { get; }
             public uint Type { get; }
-            public Configuration(float radius, float strength, float falloff, uint type)
+            public Configuration(Vector3 size, float radius, float strength, float falloff, uint type)
             {
+                Size = size;
                 Radius = radius;
                 Strength = strength;
                 Falloff = falloff;
@@ -22,22 +24,25 @@ namespace TerrainSystem.Data.Flyweight
         }
 
         [SerializeField]
-        [Min(0.0f)]
-        private float _radius;
+        private Vector3 _size = Vector3.one;
 
         [SerializeField]
         [Min(0.0f)]
-        private float _strength;
+        private float _radius = 1.0f;
 
         [SerializeField]
         [Min(0.0f)]
-        private float _falloff;
+        private float _strength = 1.0f;
+
+        [SerializeField]
+        [Min(0.0f)]
+        private float _falloff = 1.0f;
 
         [SerializeField]
         [Min(0)]
-        private int _type;
+        private int _type = 0;
 
         public ITerrainModificationConfiguration Create() =>
-            new Configuration(_radius, _strength, _falloff, (uint)_type);
+            new Configuration(_size, _radius, _strength, _falloff, (uint)_type);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace MovementSystem.Profile
 {
-    internal class SpeedRegister : MonoBehaviour, ISpeedProvider
+    public class SpeedRegister : MonoBehaviour, ISpeedProvider
     {
         [SerializeField] private SpeedProfile _speedProvider;
 

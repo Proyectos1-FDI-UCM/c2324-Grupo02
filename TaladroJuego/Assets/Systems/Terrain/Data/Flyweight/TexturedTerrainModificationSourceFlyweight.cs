@@ -34,7 +34,7 @@ namespace TerrainSystem.Data.Flyweight
                 (uint)_alphaTextureIndex,
                 _alphaTextureSize,
                 _alphaTextureScale,
-                configuration.Radius,
+                new Vector4(configuration.Size.x, configuration.Size.y, configuration.Size.z, configuration.Radius),
                 configuration.Strength,
                 configuration.Falloff,
                 configuration.Type);
