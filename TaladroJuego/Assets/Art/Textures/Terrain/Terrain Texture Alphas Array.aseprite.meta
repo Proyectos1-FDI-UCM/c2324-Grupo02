@@ -121,14 +121,14 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Terrain Texture Alphas Array
     originalName: 
-    pivot: {x: 1.0250001, y: -7.7586207}
+    pivot: {x: 1.3820225, y: -7.7586207}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 120
+      width: 89
       height: 29
     spriteID: 5511e6c2ca179ab47a6be73a8d70c24a
     spriteBone: []
@@ -153,7 +153,7 @@ ScriptedImporter:
       cellRect:
         x: 5
         y: 225
-        width: 120
+        width: 89
         height: 29
       spriteId: 5511e6c2ca179ab47a6be73a8d70c24a
     linkedCells: []

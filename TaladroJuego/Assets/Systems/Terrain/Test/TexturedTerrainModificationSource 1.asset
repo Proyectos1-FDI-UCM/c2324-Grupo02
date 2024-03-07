@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60fa238c4395bc45aa5623046d2a53f, type: 3}
   m_Name: TexturedTerrainModificationSource 1
   m_EditorClassIdentifier: 
-  _alphaTextureIndex: 3
+  _alphaTextureIndex: 1
   _alphaTextureSize: {x: 32, y: 32}
   _alphaTextureScale: {x: 1, y: 1, z: 1}
   _positionOffset: {x: 0, y: 0, z: 0}

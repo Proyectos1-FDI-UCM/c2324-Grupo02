@@ -13010,7 +13010,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 3.90625
       objectReference: {fileID: 0}
     - target: {fileID: -4746020446810350804, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Enabled
@@ -17134,8 +17134,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862574418}
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.30875
+  m_Value: 1.0000001
+  m_Size: 0.30875003
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
