@@ -15,3 +15,5 @@ MonoBehaviour:
   _resourceTerrainTypePairs:
   - <ResourceType>k__BackingField: 0
     <TerrainType>k__BackingField: 3
+  - <ResourceType>k__BackingField: 1
+    <TerrainType>k__BackingField: 4

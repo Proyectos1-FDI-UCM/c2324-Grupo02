@@ -89,7 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageHandler: {fileID: 0}
   _interval: 1.25
-  _startOnStart: 0
+  _startOnStart: 1
 --- !u!1 &1230360752794854036
 GameObject:
   m_ObjectHideFlags: 0

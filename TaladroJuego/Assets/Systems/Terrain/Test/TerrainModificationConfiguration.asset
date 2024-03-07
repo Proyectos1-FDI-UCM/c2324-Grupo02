@@ -15,5 +15,5 @@ MonoBehaviour:
   _size: {x: 1, y: 1, z: 1}
   _radius: 0
   _strength: 1
-  _falloff: 0.5
+  _falloff: 0.25
   _type: 2
