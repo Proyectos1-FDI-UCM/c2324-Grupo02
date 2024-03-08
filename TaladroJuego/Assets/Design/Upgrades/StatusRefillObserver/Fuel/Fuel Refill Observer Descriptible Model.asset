@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Fuel Refill Observer Descriptible Model
   m_EditorClassIdentifier: 
   _name: Automatic fuel restoration
-  _description: "Get fuel back automaticly when under 50% max fuel \n(If you've got
+  _description: "Get fuel back automaticly when under 33% max fuel \n(If you've got
     the coal!)"

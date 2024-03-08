@@ -15,5 +15,5 @@ MonoBehaviour:
   _name: Total fuel Up!
   _description: 'Sometimes you need just a bit more gas after a break, don''t you?
 
-    10%
+    +10
     max Fuel increase'

@@ -1,6 +1,3 @@
-using Codice.Client.Common.GameUI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -103,6 +103,7 @@ namespace UISystem.MVP.Presenter
             }
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (_upgradeButtons == null || _upgradeButtons.Length == 0)
@@ -123,5 +124,6 @@ namespace UISystem.MVP.Presenter
             _upgradeButtonRoots = new GameObject[0];
             _resourceIconRoots = new GameObject[0];
         }
+#endif
     }
 }

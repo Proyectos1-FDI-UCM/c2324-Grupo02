@@ -15,4 +15,5 @@ MonoBehaviour:
   _name: Total health Up!
   _description: 'Is your ship fragile? Make it more resistent!
 
-    10% max HP increase'
+    +18 max Health
+    increase'

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cbf3c260af02444a870ef558d55e9f, type: 3}
   m_Name: Fuel Refill Observer Upgrade
   m_EditorClassIdentifier: 
-  _valueForPurchase: 50
+  _valueForPurchase: 33
   _quotaResources: {fileID: 11400000, guid: 93a605572269650458715e06c3dbfae1, type: 2}
   _resourcesContainer: {fileID: 11400000, guid: a936a8743a3e08649a6ad89de7fbd811, type: 2}

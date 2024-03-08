@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b9772578530e34b9584b00b098a559, type: 3}
   m_Name: Mining Efficiency I
   m_EditorClassIdentifier: 
-  _factor: 1.5
+  _factor: 1.12

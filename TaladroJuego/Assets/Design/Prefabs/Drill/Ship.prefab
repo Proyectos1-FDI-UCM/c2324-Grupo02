@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 8708206004692333652}
   - component: {fileID: 2384763123888165454}
   - component: {fileID: 627019354486945276}
+  - component: {fileID: 8084391435055214751}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -172,6 +173,21 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &627019354486945276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549801747418667160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a8861d138f5e224d95f3f4d32d517dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusParameter: {fileID: 2384763123888165454}
+  _upgrades:
+  - {fileID: 11400000, guid: e0bd8924b805e3848bec5d241f510e2b, type: 2}
+--- !u!114 &8084391435055214751
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -310,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 383083186636943588}
-  _valueToReduce: 0.1
+  _valueToReduce: 0.01
   _statusParameterObject: {fileID: 8192837083233604389}
 --- !u!1 &1741784776457609888
 GameObject:
@@ -345,7 +361,7 @@ Transform:
   m_Children:
   - {fileID: 2631363485176528437}
   - {fileID: 101900304177381616}
-  - {fileID: 421742126751466264}
+  - {fileID: 1852801450912304199}
   - {fileID: 6287945780930338805}
   - {fileID: 133004323081666714}
   m_Father: {fileID: 0}
@@ -423,6 +439,7 @@ GameObject:
   - component: {fileID: 662717982296132980}
   - component: {fileID: 650023317807121636}
   - component: {fileID: 906262222856906038}
+  - component: {fileID: 2832301735672958141}
   m_Layer: 0
   m_Name: Fuel
   m_TagString: Untagged
@@ -464,7 +481,7 @@ MonoBehaviour:
       - m_Target: {fileID: 456065451356028716}
         m_TargetAssemblyTypeName: InputSystem.ShipRotationInput, Input-System
         m_MethodName: TryEnableRotation
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -485,7 +502,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UISystem.UIStatusParameterSlider, UI-System
+        m_MethodName: UpdateUISlider
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &906262222856906038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3330652055722489186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a8861d138f5e224d95f3f4d32d517dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusParameter: {fileID: 650023317807121636}
+  _upgrades:
+  - {fileID: 11400000, guid: df8a78b4a46e35447ab10859cfb9c5df, type: 2}
+--- !u!114 &2832301735672958141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -982,6 +1026,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requesterObject: {fileID: 11400000, guid: dde60c5c9d5c1e24f9aeef4520618f1c, type: 2}
+--- !u!1 &6534065136443651952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1852801450912304199}
+  - component: {fileID: 6278704627922127476}
+  - component: {fileID: 9093479425619716654}
+  - component: {fileID: 8971332623252312947}
+  m_Layer: 0
+  m_Name: Mining Drill
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1852801450912304199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534065136443651952}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5084829399306703634}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6278704627922127476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534065136443651952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f9e60ccf97e2144aa6b4a3ec104756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flyweight: {fileID: 11400000, guid: 6c5a77a758335294d83f7489fb4551fb, type: 2}
+  _source: {fileID: 1852801450912304199}
+  _positionOffset: {x: 0, y: 0, z: 0}
+  _rotationOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &9093479425619716654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534065136443651952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912d889ed747d434bb0dcd5101098bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _requester: {fileID: 11400000, guid: 328c41906e1c80b488fd7db89c17f23e, type: 2}
+--- !u!114 &8971332623252312947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534065136443651952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a67eb254a9cab4ba11f581605881e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enqueuer: {fileID: 9093479425619716654}
+  _enqueueOnStart: 1
+  _dequeueOnDestroy: 1
 --- !u!1 &6921976127796801602
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +1115,7 @@ GameObject:
   - component: {fileID: 101900304177381616}
   - component: {fileID: 5545775524567158765}
   - component: {fileID: 7688480082877671580}
+  - component: {fileID: 1197312366137884134}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -1088,34 +1211,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &7930864321697294530
-GameObject:
+--- !u!114 &1197312366137884134
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 421742126751466264}
-  m_Layer: 0
-  m_Name: Mining Drill
-  m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &421742126751466264
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7930864321697294530}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5084829399306703634}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 6921976127796801602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b81c601e09e4e4ebed31139472b559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 7688480082877671580}
+  _shipRigidBody: {fileID: 383083186636943588}
