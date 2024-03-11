@@ -148,14 +148,54 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Terrain Texture Array
+    - name: Terrain Texture Array_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
-        y: 448
-        width: 320
+        y: 0
+        width: 64
         height: 64
       spriteId: 4e59b889cd8360b48acae6ebf979bd34
+    - name: Terrain Texture Array_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      spriteId: d36c44243c73b1a40abd4e57af37a27d
+    - name: Terrain Texture Array_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      spriteId: a63fba3ed006f7841a09a5bb62dc82fd
+    - name: Terrain Texture Array_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      spriteId: ce7079080d88f2c408a60a920409bbc5
+    - name: Terrain Texture Array_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      spriteId: 08d9f5f24bee0f04198ae851b1e35c13
+    - name: Terrain Texture Array_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      spriteId: 3daeb437b7b47b549918cdd4b215e408
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -197,4 +237,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 512, y: 512}
+  canvasSize: {x: 64, y: 64}
