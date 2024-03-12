@@ -15268,7 +15268,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 3.90625
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -23800,7 +23800,7 @@ GameObject:
   - component: {fileID: 1928660216}
   - component: {fileID: 1928660215}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: SceneOptions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
