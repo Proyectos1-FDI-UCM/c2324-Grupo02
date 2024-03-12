@@ -2,7 +2,7 @@
 
 namespace TerrainSystem.Data
 {
-    internal readonly struct TexturedTerrainModificationSource : ITerrainModificationSource, ITerrainModificationConfiguration
+    public readonly struct TexturedTerrainModificationSource : ITerrainModificationSource, ITerrainModificationConfiguration
     {
         public const int SIZE_OF = ((sizeof(float) * 3) * 3) + (sizeof(uint) * 2) + (sizeof(int) * 2) + (sizeof(float) * 4) + (sizeof(float) * 2);
 

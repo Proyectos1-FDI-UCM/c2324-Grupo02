@@ -1,0 +1,19 @@
+{
+    "name": "Interaction-Implementations-System",
+    "rootNamespace": "",
+    "references": [
+        "GUID:cb9c8e10fe674fd41bd9104c61e6b12d",
+        "GUID:e9f604d8cff75354db9800eeb5a94199",
+        "GUID:bf3bea7b2c567644da66422a5730a689",
+        "GUID:efdf010bdc4e5654c9d275557915ca5a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -7,7 +7,7 @@ using StatusSystem;
 
 namespace DamageSystem.Handler
 {
-    internal class DamageHandler : MonoBehaviour
+    public class DamageHandler : MonoBehaviour
     {
         
         private IStatusParameterLocator _statusLocator;
