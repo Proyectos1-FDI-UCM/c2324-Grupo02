@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TerrainSystem.Queue
 {
-    internal class QueueableTexturedTerrainModification : MonoBehaviour,
+    public class QueueableTexturedTerrainModification : MonoBehaviour,
         IQueueableTerrainModification<ITerrainModificationEnqueuer<ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource>>>
     {
         [SerializeField]

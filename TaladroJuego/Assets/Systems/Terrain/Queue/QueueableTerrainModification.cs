@@ -41,7 +41,7 @@ namespace TerrainSystem.Queue
 
     }
 
-    internal class QueueableTerrainModification : MonoBehaviour,
+    public class QueueableTerrainModification : MonoBehaviour,
         IQueueableTerrainModification<ITerrainModificationEnqueuer<ITerrainModificationSourceFlyweight<TerrainModificationSource>>>
     {
         [SerializeField]
