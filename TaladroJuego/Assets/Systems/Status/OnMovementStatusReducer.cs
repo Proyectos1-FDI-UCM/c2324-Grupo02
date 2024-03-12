@@ -4,7 +4,7 @@ using RequireAttributes;
 
 namespace StatusSystem
 {
-    internal class OnMovementStatusReducer : MonoBehaviour
+    public class OnMovementStatusReducer : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private float _valueToReduce;
@@ -18,9 +18,16 @@ namespace StatusSystem
 
         private void FixedUpdate()
         {
-            if (_rb.velocity != Vector2.zero) _statusParameter.ReduceValue(_valueToReduce);
+            ReduceStatus();
 
         }
+
+        public void ReduceStatus()
+        {
+            if (_rb.velocity != Vector2.zero) _statusParameter.ReduceValue(_valueToReduce);
+        }
+
+
     }
 }
 
