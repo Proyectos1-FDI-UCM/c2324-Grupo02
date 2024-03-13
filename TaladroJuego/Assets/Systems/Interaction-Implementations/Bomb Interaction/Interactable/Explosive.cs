@@ -12,8 +12,12 @@ namespace InteractionImplementationsSystem.BombInteraction.Interactable
     {
         [SerializeField] private DamageHandler _damageHandler;
         private ITerrainModificationEnqueuer<ITerrainModificationSourceFlyweight<TerrainModificationSource>> _terrainModificationEnqueuer;
-        [SerializeField] private QueueableTerrainModification _terrainModification;        
+        [SerializeField] private QueueableTerrainModification _terrainModification;
 
+        private void Awake()
+        {
+            _terrainModificationEnqueuer = GetComponent<ITerrainModificationEnqueuer<ITerrainModificationSourceFlyweight<TerrainModificationSource>>>();
+        }
 
         public bool Explode()
         {

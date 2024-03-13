@@ -15,7 +15,7 @@ namespace DamageSystem.Locator
 
 
 
-         
+
 
         private void Start()
         {
@@ -32,14 +32,17 @@ namespace DamageSystem.Locator
 
             foreach (Collider2D obj in _objects)
             {
-                if ( obj.gameObject.TryGetComponent<IStatusParameter>(out IStatusParameter statusParameter))
+                if (TryGetComponentInChildren(obj.gameObject, out IStatusParameter statusParameter))
                 {
                     foundObjects.Add(statusParameter);
                 }
             }
 
             return foundObjects.ToArray();
-            
+
         }
+
+        private static bool TryGetComponentInChildren<T>(GameObject gameObject, out T component) =>
+            (component = gameObject.GetComponentInChildren<T>()) != null;
     }
 }
