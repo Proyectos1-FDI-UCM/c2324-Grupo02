@@ -83,6 +83,8 @@ namespace InputSystem
 
         public void SwitchGearDirectionalSense()
         {
+            if (!_reverseGearAvailable) return;
+
             _reverseGearActivated = !_reverseGearActivated;
         }
 
