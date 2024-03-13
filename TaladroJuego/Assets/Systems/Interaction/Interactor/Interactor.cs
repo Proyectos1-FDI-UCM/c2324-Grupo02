@@ -2,7 +2,7 @@
 
 namespace InteractionSystem.Interactor
 {
-    internal readonly struct Interactor<T> : IInteractor
+    public readonly struct Interactor<T> : IInteractor
     {
         private readonly IInteractor<T> interactor;
 

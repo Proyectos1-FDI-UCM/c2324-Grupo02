@@ -1,0 +1,16 @@
+{
+    "name": "Cartridge-Collection-System",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a649f011eeda93c49855e3c095601841"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
