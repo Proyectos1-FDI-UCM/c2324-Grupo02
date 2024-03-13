@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ContextualDialogueSystem.Event;
 
 namespace InteractionImplementationsSystem.CartridgeInteraction.Interactable
 {
     internal class Cartridge : MonoBehaviour
     {
-        [SerializeField] private CollectableCartridge _collectableCartridge;
+        [SerializeField] private DialogueEventObject _dialogEvent;
+        [SerializeField] private PauseRequesterObject _pauseRequester;
+        //inventario de cartuchos
 
-        public CollectableCartridge CollectableCartridge => _collectableCartridge;
+        public bool PlayCartridge()
+        {
+            //añadir cartucho al inventario
+            _pauseRequester.RequestPause();
+            _dialogEvent.Dispatch();
+
+            return true;
+        }
     }
 }
 
