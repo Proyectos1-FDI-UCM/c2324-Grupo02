@@ -8,13 +8,17 @@ namespace InputSystem
     {
 
         [SerializeField] private InputActionReference _thrustInputActionReference;
+        [SerializeField] private InputActionReference _revertGearInputActionReference;
 
 
         private IMovementFacade<Vector2>  shipDirectionalMovementFacade;
 
 
         private bool _thrustActivated = false;
+        private bool _reverseGearActivated = false;
+
         private bool _fuelIsEmpty = false;
+        private bool _reverseGearAvailable = false;
 
         [SerializeField] private float _minFuel;
 
@@ -28,23 +32,32 @@ namespace InputSystem
 
         private void FixedUpdate()
         {
-            if (_thrustActivated && !_fuelIsEmpty) shipDirectionalMovementFacade.Move(transform.up);
+            int directionSense = (_reverseGearActivated)? -1 : 1;
+
+            if (_thrustActivated && !_fuelIsEmpty) shipDirectionalMovementFacade.Move(transform.up * directionSense);
             else shipDirectionalMovementFacade.Move(Vector2.zero);
         }
 
         private void SubscribeMovementInputs()
         {
             _thrustInputActionReference.action.performed += OnThrustInputStarted;
+            _revertGearInputActionReference.action.performed += OnRevertGearInputApplied;
         }
 
         private void UnsubscribeMovementInputs()
         {
             _thrustInputActionReference.action.performed -= OnThrustInputStarted;
+            _revertGearInputActionReference.action.performed -= OnRevertGearInputApplied;
         }
 
         private void OnThrustInputStarted(InputAction.CallbackContext obj)
         {
             SwitchThrust();
+        }
+
+        private void OnRevertGearInputApplied(InputAction.CallbackContext obj)
+        {
+            SwitchGearDirectionalSense();
         }
 
         public void StopEngine()
@@ -57,10 +70,20 @@ namespace InputSystem
             if (_fuelIsEmpty && value > _minFuel) _fuelIsEmpty = false;
         }
 
+        public void SetReverseGearAvailability(bool value)
+        {
+            _reverseGearAvailable = value;
+        }
+
 
         public void SwitchThrust()
         {
             _thrustActivated = !_thrustActivated;
+        }
+
+        public void SwitchGearDirectionalSense()
+        {
+            _reverseGearActivated = !_reverseGearActivated;
         }
 
         #region ENABLE / DISABLE INPUTACTIONS

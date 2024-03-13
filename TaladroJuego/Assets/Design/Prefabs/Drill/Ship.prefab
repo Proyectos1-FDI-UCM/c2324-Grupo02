@@ -705,6 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _thrustInputActionReference: {fileID: 5025922071406065053, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
+  _revertGearInputActionReference: {fileID: 1819377725146050126, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
   _minFuel: 0
 --- !u!114 &2520298870134232695
 MonoBehaviour:
