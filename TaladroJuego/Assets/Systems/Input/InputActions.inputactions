@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "Press(behavior=1)",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "RevertGear",
+                    "type": "Button",
+                    "id": "16c186c6-b182-4e57-ab1e-3853564b60a1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -528,6 +537,17 @@
                     "action": "RotateCanceled",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "86d2c0ac-1bd7-4f21-b3fe-31366cdbfa8a",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RevertGear",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

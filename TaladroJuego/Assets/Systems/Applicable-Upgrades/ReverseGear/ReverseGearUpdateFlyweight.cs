@@ -1,18 +1,41 @@
+using MovementSystem.Profile;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UpgradesSystem.Applicable;
+using UpgradesSystem.Flyweight.Applicable;
+using InputSystem;
 
-public class ReverseGearUpdateFlyweight : MonoBehaviour
+namespace ApplicableUpgradesSystem.RevesibleGearUpgrade
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(menuName = "Upgrades/Flyweight/Applicable/ReverseGear")]
+    internal class ReverseGearUpgradeFlyweight : ApplicableUpgradeFlyweight
     {
-        
-    }
+        public event UpgradeResourceEvent<ShipMovementInput> UpgradeReverseGearEvent;
+        private readonly struct ReverseGearApplicableUpgrade : IApplicableUpgrade
+        {
+            private readonly ShipMovementInput _shipMovementInput;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            public ReverseGearApplicableUpgrade(ShipMovementInput shipMovementInput)
+            {
+                _shipMovementInput = shipMovementInput;
+            }
+
+            public void Apply()
+            {
+                _shipMovementInput.SetReverseGearAvailability(true);
+            }
+        }
+
+        public override IApplicableUpgrade Create()
+        {
+            ShipMovementInput shipMovementInput = UpgradeReverseGearEvent?.Invoke();
+
+            if (shipMovementInput != null)
+            {
+                return new ReverseGearApplicableUpgrade(shipMovementInput);
+            }
+            else return NullUpgrade.Instance;
+        }
     }
 }
