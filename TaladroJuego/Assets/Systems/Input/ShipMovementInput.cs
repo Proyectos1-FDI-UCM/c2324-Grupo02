@@ -22,12 +22,27 @@ namespace InputSystem
 
         [SerializeField] private float _minFuel;
 
-
         private void Awake()
         {
             SubscribeMovementInputs();
             shipDirectionalMovementFacade = GetComponentInChildren<IMovementFacade<Vector2>>();
+        }
 
+        private void OnEnable()
+        {
+            _thrustInputActionReference.action.Enable();
+            _revertGearInputActionReference.action.Enable();
+        }
+
+        private void OnDisable()
+        {
+            _thrustInputActionReference.action.Disable();
+            _revertGearInputActionReference.action.Disable();
+        }
+
+        private void OnDestroy()
+        {
+            UnsubscribeMovementInputs();
         }
 
         private void FixedUpdate()
@@ -58,6 +73,7 @@ namespace InputSystem
         private void OnRevertGearInputApplied(InputAction.CallbackContext obj)
         {
             SwitchGearDirectionalSense();
+            Debug.Log(_reverseGearActivated);
         }
 
         public void StopEngine()
@@ -73,6 +89,7 @@ namespace InputSystem
         public void SetReverseGearAvailability(bool value)
         {
             _reverseGearAvailable = value;
+            Debug.Log(_reverseGearAvailable);
         }
 
 
@@ -88,19 +105,10 @@ namespace InputSystem
             _reverseGearActivated = !_reverseGearActivated;
         }
 
-        #region ENABLE / DISABLE INPUTACTIONS
+       
 
-        private void OnEnable()
-        {
-            _thrustInputActionReference.action.Enable();
-        }
+        
 
-        private void OnDisable()
-        {
-            _thrustInputActionReference.action.Disable();
-        }
-
-        #endregion
     }
 }
 
