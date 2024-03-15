@@ -15,6 +15,7 @@ namespace InteractionSystem.Handler
             _interactor = GetComponentInChildren<IInteractor>();
         }
 
-        public bool Interact() => _interactor.Accept(_interactorHandler);
+        public bool TryInteract() => _interactor.Accept(_interactorHandler);
+        public void Interact() => TryInteract();
     }
 }

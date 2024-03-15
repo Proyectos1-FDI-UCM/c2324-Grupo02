@@ -30,7 +30,7 @@ namespace InteractionSystem.Locator
                 && InteractableLocatorExtensions.TryGetComponentInChildren(collision.gameObject, out IInteractable interactable))
             {
                 _foundObjects.Add(interactable);
-                InteractableAdded.Invoke(interactable);
+                InteractableAdded?.Invoke(interactable);
             }
         }
 
@@ -40,7 +40,7 @@ namespace InteractionSystem.Locator
                 && InteractableLocatorExtensions.TryGetComponentInChildren(collision.gameObject, out IInteractable interactable))
             {
                 _foundObjects.Remove(interactable);
-                InteractableRemoved.Invoke(interactable);
+                InteractableRemoved?.Invoke(interactable);
             }
         }
 

@@ -50,12 +50,10 @@ namespace ApplicableUpgradesSystem.StatusRefillObserver
 
             if (statusParameter != null)
             {
-                Debug.Log("Subiendo Status");
                 return new StatusMaxValueUpApplicableUpgrade(statusParameter, _valueForPurchase, _resourcesContainer, _quotaResources);
             }
             else
             {
-                Debug.Log(UpgradeStatusRefillObserverEvent);
                 return NullUpgrade.Instance;
             }
         }
