@@ -196,6 +196,22 @@ ScriptedImporter:
         width: 64
         height: 64
       spriteId: 3daeb437b7b47b549918cdd4b215e408
+    - name: Terrain Texture Array_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      spriteId: 500ecd9ed9eadae419a71f8d30affc5e
+    - name: Terrain Texture Array_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      spriteId: 32d69d13823d13f49bba8311c5b009f9
     linkedCells: []
     parentIndex: -1
   platformSettings:
