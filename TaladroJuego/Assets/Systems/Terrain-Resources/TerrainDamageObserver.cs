@@ -11,14 +11,16 @@ namespace TerrainResourcesSystem
     public class TerrainDamageObserver : MonoBehaviour
     {
         
-        private IDamager _damager;
-        public IStatusParameter status;
+       
+       
         private IObservableTerrainData<TerrainModification> _modificator;
+        [SerializeField] private OnMovementStatusReducer _reducer;
         [SerializeField] private int harmfullterraintype;
         private void Awake()
         {
-            _damager = GetComponent<IDamager>();
             
+            
+           
             _modificator= GetComponent<IObservableTerrainData<TerrainModification>>();
             _modificator.DataRetrieved += OnDataRetrieve;
         }
@@ -32,7 +34,7 @@ namespace TerrainResourcesSystem
         {
             if (modificator.terrainType == harmfullterraintype)
             {
-                _damager.TryDamage(status);
+                _reducer.ReduceStatus();
             }
         }
     }
