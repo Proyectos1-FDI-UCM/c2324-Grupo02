@@ -4,36 +4,21 @@ using UnityEngine;
 
 namespace TerrainSystem.Requestable.Retriever.Observable
 {
-    internal class ObservableTerrainDifferencesModifications : MonoBehaviour, IObservableTerrainData<TerrainModification>,
-        IObservableTerrainData<TerrainModification[]>,
-        IObservableTerrainData<float>,
-        IObservableTerrainData<float[]>
+    internal class ObservableTerrainDifferencesModifications : MonoBehaviour,
+        IObservableTerrainData<TerrainModification>,
+        IObservableTerrainData<TerrainModification[]>
     {
         [SerializeField]
         private TerrainModificationRequester _terrainModificationRequester;
-        private readonly float[] _terrainModifications = new float[TerrainModificationRequester.MAX_TERRAIN_TYPES];
+        private readonly TerrainModification[] _terrainModifications = new TerrainModification[TerrainModificationRequester.MAX_TERRAIN_TYPES];
 
         public event EventHandler<TerrainModification> DataRetrieved;
         private event EventHandler<TerrainModification[]> TerrainModificationsRetrieved;
-        private event EventHandler<float> ModificationRetrieved;
-        private event EventHandler<float[]> ModificationsRetrieved;
 
         event EventHandler<TerrainModification[]> IObservableTerrainData<TerrainModification[]>.DataRetrieved
         {
             add => TerrainModificationsRetrieved += value;
             remove => TerrainModificationsRetrieved -= value;
-        }
-
-        event EventHandler<float> IObservableTerrainData<float>.DataRetrieved
-        {
-            add => ModificationRetrieved += value;
-            remove => ModificationRetrieved -= value;
-        }
-
-        event EventHandler<float[]> IObservableTerrainData<float[]>.DataRetrieved
-        {
-            add => ModificationsRetrieved += value;
-            remove => ModificationsRetrieved -= value;
         }
 
         private void Awake()
@@ -48,26 +33,20 @@ namespace TerrainSystem.Requestable.Retriever.Observable
 
         private void OnModificationRequested(object sender, EventArgs e)
         {
-            TerrainModification[] modificationDifferences = new TerrainModification[_terrainModifications.Length];
-            float[] differences = new float[_terrainModifications.Length];
-
-            float[] modifications = new float[_terrainModifications.Length];
+            TerrainModification[] modifications = new TerrainModification[_terrainModifications.Length];
             _terrainModificationRequester.Retrieve(in modifications);
 
             for (uint i = 0; i < modifications.Length; i++)
             {
-                float diference = modifications[i] - _terrainModifications[i];
+                TerrainModification terrainModification = modifications[i];
+                float diference = terrainModification.amount - _terrainModifications[i].amount;
 
-                _terrainModifications[i] = modifications[i];
-                modificationDifferences[i] = new TerrainModification(i, diference);
-                differences[i] = diference;
+                _terrainModifications[i] = terrainModification;
+                modifications[i] = terrainModification.WithAmount(diference);
 
-                DataRetrieved?.Invoke(this, new TerrainModification(i, diference));
-                ModificationRetrieved?.Invoke(this, diference);
+                DataRetrieved?.Invoke(this, modifications[i]);
             }
-
-            TerrainModificationsRetrieved?.Invoke(this, modificationDifferences);
-            ModificationsRetrieved?.Invoke(this, differences);
+            TerrainModificationsRetrieved?.Invoke(this, modifications);
         }
     }
 }

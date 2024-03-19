@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using TerrainSystem.Requestable.Retriever.Observable;
+using UnityEngine;
 
 namespace TerrainSystem.Requestable.Retriever
 {
-    internal readonly struct TerrainModificationsRetriever : ITerrainDataRetriever<float[]>
+    internal readonly struct TerrainModificationsRetriever : ITerrainDataRetriever<TerrainModification[]>
     {
         private readonly ComputeBuffer _modificationsBuffer;
 
@@ -11,14 +12,14 @@ namespace TerrainSystem.Requestable.Retriever
             _modificationsBuffer = modificationsBuffer;
         }
 
-        public void Retrieve(in float[] destination)
+        public void Retrieve(in TerrainModification[] destination)
         {
             _modificationsBuffer.GetData(destination);
         }
 
-        public float[] Retrieve()
+        public TerrainModification[] Retrieve()
         {
-            float[] destination = new float[_modificationsBuffer.count];
+            TerrainModification[] destination = new TerrainModification[_modificationsBuffer.count];
             Retrieve(in destination);
             return destination;
         }

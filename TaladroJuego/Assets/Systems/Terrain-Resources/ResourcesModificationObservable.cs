@@ -42,13 +42,13 @@ namespace TerrainResourcesSystem
             if (ConvertsToResource(cumulated, out float excess, out ResourceQuantityItem resourceQuantityItem))
                 DataRetrieved?.Invoke(this, resourceQuantityItem);
 
-            _cumulatedModifications[e.terrainType] = new TerrainModification(e.terrainType, excess);
+            _cumulatedModifications[e.terrainType] = e.WithAmount(excess);
         }
 
         private TerrainModification AccountForTerrainModification(TerrainModification e)
         {
             if (!_cumulatedModifications.TryAdd(e.terrainType, e))
-                _cumulatedModifications[e.terrainType] = new TerrainModification(e.terrainType, e.amount + _cumulatedModifications[e.terrainType].amount);
+                _cumulatedModifications[e.terrainType] = e.WithAmount(e.amount + _cumulatedModifications[e.terrainType].amount);
 
             return _cumulatedModifications[e.terrainType];
         }
