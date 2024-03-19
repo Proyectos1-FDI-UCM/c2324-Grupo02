@@ -6004,6 +6004,10 @@ PrefabInstance:
       propertyPath: <ValueSet>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1320267984}
+    - target: {fileID: 1103717291273948538, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1741784776457609888, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: m_Name
       value: Ship
@@ -6016,6 +6020,10 @@ PrefabInstance:
       propertyPath: <ReachedMin>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1328554549}
+    - target: {fileID: 4708734790744711597, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: _resourceTerrainTypePairs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
