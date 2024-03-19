@@ -8,24 +8,14 @@ namespace StatusSystem
         [SerializeField] private float _statusValue = 0.0f;
 
         [field: SerializeField] public UnityEvent<float> ValueSet { get; private set; }
-        public float StatusValue
+        public float Value
         {
             get { return _statusValue; }
-            private set
+            set
             {
                 _statusValue = value;
                 ValueSet.Invoke(_statusValue);
             }
-        }
-
-        public void AugmentValue(float value)
-        {
-            StatusValue += value;
-        }
-
-        public void ReduceValue(float value)
-        {
-            StatusValue -= value;
         }
     }
 }

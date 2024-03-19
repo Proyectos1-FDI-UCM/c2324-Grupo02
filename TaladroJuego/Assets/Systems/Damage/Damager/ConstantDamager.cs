@@ -7,12 +7,12 @@ namespace DamageSystem.Damager
     {
         [SerializeField]
         private float _damage = 1.0f;
-        public float Damage { set {  _damage = value; } }
+        public float Damage { set =>  _damage = value;  }
 
 
         public bool TryDamage(IStatusParameter status)
         {
-            status.ReduceValue(_damage); 
+            status.Value -= _damage;
             return true;
         }
 

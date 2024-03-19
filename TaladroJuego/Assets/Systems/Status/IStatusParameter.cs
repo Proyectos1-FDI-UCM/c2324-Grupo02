@@ -5,10 +5,8 @@ using UnityEngine;
 namespace StatusSystem
 {
     public interface IStatusParameter
-    {
-        void AugmentValue(float value);
-
-        void ReduceValue(float value);
+    { 
+        float Value { get; set; }
     }
 }
 

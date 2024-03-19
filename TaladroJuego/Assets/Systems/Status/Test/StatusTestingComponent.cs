@@ -12,13 +12,13 @@ namespace StatusSystem.Test
         [ContextMenu(nameof(AugmentValue))]
         private void AugmentValue()
         {
-            _clampedStatusParameter.AugmentValue(_valueToChange);
+            _clampedStatusParameter.Value += _valueToChange;
         }
 
         [ContextMenu(nameof(ReduceValue))]
         private void ReduceValue()
         {
-            _clampedStatusParameter.ReduceValue(_valueToChange);
+            _clampedStatusParameter.Value -= _valueToChange;
         }
     }
 }

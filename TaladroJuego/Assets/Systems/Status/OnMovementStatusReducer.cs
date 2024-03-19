@@ -24,7 +24,7 @@ namespace StatusSystem
 
         public void ReduceStatus()
         {
-            if (_rb.velocity != Vector2.zero) _statusParameter.ReduceValue(_valueToReduce);
+            if (_rb.velocity != Vector2.zero) _statusParameter.Value -= _valueToReduce;
         }
 
 
