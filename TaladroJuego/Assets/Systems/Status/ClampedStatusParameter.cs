@@ -22,22 +22,23 @@ namespace StatusSystem
             }
         }
 
-        public void AugmentValue(float value)
+        public float Value
         {
-            _statusParameter.AugmentValue(value);
-            float excessValue = Mathf.Max(_statusParameter.StatusValue - _maxValue, 0.0f);
-            _statusParameter.ReduceValue(excessValue);
-
-            if (excessValue != 0) ReachedMax?.Invoke();
-        }
-
-        public void ReduceValue(float value)
-        {
-            _statusParameter.ReduceValue(value);
-            float excessValue = Mathf.Max(_minValue - _statusParameter.StatusValue, 0.0f);
-            _statusParameter.AugmentValue(excessValue);
-
-            if (excessValue != 0) ReachedMin?.Invoke();
+            get => _statusParameter.Value;
+            set
+            {
+                if (value < _minValue) 
+                {
+                    _statusParameter.Value = _minValue;
+                    ReachedMin.Invoke();
+                }
+                else if (value > _maxValue)
+                {
+                    _statusParameter.Value = _maxValue;
+                    ReachedMax.Invoke();
+                }
+                else _statusParameter.Value = value;
+            }
         }
     }
 }

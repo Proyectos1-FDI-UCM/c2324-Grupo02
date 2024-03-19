@@ -28,7 +28,7 @@ namespace ApplicableUpgradesSystem.StatusUp
 
             public void Apply()
             {
-                _statusParameter.AugmentValue(_valueToAdd);
+                _statusParameter.Value += _valueToAdd;
             }
         }
 

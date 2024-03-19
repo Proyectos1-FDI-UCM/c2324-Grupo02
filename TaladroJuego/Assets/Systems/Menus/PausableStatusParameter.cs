@@ -12,6 +12,14 @@ namespace MenusSystem
 
         private IStatusParameter _statusParameter;
 
+        public float Value
+        {
+            get => _statusParameter.Value;
+            set
+            {
+                if (!_requesterObject.IsPaused) _statusParameter.Value = value;
+            }
+        }
 
         private void Awake()
         {
@@ -22,31 +30,6 @@ namespace MenusSystem
                 i++;
             }
             _statusParameter = statusParameters[i];
-        }
-
-
-        public void AugmentValue(float value)
-        {
-            if (_requesterObject.IsPaused)
-            {
-                _statusParameter.AugmentValue(0);
-            }
-            else
-            {
-                _statusParameter.AugmentValue(value);
-            }
-        }
-
-        public void ReduceValue(float value)
-        {
-            if (_requesterObject.IsPaused)
-            {
-                _statusParameter.ReduceValue(0);
-            }
-            else
-            {
-                _statusParameter.ReduceValue(value);
-            }
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UpgradesSystem.Flyweight;
 
 namespace TerrainResourcesSystem
-{
+{   
     [CreateAssetMenu(fileName = "ResourceTerrainTypeBinder", menuName = "Terrain-Resources/ResourceTerrainTypeBinder")]
     internal class ResourceTerrainTypeBinder : ScriptableObject
     {
