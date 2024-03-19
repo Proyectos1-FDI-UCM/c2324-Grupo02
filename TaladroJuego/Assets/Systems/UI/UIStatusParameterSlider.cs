@@ -12,7 +12,6 @@ namespace UISystem
         public void UpdateUISlider(float quantity)
         {
             _statusParamSlider.fillAmount = quantity/100;
-            //print(quantity);
         }
 
         private void Awake()
