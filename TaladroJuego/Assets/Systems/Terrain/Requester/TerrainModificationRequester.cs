@@ -6,6 +6,7 @@ using TerrainSystem.Requestable;
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using TerrainSystem.Requestable.Retriever.Observable;
 
 namespace TerrainSystem.Requester
 {
@@ -17,7 +18,7 @@ namespace TerrainSystem.Requester
         ITerrainModificationEnqueuer<ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource>>,
         ITerrainDataRetriever<RenderTexture>,
         ITerrainDataRetriever<(RenderTexture albedoDestination, RenderTexture normalsDestination)>,
-        ITerrainDataRetriever<float[]>
+        ITerrainDataRetriever<TerrainModification[]>
     {
         [SerializeField]
         private ComputeShader _terrainModificationShader;
@@ -53,7 +54,7 @@ namespace TerrainSystem.Requester
         private TerrainModifierRequestable _terrainModifierRequestable;
         private ITerrainDataRetriever<RenderTexture> _terrainVisualsRetriever;
         private ITerrainDataRetriever<RenderTexture> _terrainNormalsRetriever;
-        private ITerrainDataRetriever<float[]> _terrainModificationsRetriever;
+        private ITerrainDataRetriever<TerrainModification[]> _terrainModificationsRetriever;
 
         public const int MAX_TERRAIN_TYPES = 32;
         public const int MAX_TERRAIN_SOURCES = 256;
@@ -86,6 +87,8 @@ namespace TerrainSystem.Requester
                     _camera);
             }
         }
+
+        public int QueuedSources => _typedSources.Count + _texturedSources.Count;
 
         public bool Initialize(Vector2Int terrainTextureSize, Vector2Int terrainWindowTextureSize, Camera camera)
         {
@@ -138,7 +141,7 @@ namespace TerrainSystem.Requester
 
             _texturedSourcesBuffer = new ComputeBuffer(MAX_TERRAIN_SOURCES, TexturedTerrainModificationSource.SIZE_OF);
 
-            _terrainModificationsBuffer = new ComputeBuffer(MAX_TERRAIN_TYPES, sizeof(float));
+            _terrainModificationsBuffer = new ComputeBuffer(MAX_TERRAIN_TYPES, TerrainModification.SIZE_OF);
         }
 
         public bool Finalize()
@@ -202,8 +205,8 @@ namespace TerrainSystem.Requester
 
         public void Retrieve(in RenderTexture destination) => _terrainVisualsRetriever.Retrieve(in destination);
         public RenderTexture Retrieve() => _terrainVisualsRetriever.Retrieve();
-        public void Retrieve(in float[] destination) => _terrainModificationsRetriever.Retrieve(in destination);
-        float[] ITerrainDataRetriever<float[]>.Retrieve() => _terrainModificationsRetriever.Retrieve();
+        public void Retrieve(in TerrainModification[] destination) => _terrainModificationsRetriever.Retrieve(in destination);
+        TerrainModification[] ITerrainDataRetriever<TerrainModification[]>.Retrieve() => _terrainModificationsRetriever.Retrieve();
 
         public void Retrieve(in (RenderTexture albedoDestination, RenderTexture normalsDestination) destination)
         {

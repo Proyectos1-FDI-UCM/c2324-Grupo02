@@ -6067,10 +6067,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3289322621567560833, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1785619731}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
 --- !u!1001 &449965620
 PrefabInstance:
@@ -16587,7 +16584,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 3.828125
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -21082,7 +21079,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
   m_Value: 1.0000002
-  m_Size: 0.30875
+  m_Size: 0.30875003
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -24089,39 +24086,6 @@ MonoBehaviour:
   m_Spacing: {x: 3.2, y: 3.2}
   m_Constraint: 2
   m_ConstraintCount: 1
---- !u!1 &1785619729 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3289322621567560833, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
-  m_PrefabInstance: {fileID: 437606192}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1785619731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785619729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ecf770b2318b604da4ddd23d40ab91c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _statusValue: 0
-  <ValueSet>k__BackingField:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 320521202}
-        m_TargetAssemblyTypeName: InputSystem.ShipMovementInput, Input-System
-        m_MethodName: TryStartEngine
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1795482096
 PrefabInstance:
   m_ObjectHideFlags: 0
