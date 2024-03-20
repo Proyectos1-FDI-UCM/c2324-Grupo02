@@ -7,7 +7,6 @@ using System;
 
 namespace Particles
 {
-    [RequireComponent(typeof(ParticleSystem))]
     internal class ParticlesSwitch : MonoBehaviour
     {
 
@@ -28,9 +27,6 @@ namespace Particles
             Manganese,
         }
 
-  
-        private ParticleSystem ps;
-
 
         // Referencia a la interfaz para recoger los datos emitidos por la modificiación del terreno
         // TerrainModification es un struct con:
@@ -49,13 +45,12 @@ namespace Particles
             public TerrainType TerrainType { get; private set; }
 
             [field: SerializeField]
-            [field: Min(0)]
-            public int TerrainID { get; private set; }
+            public ParticleSystem TerrainParticles { get; private set; }
 
-            public static Dictionary<TerrainType, uint> DictionaryFrom(IEnumerable<TerrainTypePair> pairs) {
-                Dictionary<TerrainType, uint> dictionary = new Dictionary<TerrainType, uint>();
+            public static Dictionary<TerrainType, ParticleSystem> DictionaryFrom(IEnumerable<TerrainTypePair> pairs) {
+                Dictionary<TerrainType, ParticleSystem> dictionary = new Dictionary<TerrainType, ParticleSystem>();
                 foreach (var pair in pairs)
-                    dictionary[pair.TerrainType] = (uint)pair.TerrainID;
+                    dictionary[pair.TerrainType] = pair.TerrainParticles;
                 return dictionary;
             }
         }
@@ -65,7 +60,7 @@ namespace Particles
         private TerrainTypePair[] _resourceTerrainTypePairs;
 
         // Diccionario con los distintos tipos de terreno y su valor int correspondiente.
-        private Dictionary<TerrainType, uint> terrainType;
+        private Dictionary<TerrainType, ParticleSystem> terrainType;
 
 
         private void OnEnable() {
@@ -78,8 +73,6 @@ namespace Particles
 
         private void Awake() {
 
-            ps = GetComponent<ParticleSystem>();
-
             terrainData = GetComponent<IObservableTerrainData<TerrainModification>>();
 
             // Nos subscribimos al evento del ObservableTerrainData para recibir sus llamadas
@@ -87,10 +80,11 @@ namespace Particles
         }
 
         private void TerrainData(object sender, TerrainModification e) {
-            print(e.amount);
-            print(e.terrainType);
-            if (e.amount > 0) ps.Play();
-            else ps.Stop();
+            if(terrainType.TryGetValue((TerrainType)e.terrainType, out ParticleSystem value))
+            {
+                print((TerrainType)e.terrainType == TerrainType.Charcoal);
+                value.Play();
+            }     
         }
     }
 }
