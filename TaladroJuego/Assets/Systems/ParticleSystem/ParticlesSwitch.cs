@@ -39,7 +39,7 @@ namespace Particles
         // Esta struct es declarada como un array, el cual se puede serializar sin problema.
         // La struct también tiene un método DictionaryFrom para convertir el array de struct en un diccionario de verdad.
         [Serializable]
-        private struct TerrainTypePair
+        private struct TerrainType_ParticleSystem_Pair
         {
             [field: SerializeField]
             public TerrainType TerrainType { get; private set; }
@@ -47,7 +47,7 @@ namespace Particles
             [field: SerializeField]
             public ParticleSystem TerrainParticles { get; private set; }
 
-            public static Dictionary<TerrainType, ParticleSystem> DictionaryFrom(IEnumerable<TerrainTypePair> pairs) {
+            public static Dictionary<TerrainType, ParticleSystem> DictionaryFrom(IEnumerable<TerrainType_ParticleSystem_Pair> pairs) {
                 Dictionary<TerrainType, ParticleSystem> dictionary = new Dictionary<TerrainType, ParticleSystem>();
                 foreach (var pair in pairs)
                     dictionary[pair.TerrainType] = pair.TerrainParticles;
@@ -57,16 +57,16 @@ namespace Particles
 
         // Array del struct anteriormente definido.
         [SerializeField]
-        private TerrainTypePair[] _resourceTerrainTypePairs;
+        private TerrainType_ParticleSystem_Pair[] _resourceTerrainTypePairs;
 
         // Diccionario con los distintos tipos de terreno y su valor int correspondiente.
-        private Dictionary<TerrainType, ParticleSystem> terrainType;
+        private Dictionary<TerrainType, ParticleSystem> terrainTypeParticleDictionary;
 
 
         private void OnEnable() {
 
             // Generamos el diccionario con los distintos terrenos a partir del array serializado.
-            terrainType = TerrainTypePair.DictionaryFrom(_resourceTerrainTypePairs);
+            terrainTypeParticleDictionary = TerrainType_ParticleSystem_Pair.DictionaryFrom(_resourceTerrainTypePairs);
 
         }
 
@@ -79,10 +79,13 @@ namespace Particles
             terrainData.DataRetrieved += TerrainData;
         }
 
+        // Método subscrito al evento del Observable. Se llama cada vez que recibimos datos del minado de terreno
         private void TerrainData(object sender, TerrainModification e) {
-            if(terrainType.TryGetValue((TerrainType)e.terrainType, out ParticleSystem value))
+
+            // Obtenemos el sistema de partículas correspondiente al terreno minado y lo reproducimos
+            if(terrainTypeParticleDictionary.TryGetValue((TerrainType)e.terrainType, out ParticleSystem value))
             {
-                print((TerrainType)e.terrainType == TerrainType.Charcoal);
+                print((TerrainType)e.terrainType);
                 value.Play();
             }     
         }
