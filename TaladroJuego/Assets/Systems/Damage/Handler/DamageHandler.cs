@@ -35,8 +35,10 @@ namespace DamageSystem.Handler
                if(_damager.TryDamage(statusParameter))
                 {
                     damagedStatusParameters.Add(statusParameter);
+                    Debug.Log($"{_damager} damaged {statusParameter}", this);
                 }
             }
+
             return damagedStatusParameters.ToArray();           
         }
        

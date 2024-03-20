@@ -15,7 +15,7 @@ namespace AISystem.Behaviour
 
         public float GetPriority()
         {
-            return (_proximityEvaluator.GetPriority() + _statusEvaluator.GetPriority()) / 2;
+            return _proximityEvaluator.GetPriority() * _statusEvaluator.GetPriority();
         }
 
         public void RunBehaviour()
