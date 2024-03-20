@@ -7,7 +7,6 @@ using System;
 
 namespace Particles
 {
-    [RequireComponent(typeof(ParticleSystem))]
     internal class ParticlesSwitch : MonoBehaviour
     {
 
@@ -28,9 +27,6 @@ namespace Particles
             Manganese,
         }
 
-  
-        private ParticleSystem ps;
-
 
         // Referencia a la interfaz para recoger los datos emitidos por la modificiación del terreno
         // TerrainModification es un struct con:
@@ -43,42 +39,39 @@ namespace Particles
         // Esta struct es declarada como un array, el cual se puede serializar sin problema.
         // La struct también tiene un método DictionaryFrom para convertir el array de struct en un diccionario de verdad.
         [Serializable]
-        private struct TerrainTypePair
+        private struct TerrainType_ParticleSystem_Pair
         {
             [field: SerializeField]
             public TerrainType TerrainType { get; private set; }
 
             [field: SerializeField]
-            [field: Min(0)]
-            public int TerrainID { get; private set; }
+            public ParticleSystem TerrainParticles { get; private set; }
 
-            public static Dictionary<TerrainType, uint> DictionaryFrom(IEnumerable<TerrainTypePair> pairs) {
-                Dictionary<TerrainType, uint> dictionary = new Dictionary<TerrainType, uint>();
+            public static Dictionary<TerrainType, ParticleSystem> DictionaryFrom(IEnumerable<TerrainType_ParticleSystem_Pair> pairs) {
+                Dictionary<TerrainType, ParticleSystem> dictionary = new Dictionary<TerrainType, ParticleSystem>();
                 foreach (var pair in pairs)
-                    dictionary[pair.TerrainType] = (uint)pair.TerrainID;
+                    dictionary[pair.TerrainType] = pair.TerrainParticles;
                 return dictionary;
             }
         }
 
         // Array del struct anteriormente definido.
         [SerializeField]
-        private TerrainTypePair[] _resourceTerrainTypePairs;
+        private TerrainType_ParticleSystem_Pair[] _resourceTerrainTypePairs;
 
         // Diccionario con los distintos tipos de terreno y su valor int correspondiente.
-        private Dictionary<TerrainType, uint> terrainType;
+        private Dictionary<TerrainType, ParticleSystem> terrainTypeParticleDictionary;
 
 
         private void OnEnable() {
 
             // Generamos el diccionario con los distintos terrenos a partir del array serializado.
-            terrainType = TerrainTypePair.DictionaryFrom(_resourceTerrainTypePairs);
+            terrainTypeParticleDictionary = TerrainType_ParticleSystem_Pair.DictionaryFrom(_resourceTerrainTypePairs);
 
         }
 
 
         private void Awake() {
-
-            ps = GetComponent<ParticleSystem>();
 
             terrainData = GetComponent<IObservableTerrainData<TerrainModification>>();
 
@@ -86,11 +79,15 @@ namespace Particles
             terrainData.DataRetrieved += TerrainData;
         }
 
+        // Método subscrito al evento del Observable. Se llama cada vez que recibimos datos del minado de terreno
         private void TerrainData(object sender, TerrainModification e) {
-            print(e.amount);
-            print(e.terrainType);
-            if (e.amount > 0) ps.Play();
-            else ps.Stop();
+
+            // Obtenemos el sistema de partículas correspondiente al terreno minado y lo reproducimos
+            if(terrainTypeParticleDictionary.TryGetValue((TerrainType)e.terrainType, out ParticleSystem value))
+            {
+                print((TerrainType)e.terrainType);
+                value.Play();
+            }     
         }
     }
 }
