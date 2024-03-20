@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoneTerrainModificationConfiguration
   m_EditorClassIdentifier: 
   _size: {x: 1, y: 1, z: 1}
-  _radius: 1
+  _radius: 0
   _strength: 1
   _falloff: 0
   _type: 6
