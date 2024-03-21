@@ -11,7 +11,10 @@ namespace AISystem.Evaluator
         private Transform _transform;
 
         [SerializeField] private float _maxDistance, _minDistance;
-
+        private void Awake()
+        {
+            _transform = transform;
+        }
         public float GetPriority()
         {
             float distance = (_proximityTransform.position - _transform.position).magnitude;

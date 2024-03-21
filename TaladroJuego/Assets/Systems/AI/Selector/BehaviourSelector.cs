@@ -9,7 +9,7 @@ namespace AISystem.Selector
         private IBehaviour[] _behaviours;
         [SerializeField] private int _numberOfBehaviours;
 
-        private void Awake()
+        private void Start()
         {
             _behaviours = new IBehaviour[_numberOfBehaviours];
             for (int i = 0; i < _numberOfBehaviours; i++)
@@ -18,7 +18,7 @@ namespace AISystem.Selector
             }
         }
 
-        private void RunPriorityBehaviour()
+        public void RunPriorityBehaviour()
         {
             _behaviours.OrderByDescending(b => b.GetPriority()).FirstOrDefault()?.RunBehaviour();
         }

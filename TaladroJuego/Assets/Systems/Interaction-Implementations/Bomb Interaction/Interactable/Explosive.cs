@@ -21,7 +21,11 @@ namespace InteractionImplementationsSystem.BombInteraction.Interactable
 
         public bool Explode()
         {
-            _damageHandler.Damage();
+            //_damageHandler.Damage();
+            foreach (var damageable in _damageHandler.Damage())
+            {
+                Debug.Log(damageable);
+            }
             _terrainModification.AcceptEnqeue(_terrainModificationEnqueuer);
             StartCoroutine(DeQueue());
 
