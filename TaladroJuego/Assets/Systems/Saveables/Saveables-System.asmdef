@@ -1,8 +1,8 @@
 {
-    "name": "SaveSystem",
+    "name": "Saveables-System",
     "rootNamespace": "",
     "references": [
-        "GUID:0e640ab9361ad4d43b5f7893af0b0dfe"
+        "GUID:9889ed27a0595114dbddb3c894a49167"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
