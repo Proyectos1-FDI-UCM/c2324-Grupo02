@@ -20,7 +20,7 @@ namespace MovementSystem.Facade
 
         private void Awake()
         {
-            _myRigidbody = GetComponent<Rigidbody2D>();
+            //_myRigidbody = GetComponent<Rigidbody2D>();
             _speedProvider = GetComponentInChildren<ISpeedProvider>();
         }
     }

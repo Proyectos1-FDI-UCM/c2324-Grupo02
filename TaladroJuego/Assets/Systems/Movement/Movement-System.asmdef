@@ -2,7 +2,8 @@
     "name": "Movement-System",
     "rootNamespace": "",
     "references": [
-        "GUID:5fe1a7051da84684795c07638617f98e"
+        "GUID:5fe1a7051da84684795c07638617f98e",
+        "GUID:efdf010bdc4e5654c9d275557915ca5a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
