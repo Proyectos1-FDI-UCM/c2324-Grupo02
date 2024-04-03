@@ -64,7 +64,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6773737574581417496}
+  - {fileID: 5043840391879610093}
   m_Father: {fileID: 156008121050928238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -310,12 +310,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6868583029226087366}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 23209236806911618}
+  m_Father: {fileID: 5043840391879610093}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -385,9 +385,108 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701433439c403be41ba1048399f1bd15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
-  _terrainTextureSize: {x: 1920, y: 2880}
-  _terrainWindowTextureSize: {x: 640, y: 360}
   _terrainModificationRequester: {fileID: 11400000, guid: 328c41906e1c80b488fd7db89c17f23e, type: 2}
   _runInFixedUpdate: 1
-  _startOnEnable: 1
+  _startOnEnable: 0
+  _startOnStart: 1
+--- !u!1 &7593140175821507063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5043840391879610093}
+  - component: {fileID: 3236756404870847412}
+  - component: {fileID: 6404573842569764394}
+  - component: {fileID: 1643822972520823939}
+  - component: {fileID: 3063683473143463354}
+  m_Layer: 5
+  m_Name: Terrain Initialization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5043840391879610093
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593140175821507063}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6773737574581417496}
+  m_Father: {fileID: 23209236806911618}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3236756404870847412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593140175821507063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e83364159ec184094bdc1f04f62b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+  _terrainTextureSize: {x: 1920, y: 11520}
+  _terrainWindowTextureSize: {x: 640, y: 360}
+  _initializeOnAwake: 1
+--- !u!114 &6404573842569764394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593140175821507063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2042a7497856ae459f31acba89d6882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _batchSaveHandler: {fileID: 11400000, guid: 957532f3c44f99f4b9d7f00433719f5e, type: 2}
+  _subscribeOnEnable: 1
+  _unsubscribeOnDisable: 1
+  _unsubscribeOnDestroy: 0
+--- !u!114 &1643822972520823939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593140175821507063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713209533c2fab648aa87107fbc865b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: terrainTexture
+  _hashKey: 1
+--- !u!114 &3063683473143463354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593140175821507063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c8fb6b84da190468f7959810980565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _encodingType: 0
+  _serializeRawTexture: 0
+  _debugTexture: {fileID: 0}

@@ -10,5 +10,9 @@ namespace TerrainSystem.Requester
                 && requester.Finalize()
                 && requester.Initialize(terrainTextureSize, terrainWindowTextureSize, camera))
             || requester.Initialize(terrainTextureSize, terrainWindowTextureSize, camera);
+
+        public static bool Initialize<TRequester>(this TRequester requester, Vector2Int terrainTextureSize, Vector2Int terrainWindowTextureSize, Camera camera)
+            where TRequester : IInitializableTerrainModificationRequester =>
+            requester.Initialize(terrainTextureSize, terrainWindowTextureSize, camera, out _, out _);
     }
 }

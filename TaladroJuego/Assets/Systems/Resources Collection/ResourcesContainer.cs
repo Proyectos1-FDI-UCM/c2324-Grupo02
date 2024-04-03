@@ -15,6 +15,8 @@ namespace ResourceCollectionSystem
 
         private Dictionary<ResourceType, int> _resourceQuantities;
 
+        public IReadOnlyDictionary<ResourceType, int> ResourceQuantities => _resourceQuantities;
+
         private void OnEnable()
         {
             _resourceQuantities = new Dictionary<ResourceType, int>();

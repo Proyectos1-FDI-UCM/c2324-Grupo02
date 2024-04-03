@@ -87,11 +87,11 @@ namespace TerrainSystem.Requester
             }
         }
 
-        public bool Initialize(Vector2Int terrainTextureSize, Vector2Int terrainWindowTextureSize, Camera camera)
+        public bool Initialize(RenderTexture terrainTexture, RenderTexture terrainWindowTexture, Camera camera)
         {
             _camera = camera;
-
-            InitializeRenderTextures(terrainTextureSize, terrainWindowTextureSize);
+            _terrainRenderTexture = terrainTexture;
+            _terrainWindowRenderTexture = terrainWindowTexture;
             InitializeBuffers();
 
             _typedSources = new List<ITerrainModificationSourceFlyweight<TerrainModificationSource>>();
@@ -108,28 +108,36 @@ namespace TerrainSystem.Requester
             _terrainVisualsRetriever = new TerrainVisualsRetriever(_terrainModificationShader, VisualsTextures, _terrainWindowRenderTexture, camera);
             _terrainNormalsRetriever = new TerrainVisualsRetriever(_terrainModificationShader, _visualsNormalTextures, _terrainWindowRenderTexture, camera);
             _terrainModificationsRetriever = new TerrainModificationsRetriever(_terrainModificationsBuffer);
-
-            _terrainModifierRequestable.InitializeTerrainWith((uint)_intialTerrainType, _camera, _terrainRenderTexture);
             return Initialized = true;
         }
 
-        private void InitializeRenderTextures(Vector2Int terrainTextureSize, Vector2Int terrainWindowTextureSize)
+        public bool Initialize(Vector2Int terrainTextureSize, Vector2Int terrainWindowTextureSize, UnityEngine.Camera camera, out RenderTexture terrainRenderTexture, out RenderTexture terrainWindowRenderTexture)
         {
-            _terrainRenderTexture = new RenderTexture(
-                terrainTextureSize.x, terrainTextureSize.y, 0,
-                RenderTextureFormat.R8, RenderTextureReadWrite.Linear)
+            terrainRenderTexture = new RenderTexture(
+                terrainTextureSize.x,
+                terrainTextureSize.y,
+                0,
+                RenderTextureFormat.R8,
+                RenderTextureReadWrite.Linear)
             {
                 filterMode = FilterMode.Point,
                 enableRandomWrite = true
             };
 
-            _terrainWindowRenderTexture = new RenderTexture(
-                terrainWindowTextureSize.x, terrainWindowTextureSize.y, 0,
-                RenderTextureFormat.R8, RenderTextureReadWrite.Linear)
+            terrainWindowRenderTexture = new RenderTexture(
+                terrainWindowTextureSize.x,
+                terrainWindowTextureSize.y,
+                0,
+                RenderTextureFormat.R8,
+                RenderTextureReadWrite.Linear)
             {
                 filterMode = FilterMode.Point,
                 enableRandomWrite = true
             };
+
+            bool success = Initialize(terrainRenderTexture, terrainWindowRenderTexture, camera);
+            _terrainModifierRequestable.InitializeTerrainWith((uint)_intialTerrainType, _camera, _terrainRenderTexture);
+            return success;
         }
 
         private void InitializeBuffers()
