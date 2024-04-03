@@ -7,6 +7,7 @@ namespace AISystem.Evaluator
 {
     public class ProximityBehaviourEvaluator : MonoBehaviour, IBehaviourEvaluator
     {
+        [SerializeField] private AnimationCurve _evaluationCurve;
         [SerializeField] private Transform _proximityTransform;
         private Transform _transform;
 

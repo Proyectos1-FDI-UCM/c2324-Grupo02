@@ -1,3 +1,4 @@
+using AISystem.Behaviour;
 using AISystem.Selector;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,7 +12,9 @@ namespace AISystem.Executioner
 
         private void FixedUpdate()
         {
-            _selector.RunPriorityBehaviour();
+            IBehaviour behaviour = _selector.GetPriorityBehaviour();
+            Debug.Log(behaviour); 
+            behaviour.RunBehaviour();
         }
     }
 }

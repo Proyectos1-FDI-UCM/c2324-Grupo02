@@ -13,7 +13,9 @@ namespace AISystem.Runner.ChaseDirection
 
         public void RunBehaviour()
         {
-            _movementFacade.Move(_chaseDirectionProvider.DirectionToChase());
+            Vector2 direction = _chaseDirectionProvider.DirectionToChase();
+            Debug.Log(direction);
+            _movementFacade.Move(direction);
         }
 
         private void Awake()

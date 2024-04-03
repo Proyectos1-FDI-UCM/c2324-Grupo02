@@ -15,7 +15,7 @@ namespace AISystem.Executioner
             while (true)
             {
                 yield return new WaitForSeconds(_updateTime);
-                _selector.RunPriorityBehaviour();             
+                _selector.GetPriorityBehaviour();             
             }
         }
         private void Start()

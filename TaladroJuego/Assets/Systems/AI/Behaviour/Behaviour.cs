@@ -14,7 +14,6 @@ namespace AISystem.Behaviour
         public float GetPriority()
         {
            return _evaluator.GetPriority();
-            
         }
 
         public void RunBehaviour()

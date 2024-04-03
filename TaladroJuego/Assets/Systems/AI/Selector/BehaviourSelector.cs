@@ -8,14 +8,19 @@ namespace AISystem.Selector
     {
         private IBehaviour[] _behaviours;
 
-        private void Start()
+        private void Awake()
         {
             _behaviours = GetComponentsInChildren<IBehaviour>();
         }
 
-        public void RunPriorityBehaviour()
+        public IBehaviour GetPriorityBehaviour()
         {
-            _behaviours.OrderByDescending(b => b.GetPriority()).FirstOrDefault()?.RunBehaviour();
+            IBehaviour priorityBehaviour = _behaviours[0];
+
+            for (int i = 1; i < _behaviours.Length; i++) 
+               if (_behaviours[i].GetPriority() > priorityBehaviour.GetPriority()) priorityBehaviour = _behaviours[i];
+
+            return priorityBehaviour;
         }
     }
 }
