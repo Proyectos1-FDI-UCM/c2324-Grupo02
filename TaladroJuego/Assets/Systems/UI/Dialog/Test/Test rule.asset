@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdcf65b3c2152b74399cda90094d863a, type: 3}
+  m_Name: Test rule
+  m_EditorClassIdentifier: 
+  _cachedSimultaneousCriteria:
+    _conditions: []
+  _rule:
+    _criteriaObject: {fileID: 11400000, guid: 5eeb07ca74799514ca8cb909989b1e9c, type: 2}
+    <Content>k__BackingField:
+      _textStrings:
+      - <Text>k__BackingField: AAAAAAAAaaa
+      - <Text>k__BackingField: SISISISISI
+      - <Text>k__BackingField: AAAA
+    _criteria:
+      rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

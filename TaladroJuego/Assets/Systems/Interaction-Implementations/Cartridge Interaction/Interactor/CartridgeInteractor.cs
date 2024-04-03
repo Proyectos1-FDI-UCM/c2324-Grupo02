@@ -1,3 +1,4 @@
+using InteractionImplementationsSystem.CartridgeInteraction.Container;
 using InteractionImplementationsSystem.CartridgeInteraction.Interactable;
 using InteractionSystem.Interactor;
 using System.Collections;
@@ -8,9 +9,10 @@ namespace InteractionImplementationsSystem.CartridgeInteraction.Interactor
 {
     internal class CartridgeInteractor : MonoBehaviour, IInteractor<Cartridge>
     {
+        [SerializeField] private CartridgesCollector _cartridgesCollector;
         public bool InteractWith(Cartridge cartridge)
         {
-            return cartridge.PlayCartridge();
+            return _cartridgesCollector.TryRegisterCartridge(cartridge) && cartridge.PlayCartridge();
         }
     }
 }

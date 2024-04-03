@@ -5,15 +5,17 @@ using ContextualDialogueSystem.Event;
 
 namespace InteractionImplementationsSystem.CartridgeInteraction.Interactable
 {
-    internal class Cartridge : MonoBehaviour
+    public class Cartridge : MonoBehaviour
     {
         [SerializeField] private DialogueEventObject _dialogEvent;
         [SerializeField] private PauseRequesterObject _pauseRequester;
-        //inventario de cartuchos
+        [SerializeField] private string _chapterTextInfo, _descriptionTextInfo;
+
+        public string ChapterTextInfo {get => _chapterTextInfo;}
+        public string DescriptionTextInfo {get => _descriptionTextInfo;}
 
         public bool PlayCartridge()
         {
-            //añadir cartucho al inventario
             _pauseRequester.RequestPause();
             _dialogEvent.Dispatch();
 
