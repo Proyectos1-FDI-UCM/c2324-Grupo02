@@ -24,7 +24,10 @@ namespace UISystem
 
         //Index of the cartridge displayed
         private int _index = 0;
-
+        private void Awake()
+        {
+            _collector.ContainerUpdatedEvent.AddListener(UpdateInventory);
+        }
         private void UpdateInventory(Cartridge cartridge)
         {
             //Add cartridge info

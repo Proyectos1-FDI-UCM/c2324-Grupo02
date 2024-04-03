@@ -10,14 +10,14 @@ namespace InteractionImplementationsSystem.CartridgeInteraction.Container
     public class CartridgesCollector : ScriptableObject
     {
         private List<Cartridge> _cartridges;
-        private UnityEvent<Cartridge> _containerUpdatedEvent;
+        public UnityEvent<Cartridge> ContainerUpdatedEvent;
 
         public bool TryRegisterCartridge(Cartridge cartridge)
         {
             if (_cartridges.IndexOf(cartridge) != -1)
             {
                 _cartridges.Add(cartridge);
-                _containerUpdatedEvent.Invoke(cartridge);
+                ContainerUpdatedEvent.Invoke(cartridge);
                 return true;
             }
             return false;
