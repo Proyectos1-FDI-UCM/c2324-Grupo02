@@ -487,6 +487,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c8fb6b84da190468f7959810980565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _encodingType: 0
-  _serializeRawTexture: 0
-  _debugTexture: {fileID: 0}
+  _encodingType: 4
