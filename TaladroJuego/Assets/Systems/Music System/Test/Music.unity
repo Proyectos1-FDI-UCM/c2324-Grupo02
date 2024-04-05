@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70172ed6c5c771a4e8913c0bb9416913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _musicSource: {fileID: 1712371629}
   _songMenu: {fileID: 0}
   _songFase1: {fileID: 0}
   _songFase2: {fileID: 0}
