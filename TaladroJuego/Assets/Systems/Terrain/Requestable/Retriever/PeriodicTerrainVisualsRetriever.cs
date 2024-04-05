@@ -12,6 +12,9 @@ namespace TerrainSystem.Requestable.Retriever
         private Material _material;
 
         [SerializeField]
+        private Transform _visualsAnchor;
+
+        [SerializeField]
         private bool _sendToMaterial;
 
         [SerializeField]
@@ -45,10 +48,13 @@ namespace TerrainSystem.Requestable.Retriever
 
         private void LateUpdate()
         {
+            PositionedTerrainVisuals visuals = new PositionedTerrainVisuals(_destination, _visualsAnchor.position);
             if (_sendToMaterial)
-                _terrainModificationRequester.Retrieve((_destination, _destinationNormals));
+                _terrainModificationRequester.Retrieve(new PositionedTerrainVisualsWithNormals(
+                    visuals,
+                    _destinationNormals));
             else
-                _terrainModificationRequester.Retrieve(in _destination);
+                _terrainModificationRequester.Retrieve(in visuals);
         }
     }
 }

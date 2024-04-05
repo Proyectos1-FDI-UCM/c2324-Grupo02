@@ -18,6 +18,7 @@ namespace TerrainSystem.Requester
         ITerrainModificationEnqueuer<ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource>>,
         ITerrainDataRetriever<PositionedTerrainVisuals>,
         ITerrainDataRetriever<PositionedTerrainVisualsWithNormals>,
+        ITerrainDataRetriever<PositionedTerrainRawData>,
         ITerrainDataRetriever<TerrainModification[]>
     {
         [SerializeField]
@@ -54,6 +55,7 @@ namespace TerrainSystem.Requester
         private TerrainModifierRequestable _terrainModifierRequestable;
         private ITerrainDataRetriever<PositionedTerrainVisuals> _terrainVisualsRetriever;
         private ITerrainDataRetriever<PositionedTerrainVisuals> _terrainNormalsRetriever;
+        private ITerrainDataRetriever<PositionedTerrainRawData> _terrainRawDataRetriever;
         private ITerrainDataRetriever<TerrainModification[]> _terrainModificationsRetriever;
 
         public const int MAX_TERRAIN_TYPES = 32;
@@ -147,7 +149,7 @@ namespace TerrainSystem.Requester
 
             _texturedSourcesBuffer = new ComputeBuffer(MAX_TERRAIN_SOURCES, TexturedTerrainModificationSource.SIZE_OF);
 
-            _terrainModificationsBuffer = new ComputeBuffer(MAX_TERRAIN_TYPES, sizeof(float));
+            _terrainModificationsBuffer = new ComputeBuffer(MAX_TERRAIN_TYPES, TerrainModification.SIZE_OF);
         }
 
         public bool Finalize()
@@ -224,5 +226,9 @@ namespace TerrainSystem.Requester
             new PositionedTerrainVisualsWithNormals(
                 _terrainVisualsRetriever.Retrieve(),
                 _terrainNormalsRetriever.Retrieve().renderTexture);
+
+        public void Retrieve(in PositionedTerrainRawData destination) => _terrainRawDataRetriever.Retrieve(destination);
+        PositionedTerrainRawData ITerrainDataRetriever<PositionedTerrainRawData>.Retrieve() =>
+            _terrainRawDataRetriever.Retrieve();
     }
 }
