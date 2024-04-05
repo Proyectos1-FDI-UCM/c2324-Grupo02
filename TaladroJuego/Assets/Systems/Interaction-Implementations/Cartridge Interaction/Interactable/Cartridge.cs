@@ -18,7 +18,7 @@ namespace InteractionImplementationsSystem.CartridgeInteraction.Interactable
         {
             _pauseRequester.RequestPause();
             _dialogEvent.Dispatch();
-
+            Debug.Log("Hemos llegado al play");
             return true;
         }
     }
