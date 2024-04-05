@@ -37,26 +37,19 @@ namespace SaveSystem.SaveRequester.Auxiliar
         private void Start()
         {
             if (_loadOnStart)
-                Load();
+                _saveRequester.Load(_saveHandler, _savePathService.GetPath());
         }
 
         private void OnDisable()
         {
             if (_saveOnDisable)
-                Save();
+                _saveRequester.Save(_saveHandler, _savePathService.GetPath());
         }
 
         private void OnApplicationQuit()
         {
             if (_saveOnQuit)
-                Save();
+                _saveRequester.Save(_saveHandler, _savePathService.GetPath());
         }
-
-        [ContextMenu(nameof(Save))]
-        private void Save() => _saveRequester.Save(_saveHandler, _savePathService.GetPath());
-        [ContextMenu(nameof(Load))]
-        private void Load() => _saveRequester.Load(_saveHandler, _savePathService.GetPath());
-        [ContextMenu(nameof(Delete))]
-        private void Delete() => _saveRequester.Delete(_saveHandler, _savePathService.GetPath());
     }
 }

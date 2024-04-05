@@ -9,15 +9,15 @@ namespace InteractionImplementationsSystem.CartridgeInteraction.Container
     [CreateAssetMenu(menuName = "Cartridges Collector", fileName = "Cartridges Collector")]
     public class CartridgesCollector : ScriptableObject
     {
-        private List<Cartridge> _cartridges;
-        public UnityEvent<Cartridge> ContainerUpdatedEvent;
+        private readonly List<Cartridge> _cartridges = new List<Cartridge>();
+        public UnityEvent<IReadOnlyList<Cartridge>> ContainerUpdatedEvent;
 
         public bool TryRegisterCartridge(Cartridge cartridge)
         {
-            if (_cartridges.IndexOf(cartridge) != -1)
+            if (!_cartridges.Contains(cartridge))
             {
                 _cartridges.Add(cartridge);
-                ContainerUpdatedEvent.Invoke(cartridge);
+                ContainerUpdatedEvent.Invoke(_cartridges);
                 return true;
             }
             return false;

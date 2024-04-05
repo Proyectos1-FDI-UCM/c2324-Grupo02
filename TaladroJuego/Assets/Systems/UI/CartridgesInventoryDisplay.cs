@@ -13,11 +13,17 @@ namespace UISystem
         [SerializeField] private CartridgesCollector _collector;
 
         //List containing the text of each found cartridge
-        private struct CartridgeText
+        private readonly struct CartridgeText
         {
-            public string ChapterText, DescriptionText;
+            public readonly string ChapterText, DescriptionText;
+
+            public CartridgeText(string chapterText, string descriptionText)
+            {
+                ChapterText = chapterText;
+                DescriptionText = descriptionText;
+            }
         }
-        private List<CartridgeText> _cartridgesInfo;
+        private readonly List<CartridgeText> _cartridgesInfo = new List<CartridgeText>();
 
         //Text in UI
         [SerializeField] private TMP_Text _topText, _bottomText;
@@ -28,13 +34,16 @@ namespace UISystem
         {
             _collector.ContainerUpdatedEvent.AddListener(UpdateInventory);
         }
-        private void UpdateInventory(Cartridge cartridge)
+
+        private void UpdateInventory(IReadOnlyList<Cartridge> cartridges)
         {
-            //Add cartridge info
-            CartridgeText ct;
-            ct.ChapterText = cartridge.ChapterTextInfo;
-            ct.DescriptionText = cartridge.DescriptionTextInfo;
-            _cartridgesInfo.Add(ct);
+            _cartridgesInfo.Clear();
+            CartridgeText[] cartridgeTexts = new CartridgeText[cartridges.Count];
+            for(int i = 0; i < cartridges.Count; i++)
+            {
+                cartridgeTexts[i] = new CartridgeText(cartridges[i].ChapterTextInfo, cartridges[i].DescriptionTextInfo);
+            }
+            _cartridgesInfo.AddRange(cartridgeTexts);
 
             //Show cartridge
             _index = _cartridgesInfo.Count - 1;
