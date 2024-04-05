@@ -8,13 +8,16 @@ namespace MovementSystem.LastFart
 {
     public class LastFartLauncher : MonoBehaviour
     {
-        private bool lastFartEnabled = true;
+        private bool lastFartEnabled = true;// true is temporal
 
         [SerializeField] private Transform parentTransform;
+        [SerializeField] private GameObject rotationSystem;
         private ImpulseMovementFacade impulseMovement;
 
         [SerializeField] private float launchPreparationTime = 6;
         [SerializeField] private float fartingTime = 4;
+
+        private Coroutine fart;
 
         public void EnableLastFart(bool value)
         {
@@ -24,19 +27,26 @@ namespace MovementSystem.LastFart
         public void TryLaunchFart()
         {
             if (!lastFartEnabled) return;
+            Debug.Log("Trying fart");
 
-            StartCoroutine(LaunchFart());
+            fart ??= StartCoroutine(LaunchFart());
         }
 
         private IEnumerator LaunchFart()
         {
             yield return new WaitForSeconds(launchPreparationTime);
 
-            impulseMovement.Move(parentTransform.up);
+            rotationSystem.SetActive(false);
+
+            Vector2 impulseDir = parentTransform.up;
+            impulseMovement.Move(impulseDir);
 
             yield return new WaitForSeconds(fartingTime);
 
-            impulseMovement.Move(Vector2.zero);
+            impulseMovement.Move(-impulseDir);
+            rotationSystem.SetActive(true);
+
+            fart = null;
         }
 
         void Start()

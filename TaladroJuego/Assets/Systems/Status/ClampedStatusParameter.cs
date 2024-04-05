@@ -26,7 +26,7 @@ namespace StatusSystem
         {
             get => _statusParameter.Value;
             set
-            {
+            {  
                 if (value < _minValue) 
                 {
                     _statusParameter.Value = _minValue;
