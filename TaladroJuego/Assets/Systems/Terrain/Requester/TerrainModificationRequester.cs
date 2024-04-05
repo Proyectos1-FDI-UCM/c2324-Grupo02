@@ -16,8 +16,8 @@ namespace TerrainSystem.Requester
         IObservableTerrainModificationRequester,
         ITerrainModificationEnqueuer<ITerrainModificationSourceFlyweight<TerrainModificationSource>>,
         ITerrainModificationEnqueuer<ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource>>,
-        ITerrainDataRetriever<RenderTexture>,
-        ITerrainDataRetriever<(RenderTexture albedoDestination, RenderTexture normalsDestination)>,
+        ITerrainDataRetriever<PositionedTerrainVisuals>,
+        ITerrainDataRetriever<PositionedTerrainVisualsWithNormals>,
         ITerrainDataRetriever<TerrainModification[]>
     {
         [SerializeField]
@@ -52,8 +52,8 @@ namespace TerrainSystem.Requester
         private ComputeBuffer _terrainModificationsBuffer;
 
         private TerrainModifierRequestable _terrainModifierRequestable;
-        private ITerrainDataRetriever<RenderTexture> _terrainVisualsRetriever;
-        private ITerrainDataRetriever<RenderTexture> _terrainNormalsRetriever;
+        private ITerrainDataRetriever<PositionedTerrainVisuals> _terrainVisualsRetriever;
+        private ITerrainDataRetriever<PositionedTerrainVisuals> _terrainNormalsRetriever;
         private ITerrainDataRetriever<TerrainModification[]> _terrainModificationsRetriever;
 
         public const int MAX_TERRAIN_TYPES = 32;
@@ -209,18 +209,20 @@ namespace TerrainSystem.Requester
         public bool Dequeue(ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource> modification) =>
             _texturedSources.Remove(modification);
 
-        public void Retrieve(in RenderTexture destination) => _terrainVisualsRetriever.Retrieve(in destination);
-        public RenderTexture Retrieve() => _terrainVisualsRetriever.Retrieve();
+        public void Retrieve(in PositionedTerrainVisuals destination) => _terrainVisualsRetriever.Retrieve(in destination);
+        public PositionedTerrainVisuals Retrieve() => _terrainVisualsRetriever.Retrieve();
         public void Retrieve(in TerrainModification[] destination) => _terrainModificationsRetriever.Retrieve(in destination);
         TerrainModification[] ITerrainDataRetriever<TerrainModification[]>.Retrieve() => _terrainModificationsRetriever.Retrieve();
 
-        public void Retrieve(in (RenderTexture albedoDestination, RenderTexture normalsDestination) destination)
+        public void Retrieve(in PositionedTerrainVisualsWithNormals destination)
         {
-            _terrainVisualsRetriever.Retrieve(in destination.albedoDestination);
-            _terrainNormalsRetriever.Retrieve(in destination.normalsDestination);
+            _terrainVisualsRetriever.Retrieve(in destination.albedoVisuals);
+            _terrainNormalsRetriever.Retrieve(new PositionedTerrainVisuals(destination.normalsRenderTexture, destination.albedoVisuals.position));
         }
 
-        (RenderTexture albedoDestination, RenderTexture normalsDestination) ITerrainDataRetriever<(RenderTexture albedoDestination, RenderTexture normalsDestination)>.Retrieve() =>
-            (_terrainVisualsRetriever.Retrieve(), _terrainNormalsRetriever.Retrieve());
+        PositionedTerrainVisualsWithNormals ITerrainDataRetriever<PositionedTerrainVisualsWithNormals>.Retrieve() =>
+            new PositionedTerrainVisualsWithNormals(
+                _terrainVisualsRetriever.Retrieve(),
+                _terrainNormalsRetriever.Retrieve().renderTexture);
     }
 }

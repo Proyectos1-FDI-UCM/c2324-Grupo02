@@ -91,7 +91,7 @@ namespace TerrainSystem.Test
                 _terrainModificationsBuffer,
                 _alphaTextures);
 
-            _terrainDataRetriever = new TerrainVisualsRetriever(_terrainComputeShader, _visualsTextures, _terrainWindowRenderTexture, _camera);
+            //_terrainDataRetriever = new TerrainVisualsRetriever(_terrainComputeShader, _visualsTextures, _terrainWindowRenderTexture, _camera);
         }
 
         private void Start()

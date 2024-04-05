@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TerrainSystem.Requestable.Retriever
 {
-    internal readonly struct TerrainVisualsRetriever : ITerrainDataRetriever<RenderTexture>
+    internal readonly struct TerrainVisualsRetriever : ITerrainDataRetriever<PositionedTerrainVisuals>
     {
         private readonly TerrainModificationShaderAccessor _accessor;
         private readonly Texture2DArray _terrainTypesTextures;
@@ -18,7 +18,7 @@ namespace TerrainSystem.Requestable.Retriever
             _camera = camera;
         }
 
-        public void Retrieve(in RenderTexture destination)
+        public void Retrieve(in PositionedTerrainVisuals destination)
         {
             int kernel = _accessor.kernelCopyToVisualsFromWindow;
             _accessor.ConfigureTerrainTypes(kernel, _terrainTypesTextures);
@@ -29,9 +29,9 @@ namespace TerrainSystem.Requestable.Retriever
             _accessor.ConfigureTerrainTextureWindow(
                 kernel,
                 _terrainWindowTexture,
-                (_camera.transform.position / cameraSize) * new Vector2(_terrainWindowTexture.width, _terrainWindowTexture.height));
+                (destination.position / cameraSize) * new Vector2(_terrainWindowTexture.width, _terrainWindowTexture.height));
 
-            RenderTexture visuals = new RenderTexture(destination.descriptor)
+            RenderTexture visuals = new RenderTexture(destination.renderTexture.descriptor)
             {
                 width = _terrainWindowTexture.width,
                 height = _terrainWindowTexture.height,
@@ -41,18 +41,20 @@ namespace TerrainSystem.Requestable.Retriever
             _accessor.ConfigureVisuals(kernel, visuals);
             _accessor.Dispatch(kernel, new Vector3(visuals.width, visuals.height, 1));
 
-            Graphics.Blit(visuals, destination);
+            Graphics.Blit(visuals, destination.renderTexture);
             visuals.Release();
         }
 
-        public RenderTexture Retrieve()
+        public PositionedTerrainVisuals Retrieve()
         {
-            RenderTexture destination = new RenderTexture(_terrainWindowTexture.descriptor)
-            {
-                width = _terrainWindowTexture.width,
-                height = _terrainWindowTexture.height,
-                enableRandomWrite = true
-            };
+            PositionedTerrainVisuals destination = new PositionedTerrainVisuals(
+                new RenderTexture(_terrainWindowTexture.descriptor)
+                {
+                    width = _terrainWindowTexture.width,
+                    height = _terrainWindowTexture.height,
+                    enableRandomWrite = true
+                },
+                _camera.transform.position);
             Retrieve(in destination);
             return destination;
         }
