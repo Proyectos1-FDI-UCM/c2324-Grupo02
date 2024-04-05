@@ -16,14 +16,10 @@ namespace UISystem
 
         private bool directionerDragged = false;
 
+        [SerializeField] private float smoothSpeed = 3f;
         private void Awake()
         {
             shipRotationMovementFacade = movementFacade.GetComponent<IMovementFacade<Vector2>>();
-        }
-
-        private void Start()
-        {
-            transform.up = ship.up;
         }
 
         public void OnPointerDown(PointerEventData eventData)
@@ -50,7 +46,7 @@ namespace UISystem
             {
                 if (directionerDragged)
                     shipRotationMovementFacade.Move(transform.up);
-                else { transform.up = ship.up;
+                else { transform.rotation = Quaternion.Slerp(transform.rotation, ship.rotation, Time.deltaTime * smoothSpeed);
                      }
             }
         }
