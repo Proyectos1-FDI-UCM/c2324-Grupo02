@@ -19,6 +19,7 @@ namespace InputSystem
         //Stop with fuel related things
         private bool _fuelIsEmpty = false;
         [SerializeField] private float _minFuel;
+
         private void Awake()
         {
             SubscribeMovementInputs();
