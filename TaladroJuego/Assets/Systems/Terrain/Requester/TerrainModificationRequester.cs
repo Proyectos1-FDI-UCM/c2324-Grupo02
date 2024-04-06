@@ -216,5 +216,15 @@ namespace TerrainSystem.Requester
 
         (RenderTexture albedoDestination, RenderTexture normalsDestination) ITerrainDataRetriever<(RenderTexture albedoDestination, RenderTexture normalsDestination)>.Retrieve() =>
             (_terrainVisualsRetriever.Retrieve(), _terrainNormalsRetriever.Retrieve());
+
+        public bool Initialize(RenderTexture terrainTexture, RenderTexture terrainWindowTexture, Camera camera)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Initialize(Vector2Int terrainTextureSize, Vector2Int terrainWindowTextureSize, Camera camera, out RenderTexture terrainRenderTexture, out RenderTexture terrainWindowRenderTexture)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -5239,10 +5239,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1718872907}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 940, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &474361671
 MonoBehaviour:
@@ -18230,6 +18230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogEvent: {fileID: 11400000, guid: 9cfd8b17172609441b9983f53dc20e21, type: 2}
   _pauseRequester: {fileID: 11400000, guid: dde60c5c9d5c1e24f9aeef4520618f1c, type: 2}
+  _cartridgeCanvas: {fileID: 1718872903}
   _chapterTextInfo: CHAPTER 1
   _descriptionTextInfo: Con mi burrito sabanero
 --- !u!212 &2015441717

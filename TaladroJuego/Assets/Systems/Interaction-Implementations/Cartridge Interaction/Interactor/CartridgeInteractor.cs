@@ -21,8 +21,6 @@ namespace InteractionImplementationsSystem.CartridgeInteraction.Interactor
 
         public bool InteractWith(Cartridge cartridge)
         {
-            Debug.Log("Hemos llegado al interactor");
-
             return _cartridgesCollector.TryRegisterCartridge(cartridge) && cartridge.PlayCartridge();
         }
 
