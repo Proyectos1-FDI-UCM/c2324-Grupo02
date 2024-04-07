@@ -12330,6 +12330,8 @@ MonoBehaviour:
   _pauseRequester: {fileID: 11400000, guid: dde60c5c9d5c1e24f9aeef4520618f1c, type: 2}
   _HUDPanel: {fileID: 1605834433}
   _settingsPanel: {fileID: 835739048}
+  _playerInput: {fileID: -944628639613478452, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
+  _isGamePaused: 0
 --- !u!1001 &854429487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13135,6 +13137,30 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: dde60c5c9d5c1e24f9aeef4520618f1c, type: 2}
         m_TargetAssemblyTypeName: PauseRequesterObject, Assembly-CSharp
         m_MethodName: RequestResume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: -944628639613478452, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.InputSystem.InputActionAsset, Unity.InputSystem
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 853085184}
+        m_TargetAssemblyTypeName: InputSystem.PauseInput, Input-System
+        m_MethodName: SwitchPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
