@@ -1966,7 +1966,6 @@ MonoBehaviour:
   _radarRawDataRenderTexture: {fileID: 8400000, guid: 66a910873c9a27f46892820a0770a2cd, type: 2}
   _terrainWindowTexture: {fileID: 8400000, guid: f7537b18922042840b898e6b2c1ef7e7, type: 2}
   _camera: {fileID: 145533561}
-  _offset: {x: 1, y: 1}
   _radarDataCentreAnchor: {fileID: 1914348459}
 --- !u!114 &133647960
 MonoBehaviour:
@@ -1980,7 +1979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: e931ff1cc877362488a1615949a90517, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -12553,8 +12552,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1489045881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.69125}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13852,7 +13851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &997900037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16887,7 +16886,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 3.7578125
+      value: 3.765625
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
