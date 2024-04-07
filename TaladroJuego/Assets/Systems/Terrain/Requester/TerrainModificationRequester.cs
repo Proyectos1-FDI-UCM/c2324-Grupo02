@@ -110,6 +110,7 @@ namespace TerrainSystem.Requester
 
             _terrainVisualsRetriever = new TerrainVisualsRetriever(_terrainModificationShader, VisualsTextures, _terrainWindowRenderTexture, camera);
             _terrainNormalsRetriever = new TerrainVisualsRetriever(_terrainModificationShader, _visualsNormalTextures, _terrainWindowRenderTexture, camera);
+            _terrainRawDataRetriever = new TerrainRawDataRetriever(_terrainModificationShader, _terrainRenderTexture, _terrainWindowRenderTexture, camera);
             _terrainModificationsRetriever = new TerrainModificationsRetriever(_terrainModificationsBuffer);
             return Initialized = true;
         }

@@ -1,0 +1,16 @@
+{
+    "name": "UI-System.Radar-System",
+    "rootNamespace": "",
+    "references": [
+        "GUID:bf3bea7b2c567644da66422a5730a689"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
