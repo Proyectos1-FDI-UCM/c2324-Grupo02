@@ -8,6 +8,7 @@ public class DirectionalMovementEnabler : MonoBehaviour
     [SerializeField] private StatusParameter _statusParameter;
     [SerializeField] private Rigidbody2D _shipBody;
     [SerializeField] private GameObject _shipDirectional;
+    [SerializeField] private OnMovementStatusReducer _movementStatusReducer;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class DirectionalMovementEnabler : MonoBehaviour
         else
         {
             _shipDirectional.SetActive(true);
+            _movementStatusReducer.enabled = true;
         }
     }
 }
