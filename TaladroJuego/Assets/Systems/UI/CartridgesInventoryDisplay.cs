@@ -52,7 +52,7 @@ namespace UISystem
 
         public void ShowNextCartridge()
         {
-            if (_index + 1 <= _cartridgesInfo.Count) _index++;
+            if (_index + 1 < _cartridgesInfo.Count) _index++;
             ChangeCartridgeDisplayed();
         }
 

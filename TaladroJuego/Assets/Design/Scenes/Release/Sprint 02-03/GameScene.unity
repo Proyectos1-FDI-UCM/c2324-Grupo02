@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 7554192}
   - component: {fileID: 7554191}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: STRANGE SOUNDS
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7af5ba458631df144b8211fc5b17852f, type: 2}
   m_sharedMaterial: {fileID: 6725475937907194122, guid: 7af5ba458631df144b8211fc5b17852f, type: 2}
@@ -1593,7 +1593,7 @@ GameObject:
   - component: {fileID: 100414173}
   - component: {fileID: 100414172}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Chapter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1638,7 +1638,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHAPTER 5
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7af5ba458631df144b8211fc5b17852f, type: 2}
   m_sharedMaterial: {fileID: 6725475937907194122, guid: 7af5ba458631df144b8211fc5b17852f, type: 2}
@@ -3130,7 +3130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &225162179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3145,6 +3145,7 @@ RectTransform:
   m_Children:
   - {fileID: 600927322}
   - {fileID: 1022719196}
+  - {fileID: 394312892}
   m_Father: {fileID: 997900037}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5498,6 +5499,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 884433323863067350, guid: 489affc5e8bc22641be7e9cae1e20e0e, type: 3}
   m_PrefabInstance: {fileID: 381781032}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &394312891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 394312892}
+  - component: {fileID: 394312893}
+  m_Layer: 5
+  m_Name: Inventory Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &394312892
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394312891}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 225162179}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &394312893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394312891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5152befdfc2d8cd44af244a93d344a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collector: {fileID: 11400000, guid: 7c460c1b617734c49a67addc07752493, type: 2}
+  _topText: {fileID: 100414172}
+  _bottomText: {fileID: 7554191}
 --- !u!4 &399260784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
@@ -16792,7 +16844,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 5.234375
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -21418,7 +21470,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
   m_Value: 1.0000002
-  m_Size: 0.30875
+  m_Size: 0.30874997
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

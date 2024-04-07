@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdcf65b3c2152b74399cda90094d863a, type: 3}
-  m_Name: Test rule
+  m_Name: Burrito Sabanero Speech Dialog
   m_EditorClassIdentifier: 
   _cachedSimultaneousCriteria:
     _conditions: []
@@ -18,7 +18,7 @@ MonoBehaviour:
     _criteriaObject: {fileID: 11400000, guid: 5eeb07ca74799514ca8cb909989b1e9c, type: 2}
     <Content>k__BackingField:
       _textStrings:
-      - <Text>k__BackingField: Con mi burrito sabaneeero
+      - <Text>k__BackingField: <h1>Con mi burrito sabaneeero</h1>,
       - <Text>k__BackingField: "Voy camino de bel\xE9n.  "
       - <Text>k__BackingField: Con mi burrito sabaneeero,
       - <Text>k__BackingField: "Voy camino de Bel\xE9n."
