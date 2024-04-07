@@ -6066,9 +6066,37 @@ PrefabInstance:
       value: Ship
       objectReference: {fileID: 0}
     - target: {fileID: 2384763123888165454, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ValueSet>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384763123888165454, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ValueSet>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384763123888165454, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: <ValueSet>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1099722962}
+    - target: {fileID: 2384763123888165454, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ValueSet>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 437606196}
+    - target: {fileID: 2384763123888165454, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ValueSet>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384763123888165454, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ValueSet>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HandleStatusChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384763123888165454, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ValueSet>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AnimationSystem.Status.OnStatusUpdateAnimator, Animation-System
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384763123888165454, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ValueSet>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3467475116317657967, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: <ReachedMin>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6124,8 +6152,48 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1549801747418667160, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 437606196}
   m_SourcePrefab: {fileID: 100100000, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+--- !u!1 &437606193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1549801747418667160, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+  m_PrefabInstance: {fileID: 437606192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &437606194 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5545775524567158765, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+  m_PrefabInstance: {fileID: 437606192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &437606195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2384763123888165454, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+  m_PrefabInstance: {fileID: 437606192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437606193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202d31a4a4260e343b1d4a060ac2e0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &437606196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437606193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cfba66d4706214e99e9a8bd629520c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusParameter: {fileID: 437606195}
+  _spriteRenderer: {fileID: 437606194}
+  _hitColor: {r: 0.8962264, g: 0.2147561, b: 0.2147561, a: 1}
+  _healColor: {r: 0.27735847, g: 1, b: 0.31826264, a: 1}
 --- !u!1001 &449965620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16724,7 +16792,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 4.821429
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
