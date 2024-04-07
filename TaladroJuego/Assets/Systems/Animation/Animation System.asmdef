@@ -1,7 +1,9 @@
 {
     "name": "Animation-System",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:efdf010bdc4e5654c9d275557915ca5a"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

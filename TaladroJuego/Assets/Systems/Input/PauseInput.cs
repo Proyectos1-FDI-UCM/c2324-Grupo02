@@ -10,7 +10,9 @@ namespace InputSystem
         [SerializeField] private GameObject _HUDPanel;
         [SerializeField] private GameObject _settingsPanel;
 
-        private bool _isGamePaused = false;
+        [SerializeField] private InputActionAsset _playerInput;
+
+        [SerializeField ]private bool _isGamePaused = false;
 
         private void Awake() {
 
@@ -19,7 +21,8 @@ namespace InputSystem
 
         }
 
-        private void OnPausedInputStarted(InputAction.CallbackContext obj) {
+        private void OnPausedInputStarted(InputAction.CallbackContext obj)
+        {
             SwitchPause();
         }
 
@@ -28,8 +31,16 @@ namespace InputSystem
             //_HUDPanel.SetActive(!_isGamePaused);
             _settingsPanel.SetActive(_isGamePaused);
 
-            if (_isGamePaused) _pauseRequester.RequestPause();
-            else _pauseRequester.RequestResume();
+            if (_isGamePaused)
+            {
+                _pauseRequester.RequestPause();
+                _playerInput.Disable();
+            }
+            //else
+            //{
+            //    _pauseRequester.RequestResume();
+            //    _playerInput.Enable();
+            //}
         }
 
         #region ENABLE / DISABLE INPUTACTIONS
