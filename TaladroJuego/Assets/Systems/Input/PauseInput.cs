@@ -21,7 +21,8 @@ namespace InputSystem
 
         }
 
-        private void OnPausedInputStarted(InputAction.CallbackContext obj) {
+        private void OnPausedInputStarted(InputAction.CallbackContext obj)
+        {
             SwitchPause();
         }
 
