@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using TerrainSystem.Requester;
 using UnityEngine;
 
@@ -31,10 +32,13 @@ namespace TerrainSystem.Requestable.Retriever.Observable
             _terrainModificationRequester.ModificationRequested -= OnModificationRequested;
         }
 
-        private void OnModificationRequested(object sender, EventArgs e)
+        private void OnModificationRequested(object sender, EventArgs e) =>
+            _ = OnModificationRequestedAsync();
+
+        private async Task OnModificationRequestedAsync()
         {
             TerrainModification[] modifications = new TerrainModification[_terrainModifications.Length];
-            _terrainModificationRequester.Retrieve(in modifications);
+            await _terrainModificationRequester.Retrieve(in modifications);
 
             for (uint i = 0; i < modifications.Length; i++)
             {

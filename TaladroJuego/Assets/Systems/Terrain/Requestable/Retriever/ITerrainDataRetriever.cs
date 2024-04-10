@@ -1,8 +1,10 @@
+using System.Threading.Tasks;
+
 namespace TerrainSystem.Requestable.Retriever
 {
     public interface ITerrainDataRetriever<TRetrieved>
     {
-        void Retrieve(in TRetrieved destination);
-        TRetrieved Retrieve();
+        Task Retrieve(in TRetrieved destination);
+        Task<TRetrieved> Retrieve();
     }
 }

@@ -1,4 +1,5 @@
-﻿using TerrainSystem.Accessor;
+﻿using System.Threading.Tasks;
+using TerrainSystem.Accessor;
 using UnityEngine;
 
 namespace TerrainSystem.Requestable.Retriever
@@ -17,7 +18,7 @@ namespace TerrainSystem.Requestable.Retriever
             _camera = camera;
         }
 
-        public void Retrieve(in PositionedTerrainRawData destination)
+        public Task Retrieve(in PositionedTerrainRawData destination)
         {
             int kernel = _accessor.kernelCopyFromTerrainTexture;
             _accessor.ConfigureTerrainTexture(kernel, _terrainTexture, Vector2.zero);
@@ -40,20 +41,21 @@ namespace TerrainSystem.Requestable.Retriever
             _accessor.Dispatch(kernel, new Vector3(rawDataWindow.width, rawDataWindow.height, 1));
             Graphics.Blit(rawDataWindow, destination.renderTexture);
             rawDataWindow.Release();
+            return Task.CompletedTask;
         }
 
-        public PositionedTerrainRawData Retrieve()
+        public Task<PositionedTerrainRawData> Retrieve()
         {
-            //PositionedTerrainRawData destination = new PositionedTerrainRawData(
-            //    new RenderTexture(descriptor)
-            //    {
-            //        width = _terrainWindowTexture.width,
-            //        height = _terrainWindowTexture.height,
-            //        enableRandomWrite = true
-            //    },
-            //    _camera.transform.position);
-            //Retrieve(in destination);
-            return default;
+            PositionedTerrainRawData destination = new PositionedTerrainRawData(
+                new RenderTexture(_camera.targetTexture.descriptor)
+                {
+                    width = _camera.targetTexture.width,
+                    height = _camera.targetTexture.height,
+                    enableRandomWrite = true
+                },
+                _camera.transform.position);
+            Retrieve(in destination);
+            return Task.FromResult(destination);
         }
     }
 }

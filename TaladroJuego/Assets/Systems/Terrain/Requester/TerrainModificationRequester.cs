@@ -1,12 +1,14 @@
-﻿using TerrainSystem.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using TerrainSystem.Data;
 using TerrainSystem.Data.Flyweight;
 using TerrainSystem.Queue;
-using TerrainSystem.Requestable.Retriever;
 using TerrainSystem.Requestable;
-using UnityEngine;
-using System.Collections.Generic;
-using System;
+using TerrainSystem.Requestable.Retriever;
 using TerrainSystem.Requestable.Retriever.Observable;
+using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace TerrainSystem.Requester
 {
@@ -57,6 +59,7 @@ namespace TerrainSystem.Requester
         private ITerrainDataRetriever<PositionedTerrainVisuals> _terrainNormalsRetriever;
         private ITerrainDataRetriever<PositionedTerrainRawData> _terrainRawDataRetriever;
         private ITerrainDataRetriever<TerrainModification[]> _terrainModificationsRetriever;
+        private bool _pendingTerrainModificationRequest;
 
         public const int MAX_TERRAIN_TYPES = 32;
         public const int MAX_TERRAIN_SOURCES = 256;
@@ -111,7 +114,8 @@ namespace TerrainSystem.Requester
             _terrainVisualsRetriever = new TerrainVisualsRetriever(_terrainModificationShader, VisualsTextures, _terrainWindowRenderTexture, camera);
             _terrainNormalsRetriever = new TerrainVisualsRetriever(_terrainModificationShader, _visualsNormalTextures, _terrainWindowRenderTexture, camera);
             _terrainRawDataRetriever = new TerrainRawDataRetriever(_terrainModificationShader, _terrainRenderTexture, _terrainWindowRenderTexture, camera);
-            _terrainModificationsRetriever = new TerrainModificationsRetriever(_terrainModificationsBuffer);
+            _terrainModificationsRetriever = new TerrainModificationsRetriever(_terrainModificationsBuffer, OnTerrainModificationsRetrieved);
+            _pendingTerrainModificationRequest = false;
             return Initialized = true;
         }
 
@@ -152,6 +156,9 @@ namespace TerrainSystem.Requester
 
             _terrainModificationsBuffer = new ComputeBuffer(MAX_TERRAIN_TYPES, TerrainModification.SIZE_OF);
         }
+
+        private void OnTerrainModificationsRetrieved(AsyncGPUReadbackRequest request) =>
+            _pendingTerrainModificationRequest = false;
 
         public bool Finalize()
         {
@@ -212,24 +219,47 @@ namespace TerrainSystem.Requester
         public bool Dequeue(ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource> modification) =>
             _texturedSources.Remove(modification);
 
-        public void Retrieve(in PositionedTerrainVisuals destination) => _terrainVisualsRetriever.Retrieve(in destination);
-        public PositionedTerrainVisuals Retrieve() => _terrainVisualsRetriever.Retrieve();
-        public void Retrieve(in TerrainModification[] destination) => _terrainModificationsRetriever.Retrieve(in destination);
-        TerrainModification[] ITerrainDataRetriever<TerrainModification[]>.Retrieve() => _terrainModificationsRetriever.Retrieve();
-
-        public void Retrieve(in PositionedTerrainVisualsWithNormals destination)
+        public Task Retrieve(in PositionedTerrainVisuals destination) => _terrainVisualsRetriever.Retrieve(in destination);
+        public Task<PositionedTerrainVisuals> Retrieve() => _terrainVisualsRetriever.Retrieve();
+        public Task Retrieve(in TerrainModification[] destination)
         {
-            _terrainVisualsRetriever.Retrieve(in destination.albedoVisuals);
-            _terrainNormalsRetriever.Retrieve(new PositionedTerrainVisuals(destination.normalsRenderTexture, destination.albedoVisuals.position));
+            Task retrieval = Task.CompletedTask;
+            if (!_pendingTerrainModificationRequest)
+            {
+                retrieval = _terrainModificationsRetriever.Retrieve(in destination);
+                _pendingTerrainModificationRequest = true;
+            }
+
+            return retrieval;
         }
 
-        PositionedTerrainVisualsWithNormals ITerrainDataRetriever<PositionedTerrainVisualsWithNormals>.Retrieve() =>
-            new PositionedTerrainVisualsWithNormals(
-                _terrainVisualsRetriever.Retrieve(),
-                _terrainNormalsRetriever.Retrieve().renderTexture);
+        Task<TerrainModification[]> ITerrainDataRetriever<TerrainModification[]>.Retrieve()
+        {
+            TerrainModification[] modifications = new TerrainModification[0];
+            Task<TerrainModification[]> retrieval = Task.FromResult(modifications);
 
-        public void Retrieve(in PositionedTerrainRawData destination) => _terrainRawDataRetriever.Retrieve(destination);
-        PositionedTerrainRawData ITerrainDataRetriever<PositionedTerrainRawData>.Retrieve() =>
+            if (!_pendingTerrainModificationRequest)
+            {
+                retrieval = _terrainModificationsRetriever.Retrieve();
+                _pendingTerrainModificationRequest = true;
+            }
+
+            return retrieval;
+        }
+
+        public Task Retrieve(in PositionedTerrainVisualsWithNormals destination)
+        {
+            _terrainVisualsRetriever.Retrieve(in destination.albedoVisuals);
+            return _terrainNormalsRetriever.Retrieve(new PositionedTerrainVisuals(destination.normalsRenderTexture, destination.albedoVisuals.position));
+        }
+
+        async Task<PositionedTerrainVisualsWithNormals> ITerrainDataRetriever<PositionedTerrainVisualsWithNormals>.Retrieve() =>
+            new PositionedTerrainVisualsWithNormals(
+                await _terrainVisualsRetriever.Retrieve(),
+                (await _terrainNormalsRetriever.Retrieve()).renderTexture);
+
+        public Task Retrieve(in PositionedTerrainRawData destination) => _terrainRawDataRetriever.Retrieve(destination);
+        Task<PositionedTerrainRawData> ITerrainDataRetriever<PositionedTerrainRawData>.Retrieve() =>
             _terrainRawDataRetriever.Retrieve();
     }
 }
