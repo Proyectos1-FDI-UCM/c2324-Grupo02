@@ -81,12 +81,16 @@ namespace Particles
 
         // Método subscrito al evento del Observable. Se llama cada vez que recibimos datos del minado de terreno
         private void TerrainData(object sender, TerrainModification e) {
-
             // Obtenemos el sistema de partículas correspondiente al terreno minado y lo reproducimos
             if(terrainTypeParticleDictionary.TryGetValue((TerrainType)e.terrainType, out ParticleSystem value))
             {
-                print((TerrainType)e.terrainType);
-                value.Play();
+                if(e.amount != 0)
+                {
+                    print((TerrainType)e.terrainType);
+                    print(e.amount);
+                    value.Play();
+                }
+           
             }     
         }
     }
