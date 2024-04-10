@@ -1716,7 +1716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1548094562}
   - component: {fileID: 1548094564}
-  - component: {fileID: 1548094563}
+  - component: {fileID: 1548094565}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -1739,20 +1739,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 195319390}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1548094563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548094561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94b81c601e09e4e4ebed31139472b559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 1548094564}
-  _shipRigidBody: {fileID: 195319388}
 --- !u!95 &1548094564
 Animator:
   serializedVersion: 5
@@ -1774,6 +1760,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1548094565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548094561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0708d6e860e6d144eb1ce182d813af12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mauricioAnimator: {fileID: 1548094564}
+  _mauricioRigidbody: {fileID: 195319388}
 --- !u!1 &1555541003
 GameObject:
   m_ObjectHideFlags: 0

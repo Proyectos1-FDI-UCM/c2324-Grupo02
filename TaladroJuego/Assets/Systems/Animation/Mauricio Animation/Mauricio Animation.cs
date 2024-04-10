@@ -5,17 +5,10 @@ using UnityEngine;
 public class MauricioAnimation : MonoBehaviour
 {
     [SerializeField] private Animator _mauricioAnimator;
-    [SerializeField] private Rigidbody _mauricioRigidbody;
+    [SerializeField] private Rigidbody2D _mauricioRigidbody;
 
     private void FixedUpdate()
     {
-        if (_mauricioRigidbody.velocity != Vector3.zero)
-        {
-            _mauricioAnimator.SetInteger("moving", 1);
-        }
-        else
-        {
-            _mauricioAnimator.SetInteger("moving",0); 
-        }
+        _mauricioAnimator.SetBool("MauriciOn", !Mathf.Approximately(_mauricioRigidbody.velocity.magnitude, 0f));
     }
 }
