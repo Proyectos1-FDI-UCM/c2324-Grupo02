@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AISystem.Runner.ChaseDirection
 {
-    public interface IChaseDirectionProvider
+    public interface IDirectionProvider
     {
         Vector2 DirectionToChase();
     }

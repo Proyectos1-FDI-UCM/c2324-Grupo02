@@ -22,7 +22,7 @@ namespace ApplicableUpgradesSystem.MiningEfficiency
         {
             foreach (var upgrade in _upgrades)
             {
-                upgrade.UpgradeMiningEfficiencyEvent += OnUpgradeStatusUpEvent;
+                upgrade.UpgradeMiningEfficiencyEvent -= OnUpgradeStatusUpEvent;
             }
         }
 

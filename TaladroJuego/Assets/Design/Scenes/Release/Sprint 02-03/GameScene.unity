@@ -25189,7 +25189,7 @@ PrefabInstance:
       objectReference: {fileID: 145533561}
     - target: {fileID: 6404573842569764394, guid: 9e2d367c5b8f6cd4eb53db76dca8b8b6, type: 3}
       propertyPath: _subscribeOnEnable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6404573842569764394, guid: 9e2d367c5b8f6cd4eb53db76dca8b8b6, type: 3}
       propertyPath: _unsubscribeOnDisable
@@ -26483,7 +26483,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862574418}
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
-  m_Value: 1.0000001
+  m_Value: 1.0000004
   m_Size: 0.30875
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -26748,7 +26748,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000045776367}
+  m_AnchoredPosition: {x: 0, y: -0.00016021729}
   m_SizeDelta: {x: 0, y: 800}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1613754149
