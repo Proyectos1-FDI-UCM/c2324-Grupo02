@@ -7896,6 +7896,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1575582377}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2007459477}
     - targetCorrespondingSourceObject: {fileID: 1230360752794854036, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2097393713}
@@ -7906,6 +7909,22 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 132491730}
   m_SourcePrefab: {fileID: 100100000, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+--- !u!1 &804234247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 804234246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &804234248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 804234246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132491725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &809075613
 GameObject:
   m_ObjectHideFlags: 0
@@ -8488,6 +8507,8 @@ MonoBehaviour:
   _pauseRequester: {fileID: 11400000, guid: dde60c5c9d5c1e24f9aeef4520618f1c, type: 2}
   _HUDPanel: {fileID: 1605834433}
   _settingsPanel: {fileID: 622884481}
+  _playerInput: {fileID: 0}
+  _isGamePaused: 0
 --- !u!1 &862574416
 GameObject:
   m_ObjectHideFlags: 0
@@ -10671,7 +10692,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 0
+      value: 2.9375
       objectReference: {fileID: 0}
     - target: {fileID: -4746020446810350804, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Enabled
@@ -11721,7 +11742,7 @@ MonoBehaviour:
   - <EventTrigger>k__BackingField: {fileID: 36893316}
     <Label>k__BackingField: {fileID: 1575972798}
   _descriptibleUpgrades:
-  - {fileID: 11400000, guid: d5be7713277b24a4ab1d354e92aa56a9, type: 2}
+  - {fileID: 11400000, guid: 4ca43db9c8234db4388ef37d07337a5c, type: 2}
   - {fileID: 11400000, guid: 6cf3f7aca1aabfc4fb5314f877cfde54, type: 2}
   - {fileID: 11400000, guid: 6cb092800084d2d43943175db09978ef, type: 2}
   - {fileID: 11400000, guid: b75e7731cb1859b4485a68ecf8abb420, type: 2}
@@ -17842,6 +17863,21 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6119786170452726953, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
   m_PrefabInstance: {fileID: 804234246}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2007459477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804234247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff96175ab2d7ee4baee3cd60db25f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damagers:
+  - {fileID: 804234248}
+  _upgrades: []
 --- !u!1 &2017027878 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3702497244366780798, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
@@ -18099,12 +18135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701433439c403be41ba1048399f1bd15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 145533561}
-  _terrainTextureSize: {x: 1920, y: 2880}
-  _terrainWindowTextureSize: {x: 640, y: 360}
   _terrainModificationRequester: {fileID: 11400000, guid: 328c41906e1c80b488fd7db89c17f23e, type: 2}
   _runInFixedUpdate: 1
   _startOnEnable: 1
+  _startOnStart: 1
 --- !u!114 &2046741631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18119,6 +18153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _destination: {fileID: 8400000, guid: f7537b18922042840b898e6b2c1ef7e7, type: 2}
   _material: {fileID: 0}
+  _visualsAnchor: {fileID: 0}
   _sendToMaterial: 0
   _terrainModificationRequester: {fileID: 11400000, guid: 328c41906e1c80b488fd7db89c17f23e, type: 2}
 --- !u!1 &2049887507
