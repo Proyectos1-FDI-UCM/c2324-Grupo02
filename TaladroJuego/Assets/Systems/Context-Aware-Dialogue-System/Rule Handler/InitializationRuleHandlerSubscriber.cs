@@ -25,6 +25,11 @@ namespace ContextualDialogueSystem.RuleHandler
 
         private void Awake()
         {
+            _dialogueEvents = _dialogueEventObjects.OfType<IObservableDialogueEvent>();
+            _dialogueEventObjects = _dialogueEvents.OfType<ScriptableObject>().ToArray();
+
+            _dialogueRuleHandler = _dialogueRuleHandlerObject as ISubscribableDialogueRuleHandler;
+
             if (_subscribeOnAwake)
                 foreach (var dialogueEvent in _dialogueEvents)
                     _dialogueRuleHandler.TrySubscribeToDialogueEvent(dialogueEvent);

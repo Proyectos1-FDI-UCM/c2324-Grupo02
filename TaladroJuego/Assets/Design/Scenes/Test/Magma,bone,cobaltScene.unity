@@ -4956,6 +4956,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322154695}
   m_CullTransparentMesh: 1
+--- !u!4 &339822252 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6335759363505148085, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
+  m_PrefabInstance: {fileID: 1221650459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &344705948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12356,6 +12361,8 @@ MonoBehaviour:
   _pauseRequester: {fileID: 11400000, guid: dde60c5c9d5c1e24f9aeef4520618f1c, type: 2}
   _HUDPanel: {fileID: 1605834433}
   _settingsPanel: {fileID: 835739048}
+  _playerInput: {fileID: 0}
+  _isGamePaused: 0
 --- !u!1001 &854429487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20358,6 +20365,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 339867766167786864, guid: 9e2d367c5b8f6cd4eb53db76dca8b8b6, type: 3}
+      propertyPath: _visualsAnchor
+      value: 
+      objectReference: {fileID: 339822252}
     - target: {fileID: 1412295774547470190, guid: 9e2d367c5b8f6cd4eb53db76dca8b8b6, type: 3}
       propertyPath: m_Pivot.x
       value: 0
