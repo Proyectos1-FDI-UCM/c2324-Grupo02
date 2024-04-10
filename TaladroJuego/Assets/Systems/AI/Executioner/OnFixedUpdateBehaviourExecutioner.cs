@@ -13,7 +13,6 @@ namespace AISystem.Executioner
         private void FixedUpdate()
         {
             IBehaviour behaviour = _selector.GetPriorityBehaviour();
-            Debug.Log(behaviour); 
             behaviour.RunBehaviour();
         }
     }
