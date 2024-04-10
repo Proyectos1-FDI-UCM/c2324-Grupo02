@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _batchSaveHandler: {fileID: 11400000, guid: 957532f3c44f99f4b9d7f00433719f5e, type: 2}
-  _subscribeOnEnable: 1
+  _subscribeOnEnable: 0
   _unsubscribeOnDisable: 1
   _unsubscribeOnDestroy: 0
 --- !u!114 &5994332127245547970
@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 3467475116317657967}
   - component: {fileID: 7681384308352119825}
   - component: {fileID: 5902663306640868604}
+  - component: {fileID: 5190589476757796536}
   m_Layer: 0
   m_Name: Clamped Health
   m_TagString: Untagged
@@ -187,6 +188,21 @@ MonoBehaviour:
   _statusParameter: {fileID: 3467475116317657967}
   _upgrades:
   - {fileID: 11400000, guid: c8f2b68a356dc344b96f77b72bc63f8f, type: 2}
+--- !u!114 &5190589476757796536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221026061916007890}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6840fda6bac59ee41a43c14078d95e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 383083186636943588}
+  _valueToReduce: 1
+  _statusParameterObject: {fileID: 2384763123888165454}
 --- !u!1 &1414221428481818190
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,6 +251,7 @@ GameObject:
   - component: {fileID: 8504203291639034491}
   - component: {fileID: 6372294151433410202}
   - component: {fileID: 384909939457972919}
+  - component: {fileID: 5587662411439997753}
   m_Layer: 0
   m_Name: HealthStatus
   m_TagString: Untagged
@@ -277,6 +294,19 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UISystem.UIStatusParameterSlider, UI-System
         m_MethodName: UpdateUISlider
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5587662411439997753}
+        m_TargetAssemblyTypeName: AnimationSystem.Status.OnStatusUpdateAnimator,
+          Animation-System
+        m_MethodName: HandleStatusChange
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -357,6 +387,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2da2df46140415408bf231529242e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5587662411439997753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549801747418667160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cfba66d4706214e99e9a8bd629520c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusParameter: {fileID: 2384763123888165454}
+  _spriteRenderer: {fileID: 5545775524567158765}
+  _hitColor: {r: 0.8962264, g: 0.2147561, b: 0.2147561, a: 1}
+  _healColor: {r: 0.27735847, g: 1, b: 0.31826264, a: 1}
 --- !u!1 &1702065889599936155
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +554,7 @@ Transform:
   - {fileID: 6287945780930338805}
   - {fileID: 133004323081666714}
   - {fileID: 5752605759350183118}
-  - {fileID: 8254895040593223047}
+  - {fileID: 2552841150925997351}
   - {fileID: 2014945396891687341}
   - {fileID: 6331854317504441590}
   m_Father: {fileID: 0}
@@ -1394,7 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _batchSaveHandler: {fileID: 11400000, guid: 957532f3c44f99f4b9d7f00433719f5e, type: 2}
-  _subscribeOnEnable: 1
+  _subscribeOnEnable: 0
   _unsubscribeOnDisable: 1
   _unsubscribeOnDestroy: 0
 --- !u!114 &1180656760176932729
@@ -1745,7 +1791,7 @@ GameObject:
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1852801450912304199
 Transform:
   m_ObjectHideFlags: 0
@@ -1991,7 +2037,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5084829399306703634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &212822448672271660
+--- !u!1001 &5987214846860866956
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2001,7 +2047,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6304691953535070960, guid: ff626d61f403ee1469a17132f3324c6b, type: 3}
       propertyPath: m_Name
-      value: ParticleSystem
+      value: ParticleSystem_Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8105177156082446507, guid: ff626d61f403ee1469a17132f3324c6b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2048,8 +2094,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff626d61f403ee1469a17132f3324c6b, type: 3}
---- !u!4 &8254895040593223047 stripped
+--- !u!4 &2552841150925997351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8105177156082446507, guid: ff626d61f403ee1469a17132f3324c6b, type: 3}
-  m_PrefabInstance: {fileID: 212822448672271660}
+  m_PrefabInstance: {fileID: 5987214846860866956}
   m_PrefabAsset: {fileID: 0}

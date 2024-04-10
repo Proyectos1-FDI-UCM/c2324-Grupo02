@@ -126,8 +126,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 38
-      y: 77
+      x: 84
+      y: 39
       width: 22
       height: 20
     spriteID: 5511e6c2ca179ab47a6be73a8d70c24a
@@ -138,7 +138,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 33, y: 76}
+    uvTransform: {x: 79, y: 38}
   - name: Terrain Texture Alphas Array_Frame_1
     originalName: 
     pivot: {x: 0.5, y: -0.17391305}
@@ -146,8 +146,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 77
+      x: 44
+      y: 35
       width: 26
       height: 23
     spriteID: c2b9664c1e1ca0644a46222499c0ff41
@@ -158,7 +158,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1, y: 73}
+    uvTransform: {x: 41, y: 31}
   - name: Terrain Texture Alphas Array_Frame_2
     originalName: 
     pivot: {x: 0.4814815, y: -0.11111111}
@@ -166,8 +166,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 42
+      x: 84
+      y: 4
       width: 27
       height: 27
     spriteID: 61c1f3ef0e61f284aaf38e63fdbec67d
@@ -178,8 +178,28 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1, y: 39}
+    uvTransform: {x: 81, y: 1}
   - name: Terrain Texture Alphas Array_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.21739131}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 4
+      width: 32
+      height: 23
+    spriteID: ba04b9c2a5c870941aecc28c22a85d02
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 4}
+  - name: Terrain Texture Alphas Array_Frame_4
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -190,7 +210,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 30
-    spriteID: ba04b9c2a5c870941aecc28c22a85d02
+    spriteID: 9579c47bafb57d0439d4368054474213
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -199,6 +219,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Terrain Texture Alphas Array_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.73333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 42
+      width: 28
+      height: 15
+    spriteID: 84337af96f99589449c5590d084ebf80
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 42}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -236,10 +276,26 @@ ScriptedImporter:
       frameIndex: 3
       cellRect:
         x: 0
+        y: 5
+        width: 32
+        height: 23
+      spriteId: ba04b9c2a5c870941aecc28c22a85d02
+    - name: Terrain Texture Alphas Array_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
         y: 0
         width: 32
         height: 30
-      spriteId: ba04b9c2a5c870941aecc28c22a85d02
+      spriteId: 9579c47bafb57d0439d4368054474213
+    - name: Terrain Texture Alphas Array_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 2
+        y: 11
+        width: 28
+        height: 15
+      spriteId: 84337af96f99589449c5590d084ebf80
     linkedCells: []
     parentIndex: -1
   platformSettings:
