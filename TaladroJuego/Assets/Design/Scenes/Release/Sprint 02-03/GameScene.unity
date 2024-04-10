@@ -7514,11 +7514,11 @@ PrefabInstance:
       objectReference: {fileID: 1320267984}
     - target: {fileID: 1295994974572212252, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: _lowerThreshold
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1295994974572212252, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: _upperThreshold
-      value: 0.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1741784776457609888, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: m_Name
