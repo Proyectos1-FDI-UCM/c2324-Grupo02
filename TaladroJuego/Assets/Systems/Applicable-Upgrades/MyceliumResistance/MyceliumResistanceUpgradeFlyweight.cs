@@ -21,11 +21,8 @@ namespace ApplicableUpgradesSystem
             public MyceliumResistanceApplicableUpgrade(float factor, ConstantDamager [] damagers)
             {
                 _factor = factor;
-                _damagers = new ConstantDamager[damagers.Length];
-                for(int i= 0;i<damagers.Length; i++)
-                {
-                    _damagers[i] = damagers[i];
-                }
+                _damagers = damagers;
+                
             }
 
             public void Apply()
@@ -43,9 +40,12 @@ namespace ApplicableUpgradesSystem
 
             if (damagers != null)
             {
+
                 return new MyceliumResistanceApplicableUpgrade(_factor, damagers);
             }
-            else return NullUpgrade.Instance;
+            else         
+             return NullUpgrade.Instance;
+           
         }
     }
 }

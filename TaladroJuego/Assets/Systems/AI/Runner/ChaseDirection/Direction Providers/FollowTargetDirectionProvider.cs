@@ -1,15 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace AISystem.Runner.ChaseDirection
+namespace AISystem.Runner.ChaseDirection.DirectionProvider
 {
-    internal class RunAwayFromTargetDirection : MonoBehaviour, IChaseDirectionProvider
+    internal class FollowTargetDirectionProvider : MonoBehaviour, IDirectionProvider
     {
         [SerializeField] private Transform _target;
         private Transform _transform;
-
         public Vector2 DirectionToChase()
         {
-            return (_transform.position - _target.position).normalized;
+            return (_target.position - _transform.position).normalized;
         }
 
         private void Awake()
