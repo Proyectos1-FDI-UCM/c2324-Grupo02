@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Manganese TerrainModificationSource
   m_EditorClassIdentifier: 
   _sdfType: 0
-  _configuration: {fileID: 0}
+  _configuration: {fileID: 11400000, guid: 0d5b3d0346468ae49881eb5a72c042bc, type: 2}
