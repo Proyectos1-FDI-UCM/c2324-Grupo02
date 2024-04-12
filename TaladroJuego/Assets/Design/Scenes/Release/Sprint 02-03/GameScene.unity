@@ -774,10 +774,10 @@ RectTransform:
   - {fileID: 668754480}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -771.9285}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36893316
 MonoBehaviour:
@@ -2464,7 +2464,7 @@ PrefabInstance:
       objectReference: {fileID: 138487656}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (4)
+      value: Mycelium 4
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3751,6 +3751,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myRigidboy: {fileID: 675950667}
+--- !u!114 &212489714 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 1064375254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064375256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &214234519
 GameObject:
   m_ObjectHideFlags: 0
@@ -4169,10 +4180,10 @@ RectTransform:
   - {fileID: 64543032}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -486.57147}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &235092018
 MonoBehaviour:
@@ -4498,10 +4509,10 @@ RectTransform:
   - {fileID: 421333436}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -372.4286}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &248012818
 MonoBehaviour:
@@ -6238,7 +6249,7 @@ PrefabInstance:
       objectReference: {fileID: 344705951}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (1)
+      value: Mycelium 15
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6472,6 +6483,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
   m_PrefabInstance: {fileID: 962981227}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &369981493 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 824292098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824292100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &372882302
 GameObject:
   m_ObjectHideFlags: 0
@@ -7070,10 +7092,10 @@ RectTransform:
   - {fileID: 1829258615}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -30}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414114430
 MonoBehaviour:
@@ -8025,6 +8047,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464230361}
   m_CullTransparentMesh: 1
+--- !u!114 &466073261 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 1977330096}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977330098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &472780175
 GameObject:
   m_ObjectHideFlags: 0
@@ -8769,11 +8802,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507735906}
   m_CullTransparentMesh: 1
+--- !u!114 &513201697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 603337200}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603337202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &513838408 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4667790449213306607, guid: b3f9be72cceded3418c3155e87b08d7b, type: 3}
   m_PrefabInstance: {fileID: 2045744918}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &518183916 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 1069957887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069957889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519295740
 GameObject:
   m_ObjectHideFlags: 0
@@ -9024,10 +9079,10 @@ RectTransform:
   - {fileID: 145813753}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -315.35715}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &528349642
 MonoBehaviour:
@@ -10054,6 +10109,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6076902242674700075, guid: a18e40f0c9242164d9692496b1647c79, type: 3}
   m_PrefabInstance: {fileID: 566751645}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &566942776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 1172553011}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172553013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &575521981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 1420517856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420517858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &575607159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10423,10 +10500,10 @@ RectTransform:
   - {fileID: 1851554638}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -258.2857}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &593059448
 MonoBehaviour:
@@ -10908,7 +10985,7 @@ PrefabInstance:
       objectReference: {fileID: 603337203}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (14)
+      value: Mycelium 7
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11444,7 +11521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 28.75}
+  m_AnchoredPosition: {x: 0, y: 29}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &642931057
@@ -12026,7 +12103,7 @@ PrefabInstance:
       objectReference: {fileID: 675950669}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (10)
+      value: Mycelium 1
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12198,7 +12275,7 @@ PrefabInstance:
       objectReference: {fileID: 680449071}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (9)
+      value: Mycelium 12
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13319,6 +13396,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 884433323863067350, guid: 489affc5e8bc22641be7e9cae1e20e0e, type: 3}
   m_PrefabInstance: {fileID: 719097253}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &721352724 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 680449068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680449070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &729526834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14084,6 +14172,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
   m_PrefabInstance: {fileID: 1049256274}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &758230580 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 962981227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962981229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &767996455
 GameObject:
   m_ObjectHideFlags: 0
@@ -14326,6 +14425,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8872122937685046614, guid: b869c77f27865294993a16b6f88c23b9, type: 3}
   m_PrefabInstance: {fileID: 616419147}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &780731268 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 1178641204}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178641206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &783357073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14711,7 +14821,7 @@ PrefabInstance:
       objectReference: {fileID: 132491728}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium
+      value: Mycelium 14
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14781,6 +14891,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
   m_PrefabInstance: {fileID: 804234246}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &804234248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 804234246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132491725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &809157587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14928,7 +15049,7 @@ PrefabInstance:
       objectReference: {fileID: 824292101}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (7)
+      value: Mycelium 3
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16326,7 +16447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 79.125}
+  m_AnchoredPosition: {x: 0, y: 79}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &912743645
@@ -16817,10 +16938,10 @@ RectTransform:
   - {fileID: 1361693939}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -144.14285}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954896977
 MonoBehaviour:
@@ -16935,7 +17056,7 @@ PrefabInstance:
       objectReference: {fileID: 962981230}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (12)
+      value: Mycelium 8
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18007,6 +18128,17 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 383083186636943588, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
   m_PrefabInstance: {fileID: 437606192}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1040356874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 138487653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138487655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1043695338
 GameObject:
   m_ObjectHideFlags: 0
@@ -18172,7 +18304,7 @@ PrefabInstance:
       objectReference: {fileID: 1049256277}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (16)
+      value: Mycelium 9
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18600,7 +18732,7 @@ PrefabInstance:
       objectReference: {fileID: 1064375257}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (2)
+      value: Mycelium 13
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18772,7 +18904,7 @@ PrefabInstance:
       objectReference: {fileID: 1069957890}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (3)
+      value: Mycelium 5
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19105,10 +19237,10 @@ RectTransform:
   - {fileID: 268665224}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -543.6429}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094974098
 MonoBehaviour:
@@ -19222,6 +19354,7 @@ GameObject:
   - component: {fileID: 1095812977}
   - component: {fileID: 1095812976}
   - component: {fileID: 1095812983}
+  - component: {fileID: 1095812984}
   m_Layer: 0
   m_Name: Inventory Observer
   m_TagString: Untagged
@@ -19373,6 +19506,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _reducer: {fileID: 437606198}
   harmfullterraintype: 7
+--- !u!114 &1095812984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095812974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8e6c1ddd6cbcc4aad4aae05720cf73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resourcesContainer: {fileID: 11400000, guid: a936a8743a3e08649a6ad89de7fbd811, type: 2}
+  _upgradeFlyweight: {fileID: 0}
+  _resources:
+  - <Resource>k__BackingField: 0
+    <Quantity>k__BackingField: 100
+  - <Resource>k__BackingField: 1
+    <Quantity>k__BackingField: 100
+  - <Resource>k__BackingField: 2
+    <Quantity>k__BackingField: 100
+  - <Resource>k__BackingField: 3
+    <Quantity>k__BackingField: 100
+  - <Resource>k__BackingField: 4
+    <Quantity>k__BackingField: 100
+  - <Resource>k__BackingField: 5
+    <Quantity>k__BackingField: 100
+  - <Resource>k__BackingField: 6
+    <Quantity>k__BackingField: 100
 --- !u!1001 &1096730346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20115,6 +20277,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154495242}
   m_CullTransparentMesh: 1
+--- !u!114 &1159841395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 1639433553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639433555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1170175645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20190,7 +20363,7 @@ PrefabInstance:
       objectReference: {fileID: 1172553014}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (13)
+      value: Mycelium 18
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20367,7 +20540,7 @@ PrefabInstance:
       objectReference: {fileID: 1178641207}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (8)
+      value: Mycelium 10
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20945,7 +21118,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 6.03125
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -21665,7 +21838,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.00000085663544, y: 176.75}
+  m_AnchoredPosition: {x: -0.00000085663544, y: 177}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1001 &1273262184
@@ -21730,6 +21903,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7520509884008681794, guid: e33ba7fe7dc105b4b87acaa7b3ad04b4, type: 3}
   m_PrefabInstance: {fileID: 1273262184}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1293179008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 675950666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675950668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1295764634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22134,10 +22318,10 @@ RectTransform:
   - {fileID: 378178158}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -600.7143}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319665629
 MonoBehaviour:
@@ -23039,6 +23223,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6cb092800084d2d43943175db09978ef, type: 2}
   - {fileID: 11400000, guid: b75e7731cb1859b4485a68ecf8abb420, type: 2}
   - {fileID: 11400000, guid: d5be7713277b24a4ab1d354e92aa56a9, type: 2}
+  - {fileID: 11400000, guid: 4ca43db9c8234db4388ef37d07337a5c, type: 2}
   _descriptionPanel:
     <Root>k__BackingField: {fileID: 2130983345}
     <Title>k__BackingField: {fileID: 755944574}
@@ -23198,10 +23383,10 @@ RectTransform:
   - {fileID: 507735907}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -87.07143}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1354681746
 MonoBehaviour:
@@ -23504,10 +23689,10 @@ RectTransform:
   - {fileID: 1598363086}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -714.8571}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1376869740
 MonoBehaviour:
@@ -23893,7 +24078,7 @@ PrefabInstance:
       objectReference: {fileID: 1420517859}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (17)
+      value: Mycelium 16
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25482,10 +25667,10 @@ RectTransform:
   - {fileID: 744574422}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -201.2143}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545753130
 MonoBehaviour:
@@ -25676,10 +25861,10 @@ RectTransform:
   - {fileID: 33591247}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -429.50003}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1548313190
 MonoBehaviour:
@@ -26483,8 +26668,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862574418}
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
-  m_Value: 1.0000005
-  m_Size: 0.30874997
+  m_Value: 1
+  m_Size: 0.308748
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -26748,7 +26933,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00024414062}
+  m_AnchoredPosition: {x: 0, y: -0.000022888184}
   m_SizeDelta: {x: 0, y: 800}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1613754149
@@ -27151,10 +27336,10 @@ RectTransform:
   - {fileID: 1948600860}
   m_Father: {fileID: 1613754148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.5, y: -657.7857}
-  m_SizeDelta: {x: 329, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1628836097
 MonoBehaviour:
@@ -27799,7 +27984,7 @@ PrefabInstance:
       objectReference: {fileID: 1639433556}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (11)
+      value: Mycelium 2
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28188,7 +28373,7 @@ PrefabInstance:
       objectReference: {fileID: 1673731288}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (6)
+      value: Mycelium 11
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28866,7 +29051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1716861789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28936,6 +29121,17 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0000038146973, y: 0}
   m_SizeDelta: {x: 10, y: 12}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &1725610458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 1673731285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673731287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1730621266
 GameObject:
   m_ObjectHideFlags: 0
@@ -31416,7 +31612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -43.25}
+  m_AnchoredPosition: {x: 0, y: -43}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1867752113
@@ -32021,6 +32217,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1892865634 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 1049256274}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049256276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1907510176
 GameObject:
   m_ObjectHideFlags: 0
@@ -32449,7 +32656,7 @@ PrefabInstance:
       objectReference: {fileID: 1924923156}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (5)
+      value: Mycelium 6
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33475,7 +33682,7 @@ PrefabInstance:
       objectReference: {fileID: 1977330099}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
-      value: Mycelium (15)
+      value: Mycelium 17
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34017,6 +34224,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -53}
   m_SizeDelta: {x: 266.4, y: 266.4}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &2028303188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 1924923153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924923155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2038669614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34457,6 +34675,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6076902242674700075, guid: a18e40f0c9242164d9692496b1647c79, type: 3}
   m_PrefabInstance: {fileID: 2071782911}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2079747496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817063202335689150, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
+  m_PrefabInstance: {fileID: 344705948}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344705950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e05d9b8af4da418d457f9db12ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2081061696
 GameObject:
   m_ObjectHideFlags: 0
@@ -35189,6 +35418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2146212421}
+  - component: {fileID: 2146212422}
   m_Layer: 0
   m_Name: Mycelium
   m_TagString: Untagged
@@ -35209,26 +35439,59 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 804234247}
-  - {fileID: 887223681}
-  - {fileID: 967599769}
-  - {fileID: 79413054}
-  - {fileID: 54075382}
-  - {fileID: 363007081}
-  - {fileID: 519338963}
-  - {fileID: 1756230922}
-  - {fileID: 1071988006}
-  - {fileID: 2107562076}
-  - {fileID: 399260784}
-  - {fileID: 757022736}
-  - {fileID: 1319211786}
-  - {fileID: 176948875}
-  - {fileID: 1118771395}
-  - {fileID: 1562890057}
   - {fileID: 1623492029}
+  - {fileID: 54075382}
+  - {fileID: 399260784}
+  - {fileID: 1562890057}
+  - {fileID: 79413054}
+  - {fileID: 2107562076}
   - {fileID: 1325460848}
+  - {fileID: 363007081}
+  - {fileID: 757022736}
+  - {fileID: 176948875}
+  - {fileID: 887223681}
+  - {fileID: 1756230922}
+  - {fileID: 1319211786}
+  - {fileID: 804234247}
+  - {fileID: 519338963}
+  - {fileID: 1118771395}
+  - {fileID: 967599769}
+  - {fileID: 1071988006}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2146212422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146212420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff96175ab2d7ee4baee3cd60db25f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damagers:
+  - {fileID: 1293179008}
+  - {fileID: 1159841395}
+  - {fileID: 369981493}
+  - {fileID: 1040356874}
+  - {fileID: 518183916}
+  - {fileID: 2028303188}
+  - {fileID: 513201697}
+  - {fileID: 758230580}
+  - {fileID: 1892865634}
+  - {fileID: 780731268}
+  - {fileID: 1725610458}
+  - {fileID: 721352724}
+  - {fileID: 212489714}
+  - {fileID: 804234248}
+  - {fileID: 2079747496}
+  - {fileID: 575521981}
+  - {fileID: 466073261}
+  - {fileID: 566942776}
+  _upgrades:
+  - {fileID: 11400000, guid: d4b975af7a29e994fafbb92711e0a21e, type: 2}
 --- !u!1 &2146283889
 GameObject:
   m_ObjectHideFlags: 0
