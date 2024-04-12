@@ -6,7 +6,13 @@ namespace MusicSystem
 {
     public class MusicSystem : MonoBehaviour
     {
-        [SerializeField] private AudioSource _musicSource;
+
+        [SerializeField] private AudioSource _musicSource1;
+        [SerializeField] private AudioSource _musicSource2; 
+        [SerializeField] private AudioSource _musicSource3;
+        [SerializeField] private AudioSource _musicSource4;
+        [SerializeField] private AudioSource _musicSource5;
+        [SerializeField] private AudioSource _musicSource6;
         [SerializeField] AudioClip _songMenu; //Canción Menu
         [SerializeField] AudioClip _songFase1; //Cancion Fase 1
         [SerializeField] AudioClip _songFase2; //Cancion Fase 2
@@ -16,46 +22,54 @@ namespace MusicSystem
         private int _songChooser;
         private void Awake()
         {
-            _musicSource = GetComponent<AudioSource>();
-           
+            SongPlayer(_songChooser);
+            _musicSource2.volume = 0;
+            _musicSource3.volume = 0;
+            _musicSource4.volume = 0;
+            _musicSource5.volume = 0;
+            _musicSource6.volume = 0;
+
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="_songChooser">
-        /// _songChooser = 0 :Canción Menu
-        /// _songChooser = 1 :Cancion Fase 1
-        /// _songChooser = 2 :Cancion Fase 2
-        /// _songChooser = 3 :Cancion Fase 3
-        /// _songChooser = 4 :Cancion Fase 4
-        /// _songChooser = 5 :Cancion Leviathan
+        /// _songChooser = 0:Empieza cancion Fase 1
+        /// _songChooser = 1:Empieza cancion Fase 2
+        /// _songChooser = 2:Empieza cancion Fase 3
+        /// _songChooser = 3:Empieza cancion Fase 4
+        /// _songChooser = 4:Empieza cancion Leviatan
         /// </param>
         public void SongPlayer(int _songChooser)
          {
+            _musicSource1.PlayOneShot(_songMenu); 
+            _musicSource2.PlayOneShot(_songFase1);
+            _musicSource3.PlayOneShot(_songFase2);
+            _musicSource4.PlayOneShot(_songFase3);
+            _musicSource5.PlayOneShot(_songFase4);
+            _musicSource6.PlayOneShot(_songLeviatan);
+
+
             if (_songChooser == 0) 
             {
-                _musicSource.PlayOneShot(_songMenu);
+                 _musicSource2.volume = 1;
             }
             if (_songChooser == 1)
             {
-                _musicSource.PlayOneShot(_songFase1);
+                _musicSource3.volume = 1;
             }
             if ( _songChooser == 2)
             {
-                _musicSource.PlayOneShot(_songFase2);
+                _musicSource4.volume = 1;
             }
             if (_songChooser == 3)
             {
-                _musicSource.PlayOneShot(_songFase3);
+                _musicSource5.volume = 1;
             }
             if (_songChooser == 4)
             {
-                _musicSource.PlayOneShot(_songFase4);
-            }
-            if(_songChooser == 5)
-            {
-                _musicSource.PlayOneShot(_songLeviatan);
-            }
+                _musicSource6.volume = 1;
+            }          
          }  
    
 
