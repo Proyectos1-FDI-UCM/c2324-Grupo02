@@ -4,6 +4,7 @@ using TerrainSystem.Requestable.Retriever.Observable;
 using System.Collections.Generic;
 using UpgradesSystem.Flyweight;
 using System;
+using UnityEngine.UIElements;
 
 namespace Particles
 {
@@ -81,17 +82,25 @@ namespace Particles
 
         // Método subscrito al evento del Observable. Se llama cada vez que recibimos datos del minado de terreno
         private void TerrainData(object sender, TerrainModification e) {
+            //Empezamos parando cualquier particula que esté en funcionamiento
+            StopParticles();
             // Obtenemos el sistema de partículas correspondiente al terreno minado y lo reproducimos
-            if(terrainTypeParticleDictionary.TryGetValue((TerrainType)e.terrainType, out ParticleSystem value))
+            if (terrainTypeParticleDictionary.TryGetValue((TerrainType)e.terrainType, out ParticleSystem value))
             {
                 if(e.amount != 0)
                 {
-                    print((TerrainType)e.terrainType);
-                    print(e.amount);
+                   //print((TerrainType)e.terrainType);
+                    //print(e.amount);
                     value.Play();
                 }
-           
-            }     
+
+            }
+        }
+
+        private void StopParticles()
+        {
+            foreach (var ps in terrainTypeParticleDictionary.Values)
+                ps.Stop();
         }
     }
 }
