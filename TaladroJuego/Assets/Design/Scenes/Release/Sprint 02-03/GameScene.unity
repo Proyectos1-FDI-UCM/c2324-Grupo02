@@ -7638,6 +7638,34 @@ PrefabInstance:
       propertyPath: _subscribeOnEnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8192837083233604389, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ReachedMin>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192837083233604389, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ReachedMin>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192837083233604389, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ReachedMin>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1328554553}
+    - target: {fileID: 8192837083233604389, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ReachedMin>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192837083233604389, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ReachedMin>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: NoFuel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192837083233604389, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ReachedMin>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UISystem.OnFuelEmpty, UI-System
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192837083233604389, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: <ReachedMin>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9176519568821941421, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: _subscribeOnEnable
       value: 1
@@ -21118,7 +21146,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -22768,6 +22796,7 @@ GameObject:
   - component: {fileID: 1328554550}
   - component: {fileID: 1328554552}
   - component: {fileID: 1328554551}
+  - component: {fileID: 1328554553}
   m_Layer: 5
   m_Name: Death Screen Rect
   m_TagString: Untagged
@@ -22835,6 +22864,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328554549}
   m_CullTransparentMesh: 1
+--- !u!114 &1328554553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328554549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd110fe8a9598b48a135c8d018ac5b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resources: {fileID: 11400000, guid: a936a8743a3e08649a6ad89de7fbd811, type: 2}
+  gameOverPanel: {fileID: 1328554549}
 --- !u!1 &1330556296
 GameObject:
   m_ObjectHideFlags: 0
@@ -26669,7 +26712,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.308748
+  m_Size: 0.30874994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
