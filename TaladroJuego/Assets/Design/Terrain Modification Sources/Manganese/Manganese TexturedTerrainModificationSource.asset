@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60fa238c4395bc45aa5623046d2a53f, type: 3}
   m_Name: Manganese TexturedTerrainModificationSource
   m_EditorClassIdentifier: 
-  _alphaTextureIndex: 1
-  _alphaTextureSize: {x: 32, y: 32}
+  _alphaTextureIndex: 0
+  _alphaTextureSize: {x: 0, y: 0}
   _alphaTextureScale: {x: 0, y: 0, z: 0}
   _positionOffset: {x: 0, y: 0, z: 0}
   _rotationOffset: {x: 0, y: 0, z: 0}
-  _configuration: {fileID: 11400000, guid: 0d5b3d0346468ae49881eb5a72c042bc, type: 2}
+  _configuration: {fileID: 0}
