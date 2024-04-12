@@ -8,7 +8,10 @@ namespace MovementSystem.LastFart
 {
     public class LastFartLauncher : MonoBehaviour
     {
-        private bool lastFartEnabled = true;// true is temporal
+        private bool lastFartEnabled = false;
+
+        private bool isFartEnabled = false;
+        public bool IsFartEnabled { get => isFartEnabled; set => isFartEnabled = value; }
 
         [SerializeField] private Transform parentTransform;
         [SerializeField] private GameObject rotationSystem;
@@ -18,6 +21,9 @@ namespace MovementSystem.LastFart
         [SerializeField] private float fartingTime = 4;
 
         private Coroutine fart;
+
+        
+
 
         public void EnableLastFart(bool value)
         {
@@ -45,6 +51,7 @@ namespace MovementSystem.LastFart
 
             impulseMovement.Move(-impulseDir);
             rotationSystem.SetActive(true);
+            IsFartEnabled = false;
 
             fart = null;
         }
