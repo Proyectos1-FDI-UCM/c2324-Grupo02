@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdcf65b3c2152b74399cda90094d863a, type: 3}
+  m_Name: Chapter 8 Speech Dialogue Rule
+  m_EditorClassIdentifier: 
+  _cachedSimultaneousCriteria:
+    _conditions: []
+  _rule:
+    _criteriaObject: {fileID: 11400000, guid: 44dba1e0f28aa8342ac3998c504852a2, type: 2}
+    <Content>k__BackingField:
+      _textStrings:
+      - <Text>k__BackingField: It seems like I'm close to reaching the bottom. I
+          left everything to change my life and this has been the result.
+      - <Text>k__BackingField: I don't regret it, it was a nice way to live. And
+          now, as I contemplate the path we have traveled, I gratefully embrace the
+          end.
+    _criteria:
+      rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

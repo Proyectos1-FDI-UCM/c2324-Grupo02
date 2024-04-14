@@ -20,6 +20,8 @@ namespace MovementSystem.LastFart
         [SerializeField] private float launchPreparationTime = 6;
         [SerializeField] private float fartingTime = 4;
 
+        
+
         private Coroutine fart;
 
         
