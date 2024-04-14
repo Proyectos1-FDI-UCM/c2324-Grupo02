@@ -18,12 +18,10 @@ MonoBehaviour:
     _criteriaObject: {fileID: 11400000, guid: 44dba1e0f28aa8342ac3998c504852a2, type: 2}
     <Content>k__BackingField:
       _textStrings:
-      - <Text>k__BackingField: 'This underground world is fascinating, there are
-          many secrets to discover. '
-      - <Text>k__BackingField: 'However, there are great dangers. I should keep an
-          eye out, who knows what I might find.
-
-'
+      - <Text>k__BackingField: What a fascinating underground world this is, there
+          are plenty of secrets worth discovering.
+      - <Text>k__BackingField: However, great dangers await. I should keep an eye
+          out, who knows what may be waiting for me.
     _criteria:
       rid: -2
   references:

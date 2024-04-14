@@ -18,11 +18,11 @@ MonoBehaviour:
     _criteriaObject: {fileID: 11400000, guid: 44dba1e0f28aa8342ac3998c504852a2, type: 2}
     <Content>k__BackingField:
       _textStrings:
-      - <Text>k__BackingField: 'A horrible creature lurking in the shadows. '
-      - <Text>k__BackingField: This aberration has awakened my fears, but I must
-          not retreat.
-      - <Text>k__BackingField: "I will try to avoid it, I don't want to die before
-          reaching the end.\u201D\r\n"
+      - <Text>k__BackingField: 'A nightmarish creature is lurking in the shadows. '
+      - <Text>k__BackingField: This abomination has aroused my fears, but I shall
+          not back off.
+      - <Text>k__BackingField: "I will try to avoid it, I don\u2019t want to die
+          before I reach the end.\u201D"
     _criteria:
       rid: -2
   references:

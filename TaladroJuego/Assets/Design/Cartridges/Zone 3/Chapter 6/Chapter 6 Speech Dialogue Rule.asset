@@ -18,12 +18,10 @@ MonoBehaviour:
     _criteriaObject: {fileID: 11400000, guid: 44dba1e0f28aa8342ac3998c504852a2, type: 2}
     <Content>k__BackingField:
       _textStrings:
-      - <Text>k__BackingField: Faced with the darkness that looms over me, fear threatens
-          to consume me. I can't go back.
-      - <Text>k__BackingField: ' I cannot allow fear to control my destiny. I must
-          face the unknown with courage and determination.
-
-'
+      - <Text>k__BackingField: "Faced with the darkness which looms over me, fear
+          threatens to swallow me whole. I can\u2019t back off."
+      - <Text>k__BackingField: "Fear musn\u2019t control my fate. What is unknown
+          should be quarreled with courage and determination."
     _criteria:
       rid: -2
   references:

@@ -18,11 +18,12 @@ MonoBehaviour:
     _criteriaObject: {fileID: 11400000, guid: 44dba1e0f28aa8342ac3998c504852a2, type: 2}
     <Content>k__BackingField:
       _textStrings:
-      - <Text>k__BackingField: It seems like I'm close to reaching the bottom. I
-          left everything to change my life and this has been the result.
-      - <Text>k__BackingField: I don't regret it, it was a nice way to live. And
-          now, as I contemplate the path we have traveled, I gratefully embrace the
-          end.
+      - <Text>k__BackingField: The bottom seems close. I left everything behind to
+          change my life and this is the result.
+      - <Text>k__BackingField: " I don\u2019t regret it, it has been a lovely way
+          of living."
+      - <Text>k__BackingField: "And now, as I\u2019m gazing at the traversed path,
+          I embrace the end with gratitude."
     _criteria:
       rid: -2
   references:

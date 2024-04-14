@@ -18,10 +18,10 @@ MonoBehaviour:
     _criteriaObject: {fileID: 11400000, guid: 44dba1e0f28aa8342ac3998c504852a2, type: 2}
     <Content>k__BackingField:
       _textStrings:
-      - <Text>k__BackingField: The deeper I go, the more I can blame myself for everything
-          I could have done and didn't do.
-      - <Text>k__BackingField: However, my choices shaped my path, and I must accept
-          that.
+      - <Text>k__BackingField: "The deeper I find myself, the greater my guilt becomes
+          for everything that I could have done but I didn\u2019t. "
+      - <Text>k__BackingField: Nevertheless, my choices shaped my journey, and I
+          must accept that.
     _criteria:
       rid: -2
   references:
