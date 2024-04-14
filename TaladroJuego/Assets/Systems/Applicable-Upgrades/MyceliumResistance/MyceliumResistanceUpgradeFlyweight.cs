@@ -27,9 +27,11 @@ namespace ApplicableUpgradesSystem
 
             public void Apply()
             {
+                
                 foreach(ConstantDamager c in _damagers)
                 {
                     c.Damage *= _factor;
+                    
                 }
             }
         }

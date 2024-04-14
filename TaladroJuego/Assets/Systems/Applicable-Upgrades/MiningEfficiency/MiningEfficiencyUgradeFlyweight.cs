@@ -26,6 +26,7 @@ namespace ApplicableUpgradesSystem.MiningEfficiency
 
             public void Apply()
             {
+                
                 _observableResource.ConversionRate *= _factor;
             }
         }

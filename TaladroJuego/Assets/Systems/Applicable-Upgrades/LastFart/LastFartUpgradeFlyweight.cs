@@ -22,7 +22,7 @@ namespace ApplicableUpgradesSystem
 
             public void Apply()
             {
-                _lastFartLauncher.EnableLastFart(true);
+                
                 _lastFartLauncher.IsFartEnabled = true;
             }
         }
