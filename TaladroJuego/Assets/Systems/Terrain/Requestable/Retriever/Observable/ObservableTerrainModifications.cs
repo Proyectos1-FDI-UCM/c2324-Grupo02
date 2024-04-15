@@ -19,7 +19,7 @@ namespace TerrainSystem.Requestable.Retriever.Observable
 
         private void Awake()
         {
-            _observableTerrainData = GetComponentsInChildren<IObservableTerrainData<TerrainModification>>().FirstOrDefault(o => (object)o != this);
+            _observableTerrainData = GetComponentsInChildren<IObservableTerrainData<TerrainModification>>().FirstOrDefault(o => o != (IObservableTerrainData<TerrainModification>)this);
             _observableTerrainData.DataRetrieved += OnModificationRetrieved;
         }
 
@@ -32,10 +32,7 @@ namespace TerrainSystem.Requestable.Retriever.Observable
         {
             float absAmount = Mathf.Abs(e.amount);
             if (absAmount >= _lowerThreshold && absAmount < _upperThreshold)
-            {
                 DataRetrieved?.Invoke(this, e);
-                Debug.Log($"Modification: {e.terrainType} - {e.amount}");
-            }
         }
     }
 }

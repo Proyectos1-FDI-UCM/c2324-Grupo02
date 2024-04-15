@@ -295,7 +295,7 @@ void ModifyTerrainTexture(uint3 id : SV_DispatchThreadID)
 		uint terrainType = TerrainTypeFromEncoded(currentEncodedTerrainType);
 
 		TerrainModification previous = _TerrainModifications[terrainType];
-		_TerrainModifications[terrainType] = TerrainModificationFrom(terrainType, i, difference + previous.amount);
+		_TerrainModifications[terrainType] = TerrainModificationFrom(terrainType, i, previous.amount + min(difference, EncodedTerrainTypeFrom(1u)) * contribution);
 	}
 }
 
@@ -336,7 +336,7 @@ void ModifyTerrainWindow(uint3 id : SV_DispatchThreadID)
 		uint terrainType = TerrainTypeFromEncoded(currentEncodedTerrainType);
 
 		TerrainModification previous = _TerrainModifications[terrainType];
-		_TerrainModifications[terrainType] = TerrainModificationFrom(terrainType, i, difference + previous.amount);
+		_TerrainModifications[terrainType] = TerrainModificationFrom(terrainType, i, previous.amount + min(difference, EncodedTerrainTypeFrom(1u)) * contribution);
 	}
 }
 
