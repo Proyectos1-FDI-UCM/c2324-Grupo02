@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a60fa238c4395bc45aa5623046d2a53f, type: 3}
-  m_Name: Lead TexturedTerrainModificationSource
+  m_Name: TexturedTerrainModificationSource
   m_EditorClassIdentifier: 
   _alphaTextureIndex: 1
   _alphaTextureSize: {x: 32, y: 32}
   _alphaTextureScale: {x: 0, y: 0, z: 0}
   _positionOffset: {x: 0, y: 0, z: 0}
   _rotationOffset: {x: 0, y: 0, z: 0}
-  _configuration: {fileID: 11400000, guid: 011f0db3db1c9f447858b283883c737a, type: 2}
+  _configuration: {fileID: 11400000, guid: a6f20224cd1c7564bb6739c95337ede5, type: 2}
