@@ -16,4 +16,4 @@ MonoBehaviour:
   _radius: 1
   _strength: 1
   _falloff: 0
-  _type: 12
+  _type: 11
