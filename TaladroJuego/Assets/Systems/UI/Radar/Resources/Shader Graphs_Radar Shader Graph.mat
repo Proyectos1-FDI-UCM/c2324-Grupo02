@@ -57,6 +57,7 @@ Material:
     - _Falloff: 0.1
     - _GridLinesThickness: 0.01
     - _Radius: 0.25
+    - _VisionRadius: 0.65
     - _WaveFrequency: 8
     - _WaveLength: 0.015
     - _WaveNumber: 48

@@ -195,9 +195,9 @@ GameObject:
   m_Component:
   - component: {fileID: 174538575}
   - component: {fileID: 174538579}
-  - component: {fileID: 174538578}
-  - component: {fileID: 174538577}
-  - component: {fileID: 174538576}
+  - component: {fileID: 174538582}
+  - component: {fileID: 174538581}
+  - component: {fileID: 174538580}
   m_Layer: 0
   m_Name: Scout Behaviour
   m_TagString: Untagged
@@ -220,7 +220,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971457169}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &174538576
+--- !u!114 &174538579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174538574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2206ec28ecfd5154b8f47b8e0cee0f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &174538580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,9 +269,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _proximityTransform: {fileID: 14678203}
-  _maxDistance: 10
-  _minDistance: 1
---- !u!114 &174538577
+  _maxDistance: 20
+  _minDistance: 0
+--- !u!114 &174538581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,15 +280,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 174538574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33053bd03208f2d428c19582ff70d1b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 500c01df0ebae31429437498383e86cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _changeDirectionTime: 10
   _bounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 40, y: 20, z: 0}
-  _transform: {fileID: 573460683}
---- !u!114 &174538578
+    m_Extent: {x: 20, y: 20, z: 0}
+  _radius: 5
+  _rigidBody: {fileID: 573460681}
+  _changePointTimer: 20
+  _angularSpeed: 5
+--- !u!114 &174538582
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,19 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5cd5d5fe70a7d41963b94ff7903933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementFacadeObject: {fileID: 0}
---- !u!114 &174538579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174538574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2206ec28ecfd5154b8f47b8e0cee0f07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _movementFacadeObject: {fileID: 777086500}
 --- !u!1 &573460679
 GameObject:
   m_ObjectHideFlags: 0
