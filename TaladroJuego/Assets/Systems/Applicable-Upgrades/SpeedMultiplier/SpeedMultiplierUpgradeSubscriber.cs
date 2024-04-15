@@ -4,7 +4,7 @@ using MovementSystem.Profile;
 
 namespace ApplicableUpgradesSystem.SpeedMultiplierUpgrade
 {
-    internal class SpeedMultiplierUpgradeSubscriber : MonoBehaviour
+    internal class RadarIncreaseUpgradeSubscriber : MonoBehaviour
     {
         [SerializeField] private SpeedMultiplier _multiplier;
         [SerializeField] private SpeedMultiplierUpgradeFlyweight[] _upgrades;
