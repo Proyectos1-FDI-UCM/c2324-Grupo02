@@ -14932,6 +14932,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: -944628639613478452, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.InputSystem.InputActionAsset, Unity.InputSystem
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 475356323}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <DialogueHandlingFinished>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -14951,6 +14975,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PauseRequesterObject, Centralised-Request-System
         m_MethodName: RequestResume
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: -944628639613478452, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.InputSystem.InputActionAsset, Unity.InputSystem
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 475356323}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -21295,7 +21343,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 4.821429
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
