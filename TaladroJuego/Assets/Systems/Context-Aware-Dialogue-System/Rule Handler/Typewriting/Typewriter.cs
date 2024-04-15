@@ -23,7 +23,7 @@ namespace ContextualDialogueSystem.RuleHandler.Typewriting
 
         private void Awake()
         {
-            _typewritingDelayService = _typewritingDelayObject as ITypewritingDelayService ?? new UnitTypewritingDelayService();
+            _typewritingDelayService = _typewritingDelayObject as ITypewritingDelayService ?? UnitTypewritingDelayService.Instance;
         }
 
         public async Task Delete(int amount)
@@ -70,8 +70,9 @@ namespace ContextualDialogueSystem.RuleHandler.Typewriting
             await Type(text);
         }
 
-        private class UnitTypewritingDelayService : ITypewritingDelayService
+        private readonly struct UnitTypewritingDelayService : ITypewritingDelayService
         {
+            public static readonly UnitTypewritingDelayService Instance = new UnitTypewritingDelayService();
             public float GetDelay(string typedMessage) => 0.0f;
         }
     }

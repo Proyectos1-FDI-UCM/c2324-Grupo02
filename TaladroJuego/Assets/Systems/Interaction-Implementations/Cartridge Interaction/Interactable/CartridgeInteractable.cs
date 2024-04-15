@@ -18,7 +18,7 @@ namespace InteractionImplementationsSystem.CartridgeInteraction.Interactable
 
         public bool Accept<TInteractor>(TInteractor interactor) where TInteractor : IInteractor<Cartridge>
         {
-            return interactor.InteractWith(_cartridge) && _destructionInteractable.Accept(interactor);
+            return interactor.InteractWith(_cartridge) && (_destructionInteractable?.Accept(interactor) ?? true);
         }
     }
 }
