@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b348a071cf73b34dae307f43731e84a, type: 3}
+  m_Name: Bigger Drill Flyweight
+  m_EditorClassIdentifier: 
+  _resourceQuotaItems:
+  - <Resource>k__BackingField: 1
+    <Quantity>k__BackingField: 1
+  _applicableUpgradeFlyweight: {fileID: 11400000, guid: 26699d09728f69d4cad0b78684b7777e, type: 2}
