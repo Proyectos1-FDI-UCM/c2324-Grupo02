@@ -23,5 +23,10 @@
 
         public TerrainModification WithAmount(float amount) =>
             new TerrainModification(terrainType, modificationSourceIndex, amount);
+
+        public override string ToString()
+        {
+            return $"{nameof(terrainType)}: {terrainType}, {nameof(modificationSourceIndex)}: {modificationSourceIndex}, {nameof(amount)}: {amount}";
+        }
     }
 }
