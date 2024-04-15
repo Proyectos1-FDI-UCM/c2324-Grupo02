@@ -10,11 +10,6 @@ public class DirectionalMovementEnabler : MonoBehaviour
     [SerializeField] private GameObject _shipDirectional;
     [SerializeField] private OnMovementStatusReducer _movementStatusReducer;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if(_statusParameter.Value <= 0)

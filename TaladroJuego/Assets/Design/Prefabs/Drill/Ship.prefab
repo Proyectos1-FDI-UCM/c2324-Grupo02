@@ -203,6 +203,51 @@ MonoBehaviour:
   _rb: {fileID: 383083186636943588}
   _valueToReduce: 1
   _statusParameterObject: {fileID: 2384763123888165454}
+--- !u!1 &503549920765356158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3366203569657094989}
+  - component: {fileID: 3076643284246074676}
+  m_Layer: 0
+  m_Name: SpeedRegister
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3366203569657094989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503549920765356158}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9107048288880789998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3076643284246074676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503549920765356158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ecc120aa6ae394ea4274d024086598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedProvider: {fileID: 11400000, guid: 44027d8aac1fe704882b3749749d2ced, type: 2}
 --- !u!1 &1414221428481818190
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +506,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: InputSystem.ShipMovementInput, Input-System
         m_MethodName: StopEngine
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2167138369432361992}
+        m_TargetAssemblyTypeName: MovementSystem.LastFart.LastFartLauncher, Movement-System
+        m_MethodName: TryLaunchFart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5888117168991372100}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -877,6 +946,7 @@ GameObject:
   - component: {fileID: 6653817492062723799}
   - component: {fileID: 5802977830543299667}
   - component: {fileID: 102881446912765885}
+  - component: {fileID: 4464955545169097681}
   m_Layer: 0
   m_Name: FuelStatus
   m_TagString: Untagged
@@ -911,7 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202d31a4a4260e343b1d4a060ac2e0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statusValue: 100
+  _statusValue: 1
   <ValueSet>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -1023,6 +1093,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2da2df46140415408bf231529242e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4464955545169097681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3330652055722489186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bd5f9e4221b744c8f6f6635bfa9546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusParameter: {fileID: 650023317807121636}
+  _shipBody: {fileID: 383083186636943588}
+  _shipDirectional: {fileID: 3702497244366780798}
+  _movementStatusReducer: {fileID: 0}
 --- !u!1 &3702497244366780798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,6 +1587,7 @@ Transform:
   m_Children:
   - {fileID: 5429735568648415451}
   - {fileID: 8878591060481120177}
+  - {fileID: 9107048288880789998}
   m_Father: {fileID: 5084829399306703634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4874107800882255945
@@ -2037,6 +2124,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5084829399306703634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8927502446534740842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9107048288880789998}
+  - component: {fileID: 4524195803559578036}
+  - component: {fileID: 2167138369432361992}
+  m_Layer: 0
+  m_Name: ImpulseMovementFacade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9107048288880789998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927502446534740842}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3366203569657094989}
+  m_Father: {fileID: 2631363485176528437}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4524195803559578036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927502446534740842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6bf6ea21dc08d742a929fa3d209755c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myRigidbody: {fileID: 383083186636943588}
+--- !u!114 &2167138369432361992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927502446534740842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260f1b366a5dc0847b82045057d7ef44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentTransform: {fileID: 5084829399306703634}
+  rotationSystem: {fileID: 6508524660178300320}
+  launchPreparationTime: 5
+  fartingTime: 0.5
 --- !u!1001 &5987214846860866956
 PrefabInstance:
   m_ObjectHideFlags: 0

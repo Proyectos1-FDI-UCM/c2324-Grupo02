@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using StatusSystem;
 using MovementSystem.Facade;
+using PlasticPipe.PlasticProtocol.Messages;
 
 namespace MovementSystem.LastFart
 {
     public class LastFartLauncher : MonoBehaviour
     {
-        private bool lastFartEnabled = true;// true is temporal
+
+        private bool isFartEnabled = false;
+        public bool IsFartEnabled { get => isFartEnabled; set => isFartEnabled = value; }
 
         [SerializeField] private Transform parentTransform;
         [SerializeField] private GameObject rotationSystem;
@@ -17,19 +20,26 @@ namespace MovementSystem.LastFart
         [SerializeField] private float launchPreparationTime = 6;
         [SerializeField] private float fartingTime = 4;
 
+        [SerializeField] private OnFuelEmpty _fuelEmpty;
+        
+
         private Coroutine fart;
 
-        public void EnableLastFart(bool value)
-        {
-            lastFartEnabled = value;
-        }
+            
+        
 
         public void TryLaunchFart()
         {
-            if (!lastFartEnabled) return;
-            Debug.Log("Trying fart");
+            
+            if (!isFartEnabled)
+            { 
+                return;
+            }
 
-            fart ??= StartCoroutine(LaunchFart());
+            else
+            {
+                fart ??= StartCoroutine(LaunchFart());
+            }
         }
 
         private IEnumerator LaunchFart()
@@ -45,6 +55,9 @@ namespace MovementSystem.LastFart
 
             impulseMovement.Move(-impulseDir);
             rotationSystem.SetActive(true);
+            IsFartEnabled = false;
+            _fuelEmpty.NoFuel();
+
 
             fart = null;
         }
@@ -52,6 +65,7 @@ namespace MovementSystem.LastFart
         void Start()
         {
             impulseMovement = GetComponent<ImpulseMovementFacade>();
+            
         }
     }
 }
