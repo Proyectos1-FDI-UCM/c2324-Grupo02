@@ -18,8 +18,9 @@ namespace AISystem.Evaluator
         }
         public float GetPriority()
         {
+            
             float distance = (_proximityTransform.position - _transform.position).magnitude;
-            return 1 - (distance - _minDistance) / (_maxDistance - _minDistance);
+            return _evaluationCurve.Evaluate(1 - (distance - _minDistance) / (_maxDistance - _minDistance));
         }
     }
 }
