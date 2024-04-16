@@ -39,6 +39,8 @@ namespace TerrainSystem.Queue
         public Quaternion GetRotation() =>
             _source.rotation * Quaternion.Euler(_rotationOffset);
 
+        public Vector3 GetScale() =>
+            _source.lossyScale;
     }
 
     public class QueueableTerrainModification : MonoBehaviour,

@@ -21,6 +21,7 @@ namespace TerrainSystem.Test
 
             public readonly Vector3 GetPosition() => Source.position;
             public readonly Quaternion GetRotation() => Source.rotation;
+            public readonly Vector3 GetScale() => Source.lossyScale;
         }
 
         [SerializeField]

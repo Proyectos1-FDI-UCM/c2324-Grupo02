@@ -7,6 +7,7 @@ namespace TerrainSystem.Requestable.Retriever
     {
         [SerializeField]
         private RenderTexture _destination;
+        private RenderTexture _destinationAlbedo;
         private RenderTexture _destinationNormals;
         [SerializeField]
         private Material _material;
@@ -22,39 +23,43 @@ namespace TerrainSystem.Requestable.Retriever
 
         private void Awake()
         {
-            if (_sendToMaterial)
+            _destinationAlbedo = new RenderTexture(_destination.descriptor)
             {
-                _destinationNormals = new RenderTexture(_destination.descriptor)
-                {
-                    enableRandomWrite = true
-                };
+                enableRandomWrite = true
+            };
 
-                const string ALBEDO_TEXTURE_NAME = "_MainTex";
-                _material.SetTexture(ALBEDO_TEXTURE_NAME, _destination);
+            _destinationNormals = new RenderTexture(_destination.descriptor)
+            {
+                enableRandomWrite = true
+            };
 
-                const string NORMALS_TEXTURE_NAME = "_NormalMap";
-                _material.SetTexture(NORMALS_TEXTURE_NAME, _destinationNormals);
-            }
+            const string ALBEDO_TEXTURE_NAME = "_MainTex";
+            _material.SetTexture(ALBEDO_TEXTURE_NAME, _destinationAlbedo);
+
+            const string NORMALS_TEXTURE_NAME = "_NormalMap";
+            _material.SetTexture(NORMALS_TEXTURE_NAME, _destinationNormals);
         }
 
         private void OnDestroy()
         {
-            if (_sendToMaterial)
-            {
-                _destination.Release();
-                _destinationNormals.Release();
-            }
+            _destination.Release();
+            _destinationAlbedo.Release();
+            _destinationNormals.Release();
         }
 
         private void LateUpdate()
         {
-            PositionedTerrainVisuals visuals = new PositionedTerrainVisuals(_destination, _visualsAnchor.position);
-            if (_sendToMaterial)
-                _terrainModificationRequester.TryRetrieve(new PositionedTerrainVisualsWithNormals(
-                    visuals,
-                    _destinationNormals));
-            else
+            PositionedTerrainVisuals visuals = new PositionedTerrainVisuals(_destinationAlbedo, _visualsAnchor.position);
+
+            _terrainModificationRequester.TryRetrieve(new PositionedTerrainVisualsWithNormals(
+                visuals,
+                _destinationNormals));
+
+            if (!_sendToMaterial)
+            {
                 _terrainModificationRequester.TryRetrieve(in visuals);
+                Graphics.Blit(_destinationAlbedo, _destination);
+            }
         }
     }
 }

@@ -155,7 +155,6 @@ GameObject:
   - component: {fileID: 1412295774547470190}
   - component: {fileID: 6294449818831945932}
   - component: {fileID: 251588555473277288}
-  - component: {fileID: 5888785724208851847}
   m_Layer: 5
   m_Name: Terrain Canvas
   m_TagString: Untagged
@@ -229,23 +228,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &5888785724208851847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6647179128761858775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &6779243946541609524
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +332,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: f7537b18922042840b898e6b2c1ef7e7, type: 2}
+  m_Texture: {fileID: 0}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -371,7 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _destination: {fileID: 8400000, guid: f7537b18922042840b898e6b2c1ef7e7, type: 2}
   _material: {fileID: 2100000, guid: 40385a88e907e6248b8c85795b08c48c, type: 2}
-  _visualsAnchor: {fileID: 0}
+  _visualsAnchor: {fileID: 6773737574581417496}
   _sendToMaterial: 1
   _terrainModificationRequester: {fileID: 11400000, guid: 328c41906e1c80b488fd7db89c17f23e, type: 2}
 --- !u!114 &6065521377836199144
@@ -443,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _terrainTextureSize: {x: 1920, y: 11520}
+  _terrainTextureSize: {x: 1920, y: 5760}
   _terrainWindowTextureSize: {x: 640, y: 360}
   _initializeOnAwake: 1
 --- !u!114 &6404573842569764394
@@ -459,8 +441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _batchSaveHandler: {fileID: 11400000, guid: 957532f3c44f99f4b9d7f00433719f5e, type: 2}
-  _subscribeOnEnable: 1
-  _unsubscribeOnDisable: 1
+  _subscribeOnEnable: 0
+  _unsubscribeOnDisable: 0
   _unsubscribeOnDestroy: 0
 --- !u!114 &1643822972520823939
 MonoBehaviour:

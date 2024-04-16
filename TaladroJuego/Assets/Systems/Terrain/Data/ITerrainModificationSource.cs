@@ -6,5 +6,6 @@ namespace TerrainSystem.Data
     {
         Vector3 GetPosition();
         Quaternion GetRotation();
+        Vector3 GetScale();
     }
 }

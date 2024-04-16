@@ -23,24 +23,24 @@ namespace TerrainSystem.Requestable.Retriever
             int kernel = _accessor.kernelCopyFromTerrainTexture;
             _accessor.ConfigureTerrainTexture(kernel, _terrainTexture, Vector2.zero);
 
-            RenderTexture rawDataWindow = new RenderTexture(destination.renderTexture.descriptor)
-            {
-                width = destination.renderTexture.width,
-                height = destination.renderTexture.height,
-                enableRandomWrite = true
-            };
+            //RenderTexture rawDataWindow = new RenderTexture(destination.renderTexture.descriptor)
+            //{
+            //    width = destination.renderTexture.width,
+            //    height = destination.renderTexture.height,
+            //    enableRandomWrite = true
+            //};
 
             Vector2 cameraSize = new Vector2(
                 _camera.orthographicSize * _camera.aspect,
                 _camera.orthographicSize) * 2.0f;
             _accessor.ConfigureTerrainTextureWindow(
                 kernel,
-                rawDataWindow,
-                (destination.position / cameraSize) * new Vector2(rawDataWindow.width, rawDataWindow.height));
+                destination.renderTexture,
+                (destination.position / cameraSize) * new Vector2(destination.renderTexture.width, destination.renderTexture.height));
 
-            _accessor.Dispatch(kernel, new Vector3(rawDataWindow.width, rawDataWindow.height, 1));
-            Graphics.Blit(rawDataWindow, destination.renderTexture);
-            rawDataWindow.Release();
+            _accessor.Dispatch(kernel, new Vector3(destination.renderTexture.width, destination.renderTexture.height, 1));
+            //Graphics.Blit(rawDataWindow, destination.renderTexture);
+            //rawDataWindow.Release();
             return Task.FromResult(true);
         }
 

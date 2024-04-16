@@ -11,6 +11,7 @@ namespace UISystem.RadarSystem.Test
 
         [SerializeField]
         private RenderTexture _radarRawDataRenderTexture;
+        private RenderTexture _radarTemporaryRawData;
         [SerializeField]
         private RenderTexture _terrainWindowTexture;
         [SerializeField]
@@ -18,6 +19,20 @@ namespace UISystem.RadarSystem.Test
 
         [SerializeField]
         private Transform _radarDataCentreAnchor;
+
+        private void Awake()
+        {
+            _radarTemporaryRawData = new RenderTexture(_radarRawDataRenderTexture.descriptor)
+            {
+                enableRandomWrite = true
+            };
+        }
+
+        private void OnDestroy()
+        {
+            _radarRawDataRenderTexture.Release();
+            _radarTemporaryRawData.Release();
+        }
 
         private void LateUpdate()
         {
@@ -32,8 +47,9 @@ namespace UISystem.RadarSystem.Test
                 _terrainWindowTexture.height - _radarRawDataRenderTexture.height) * 0.5f / new Vector2(_terrainWindowTexture.width, _terrainWindowTexture.height);
 
             _terrainRawDataRetriever.TryRetrieve(PositionedTerrainRawData.From(
-                _radarRawDataRenderTexture, 
+                _radarTemporaryRawData, 
                 ((Vector2)_radarDataCentreAnchor.position + relativeTextureCenteringOffset * cameraSize) * relativeSize));
+            Graphics.Blit(_radarTemporaryRawData, _radarRawDataRenderTexture);
         }
     }
 }

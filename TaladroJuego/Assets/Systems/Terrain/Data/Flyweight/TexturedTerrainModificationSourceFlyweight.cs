@@ -28,13 +28,14 @@ namespace TerrainSystem.Data.Flyweight
         public TexturedTerrainModificationSource CreateFrom<UFromSource>(UFromSource terrainModificationSource) where UFromSource : ITerrainModificationSource
         {
             ITerrainModificationConfiguration configuration = _configuration.Create();
+            Vector3 scale = terrainModificationSource.GetScale();
             return new TexturedTerrainModificationSource(
                 _positionOffset + terrainModificationSource.GetPosition(),
                 _rotationOffset - terrainModificationSource.GetRotation().eulerAngles,
                 (uint)_alphaTextureIndex,
                 _alphaTextureSize,
                 _alphaTextureScale,
-                new Vector4(configuration.Size.x, configuration.Size.y, configuration.Size.z, configuration.Radius),
+                new Vector4(configuration.Size.x * scale.x, configuration.Size.y * scale.y, configuration.Size.z * scale.z, configuration.Radius),
                 configuration.Strength,
                 configuration.Falloff,
                 configuration.Type);

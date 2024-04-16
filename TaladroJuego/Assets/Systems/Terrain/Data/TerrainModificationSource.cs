@@ -29,6 +29,7 @@ namespace TerrainSystem.Data
 
         public Vector3 GetPosition() => positionWS;
         public Quaternion GetRotation() => Quaternion.Euler(rotationWS);
+        public Vector3 GetScale() => Vector3.one;
         public uint GetTerrainType() => type;
 
         public Vector3 Size => sizeAndRadius;

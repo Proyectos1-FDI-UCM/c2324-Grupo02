@@ -32,18 +32,18 @@ namespace TerrainSystem.Requestable.Retriever
                 _terrainWindowTexture,
                 (destination.position / cameraSize) * new Vector2(_terrainWindowTexture.width, _terrainWindowTexture.height));
 
-            RenderTexture visuals = new RenderTexture(destination.renderTexture.descriptor)
-            {
-                width = _terrainWindowTexture.width,
-                height = _terrainWindowTexture.height,
-                enableRandomWrite = true
-            };
+            //RenderTexture visuals = new RenderTexture(destination.renderTexture.descriptor)
+            //{
+            //    width = _terrainWindowTexture.width,
+            //    height = _terrainWindowTexture.height,
+            //    enableRandomWrite = true
+            //};
 
-            _accessor.ConfigureVisuals(kernel, visuals);
-            _accessor.Dispatch(kernel, new Vector3(visuals.width, visuals.height, 1));
+            _accessor.ConfigureVisuals(kernel, destination.renderTexture);
+            _accessor.Dispatch(kernel, new Vector3(destination.renderTexture.width, destination.renderTexture.height, 1));
 
-            Graphics.Blit(visuals, destination.renderTexture);
-            visuals.Release();
+            //Graphics.Blit(visuals, destination.renderTexture);
+            //visuals.Release();
             return Task.FromResult(true);
         }
 
