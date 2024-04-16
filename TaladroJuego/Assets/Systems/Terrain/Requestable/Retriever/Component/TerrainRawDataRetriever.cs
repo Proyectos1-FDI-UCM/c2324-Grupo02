@@ -16,8 +16,8 @@ namespace TerrainSystem.Requestable.Retriever.Component
         [field: SerializeField]
         internal TerrainModificationRequester TerrainModificationRequester { get; private set; }
 
-        public readonly Task Retrieve(in PositionedTerrainRawData destination) =>
-            TerrainModificationRequester.Retrieve(destination);
+        public readonly Task<bool> TryRetrieve(in PositionedTerrainRawData destination) =>
+            TerrainModificationRequester.TryRetrieve(destination);
 
         public readonly Task<PositionedTerrainRawData> Retrieve() =>
             ((ITerrainDataRetriever<PositionedTerrainRawData>)TerrainModificationRequester).Retrieve();

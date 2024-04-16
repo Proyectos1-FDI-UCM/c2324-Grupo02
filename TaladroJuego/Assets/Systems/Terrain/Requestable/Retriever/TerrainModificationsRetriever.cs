@@ -20,16 +20,18 @@ namespace TerrainSystem.Requestable.Retriever
                 _destination = destination;
             }
 
-            public Task Handle(AsyncGPUReadbackRequest request) =>
+            public Task<bool> Handle(AsyncGPUReadbackRequest request) =>
                 HandleAsync(request);
 
-            private async Task HandleAsync(AsyncGPUReadbackRequest request)
+            private async Task<bool> HandleAsync(AsyncGPUReadbackRequest request)
             {
                 while (!request.done)
                     await Task.Yield();
 
                 if (!request.hasError)
                     request.GetData<TerrainModification>(0).CopyTo(_destination);
+
+                return !request.hasError;
             }
         }
 
@@ -39,14 +41,14 @@ namespace TerrainSystem.Requestable.Retriever
             _retrievalCallback = retrievalCallback;
         }
 
-        public Task Retrieve(in TerrainModification[] destination) =>
+        public Task<bool> TryRetrieve(in TerrainModification[] destination) =>
             new AsyncGPUReadbackRequestHandler(destination)
                 .Handle(AsyncGPUReadback.Request(_modificationsBuffer, _retrievalCallback));
 
         public async Task<TerrainModification[]> Retrieve()
         {
             TerrainModification[] destination = new TerrainModification[_modificationsBuffer.count];
-            await Retrieve(in destination);
+            await TryRetrieve(in destination);
             return destination;
         }
     }

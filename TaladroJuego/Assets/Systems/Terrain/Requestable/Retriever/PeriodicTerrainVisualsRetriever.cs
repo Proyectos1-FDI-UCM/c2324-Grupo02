@@ -50,11 +50,11 @@ namespace TerrainSystem.Requestable.Retriever
         {
             PositionedTerrainVisuals visuals = new PositionedTerrainVisuals(_destination, _visualsAnchor.position);
             if (_sendToMaterial)
-                _terrainModificationRequester.Retrieve(new PositionedTerrainVisualsWithNormals(
+                _terrainModificationRequester.TryRetrieve(new PositionedTerrainVisualsWithNormals(
                     visuals,
                     _destinationNormals));
             else
-                _terrainModificationRequester.Retrieve(in visuals);
+                _terrainModificationRequester.TryRetrieve(in visuals);
         }
     }
 }

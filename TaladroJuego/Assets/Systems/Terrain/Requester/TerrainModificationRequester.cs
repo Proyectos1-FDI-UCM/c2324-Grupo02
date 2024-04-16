@@ -219,14 +219,14 @@ namespace TerrainSystem.Requester
         public bool Dequeue(ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource> modification) =>
             _texturedSources.Remove(modification);
 
-        public Task Retrieve(in PositionedTerrainVisuals destination) => _terrainVisualsRetriever.Retrieve(in destination);
+        public Task<bool> TryRetrieve(in PositionedTerrainVisuals destination) => _terrainVisualsRetriever.TryRetrieve(in destination);
         public Task<PositionedTerrainVisuals> Retrieve() => _terrainVisualsRetriever.Retrieve();
-        public Task Retrieve(in TerrainModification[] destination)
+        public Task<bool> TryRetrieve(in TerrainModification[] destination)
         {
-            Task retrieval = Task.CompletedTask;
+            Task<bool> retrieval = Task.FromResult(false);
             if (!_pendingTerrainModificationRequest)
             {
-                retrieval = _terrainModificationsRetriever.Retrieve(in destination);
+                retrieval = _terrainModificationsRetriever.TryRetrieve(in destination);
                 _pendingTerrainModificationRequest = true;
             }
 
@@ -247,10 +247,10 @@ namespace TerrainSystem.Requester
             return retrieval;
         }
 
-        public Task Retrieve(in PositionedTerrainVisualsWithNormals destination)
+        public Task<bool> TryRetrieve(in PositionedTerrainVisualsWithNormals destination)
         {
-            _terrainVisualsRetriever.Retrieve(in destination.albedoVisuals);
-            return _terrainNormalsRetriever.Retrieve(new PositionedTerrainVisuals(destination.normalsRenderTexture, destination.albedoVisuals.position));
+            _terrainVisualsRetriever.TryRetrieve(in destination.albedoVisuals);
+            return _terrainNormalsRetriever.TryRetrieve(new PositionedTerrainVisuals(destination.normalsRenderTexture, destination.albedoVisuals.position));
         }
 
         async Task<PositionedTerrainVisualsWithNormals> ITerrainDataRetriever<PositionedTerrainVisualsWithNormals>.Retrieve() =>
@@ -258,7 +258,7 @@ namespace TerrainSystem.Requester
                 await _terrainVisualsRetriever.Retrieve(),
                 (await _terrainNormalsRetriever.Retrieve()).renderTexture);
 
-        public Task Retrieve(in PositionedTerrainRawData destination) => _terrainRawDataRetriever.Retrieve(destination);
+        public Task<bool> TryRetrieve(in PositionedTerrainRawData destination) => _terrainRawDataRetriever.TryRetrieve(destination);
         Task<PositionedTerrainRawData> ITerrainDataRetriever<PositionedTerrainRawData>.Retrieve() =>
             _terrainRawDataRetriever.Retrieve();
     }

@@ -31,7 +31,7 @@ namespace UISystem.RadarSystem.Test
                 _terrainWindowTexture.width - _radarRawDataRenderTexture.width,
                 _terrainWindowTexture.height - _radarRawDataRenderTexture.height) * 0.5f / new Vector2(_terrainWindowTexture.width, _terrainWindowTexture.height);
 
-            _terrainRawDataRetriever.Retrieve(PositionedTerrainRawData.From(
+            _terrainRawDataRetriever.TryRetrieve(PositionedTerrainRawData.From(
                 _radarRawDataRenderTexture, 
                 ((Vector2)_radarDataCentreAnchor.position + relativeTextureCenteringOffset * cameraSize) * relativeSize));
         }

@@ -18,7 +18,7 @@ namespace TerrainSystem.Requestable.Retriever
             _camera = camera;
         }
 
-        public Task Retrieve(in PositionedTerrainRawData destination)
+        public Task<bool> TryRetrieve(in PositionedTerrainRawData destination)
         {
             int kernel = _accessor.kernelCopyFromTerrainTexture;
             _accessor.ConfigureTerrainTexture(kernel, _terrainTexture, Vector2.zero);
@@ -41,7 +41,7 @@ namespace TerrainSystem.Requestable.Retriever
             _accessor.Dispatch(kernel, new Vector3(rawDataWindow.width, rawDataWindow.height, 1));
             Graphics.Blit(rawDataWindow, destination.renderTexture);
             rawDataWindow.Release();
-            return Task.CompletedTask;
+            return Task.FromResult(true);
         }
 
         public Task<PositionedTerrainRawData> Retrieve()
@@ -54,7 +54,7 @@ namespace TerrainSystem.Requestable.Retriever
                     enableRandomWrite = true
                 },
                 _camera.transform.position);
-            Retrieve(in destination);
+            TryRetrieve(in destination);
             return Task.FromResult(destination);
         }
     }

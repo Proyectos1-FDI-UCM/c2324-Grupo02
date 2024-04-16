@@ -107,7 +107,7 @@ namespace TerrainSystem.Test
 
         private void LateUpdate()
         {
-            _terrainDataRetriever.Retrieve(_visualsTexture);
+            _terrainDataRetriever.TryRetrieve(_visualsTexture);
         }
 
         private void OnDestroy()
