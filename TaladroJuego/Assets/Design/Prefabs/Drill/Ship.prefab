@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _batchSaveHandler: {fileID: 11400000, guid: 957532f3c44f99f4b9d7f00433719f5e, type: 2}
-  _subscribeOnEnable: 0
+  _subscribeOnEnable: 1
   _unsubscribeOnDisable: 1
   _unsubscribeOnDestroy: 0
 --- !u!114 &5994332127245547970
@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 7681384308352119825}
   - component: {fileID: 5902663306640868604}
   - component: {fileID: 5190589476757796536}
+  - component: {fileID: 6284694504070387308}
   m_Layer: 0
   m_Name: Clamped Health
   m_TagString: Untagged
@@ -203,6 +204,21 @@ MonoBehaviour:
   _rb: {fileID: 383083186636943588}
   _valueToReduce: 1
   _statusParameterObject: {fileID: 2384763123888165454}
+--- !u!114 &6284694504070387308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221026061916007890}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6840fda6bac59ee41a43c14078d95e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 383083186636943588}
+  _valueToReduce: 1
+  _statusParameterObject: {fileID: 2384763123888165454}
 --- !u!1 &503549920765356158
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +313,7 @@ GameObject:
   - component: {fileID: 6372294151433410202}
   - component: {fileID: 384909939457972919}
   - component: {fileID: 5587662411439997753}
+  - component: {fileID: 3382751107276925648}
   m_Layer: 0
   m_Name: HealthStatus
   m_TagString: Untagged
@@ -347,7 +364,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5587662411439997753}
+      - m_Target: {fileID: 3382751107276925648}
         m_TargetAssemblyTypeName: AnimationSystem.Status.OnStatusUpdateAnimator,
           Animation-System
         m_MethodName: HandleStatusChange
@@ -448,6 +465,22 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 5545775524567158765}
   _hitColor: {r: 0.8962264, g: 0.2147561, b: 0.2147561, a: 1}
   _healColor: {r: 0.27735847, g: 1, b: 0.31826264, a: 1}
+--- !u!114 &3382751107276925648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549801747418667160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cfba66d4706214e99e9a8bd629520c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusParameter: {fileID: 2384763123888165454}
+  _spriteRenderer: {fileID: 5545775524567158765}
+  _hitColor: {r: 0.8962264, g: 0.2147561, b: 0.2147561, a: 1}
+  _healColor: {r: 0.27735847, g: 1, b: 0.31826264, a: 1}
 --- !u!1 &1702065889599936155
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +494,7 @@ GameObject:
   - component: {fileID: 2080240913382698954}
   - component: {fileID: 7865833632931750982}
   - component: {fileID: 5888117168991372100}
+  - component: {fileID: 5391763110705191099}
   m_Layer: 0
   m_Name: Clamped Fuel
   m_TagString: Untagged
@@ -538,6 +572,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5391763110705191099}
+        m_TargetAssemblyTypeName: UISystem.OnFuelEmpty, UI-System
+        m_MethodName: NoFuel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <ReachedMax>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
@@ -586,6 +632,22 @@ MonoBehaviour:
   _rb: {fileID: 383083186636943588}
   _valueToReduce: 0.01
   _statusParameterObject: {fileID: 8192837083233604389}
+--- !u!114 &5391763110705191099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702065889599936155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd110fe8a9598b48a135c8d018ac5b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lastFartLauncher: {fileID: 2167138369432361992}
+  resources: {fileID: 11400000, guid: a936a8743a3e08649a6ad89de7fbd811, type: 2}
+  gameOverPanel: {fileID: 0}
+  _pauseRequester: {fileID: 11400000, guid: dde60c5c9d5c1e24f9aeef4520618f1c, type: 2}
 --- !u!1 &1741784776457609888
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,13 +1043,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202d31a4a4260e343b1d4a060ac2e0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statusValue: 1
+  _statusValue: 100
   <ValueSet>k__BackingField:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InputSystem.ShipRotationInput, Input-System
-        m_MethodName: TryEnableRotation
+        m_TargetAssemblyTypeName: UISystem.UIStatusParameterSlider, UI-System
+        m_MethodName: UpdateUISlider
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1000,18 +1062,6 @@ MonoBehaviour:
       - m_Target: {fileID: 4979840087889875631}
         m_TargetAssemblyTypeName: InputSystem.ShipMovementInput, Input-System
         m_MethodName: TryStartEngine
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UISystem.UIStatusParameterSlider, UI-System
-        m_MethodName: UpdateUISlider
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1108,7 +1158,7 @@ MonoBehaviour:
   _statusParameter: {fileID: 650023317807121636}
   _shipBody: {fileID: 383083186636943588}
   _shipDirectional: {fileID: 3702497244366780798}
-  _movementStatusReducer: {fileID: 0}
+  _movementStatusReducer: {fileID: 5888117168991372100}
 --- !u!1 &3702497244366780798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,7 +1576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _batchSaveHandler: {fileID: 11400000, guid: 957532f3c44f99f4b9d7f00433719f5e, type: 2}
-  _subscribeOnEnable: 0
+  _subscribeOnEnable: 1
   _unsubscribeOnDisable: 1
   _unsubscribeOnDestroy: 0
 --- !u!114 &1180656760176932729
@@ -2135,6 +2185,7 @@ GameObject:
   - component: {fileID: 9107048288880789998}
   - component: {fileID: 4524195803559578036}
   - component: {fileID: 2167138369432361992}
+  - component: {fileID: 4696235258935449093}
   m_Layer: 0
   m_Name: ImpulseMovementFacade
   m_TagString: Untagged
@@ -2187,6 +2238,22 @@ MonoBehaviour:
   rotationSystem: {fileID: 6508524660178300320}
   launchPreparationTime: 5
   fartingTime: 0.5
+  _fuelEmpty: {fileID: 5391763110705191099}
+--- !u!114 &4696235258935449093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927502446534740842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b64ad4d83da514e9780eaa5fd6f12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fartLauncher: {fileID: 2167138369432361992}
+  _upgrades:
+  - {fileID: 11400000, guid: b0a7c5c66bd733e4da6db483fb44e6cd, type: 2}
 --- !u!1001 &5987214846860866956
 PrefabInstance:
   m_ObjectHideFlags: 0
