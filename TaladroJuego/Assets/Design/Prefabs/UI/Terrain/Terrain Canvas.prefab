@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _terrainTextureSize: {x: 1920, y: 5760}
+  _terrainTextureSize: {x: 1920, y: 11520}
   _terrainWindowTextureSize: {x: 640, y: 360}
   _initializeOnAwake: 1
 --- !u!114 &6404573842569764394
