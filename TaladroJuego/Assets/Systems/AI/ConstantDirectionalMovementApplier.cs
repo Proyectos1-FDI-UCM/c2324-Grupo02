@@ -13,12 +13,14 @@ namespace AISystem
 
         private void Awake()
         {
-            _movementFacade = GetComponentInChildren<IMovementFacade<Vector2>>();
+            _movementFacade = GetComponent<IMovementFacade<Vector2>>();
+            //Debug.Log(_movementFacade);
         }
 
         private void FixedUpdate()
         {
             _movementFacade.Move(_direction.normalized);
+            
         }
     }
 }
