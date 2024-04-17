@@ -35,6 +35,8 @@ public class SceneLoaderRequesterObject : ScriptableObject
 
     public async Task RequestSceneLoadAsync(string sceneName)
     {
+        Debug.Log(sceneName);
+
         Application.backgroundLoadingPriority = ThreadPriority.Low;
         AsyncOperation asyncLoadOperation = SceneManager.LoadSceneAsync(sceneName, _loadSceneParameters);
         SceneLoadRequested?.Invoke();
