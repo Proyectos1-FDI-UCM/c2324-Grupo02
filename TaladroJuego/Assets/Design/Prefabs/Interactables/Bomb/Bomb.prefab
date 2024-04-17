@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameObject: {fileID: 5762114102389966566}
-  _destructionDelay: 0
+  _destructionDelay: 0.12
 --- !u!114 &5896908055934086929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enqueuer: {fileID: 5896908055934086929}
-  _enqueueOnStart: 1
+  _enqueueOnStart: 0
   _dequeueOnDestroy: 1
 --- !u!114 &7251332923198527118
 MonoBehaviour:
