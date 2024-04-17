@@ -83,7 +83,7 @@ namespace Particles
         // Método subscrito al evento del Observable. Se llama cada vez que recibimos datos del minado de terreno
         private void TerrainData(object sender, TerrainModification e) {
             //Empezamos parando cualquier particula que esté en funcionamiento
-            StopParticles();
+            //StopParticles();
             // Obtenemos el sistema de partículas correspondiente al terreno minado y lo reproducimos
             if (terrainTypeParticleDictionary.TryGetValue((TerrainType)e.terrainType, out ParticleSystem value))
             {
