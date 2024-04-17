@@ -22,7 +22,7 @@ namespace MusicSystem
         private int _songChooser;
         private void Awake()
         {
-            SongPlayer(_songChooser);
+            //SongPlayer(_songChooser);
             _musicSource2.volume = 0;
             _musicSource3.volume = 0;
             _musicSource4.volume = 0;
@@ -42,12 +42,7 @@ namespace MusicSystem
         /// </param>
         public void SongPlayer(int _songChooser)
          {
-            _musicSource1.PlayOneShot(_songMenu); 
-            _musicSource2.PlayOneShot(_songFase1);
-            _musicSource3.PlayOneShot(_songFase2);
-            _musicSource4.PlayOneShot(_songFase3);
-            _musicSource5.PlayOneShot(_songFase4);
-            _musicSource6.PlayOneShot(_songLeviatan);
+            //
 
 
             if (_songChooser == 0) 
