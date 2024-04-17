@@ -463,6 +463,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 969816462338728853, guid: a1e3835096149b14c91055b57f1f9469, type: 3}
+      propertyPath: _angularSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2352308401520636693, guid: a1e3835096149b14c91055b57f1f9469, type: 3}
       propertyPath: _proximityTransform
       value: 
@@ -550,6 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentTransform: {fileID: 5285390180809555995}
+  _transformDirection: {x: -1, y: 0, z: 0}
 --- !u!4 &6355470863418739725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4531545744547686028, guid: a1e3835096149b14c91055b57f1f9469, type: 3}
@@ -591,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentTransform: {fileID: 6355470863418739725}
+  _transformDirection: {x: -1, y: 0, z: 0}
 --- !u!4 &7454700383762468746 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8445364486387272564, guid: a1e3835096149b14c91055b57f1f9469, type: 3}
@@ -622,6 +628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentTransform: {fileID: 7454700383762468746}
+  _transformDirection: {x: -1, y: 0, z: 0}
 --- !u!4 &7987636903718646316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1265990624119970487, guid: a1e3835096149b14c91055b57f1f9469, type: 3}
@@ -653,6 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentTransform: {fileID: 7987636903718646316}
+  _transformDirection: {x: -1, y: 0, z: 0}
 --- !u!1 &8188468291182645432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 45301496472726372, guid: a1e3835096149b14c91055b57f1f9469, type: 3}
@@ -684,6 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentTransform: {fileID: 5163403146786474487}
+  _transformDirection: {x: -1, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
