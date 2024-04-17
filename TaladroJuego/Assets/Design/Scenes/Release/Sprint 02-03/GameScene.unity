@@ -2363,17 +2363,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121344457}
   m_CullTransparentMesh: 1
---- !u!114 &132491728 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1964044545342668672, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
-  m_PrefabInstance: {fileID: 804234246}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c147d4a70ad30634a99da311c2b27229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &138702213
 GameObject:
   m_ObjectHideFlags: 0
@@ -13562,21 +13551,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2756285027395263583, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
-      propertyPath: _damageHandler
-      value: 
-      objectReference: {fileID: 132491728}
     - target: {fileID: 3357167823345118577, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_Name
       value: Mycelium
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1345978
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.5
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4951506986993844993, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13613,13 +13598,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1230360752794854036, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2097393712}
-    - targetCorrespondingSourceObject: {fileID: 1230360752794854036, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2097393713}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
 --- !u!1001 &809157587
 PrefabInstance:
@@ -30330,11 +30309,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4509396908465719399, guid: 5ce45521317695147abb26e90020778c, type: 3}
   m_PrefabInstance: {fileID: 2006863117}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &2007459476 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 6119786170452726953, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
-  m_PrefabInstance: {fileID: 804234246}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2009345555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 884433323863067350, guid: 489affc5e8bc22641be7e9cae1e20e0e, type: 3}
@@ -31109,37 +31083,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081061696}
   m_CullTransparentMesh: 1
---- !u!1 &2097393709 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1230360752794854036, guid: 0a7160dadf16b20449b2447bd36a9561, type: 3}
-  m_PrefabInstance: {fileID: 804234246}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2097393712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097393709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3061d648ba7ff64984d28ffe30b205f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myRigidboy: {fileID: 2007459476}
---- !u!114 &2097393713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097393709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43ecc120aa6ae394ea4274d024086598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speedProvider: {fileID: 11400000, guid: ee59962d1e32d8a4aa43c9da12053350, type: 2}
 --- !u!1 &2099149109
 GameObject:
   m_ObjectHideFlags: 0
