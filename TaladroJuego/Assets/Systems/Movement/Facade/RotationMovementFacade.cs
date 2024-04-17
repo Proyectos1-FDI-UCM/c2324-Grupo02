@@ -8,12 +8,13 @@ namespace MovementSystem.Facade
         private ISpeedProvider _speedProvider;
 
         [SerializeField] Transform parentTransform;
+        [SerializeField] private Vector3 _transformDirection = Vector3.up;
 
         public void Move(Vector2 input)
         {
             if(input != Vector2.zero)
             {
-                float radMax = Mathf.Sign(Vector2.SignedAngle(parentTransform.up, input)) * _speedProvider.GetSpeed() * Time.deltaTime * Mathf.Rad2Deg;
+                float radMax = Mathf.Sign(Vector2.SignedAngle(parentTransform.TransformDirection(_transformDirection), input)) * _speedProvider.GetSpeed() * Time.deltaTime * Mathf.Rad2Deg;
                 parentTransform.Rotate(Vector3.forward, radMax);
 
 
