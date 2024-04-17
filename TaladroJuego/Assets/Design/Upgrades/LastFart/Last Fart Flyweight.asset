@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Last Fart Flyweight
   m_EditorClassIdentifier: 
   _resourceQuotaItems:
-  - <Resource>k__BackingField: 1
-    <Quantity>k__BackingField: 13
-  - <Resource>k__BackingField: 3
-    <Quantity>k__BackingField: 13
+  - <Resource>k__BackingField: 0
+    <Quantity>k__BackingField: 25
+  - <Resource>k__BackingField: 5
+    <Quantity>k__BackingField: 10
   _applicableUpgradeFlyweight: {fileID: 11400000, guid: b0a7c5c66bd733e4da6db483fb44e6cd, type: 2}

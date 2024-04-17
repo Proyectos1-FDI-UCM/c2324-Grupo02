@@ -18,6 +18,7 @@ namespace InteractionImplementationsSystem.BombInteraction.Interactable
 
         public bool Accept<TInteractor>(TInteractor interactor) where TInteractor : IInteractor<Explosive>
         {
+            Debug.Log("Aqui", this);
             return interactor.InteractWith(_explosive) && _destructionInteractable.Accept(interactor);
         }
     }

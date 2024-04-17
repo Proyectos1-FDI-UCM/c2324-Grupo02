@@ -16,6 +16,7 @@ namespace InteractionImplementationsSystem.BombInteraction.Interactor
 
         public bool InteractWith(Explosive explosive)
         {
+            Debug.Log("aqui", this);
             return explosive.Explode();
         }
 
