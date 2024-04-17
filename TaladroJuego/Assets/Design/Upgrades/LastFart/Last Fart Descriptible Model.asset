@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f04b956dbe1c2e4f8cbc5609ce9b1dd, type: 3}
   m_Name: Last Fart Descriptible Model
   m_EditorClassIdentifier: 
-  _name: Last Fart!
-  _description: Get a last chance to sdjsdjg noseingles
+  _name: Emergency Fart!
+  _description: 'Get a last chance to find some coal if you run out of fuel. A big
+    impulse!
+
+
+    You can only buy this once'

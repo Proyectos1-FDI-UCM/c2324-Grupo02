@@ -15572,63 +15572,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972338389}
   m_CullTransparentMesh: 1
---- !u!1001 &982024412
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3373937286702080470, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.022297144
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373937286702080470, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.7510405
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373937286702080470, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373937286702080470, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373937286702080470, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373937286702080470, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373937286702080470, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373937286702080470, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373937286702080470, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373937286702080470, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5762114102389966566, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
-      propertyPath: m_Name
-      value: Bomb
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
 --- !u!4 &997762090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7520509884008681794, guid: e33ba7fe7dc105b4b87acaa7b3ad04b4, type: 3}
@@ -17184,7 +17127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceTerrainTypeBinder: {fileID: 11400000, guid: ef3f74f8ee1c5c145ae8c2a8d56f5588, type: 2}
-  _conversionRate: 2
+  _conversionRate: 3.5
 --- !u!114 &1095812981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18667,7 +18610,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -20711,6 +20654,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6cb092800084d2d43943175db09978ef, type: 2}
   - {fileID: 11400000, guid: b75e7731cb1859b4485a68ecf8abb420, type: 2}
   - {fileID: 11400000, guid: 4ca43db9c8234db4388ef37d07337a5c, type: 2}
+  - {fileID: 11400000, guid: dbee530d5fc7aa548978fca24015f196, type: 2}
+  - {fileID: 11400000, guid: eddce150344d3ef4d99a4b0fe432cb99, type: 2}
   _descriptionPanel:
     <Root>k__BackingField: {fileID: 2130983345}
     <Title>k__BackingField: {fileID: 755944574}
@@ -23783,7 +23728,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
   m_Value: 1.0000014
-  m_Size: 0.30875
+  m_Size: 0.30874997
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -31933,4 +31878,3 @@ SceneRoots:
   - {fileID: 800354513}
   - {fileID: 74417061}
   - {fileID: 1716861790}
-  - {fileID: 982024412}

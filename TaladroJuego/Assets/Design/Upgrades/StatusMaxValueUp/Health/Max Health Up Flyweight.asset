@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Max Health Up Flyweight
   m_EditorClassIdentifier: 
   _resourceQuotaItems:
-  - <Resource>k__BackingField: 0
-    <Quantity>k__BackingField: 16
   - <Resource>k__BackingField: 1
-    <Quantity>k__BackingField: 21
+    <Quantity>k__BackingField: 25
+  - <Resource>k__BackingField: 0
+    <Quantity>k__BackingField: 10
   _applicableUpgradeFlyweight: {fileID: 11400000, guid: c8f2b68a356dc344b96f77b72bc63f8f, type: 2}

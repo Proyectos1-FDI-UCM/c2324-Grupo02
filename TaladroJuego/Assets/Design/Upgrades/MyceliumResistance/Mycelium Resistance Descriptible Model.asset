@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f04b956dbe1c2e4f8cbc5609ce9b1dd, type: 3}
   m_Name: Mycelium Resistance Descriptible Model
   m_EditorClassIdentifier: 
-  _name: Resistencia!!!!!
-  _description: "\xAA"
+  _name: Fungal Endurance
+  _description: Scare the root-like beast! Take less damage from Mycellium

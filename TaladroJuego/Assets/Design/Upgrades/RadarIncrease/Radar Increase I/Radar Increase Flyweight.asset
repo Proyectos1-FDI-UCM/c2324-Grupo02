@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceQuotaItems:
   - <Resource>k__BackingField: 1
-    <Quantity>k__BackingField: 22
-  - <Resource>k__BackingField: 2
-    <Quantity>k__BackingField: 7
+    <Quantity>k__BackingField: 30
+  - <Resource>k__BackingField: 4
+    <Quantity>k__BackingField: 10
   _applicableUpgradeFlyweight: {fileID: 11400000, guid: e34a84726419d3642ad06a54783908e2, type: 2}
