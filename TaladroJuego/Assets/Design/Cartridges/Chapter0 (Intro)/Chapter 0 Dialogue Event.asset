@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 967a308f5d90ce24e93a2160cc96a550, type: 3}
-  m_Name: Lead TerrainModificationConfiguration
+  m_Script: {fileID: 11500000, guid: 81144fdecbd31ec47852ee923465f4ae, type: 3}
+  m_Name: Chapter 0 Dialogue Event
   m_EditorClassIdentifier: 
-  _size: {x: 1, y: 1, z: 1}
-  _radius: 1
-  _strength: 1
-  _falloff: 0
-  _type: 11
+  _dialogueRuleObjects:
+  - {fileID: 11400000, guid: e4875e47fb9ba1944b5f4b3c202fd71a, type: 2}
