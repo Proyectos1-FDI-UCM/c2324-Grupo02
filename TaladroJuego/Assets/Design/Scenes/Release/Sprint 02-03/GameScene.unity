@@ -19838,6 +19838,16 @@ MonoBehaviour:
     <TerrainType>k__BackingField: 4
   - <MovementProfile>k__BackingField: {fileID: 11400000, guid: 65b00b02521316343a47ec530985a789, type: 2}
     <TerrainType>k__BackingField: 7
+  - <MovementProfile>k__BackingField: {fileID: 11400000, guid: c20be1d7d25872b4fbc4104e4515b90d, type: 2}
+    <TerrainType>k__BackingField: 9
+  - <MovementProfile>k__BackingField: {fileID: 11400000, guid: 2b584ef2b61fd2241b0ab655cedb66e0, type: 2}
+    <TerrainType>k__BackingField: 10
+  - <MovementProfile>k__BackingField: {fileID: 11400000, guid: 9a1e548f9eb39ec4eae279314edffb46, type: 2}
+    <TerrainType>k__BackingField: 12
+  - <MovementProfile>k__BackingField: {fileID: 11400000, guid: 126e777b3ae308745ac1f5193b99b332, type: 2}
+    <TerrainType>k__BackingField: 11
+  - <MovementProfile>k__BackingField: {fileID: 11400000, guid: 959b82b9e21296b4fa861f5415837b67, type: 2}
+    <TerrainType>k__BackingField: 8
   - <MovementProfile>k__BackingField: {fileID: 11400000, guid: d80bd0aee7ecdb340a52459d780d0194, type: 2}
     <TerrainType>k__BackingField: 6
   _speedRegister: {fileID: 898100060}
@@ -21539,7 +21549,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 7.328125
+      value: 5.640625
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -27084,7 +27094,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
   m_Value: 1.0000014
-  m_Size: 0.30875
+  m_Size: 0.30874997
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
