@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0e831b7671f2d46a59d56d10dd04f3, type: 3}
+  m_Name: Radar Increase Descriptible Upgrade
+  m_EditorClassIdentifier: 
+  _upgradeFlyweight: {fileID: 11400000, guid: 278db1b1d978ab24299384e2db3c135c, type: 2}
+  _descriptibleModel: {fileID: 11400000, guid: b6f1d5421270d00409fa4c80832b91e5, type: 2}

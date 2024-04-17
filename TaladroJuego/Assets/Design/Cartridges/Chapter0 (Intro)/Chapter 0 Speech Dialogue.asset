@@ -21,10 +21,12 @@ MonoBehaviour:
       - <Text>k__BackingField: Welcome to Subterra. You are here because the world
           is being infected due to a corrosive mycelium.
       - <Text>k__BackingField: You have to survive.
+      - <Text>k__BackingField: Obtain materials to upgrade your machine and make
+          that task easier
       - <Text>k__BackingField: Activate the Ship with SpaceBar. Move the ship with
           WASD or directional arrows.
-      - <Text>k__BackingField: Discover the secrets of Subterra. Good luck and go
-          deeper.
+      - <Text>k__BackingField: Discover the secrets of Subterra...
+      - <Text>k__BackingField: Good luck and go deeper.
     _criteria:
       rid: -2
   references:

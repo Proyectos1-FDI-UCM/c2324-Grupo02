@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71fe811db7d071d46ae2737e81cd33c5, type: 3}
-  m_Name: Restore Health
+  m_Script: {fileID: 11500000, guid: 2690506034b39ee44b1fef3c41aa2f16, type: 3}
+  m_Name: Radar Increase
   m_EditorClassIdentifier: 
-  _valueToAdd: 25
+  _radarMaterial: {fileID: 2100000, guid: e931ff1cc877362488a1615949a90517, type: 2}
+  _value: 1

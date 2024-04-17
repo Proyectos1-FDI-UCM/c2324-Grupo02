@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2690506034b39ee44b1fef3c41aa2f16, type: 3}
-  m_Name: Radar Increase
+  m_Script: {fileID: 11500000, guid: 6f04b956dbe1c2e4f8cbc5609ce9b1dd, type: 3}
+  m_Name: Radar Increase (Max) Descriptible Model
   m_EditorClassIdentifier: 
-  _radarMaterial: {fileID: 2100000, guid: e931ff1cc877362488a1615949a90517, type: 2}
-  _value: 0.3
+  _name: Max Radar Increase
+  _description: 'The radar will be at maximum sight, it''s like predicting the future!
+
+
+    You
+    can only buy this once'

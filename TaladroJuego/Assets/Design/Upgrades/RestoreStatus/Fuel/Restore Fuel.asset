@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fe811db7d071d46ae2737e81cd33c5, type: 3}
   m_Name: Restore Fuel
   m_EditorClassIdentifier: 
-  _valueToAdd: 21
+  _valueToAdd: 40

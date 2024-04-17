@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b348a071cf73b34dae307f43731e84a, type: 3}
-  m_Name: Fuel Refill Observer Flyweight
+  m_Name: Radar Increase Flyweight
   m_EditorClassIdentifier: 
   _resourceQuotaItems:
-  - <Resource>k__BackingField: 0
-    <Quantity>k__BackingField: 35
-  - <Resource>k__BackingField: 2
-    <Quantity>k__BackingField: 15
-  _applicableUpgradeFlyweight: {fileID: 11400000, guid: df8a78b4a46e35447ab10859cfb9c5df, type: 2}
+  - <Resource>k__BackingField: 1
+    <Quantity>k__BackingField: 40
+  - <Resource>k__BackingField: 4
+    <Quantity>k__BackingField: 25
+  _applicableUpgradeFlyweight: {fileID: 11400000, guid: 1949a546bdefe304aa0cd863568ff617, type: 2}
