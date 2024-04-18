@@ -27,12 +27,12 @@ namespace StatusSystem
             get => _statusParameter.Value;
             set
             {  
-                if (value < _minValue) 
+                if (value <= _minValue) 
                 {
                     _statusParameter.Value = _minValue;
                     ReachedMin.Invoke();
                 }
-                else if (value > _maxValue)
+                else if (value >= _maxValue)
                 {
                     _statusParameter.Value = _maxValue;
                     ReachedMax.Invoke();
