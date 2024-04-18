@@ -1208,6 +1208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _thrustInputActionReference: {fileID: 5025922071406065053, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
   _revertGearInputActionReference: {fileID: 1819377725146050126, guid: 6258679df9550c446b632ebd75c217a4, type: 3}
+  _button: {fileID: 0}
   _minFuel: 0
 --- !u!114 &2520298870134232695
 MonoBehaviour:
@@ -1282,6 +1283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentTransform: {fileID: 5084829399306703634}
+  _transformDirection: {x: 0, y: 1, z: 0}
 --- !u!1 &4133936010964681044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,7 +1923,7 @@ GameObject:
   - component: {fileID: 1852801450912304199}
   - component: {fileID: 6278704627922127476}
   - component: {fileID: 9093479425619716654}
-  - component: {fileID: 8971332623252312947}
+  - component: {fileID: 5086380927799374605}
   m_Layer: 0
   m_Name: Mining Drill
   m_TagString: Untagged
@@ -1973,7 +1975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requester: {fileID: 11400000, guid: 328c41906e1c80b488fd7db89c17f23e, type: 2}
---- !u!114 &8971332623252312947
+--- !u!114 &5086380927799374605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1982,7 +1984,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6534065136443651952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0a67eb254a9cab4ba11f581605881e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 7168be9c90c0ebf428bdcf8173f0cacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _enqueuer: {fileID: 9093479425619716654}

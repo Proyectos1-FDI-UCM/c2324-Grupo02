@@ -14,7 +14,7 @@ namespace InputSystem
         private IMovementFacade<Vector2>  shipDirectionalMovementFacade;
 
 
-        private bool _thrustActivated = false;
+        private bool _thrustActivated = true;
         private bool _reverseGearActivated = false;
 
         private bool _fuelIsEmpty = false;
