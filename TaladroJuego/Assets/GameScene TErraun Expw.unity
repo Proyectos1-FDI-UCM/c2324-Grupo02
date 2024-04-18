@@ -9485,6 +9485,14 @@ PrefabInstance:
       propertyPath: _button
       value: 
       objectReference: {fileID: 1058355992}
+    - target: {fileID: 4979840087889875631, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: _shipButtonChanger
+      value: 
+      objectReference: {fileID: 1886630620}
+    - target: {fileID: 4979840087889875631, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: _reverseButtonChanger
+      value: 
+      objectReference: {fileID: 1331577899}
     - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -24802,7 +24810,6 @@ GameObject:
   - component: {fileID: 1095812978}
   - component: {fileID: 1095812977}
   - component: {fileID: 1095812983}
-  - component: {fileID: 1095812984}
   m_Layer: 0
   m_Name: Inventory Observer
   m_TagString: Untagged
@@ -24942,35 +24949,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _reducer: {fileID: 437606198}
   harmfullterraintype: 7
---- !u!114 &1095812984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095812974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8e6c1ddd6cbcc4aad4aae05720cf73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _resourcesContainer: {fileID: 11400000, guid: a936a8743a3e08649a6ad89de7fbd811, type: 2}
-  _upgradeFlyweight: {fileID: 0}
-  _resources:
-  - <Resource>k__BackingField: 0
-    <Quantity>k__BackingField: 100
-  - <Resource>k__BackingField: 1
-    <Quantity>k__BackingField: 100
-  - <Resource>k__BackingField: 2
-    <Quantity>k__BackingField: 100
-  - <Resource>k__BackingField: 3
-    <Quantity>k__BackingField: 100
-  - <Resource>k__BackingField: 4
-    <Quantity>k__BackingField: 100
-  - <Resource>k__BackingField: 5
-    <Quantity>k__BackingField: 100
-  - <Resource>k__BackingField: 6
-    <Quantity>k__BackingField: 100
 --- !u!1001 &1096730346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26974,7 +26952,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 5.3359375
+      value: 3.828125
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -34389,8 +34367,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862574418}
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
-  m_Value: -0.0000004966694
-  m_Size: 0.30874997
+  m_Value: -0.000000441484
+  m_Size: 0.30875003
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

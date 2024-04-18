@@ -10,5 +10,6 @@ namespace TerrainSystem.Data
         float Falloff { get; }
 
         uint Type { get; }
+        int ModificationsBufferWriteIndex { get; }
     }
 }

@@ -38,6 +38,7 @@ namespace TerrainResourcesSystem
 
         private void OnDataRetrieved(object sender, TerrainModification e)
         {
+            if (e.modificationSourceIndex != 1) return;
 
             TerrainModification cumulated = AccountForTerrainModification(e);
             if (ConvertsToResource(cumulated, out float excess, out ResourceQuantityItem resourceQuantityItem))

@@ -17,3 +17,5 @@ MonoBehaviour:
   _strength: 1
   _falloff: 0.25
   _type: 2
+  _writesToModificationsBuffer: 1
+  _modificationsBufferWriteIndex: 1

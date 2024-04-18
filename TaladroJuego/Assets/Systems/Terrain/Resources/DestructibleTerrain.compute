@@ -24,6 +24,7 @@ struct TerrainModificationSource
 	float falloff;
 
 	uint type;
+	int modificationsBufferWriteIndex;
 };
 
 struct TexturedTerrainModificationSource
@@ -40,6 +41,7 @@ struct TexturedTerrainModificationSource
 	float falloff;
 
 	uint type;
+	int modificationsBufferWriteIndex;
 };
 
 struct TerrainModification
@@ -296,10 +298,15 @@ void ModifyTerrainTexture(uint3 id : SV_DispatchThreadID)
 		float newEncodedTerrainType = AlphaBlend(EncodedTerrainTypeFrom(source.type), contribution, _TerrainTexture[id.xy]);
 
 		float difference = abs(newEncodedTerrainType - currentEncodedTerrainType);
-		uint terrainType = TerrainTypeFromEncoded(currentEncodedTerrainType);
+		uint previousTerrainType = TerrainTypeFromEncoded(currentEncodedTerrainType);
+		//uint newTerrainType = TerrainTypeFromEncoded(newEncodedTerrainType);
 
-		TerrainModification previous = _TerrainModifications[terrainType];
-		_TerrainModifications[terrainType] = TerrainModificationFrom(terrainType, i, previous.amount + (min(difference, 1.0f / (float)_TerrainTypesCount)));
+		[branch]
+		if (source.modificationsBufferWriteIndex >= 0)
+		{
+			TerrainModification previous = _TerrainModifications[previousTerrainType];
+			_TerrainModifications[previousTerrainType] = TerrainModificationFrom(previousTerrainType, source.modificationsBufferWriteIndex, previous.amount + (min(difference, 1.0f / (float)_TerrainTypesCount)));
+		}
 	}
 }
 
@@ -332,14 +339,19 @@ void ModifyTerrainWindow(uint3 id : SV_DispatchThreadID)
 		TerrainModificationSource source = _Sources[i];
 		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
 #endif
-		float currentEncodedTerrainType = _TerrainTexture[id.xy].x;
+		float currentEncodedTerrainType = _TerrainWindowTexture[id.xy].x;
 		float newEncodedTerrainType = AlphaBlend(EncodedTerrainTypeFrom(source.type), contribution, _TerrainWindowTexture[id.xy]);
 
 		float difference = abs(newEncodedTerrainType - currentEncodedTerrainType);
-		uint terrainType = TerrainTypeFromEncoded(currentEncodedTerrainType);
+		uint previousTerrainType = TerrainTypeFromEncoded(currentEncodedTerrainType);
+		//uint newTerrainType = TerrainTypeFromEncoded(newEncodedTerrainType);
 
-		TerrainModification previous = _TerrainModifications[terrainType];
-		_TerrainModifications[terrainType] = TerrainModificationFrom(terrainType, i, previous.amount + (min(difference, 1.0f / (float)_TerrainTypesCount)));
+		[branch]
+		if (source.modificationsBufferWriteIndex >= 0)
+		{
+			TerrainModification previous = _TerrainModifications[previousTerrainType];
+			_TerrainModifications[previousTerrainType] = TerrainModificationFrom(previousTerrainType, source.modificationsBufferWriteIndex, previous.amount + (min(difference, 1.0f / (float)_TerrainTypesCount)));
+		}	
 	}
 }
 

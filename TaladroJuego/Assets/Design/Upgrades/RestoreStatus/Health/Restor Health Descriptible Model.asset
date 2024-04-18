@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f04b956dbe1c2e4f8cbc5609ce9b1dd, type: 3}
   m_Name: Restor Health Descriptible Model
   m_EditorClassIdentifier: 
-  _name: Health Up!
+  _name: RESTORE HEALTH
   _description: Feeling low,? Fix your stuff!
