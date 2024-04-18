@@ -9,6 +9,6 @@ public class MauricioAnimation : MonoBehaviour
 
     private void Update()
     {
-        _mauricioAnimator.SetBool("MauriciOn", !Mathf.Approximately(_mauricioRigidbody.velocity.magnitude, 0f));
+        _mauricioAnimator.SetBool("moving", !Mathf.Approximately(_mauricioRigidbody.velocity.magnitude, 0f));
     }
 }
