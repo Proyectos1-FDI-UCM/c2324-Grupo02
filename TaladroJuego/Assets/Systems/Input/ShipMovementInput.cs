@@ -20,6 +20,8 @@ namespace InputSystem
         private bool _fuelIsEmpty = false;
         private bool _reverseGearAvailable = false;
 
+        [SerializeField] private GameObject _button;
+
         [SerializeField] private float _minFuel;
 
         private void Awake()
@@ -89,6 +91,7 @@ namespace InputSystem
         public void SetReverseGearAvailability(bool value)
         {
             _reverseGearAvailable = value;
+            _button.SetActive(value);
             Debug.Log(_reverseGearAvailable);
         }
 
