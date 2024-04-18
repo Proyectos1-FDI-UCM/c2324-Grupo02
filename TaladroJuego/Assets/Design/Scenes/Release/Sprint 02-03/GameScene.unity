@@ -9465,10 +9465,6 @@ PrefabInstance:
       propertyPath: <ValueSet>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1320267984}
-    - target: {fileID: 1414221428481818190, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1741784776457609888, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: m_Name
       value: Ship
@@ -9482,9 +9478,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1328554549}
     - target: {fileID: 4979840087889875631, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
-      propertyPath: _button
+      propertyPath: _shipButtonChanger
       value: 
-      objectReference: {fileID: 1058355992}
+      objectReference: {fileID: 1886630620}
+    - target: {fileID: 4979840087889875631, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: _reverseButtonChanger
+      value: 
+      objectReference: {fileID: 1331577899}
     - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9533,10 +9533,6 @@ PrefabInstance:
       propertyPath: _observableTerrainDifferencesModificationsObject
       value: 
       objectReference: {fileID: 1101254113}
-    - target: {fileID: 9176519568821941421, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
-      propertyPath: _subscribeOnEnable
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26974,7 +26970,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 5.3359375
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -34389,8 +34385,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862574418}
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
-  m_Value: -0.0000004966694
-  m_Size: 0.30874997
+  m_Value: -0.00000044148396
+  m_Size: 0.30875
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
