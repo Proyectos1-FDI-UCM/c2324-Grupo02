@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using MovementSystem.Facade;
+using MenusSystem;
 
 namespace InputSystem
 {
@@ -11,6 +12,10 @@ namespace InputSystem
         [SerializeField] private InputActionReference _revertGearInputActionReference;
 
 
+        [SerializeField] private GameObject _reverseButton;
+        [SerializeField] private OnOffButtonChanger _shipButtonChanger;
+        [SerializeField] private OnOffButtonChanger _reverseButtonChanger;
+
         private IMovementFacade<Vector2>  shipDirectionalMovementFacade;
 
 
@@ -20,7 +25,7 @@ namespace InputSystem
         private bool _fuelIsEmpty = false;
         private bool _reverseGearAvailable = false;
 
-        [SerializeField] private GameObject _button;
+        
 
         [SerializeField] private float _minFuel;
 
@@ -91,7 +96,7 @@ namespace InputSystem
         public void SetReverseGearAvailability(bool value)
         {
             _reverseGearAvailable = value;
-            _button.SetActive(value);
+            _reverseButton.SetActive(value);
             Debug.Log(_reverseGearAvailable);
         }
 
@@ -99,6 +104,7 @@ namespace InputSystem
         public void SwitchThrust()
         {
             _thrustActivated = !_thrustActivated;
+           _shipButtonChanger.OnButtonPressed();
         }
 
         public void SwitchGearDirectionalSense()
@@ -106,6 +112,7 @@ namespace InputSystem
             if (!_reverseGearAvailable) return;
 
             _reverseGearActivated = !_reverseGearActivated;
+            _reverseButtonChanger.OnButtonPressed();
         }
 
        
