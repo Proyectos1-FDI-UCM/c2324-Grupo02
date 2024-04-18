@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using StatusSystem;
 using MovementSystem.Facade;
-using PlasticPipe.PlasticProtocol.Messages;
+//using PlasticPipe.PlasticProtocol.Messages;
 
 namespace MovementSystem.LastFart
 {
