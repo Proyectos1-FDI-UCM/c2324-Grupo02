@@ -13,13 +13,15 @@ namespace TerrainSystem.Data.Flyweight
             public float Strength { get; }
             public float Falloff { get; }
             public uint Type { get; }
-            public Configuration(Vector3 size, float radius, float strength, float falloff, uint type)
+            public int ModificationsBufferWriteIndex { get; }
+            public Configuration(Vector3 size, float radius, float strength, float falloff, uint type, int modificationsBufferWriteIndex)
             {
                 Size = size;
                 Radius = radius;
                 Strength = strength;
                 Falloff = falloff;
                 Type = type;
+                ModificationsBufferWriteIndex = modificationsBufferWriteIndex;
             }
         }
 
@@ -42,7 +44,14 @@ namespace TerrainSystem.Data.Flyweight
         [Min(0)]
         private int _type = 0;
 
+        [SerializeField]
+        private bool _writesToModificationsBuffer = false;
+
+        [SerializeField]
+        [Min(0)]
+        private int _modificationsBufferWriteIndex = 0;
+
         public ITerrainModificationConfiguration Create() =>
-            new Configuration(_size, _radius, _strength, _falloff, (uint)_type);
+            new Configuration(_size, _radius, _strength, _falloff, (uint)_type, _writesToModificationsBuffer ? _modificationsBufferWriteIndex : -1);
     }
 }

@@ -24,7 +24,8 @@ namespace TerrainSystem.Data.Flyweight
                 new Vector4(configuration.Size.x * scale.x, configuration.Size.y * scale.y, configuration.Size.z * scale.z, configuration.Radius),
                 configuration.Strength,
                 configuration.Falloff,
-                configuration.Type);
+                configuration.Type,
+                configuration.ModificationsBufferWriteIndex);
         }
     }
 
