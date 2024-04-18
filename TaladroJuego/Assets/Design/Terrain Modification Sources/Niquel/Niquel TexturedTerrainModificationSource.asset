@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _alphaTextureIndex: 1
   _alphaTextureSize: {x: 32, y: 32}
-  _alphaTextureScale: {x: 0, y: 0, z: 0}
+  _alphaTextureScale: {x: 1, y: 1, z: 1}
   _positionOffset: {x: 0, y: 0, z: 0}
   _rotationOffset: {x: 0, y: 0, z: 0}
   _configuration: {fileID: 11400000, guid: dd257a61cfc7ffc41b8fcc2752b01209, type: 2}
