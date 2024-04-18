@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8271184789955324771}
   - component: {fileID: 8327775023082053132}
   - component: {fileID: 8939299098249860065}
+  - component: {fileID: 1703571621624121074}
   m_Layer: 0
   m_Name: ZoneTrigger
   m_TagString: Untagged
@@ -144,3 +145,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1703571621624121074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098174202882567232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0d8a2ed32c4ee4284f1ccbedf4866f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _triggerOnce: 1
+  <TriggerEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <TriggerExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <TriggerStay>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
