@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MusicSystem
 {
-    internal class MusicController : MonoBehaviour
+    public class MusicController : MonoBehaviour
     {
         [SerializeField] private AudioSource _song; 
 
@@ -13,13 +13,28 @@ namespace MusicSystem
         {
             if (collision != null)
             {
-                ChangeVolume();
+                ChangeVolumeUp();
             }
         }
 
-        private void ChangeVolume()
+
+        public void ChangeVolumeUp()
         {
             _song.volume = 1;
+            
         }
+        public void ChangeVolumeDown()
+        {
+            _song.volume = 0;
+        }
+
+        //public void LeviMusicActivator()
+        //{
+        //    _song.Play();
+        //}
+        //public void LeviMusicStopper()
+        //{
+        //    _song.Stop();
+        //}
     }
 }
