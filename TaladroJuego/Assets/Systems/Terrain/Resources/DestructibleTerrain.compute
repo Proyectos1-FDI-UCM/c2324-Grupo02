@@ -10,8 +10,7 @@
 
 #pragma multi_compile_local __ USE_TYPED_SDF USE_TEXTURED_SDF
 
-#define SMOD(x, m) ((x) - (floor((x) / (m)) * (m)))
-//#define ISMOD(x, m) ((((x) % (m)) + (m)) % (m))
+#define SMOD(x, m) ((((x) % (m)) + (m)) % (m))
 
 struct TerrainModificationSource
 {
@@ -179,23 +178,15 @@ float SDFFromTexture(float3 p, uint alphaTextureIndex, uint2 alphaTextureSize, f
 {
 	float2 uv = (p.xy / alphaTextureScale.xy) * 0.5f + 0.5f;
 	uint2 textureID = uint2(uv * float2(alphaTextureSize)); 
-	float boxMask = sdBox(p, alphaTextureScale * 0.5f);
-	[branch]
-	if (boxMask > 0)
-		return (1.0f - _SourcesAlphaTextures[uint3(textureID, alphaTextureIndex)].x)  * length(p);
-	else
-		return boxMask;
+	return max((1.0f - _SourcesAlphaTextures[uint3(textureID, alphaTextureIndex)].x)  * length(p), sdBox(p, alphaTextureScale));
 }
 
-float SourceContributionWithTypedSDF(float3 positionWS, inout TerrainModificationSource source)
+float SourceContributionWithTypedSDF(float3 positionWS, TerrainModificationSource source)
 {
 	float rotationZ = radians(source.rotationWS.z);
-	float s;
-	float c;
-	sincos(rotationZ, s, c);
 	float2x2 rotationMatrix = float2x2(
-		c, -s,
-		s, c);
+		cos(rotationZ), -sin(rotationZ),
+		sin(rotationZ), cos(rotationZ));
 
 	float2 position = mul(rotationMatrix, (positionWS.xy - source.positionWS.xy));
 
@@ -206,15 +197,12 @@ float SourceContributionWithTypedSDF(float3 positionWS, inout TerrainModificatio
 	return source.strength * falloff;
 }
 
-float SourceContributionWithTexturedSDF(float3 positionWS, inout TexturedTerrainModificationSource source)
+float SourceContributionWithTexturedSDF(float3 positionWS, TexturedTerrainModificationSource source)
 {
 	float rotationZ = radians(source.rotationWS.z);
-	float s;
-	float c;
-	sincos(rotationZ, s, c);
 	float2x2 rotationMatrix = float2x2(
-		c, -s,
-		s, c);
+		cos(rotationZ), -sin(rotationZ),
+		sin(rotationZ), cos(rotationZ));
 
 	float2 position = mul(rotationMatrix, (positionWS.xy - source.positionWS.xy));
 
@@ -225,9 +213,9 @@ float SourceContributionWithTexturedSDF(float3 positionWS, inout TexturedTerrain
 	return source.strength * falloff;
 }
 
-float AlphaBlend(float source, float contribution, inout float destination)
+void AlphaBlend(float source, float contribution, inout float destination)
 {
-	return (destination = source * contribution + destination * (1.0f - contribution));
+	destination = source * contribution + destination * (1.0f - contribution);
 }
 
 [numthreads(32,32,1)]
@@ -245,7 +233,7 @@ void CopyToTerrainTexture(uint3 id : SV_DispatchThreadID)
 	if (!IsIDInWindowedTexture(id.xy))
 		return;
 
-	_TerrainTexture[SMOD((float2)(int2(id.xy) + _TerrainWindowTextureSizeAndOffset.zw - _TerrainTextureSizeAndOffset.zw), _TerrainTextureSizeAndOffset.xy)] = _TerrainWindowTexture[id.xy];
+	_TerrainTexture[SMOD((int2(id.xy) + _TerrainWindowTextureSizeAndOffset.zw - _TerrainTextureSizeAndOffset.zw), _TerrainTextureSizeAndOffset.xy)] = _TerrainWindowTexture[id.xy];
 }
 
 [numthreads(32,32,1)]
@@ -254,7 +242,7 @@ void CopyFromTerrainTexture(uint3 id : SV_DispatchThreadID)
 	if (!IsIDInWindowedTexture(id.xy))
 		return;
 
-	_TerrainWindowTexture[id.xy] = _TerrainTexture[SMOD((float2)(int2(id.xy) + _TerrainWindowTextureSizeAndOffset.zw  - _TerrainTextureSizeAndOffset.zw), _TerrainTextureSizeAndOffset.xy)];
+	_TerrainWindowTexture[id.xy] = _TerrainTexture[SMOD((int2(id.xy) + _TerrainWindowTextureSizeAndOffset.zw  - _TerrainTextureSizeAndOffset.zw), _TerrainTextureSizeAndOffset.xy)];
 }
 
 [numthreads(32,32,1)]
@@ -285,6 +273,7 @@ void ModifyTerrainTexture(uint3 id : SV_DispatchThreadID)
 	[loop]
 	for (uint i = 0; i < _TexturedSourceCount; i++)
 	{
+
 		TexturedTerrainModificationSource source = _TexturedSources[i];
 		source.positionWS = SMOD(source.positionWS - minPositionWS.xyz, maxPositionWS.xyz - minPositionWS.xyz) + minPositionWS.xyz;
 		float contribution = SourceContributionWithTexturedSDF(positionWS.xyz, source);
@@ -292,13 +281,16 @@ void ModifyTerrainTexture(uint3 id : SV_DispatchThreadID)
 	[loop]
 	for (uint i = 0; i < _SourceCount; i++)
 	{
+
 		TerrainModificationSource source = _Sources[i];
 		source.positionWS = SMOD(source.positionWS - minPositionWS.xyz, maxPositionWS.xyz - minPositionWS.xyz) + minPositionWS.xyz;
 		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
 #endif
-		float currentEncodedTerrainType = _TerrainTexture[id.xy].x;
-		float newEncodedTerrainType = AlphaBlend(EncodedTerrainTypeFrom(source.type), contribution, _TerrainTexture[id.xy]);
 
+		float currentEncodedTerrainType = _TerrainTexture[id.xy].x;
+		AlphaBlend(EncodedTerrainTypeFrom(source.type), contribution, _TerrainTexture[id.xy]);
+
+		float newEncodedTerrainType = _TerrainTexture[id.xy].x;
 		float difference = abs(newEncodedTerrainType - currentEncodedTerrainType);
 		uint terrainType = TerrainTypeFromEncoded(currentEncodedTerrainType);
 
@@ -336,9 +328,10 @@ void ModifyTerrainWindow(uint3 id : SV_DispatchThreadID)
 		TerrainModificationSource source = _Sources[i];
 		float contribution = SourceContributionWithTypedSDF(positionWS.xyz, source);
 #endif
-		float currentEncodedTerrainType = _TerrainTexture[id.xy].x;
-		float newEncodedTerrainType = AlphaBlend(EncodedTerrainTypeFrom(source.type), contribution, _TerrainWindowTexture[id.xy]);
+		float currentEncodedTerrainType = _TerrainWindowTexture[id.xy].x;
+		AlphaBlend(EncodedTerrainTypeFrom(source.type), contribution, _TerrainWindowTexture[id.xy]);
 
+		float newEncodedTerrainType = _TerrainWindowTexture[id.xy].x;
 		float difference = abs(newEncodedTerrainType - currentEncodedTerrainType);
 		uint terrainType = TerrainTypeFromEncoded(currentEncodedTerrainType);
 
@@ -356,7 +349,7 @@ void CopyToVisualsFromWindow(uint3 id : SV_DispatchThreadID)
 	float encoded = _TerrainWindowTexture[id.xy].x;
 	uint type = TerrainTypeFromEncoded(encoded);
 
-	float3 color = _TerrainTypesTextures[uint3(SMOD((float2)TextureCoordinatesFromWindowedID(id.xy), (float2)_TerrainTypesTexturesSize.xy), type)].xyz;
+	float3 color = _TerrainTypesTextures[uint3(SMOD(TextureCoordinatesFromWindowedID(id.xy), _TerrainTypesTexturesSize.xy), type)].xyz;
 	_TerrainWindowVisualsTexture[id.xy] = float4(color, 1.0f);
 	//_TerrainWindowVisualsTexture[id.xy] = encoded;
 }
