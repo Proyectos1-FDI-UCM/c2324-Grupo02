@@ -179,12 +179,8 @@ float SDFFromTexture(float3 p, uint alphaTextureIndex, uint2 alphaTextureSize, f
 {
 	float2 uv = (p.xy / alphaTextureScale.xy) * 0.5f + 0.5f;
 	uint2 textureID = uint2(uv * float2(alphaTextureSize)); 
-	float boxMask = sdBox(p, alphaTextureScale * 0.5f);
-	[branch]
-	if (boxMask > 0)
-		return (1.0f - _SourcesAlphaTextures[uint3(textureID, alphaTextureIndex)].x)  * length(p);
-	else
-		return boxMask;
+	// TODO - 1. box * 0.5f because it's extents 2. branch to not read texture if possible
+	return max((1.0f - _SourcesAlphaTextures[uint3(textureID, alphaTextureIndex)].x)  * length(p), sdBox(p, alphaTextureScale));
 }
 
 float SourceContributionWithTypedSDF(float3 positionWS, inout TerrainModificationSource source)
