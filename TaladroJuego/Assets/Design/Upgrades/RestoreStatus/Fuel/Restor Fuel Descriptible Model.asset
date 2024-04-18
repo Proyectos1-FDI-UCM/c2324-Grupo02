@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f04b956dbe1c2e4f8cbc5609ce9b1dd, type: 3}
   m_Name: Restor Fuel Descriptible Model
   m_EditorClassIdentifier: 
-  _name: Fuel Up!
+  _name: RESTORE FUEL
   _description: Restore some fuel, quite handy!
