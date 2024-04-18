@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3507751757562261464, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
+      propertyPath: _radius
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5762114102389966566, guid: 68242aa3b385b8142b4d184d037c7a33, type: 3}
       propertyPath: m_Name
       value: Old Missile
