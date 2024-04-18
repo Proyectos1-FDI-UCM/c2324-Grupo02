@@ -18,9 +18,9 @@ MonoBehaviour:
     _criteriaObject: {fileID: 11400000, guid: 44dba1e0f28aa8342ac3998c504852a2, type: 2}
     <Content>k__BackingField:
       _textStrings:
-      - <Text>k__BackingField: I am free from the chains that locked me in the exterior
+      - <Text>k__BackingField: I am free from the chains that locked me in the exterior.
       - <Text>k__BackingField: 'I feel lighter, stronger, better. I can finally say
-          it: I am free'
+          it: I am free.'
       - <Text>k__BackingField: Perhaps there is some way to make this drill faster
           and lighter too...
     _criteria:

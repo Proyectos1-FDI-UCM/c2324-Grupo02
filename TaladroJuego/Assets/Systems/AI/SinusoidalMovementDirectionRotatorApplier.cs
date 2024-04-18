@@ -26,6 +26,15 @@ namespace AISystem
             _lineRenderer.positionCount = _segmentCount;
             _segmentPositions = new Vector3[_segmentCount];
             _segementVelocities = new Vector3[_segmentCount];
+
+            _segmentPositions[0] = _target.position;
+
+            for (int i = 1; i < _segmentPositions.Length; i++)
+            {
+                _segmentPositions[i] = _segmentPositions[i - 1] + (_segmentPositions[i] - _segmentPositions[i - 1]).normalized * _segmentSeparation;
+            }
+
+            _lineRenderer.SetPositions(_segmentPositions);
         }
 
         private void Update()

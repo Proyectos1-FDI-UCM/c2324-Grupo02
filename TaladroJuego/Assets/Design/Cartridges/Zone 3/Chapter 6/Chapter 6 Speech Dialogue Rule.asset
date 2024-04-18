@@ -20,8 +20,8 @@ MonoBehaviour:
       _textStrings:
       - <Text>k__BackingField: "Faced with the darkness which looms over me, fear
           threatens to swallow me whole. I can\u2019t back off."
-      - <Text>k__BackingField: "Fear musn\u2019t control my fate. What is unknown
-          should be quarreled with courage and determination."
+      - <Text>k__BackingField: Fear mus not control my fate. What is unknown should
+          be quarreled with courage and determination.
     _criteria:
       rid: -2
   references:

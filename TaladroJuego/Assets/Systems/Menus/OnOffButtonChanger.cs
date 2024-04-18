@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace MenusSystem
 {
-    internal class OnOffButtonChanger : MonoBehaviour
+    public class OnOffButtonChanger : MonoBehaviour
     {
         [SerializeField] private GameObject _textOn;
         [SerializeField] private GameObject _textOff;
@@ -17,6 +17,7 @@ namespace MenusSystem
             _textOn.gameObject.SetActive(!_change);
             _textOff.gameObject.SetActive(_change);
             _change = !_change;
+            print(_change);
         }
 
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967a308f5d90ce24e93a2160cc96a550, type: 3}
   m_Name: Coal Terrain Configuration II
   m_EditorClassIdentifier: 
-  _size: {x: 1.4, y: 0.75, z: 1}
+  _size: {x: 1, y: 1, z: 1}
   _radius: 1
   _strength: 1
   _falloff: 0

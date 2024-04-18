@@ -18,11 +18,11 @@ MonoBehaviour:
     _criteriaObject: {fileID: 11400000, guid: 44dba1e0f28aa8342ac3998c504852a2, type: 2}
     <Content>k__BackingField:
       _textStrings:
-      - <Text>k__BackingField: I'm alone now, I must take care of myself, more than
-          ever before. .
-      - <Text>k__BackingField: ' I will manage to survive'
-      - <Text>k__BackingField: "I hope I can find something useful down here, \xBFis
-          that a mineral? I should be able to repair my ship with a bunch of those"
+      - <Text>k__BackingField: 'I am alone now, I must take care of myself, more
+          than ever before. '
+      - <Text>k__BackingField: ' I will manage to survive.'
+      - <Text>k__BackingField: I hope I can find something useful down here. Is that
+          a mineral? I should be able to repair my ship using a bunch of those.
     _criteria:
       rid: -2
   references:
