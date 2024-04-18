@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 2389796087317858196}
   - component: {fileID: 2837594453585781668}
   m_Layer: 0
-  m_Name: AI
+  m_Name: AI Behaviours
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
