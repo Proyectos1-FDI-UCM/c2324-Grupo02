@@ -2274,7 +2274,7 @@ GameObject:
   - component: {fileID: 996086486}
   - component: {fileID: 996086485}
   m_Layer: 5
-  m_Name: Load Game Button
+  m_Name: Continue Game Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2297,7 +2297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 225}
+  m_AnchoredPosition: {x: 0, y: 345}
   m_SizeDelta: {x: 310.0593, y: 60.463196}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &996086485
@@ -2679,7 +2679,7 @@ GameObject:
   - component: {fileID: 1036294838}
   - component: {fileID: 1036294837}
   m_Layer: 5
-  m_Name: LoadOrNewPanel
+  m_Name: ContinueOrNewPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3028,7 +3028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LOAD GAME
+  m_text: CONTINUE GAME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a76db5d1e9954049b5ac5e618f51e39, type: 2}
   m_sharedMaterial: {fileID: -5799473614317935469, guid: 6a76db5d1e9954049b5ac5e618f51e39, type: 2}
@@ -3898,7 +3898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 325}
+  m_AnchoredPosition: {x: 0, y: 220}
   m_SizeDelta: {x: 310.0593, y: 60.463196}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1538422943

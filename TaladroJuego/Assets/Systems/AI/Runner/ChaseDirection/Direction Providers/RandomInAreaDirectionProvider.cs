@@ -27,6 +27,7 @@ namespace AISystem.Runner.ChaseDirection
             {
                 _point.x = Random.Range(_bounds.min.x, _bounds.max.x);
                 _point.y = Random.Range(_bounds.min.y, _bounds.max.y);
+                _point = _transform.TransformPoint(_point);
 
                 yield return new WaitForSeconds(_changeDirectionTime);
             }

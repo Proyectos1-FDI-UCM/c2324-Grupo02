@@ -11,8 +11,14 @@ namespace AISystem.Runner.ChaseDirection.DirectionProvider
         [SerializeField] private Rigidbody2D _rigidBody;
         [SerializeField] private float _changePointTimer;
         [SerializeField] private float _angularSpeed;
+        private Vector3 _startPosition;
 
         private Vector2 _point;
+
+        private void Awake()
+        {
+            _startPosition = transform.position;
+        }
 
         private void Start()
         {
@@ -28,8 +34,9 @@ namespace AISystem.Runner.ChaseDirection.DirectionProvider
         {
             while (true)
             {
-                _point.x = Random.Range(_bounds.min.x, _bounds.max.x);
-                _point.y = Random.Range(_bounds.min.y, _bounds.max.y);
+                Bounds bounds = GetBoundsFromLocal(_bounds, _startPosition);
+                _point.x = Random.Range(bounds.min.x, bounds.max.x);
+                _point.y = Random.Range(bounds.min.y, bounds.max.y);
 
                 yield return new WaitForSeconds(_changePointTimer);
             }
@@ -38,10 +45,20 @@ namespace AISystem.Runner.ChaseDirection.DirectionProvider
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.cyan;
-            Gizmos.DrawWireCube(_bounds.center, _bounds.size);
+            Gizmos.DrawWireCube(transform.TransformPoint(_bounds.center), _bounds.size);
 
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(_point, _radius);
+        }
+
+        private static Bounds GetBoundsFromLocal(Bounds bounds, Vector3 offset)
+        {
+            return new Bounds(bounds.center + offset, bounds.size);
+        }
+
+        private static Bounds GetBoundsFromLocal(Bounds bounds, Transform transform)
+        {
+            return new Bounds(transform.TransformPoint(bounds.center), bounds.size);
         }
     }
 }
