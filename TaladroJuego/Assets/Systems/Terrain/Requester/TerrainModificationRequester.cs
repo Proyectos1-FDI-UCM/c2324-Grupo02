@@ -44,6 +44,8 @@ namespace TerrainSystem.Requester
 
         private List<ITerrainModificationSourceFlyweight<TerrainModificationSource>> _typedSources;
         private List<ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource>> _texturedSources;
+        private Queue<ITerrainModificationSourceFlyweight<TerrainModificationSource>> _pendingTypedSources;
+        private Queue<ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource>> _pendingTexturedSources;
 
         private Camera _camera;
 
@@ -102,6 +104,8 @@ namespace TerrainSystem.Requester
 
             _typedSources = new List<ITerrainModificationSourceFlyweight<TerrainModificationSource>>();
             _texturedSources = new List<ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource>>();
+            _pendingTypedSources = new Queue<ITerrainModificationSourceFlyweight<TerrainModificationSource>>();
+            _pendingTexturedSources = new Queue<ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource>>();
 
             _terrainModifierRequestable = new TerrainModifierRequestable(
                 _terrainModificationShader,
@@ -195,29 +199,53 @@ namespace TerrainSystem.Requester
                 source.Create();
         }
 
+        private int RemainingTypedBufferSpace() => MAX_TERRAIN_SOURCES - _typedSources.Count;
+
         public bool Enqueue(ITerrainModificationSourceFlyweight<TerrainModificationSource> modification)
         {
-            if (_typedSources.Count >= MAX_TERRAIN_SOURCES)
+            if (RemainingTypedBufferSpace() > 0)
+            {
+                _pendingTypedSources.Enqueue(modification);
                 return false;
+            }
 
             _typedSources.Add(modification);
             return true;
         }
 
-        public bool Dequeue(ITerrainModificationSourceFlyweight<TerrainModificationSource> modification) =>
-            _typedSources.Remove(modification);
+        public bool Dequeue(ITerrainModificationSourceFlyweight<TerrainModificationSource> modification)
+        {
+            bool success = _typedSources.Remove(modification);
+            _ = success
+                && RemainingTypedBufferSpace() > 0
+                && _pendingTypedSources.TryDequeue(out ITerrainModificationSourceFlyweight<TerrainModificationSource> pending)
+                && Enqueue(pending);
+            return success;
+        }
+
+        private int RemainingTexturedBufferSpace() => MAX_TERRAIN_SOURCES - _texturedSources.Count;
 
         public bool Enqueue(ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource> modification)
         {
-            if (_texturedSources.Count >= MAX_TERRAIN_SOURCES)
+            if (RemainingTexturedBufferSpace() > 0)
+            {
+                _pendingTexturedSources.Enqueue(modification);
                 return false;
+            }
 
             _texturedSources.Add(modification);
             return true;
         }
 
-        public bool Dequeue(ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource> modification) =>
-            _texturedSources.Remove(modification);
+        public bool Dequeue(ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource> modification)
+        {
+            bool success = _texturedSources.Remove(modification);
+            _ = success
+                && RemainingTexturedBufferSpace() > 0
+                && _pendingTexturedSources.TryDequeue(out ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource> pending)
+                && Enqueue(pending);
+            return success;
+        }
 
         public Task<bool> TryRetrieve(in PositionedTerrainVisuals destination) => _terrainVisualsRetriever.TryRetrieve(in destination);
         public Task<PositionedTerrainVisuals> Retrieve() => _terrainVisualsRetriever.Retrieve();
