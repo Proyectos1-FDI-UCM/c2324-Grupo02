@@ -163,9 +163,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1604068424016144238}
   - component: {fileID: 4821188148767316291}
-  - component: {fileID: 6605295905232491995}
   - component: {fileID: 6235532535290521257}
   - component: {fileID: 2822209960405630412}
+  - component: {fileID: 4292257569016009486}
   m_Layer: 0
   m_Name: RunAwayBehaviour
   m_TagString: Untagged
@@ -200,21 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2206ec28ecfd5154b8f47b8e0cee0f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6605295905232491995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585576075160282188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d677c5be390f54c8d583613fd8cc16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _statusParameterObject: {fileID: 1943220904199948888}
-  _minStatus: 20
-  _maxStatus: 100
 --- !u!114 &6235532535290521257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +226,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
+--- !u!114 &4292257569016009486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585576075160282188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445008e8416227b45a64639876218bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxDistance: 10
+  _evaluationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _transform: {fileID: 4829784155328265634}
 --- !u!1 &2559064104549303093
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,20 +419,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.9673248
-      outSlope: 0.9673248
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
-      time: 0.82916665
-      value: 0.8020735
-      inSlope: 0.9673248
-      outSlope: 0.9673248
-      tangentMode: 34
+      time: 0.8125
+      value: 0.8091423
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -778,7 +801,7 @@ Transform:
   m_GameObject: {fileID: 8499141141083326184}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.097, y: 3.353, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
