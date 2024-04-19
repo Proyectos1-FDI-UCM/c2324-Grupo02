@@ -2343,7 +2343,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 996086486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a037cb993cd785d44b7ad8c81f8a2e75, type: 2}
+        m_TargetAssemblyTypeName: SceneLoaderRequesterObject, Centralised-Request-System
+        m_MethodName: RequestAsyncSceneLoad
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GameScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &996086486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3933,6 +3945,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1593769572}
+        m_TargetAssemblyTypeName: SaveSystem.SaveRequester.Auxiliar.InitializationSaver,
+          Save-System
+        m_MethodName: Delete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: a037cb993cd785d44b7ad8c81f8a2e75, type: 2}
         m_TargetAssemblyTypeName: SceneLoaderRequesterObject, Centralised-Request-System
         m_MethodName: RequestAsyncSceneLoad
@@ -3988,6 +4013,56 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 383083186636943588, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
   m_PrefabInstance: {fileID: 147904812}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1593769571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1593769573}
+  - component: {fileID: 1593769572}
+  m_Layer: 0
+  m_Name: Save/Load
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1593769572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593769571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad9e6fca098233499b6fd68e6e4409a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _requester: {fileID: 11400000, guid: a7f47fee88f725f4198a3a77b0c928bd, type: 2}
+  _handler: {fileID: 11400000, guid: 957532f3c44f99f4b9d7f00433719f5e, type: 2}
+  _savePathFlyweight: {fileID: 11400000, guid: 3855c0cfc41333f4187a4923ce7b94cd, type: 2}
+  _loadOnStart: 0
+  _saveOnQuit: 0
+  _saveOnDisable: 0
+--- !u!4 &1593769573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593769571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1651774585
 GameObject:
   m_ObjectHideFlags: 0
@@ -4970,3 +5045,4 @@ SceneRoots:
   - {fileID: 18133070}
   - {fileID: 113110236}
   - {fileID: 1651774587}
+  - {fileID: 1593769573}

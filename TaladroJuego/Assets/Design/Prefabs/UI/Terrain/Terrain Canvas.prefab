@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _terrainTextureSize: {x: 1920, y: 11520}
+  _terrainTextureSize: {x: 1920, y: 12240}
   _terrainWindowTextureSize: {x: 640, y: 360}
   _initializeOnAwake: 1
 --- !u!114 &6404573842569764394
@@ -441,8 +441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _batchSaveHandler: {fileID: 11400000, guid: 957532f3c44f99f4b9d7f00433719f5e, type: 2}
-  _subscribeOnEnable: 0
-  _unsubscribeOnDisable: 0
+  _subscribeOnEnable: 1
+  _unsubscribeOnDisable: 1
   _unsubscribeOnDestroy: 0
 --- !u!114 &1643822972520823939
 MonoBehaviour:

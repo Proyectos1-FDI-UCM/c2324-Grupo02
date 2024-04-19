@@ -10819,6 +10819,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zone3Trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: _triggerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1716861789}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Save
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SaveSystem.SaveRequester.Auxiliar.InitializationSaver, Save-System
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1815450122722037348, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -20223,6 +20255,38 @@ PrefabInstance:
     - target: {fileID: 1098174202882567232, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: m_Name
       value: Zone2Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: _triggerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1716861789}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Save
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SaveSystem.SaveRequester.Auxiliar.InitializationSaver, Save-System
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1815450122722037348, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30355,7 +30419,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 3.828125
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -34027,7 +34091,19 @@ PrefabInstance:
       value: End Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: _triggerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
@@ -34035,15 +34111,35 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: cf6d648e5562f754da79a9489fa9fca1, type: 2}
     - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1716861789}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RequestApplicationExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Save
       objectReference: {fileID: 0}
     - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ApplicationQuitterRequesterObject, Centralised-Request-System
       objectReference: {fileID: 0}
     - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SaveSystem.SaveRequester.Auxiliar.InitializationSaver, Save-System
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1815450122722037348, guid: 28c943e18e9319241acc1a379984416f, type: 3}
@@ -35417,6 +35513,38 @@ PrefabInstance:
     - target: {fileID: 1098174202882567232, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: m_Name
       value: Zone4Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: _triggerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1716861789}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Save
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SaveSystem.SaveRequester.Auxiliar.InitializationSaver, Save-System
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1815450122722037348, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37055,10 +37183,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 145533561}
-    - target: {fileID: 6404573842569764394, guid: 9e2d367c5b8f6cd4eb53db76dca8b8b6, type: 3}
-      propertyPath: _subscribeOnEnable
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6647179128761858775, guid: 9e2d367c5b8f6cd4eb53db76dca8b8b6, type: 3}
       propertyPath: m_Name
       value: Terrain Canvas
@@ -41367,7 +41491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1716861789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41384,7 +41508,7 @@ MonoBehaviour:
   _handler: {fileID: 11400000, guid: 957532f3c44f99f4b9d7f00433719f5e, type: 2}
   _savePathFlyweight: {fileID: 11400000, guid: 3855c0cfc41333f4187a4923ce7b94cd, type: 2}
   _loadOnStart: 1
-  _saveOnQuit: 1
+  _saveOnQuit: 0
   _saveOnDisable: 0
 --- !u!4 &1716861790
 Transform:
@@ -47335,6 +47459,38 @@ PrefabInstance:
     - target: {fileID: 1098174202882567232, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: m_Name
       value: Zone1Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: _triggerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1716861789}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Save
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SaveSystem.SaveRequester.Auxiliar.InitializationSaver, Save-System
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703571621624121074, guid: 28c943e18e9319241acc1a379984416f, type: 3}
+      propertyPath: <TriggerEnter>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1815450122722037348, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: m_LocalPosition.x
