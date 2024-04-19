@@ -10618,7 +10618,7 @@ PrefabInstance:
     - target: {fileID: 4979840087889875631, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: _reverseButtonChanger
       value: 
-      objectReference: {fileID: 1331577899}
+      objectReference: {fileID: 1886630620}
     - target: {fileID: 5084829399306703634, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -27844,7 +27844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceTerrainTypeBinder: {fileID: 11400000, guid: ef3f74f8ee1c5c145ae8c2a8d56f5588, type: 2}
   _conversionRate: 3.5
-  _collectorsModificationSourceIndices: 
+  _collectorsModificationSourceIndices: 01000000
 --- !u!114 &1095812981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27896,7 +27896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _reducer: {fileID: 437606198}
   harmfullterraintype: 7
-  _damageableModificationSourcesIndices: 
+  _damageableModificationSourcesIndices: 01000000
 --- !u!114 &1095812984
 MonoBehaviour:
   m_ObjectHideFlags: 0
