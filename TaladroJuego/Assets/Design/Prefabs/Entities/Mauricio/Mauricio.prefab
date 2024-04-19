@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5cd5d5fe70a7d41963b94ff7903933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementFacadeObject: {fileID: 2097209795618880388}
+  _movementFacadeObject: {fileID: 5429447772129868943}
 --- !u!114 &7126371574454748405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5cd5d5fe70a7d41963b94ff7903933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementFacadeObject: {fileID: 2097209795618880388}
+  _movementFacadeObject: {fileID: 5429447772129868943}
 --- !u!114 &2822209960405630412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,7 +295,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4829784155328265634}
+  m_Father: {fileID: 3456214228431848959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2097209795618880388
 MonoBehaviour:
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5cd5d5fe70a7d41963b94ff7903933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementFacadeObject: {fileID: 2097209795618880388}
+  _movementFacadeObject: {fileID: 5429447772129868943}
 --- !u!114 &7772386298659945950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,6 +718,52 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &4257018487450691084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3456214228431848959}
+  - component: {fileID: 5429447772129868943}
+  m_Layer: 0
+  m_Name: Pausable Movement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3456214228431848959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257018487450691084}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3357969810891838020}
+  m_Father: {fileID: 4829784155328265634}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5429447772129868943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257018487450691084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b74dd453fe1f446a26339335da2f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _requesterObject: {fileID: 11400000, guid: dde60c5c9d5c1e24f9aeef4520618f1c, type: 2}
 --- !u!1 &5826042696680787318
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +814,19 @@ MonoBehaviour:
   _minValue: 0
   <ReachedMin>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8499141141083326184}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <ReachedMax>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
@@ -806,7 +864,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 899897145767028588}
-  - {fileID: 3357969810891838020}
+  - {fileID: 3456214228431848959}
   - {fileID: 488369453218753312}
   - {fileID: 198899705354610171}
   - {fileID: 2218672375854261557}

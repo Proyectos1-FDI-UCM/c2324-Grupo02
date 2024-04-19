@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5cd5d5fe70a7d41963b94ff7903933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementFacadeObject: {fileID: 9060100684779683844}
+  _movementFacadeObject: {fileID: 2136196112406022616}
 --- !u!114 &345696240294678121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +375,52 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 1
+--- !u!1 &2849505806399773207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4101758310364188788}
+  - component: {fileID: 2136196112406022616}
+  m_Layer: 0
+  m_Name: Pausable Movement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4101758310364188788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2849505806399773207}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3159721776120661280}
+  m_Father: {fileID: 6051261567512845071}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136196112406022616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2849505806399773207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b74dd453fe1f446a26339335da2f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _requesterObject: {fileID: 11400000, guid: dde60c5c9d5c1e24f9aeef4520618f1c, type: 2}
 --- !u!1 &3169918096226516709
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +650,7 @@ Transform:
   - {fileID: 7354835311589683606}
   - {fileID: 5326947037173758993}
   - {fileID: 6577415590446146781}
-  - {fileID: 3159721776120661280}
+  - {fileID: 4101758310364188788}
   - {fileID: 1232725054659773445}
   - {fileID: 3599803793853525537}
   m_Father: {fileID: 0}
@@ -685,7 +731,7 @@ Transform:
   m_Children:
   - {fileID: 6571596338028143420}
   - {fileID: 304172257869562262}
-  m_Father: {fileID: 6051261567512845071}
+  m_Father: {fileID: 4101758310364188788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9060100684779683844
 MonoBehaviour:
@@ -851,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5cd5d5fe70a7d41963b94ff7903933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementFacadeObject: {fileID: 9060100684779683844}
+  _movementFacadeObject: {fileID: 2136196112406022616}
 --- !u!114 &5206996888047133641
 MonoBehaviour:
   m_ObjectHideFlags: 0
