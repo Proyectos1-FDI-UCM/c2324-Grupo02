@@ -15,9 +15,7 @@ namespace AISystem.Evaluator
         public float GetPriority()
         {
             float distance = Mathf.Abs((_home - _transform.position).magnitude);
-            float value = _evaluationCurve.Evaluate(Mathf.Clamp(distance / _maxDistance, 0, 1));
-            Debug.Log(value);
-            return value;
+            return _evaluationCurve.Evaluate(Mathf.Clamp(distance / _maxDistance, 0, 1)); ;
         }
 
         private void Awake()
