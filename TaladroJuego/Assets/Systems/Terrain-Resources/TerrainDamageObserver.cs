@@ -16,9 +16,14 @@ namespace TerrainResourcesSystem
         private IObservableTerrainData<TerrainModification> _modificator;
         [SerializeField] private OnMovementStatusReducer _reducer;
         [SerializeField] private int harmfullterraintype;
+
+        [SerializeField]
+        private int[] _damageableModificationSourcesIndices;
+        private HashSet<int> _damageables;
+
         private void Awake()
         {
-            
+            _damageables = new HashSet<int>(_damageableModificationSourcesIndices);
             
            
             _modificator= GetComponent<IObservableTerrainData<TerrainModification>>();
@@ -32,7 +37,8 @@ namespace TerrainResourcesSystem
         }       
         private void OnDataRetrieve(object sender,TerrainModification modificator)
         {
-            if (modificator.terrainType == harmfullterraintype)
+            if (_damageables.Contains((int)modificator.modificationSourceIndex)
+                && modificator.terrainType == harmfullterraintype)
             {
                 _reducer.ReduceStatus();
             }

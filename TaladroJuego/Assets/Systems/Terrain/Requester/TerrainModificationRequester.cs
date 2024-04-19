@@ -203,7 +203,7 @@ namespace TerrainSystem.Requester
 
         public bool Enqueue(ITerrainModificationSourceFlyweight<TerrainModificationSource> modification)
         {
-            if (RemainingTypedBufferSpace() > 0)
+            if (RemainingTypedBufferSpace() <= 0)
             {
                 _pendingTypedSources.Enqueue(modification);
                 return false;
@@ -227,7 +227,7 @@ namespace TerrainSystem.Requester
 
         public bool Enqueue(ITerrainModificationSourceFlyweight<TexturedTerrainModificationSource> modification)
         {
-            if (RemainingTexturedBufferSpace() > 0)
+            if (RemainingTexturedBufferSpace() <= 0)
             {
                 _pendingTexturedSources.Enqueue(modification);
                 return false;

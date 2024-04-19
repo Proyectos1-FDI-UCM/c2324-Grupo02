@@ -15,6 +15,10 @@ namespace TerrainResourcesSystem
         private float _conversionRate;
         private readonly Dictionary<uint, TerrainModification> _cumulatedModifications = new Dictionary<uint, TerrainModification>();
 
+        [SerializeField]
+        private int[] _collectorsModificationSourceIndices;
+        private HashSet<int> _collectors;
+
         private IObservableTerrainData<TerrainModification> _modificationsTerrainData;
 
         public float ConversionRate
@@ -27,6 +31,8 @@ namespace TerrainResourcesSystem
 
         private void Awake()
         {
+            _collectors = new HashSet<int>(_collectorsModificationSourceIndices);
+
             _modificationsTerrainData = GetComponentInChildren<IObservableTerrainData<TerrainModification>>();
             _modificationsTerrainData.DataRetrieved += OnDataRetrieved;
         }
@@ -38,7 +44,8 @@ namespace TerrainResourcesSystem
 
         private void OnDataRetrieved(object sender, TerrainModification e)
         {
-            if (e.modificationSourceIndex != 1) return;
+            if (!_collectors.Contains((int)e.modificationSourceIndex))
+                return;
 
             TerrainModification cumulated = AccountForTerrainModification(e);
             if (ConvertsToResource(cumulated, out float excess, out ResourceQuantityItem resourceQuantityItem))
