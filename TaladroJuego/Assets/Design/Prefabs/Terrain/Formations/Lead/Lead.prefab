@@ -93,5 +93,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enqueuer: {fileID: 2426465600716223678}
   _requester: {fileID: 11400000, guid: 328c41906e1c80b488fd7db89c17f23e, type: 2}
-  _enqueueAfterEventCount: 5
+  _enqueueAfterEventCount: 10
   _dequeueInstead: 1
