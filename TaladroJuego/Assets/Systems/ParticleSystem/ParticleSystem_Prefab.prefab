@@ -54,6 +54,16 @@ MonoBehaviour:
     <TerrainParticles>k__BackingField: {fileID: 5646348472423030829}
   - <TerrainType>k__BackingField: 4
     <TerrainParticles>k__BackingField: {fileID: 4856189013536923925}
+  - <TerrainType>k__BackingField: 5
+    <TerrainParticles>k__BackingField: {fileID: 5646348472423030829}
+  - <TerrainType>k__BackingField: 6
+    <TerrainParticles>k__BackingField: {fileID: 4856189013536923925}
+  - <TerrainType>k__BackingField: 7
+    <TerrainParticles>k__BackingField: {fileID: 4856189013536923925}
+  - <TerrainType>k__BackingField: 8
+    <TerrainParticles>k__BackingField: {fileID: 5646348472423030829}
+  - <TerrainType>k__BackingField: 9
+    <TerrainParticles>k__BackingField: {fileID: 4856189013536923925}
 --- !u!114 &4821825498500253072
 MonoBehaviour:
   m_ObjectHideFlags: 0

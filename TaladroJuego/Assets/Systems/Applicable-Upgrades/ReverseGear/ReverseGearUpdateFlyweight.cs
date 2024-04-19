@@ -30,7 +30,6 @@ namespace ApplicableUpgradesSystem.RevesibleGearUpgrade
         public override IApplicableUpgrade Create()
         {
             ShipMovementInput shipMovementInput = UpgradeReverseGearEvent?.Invoke();
-            Debug.Log(shipMovementInput);
             if (shipMovementInput != null)
             {
                 return new ReverseGearApplicableUpgrade(shipMovementInput);

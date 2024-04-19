@@ -17,7 +17,7 @@ namespace MenusSystem
             get => _statusParameter.Value;
             set
             {
-                if (!_requesterObject.IsPaused) { Debug.Log("Not Paused", this); _statusParameter.Value = value; }
+                if (!_requesterObject.IsPaused)  _statusParameter.Value = value; 
             }
         }
 

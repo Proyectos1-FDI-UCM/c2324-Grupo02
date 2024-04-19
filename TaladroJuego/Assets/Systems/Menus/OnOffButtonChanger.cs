@@ -17,7 +17,6 @@ namespace MenusSystem
             _textOn.gameObject.SetActive(!_change);
             _textOff.gameObject.SetActive(_change);
             _change = !_change;
-            print(_change);
         }
 
 
