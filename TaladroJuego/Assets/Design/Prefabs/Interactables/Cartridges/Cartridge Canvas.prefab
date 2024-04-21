@@ -373,6 +373,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 64ee9113ade67074297c6bf4c56f0359, type: 2}
   - {fileID: 11400000, guid: f294a7c44859ace4f9ff3f64de4056b1, type: 2}
   - {fileID: 11400000, guid: 1e62e12b5e1f6aa4688151f99b85cb24, type: 2}
+  - {fileID: 11400000, guid: 180d8a98083e2f547874563b0206d49e, type: 2}
+  - {fileID: 11400000, guid: 0c73a591add3a104da8ce1e82f8a5563, type: 2}
+  - {fileID: 11400000, guid: ed8ccdd73574a3b46b4e6668fef79fcd, type: 2}
+  - {fileID: 11400000, guid: 2e39018697c994b438eaead2438f1f20, type: 2}
+  - {fileID: 11400000, guid: c6f4d7f7a66b7334faead3e30a9d2a58, type: 2}
+  - {fileID: 11400000, guid: 55c6a180a59813f46b4810c05f38fd1b, type: 2}
+  - {fileID: 11400000, guid: 57060bfc6c975d34aa52496e2698b41e, type: 2}
   _dialogueRuleHandlerObject: {fileID: 7147445749396132285}
   _subscribeOnAwake: 1
   _unsubscribeOnDestroy: 1
