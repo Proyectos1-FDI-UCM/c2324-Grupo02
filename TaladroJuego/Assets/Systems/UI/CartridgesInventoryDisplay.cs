@@ -27,6 +27,8 @@ namespace UISystem
 
         //Text in UI
         [SerializeField] private TMP_Text _topText, _bottomText;
+        [SerializeField] private Transform[] navigationHintArray;
+        [SerializeField] private Transform hintSelector;
 
         //Index of the cartridge displayed
         private int _index = 0;
@@ -48,6 +50,7 @@ namespace UISystem
             //Show cartridge
             _index = _cartridgesInfo.Count - 1;
             ChangeCartridgeDisplayed();
+            ChangeNavigationHint();
         }
 
         public void ShowNextCartridge()
@@ -56,6 +59,7 @@ namespace UISystem
             {
                 _index++;
                 ChangeCartridgeDisplayed();
+                ChangeNavigationHint();
             }
         }
 
@@ -65,6 +69,7 @@ namespace UISystem
             {
                 _index--;
                 ChangeCartridgeDisplayed();
+                ChangeNavigationHint();
             } 
             
         }
@@ -78,6 +83,12 @@ namespace UISystem
         {
             _topText.text = _cartridgesInfo[_index].ChapterText;
             _bottomText.text = _cartridgesInfo[_index].DescriptionText;
+        }
+
+        private void ChangeNavigationHint()
+        {
+            hintSelector.SetParent(navigationHintArray[_index], false);
+            //hintSelector.position = Vector3.zero;
         }
     }
 }
