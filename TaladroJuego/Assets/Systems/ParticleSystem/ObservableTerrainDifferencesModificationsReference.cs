@@ -18,12 +18,16 @@ namespace Particles
         {
             add
             {
-                _terrainModificationsObservable.DataRetrieved += value;
+                if (_terrainModificationsObservable != null
+                    || (_terrainModificationsObservable = _observableTerrainDifferencesModificationsObject.GetComponentInChildren<IObservableTerrainData<TerrainModification[]>>()) != null)
+                    _terrainModificationsObservable.DataRetrieved += value;
             }
 
             remove
             {
-                _terrainModificationsObservable.DataRetrieved -= value;
+                if (_terrainModificationsObservable != null
+                    || (_terrainModificationObservable = _observableTerrainDifferencesModificationsObject.GetComponentInChildren<IObservableTerrainData<TerrainModification>>()) != null)
+                    _terrainModificationsObservable.DataRetrieved -= value;
             }
         }
 

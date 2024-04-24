@@ -13,8 +13,8 @@ namespace TerrainSystem.Requestable.Retriever.Observable
         private TerrainModificationRequester _terrainModificationRequester;
         private readonly TerrainModification[] _terrainModifications = new TerrainModification[TerrainModificationRequester.MAX_TERRAIN_TYPES];
 
-        public event EventHandler<TerrainModification> DataRetrieved;
-        private event EventHandler<TerrainModification[]> TerrainModificationsRetrieved;
+        public event EventHandler<TerrainModification> DataRetrieved = delegate { };
+        private event EventHandler<TerrainModification[]> TerrainModificationsRetrieved = delegate { };
 
         event EventHandler<TerrainModification[]> IObservableTerrainData<TerrainModification[]>.DataRetrieved
         {
