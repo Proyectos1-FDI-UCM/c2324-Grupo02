@@ -4564,17 +4564,6 @@ MonoBehaviour:
   _collector: {fileID: 11400000, guid: 7c460c1b617734c49a67addc07752493, type: 2}
   _topText: {fileID: 100414172}
   _bottomText: {fileID: 7554191}
-  navigationHintArray:
-  - {fileID: 701119576}
-  - {fileID: 588386777}
-  - {fileID: 1033049887}
-  - {fileID: 1485458199}
-  - {fileID: 1330556297}
-  - {fileID: 2142990545}
-  - {fileID: 1814117299}
-  - {fileID: 607247185}
-  - {fileID: 1291273435}
-  hintSelector: {fileID: 428526989}
 --- !u!1 &405319416
 GameObject:
   m_ObjectHideFlags: 0
@@ -11108,7 +11097,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GameScene
+          m_StringArgument: QA Damage
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1003668371
@@ -13205,7 +13194,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 3.828125
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -16841,8 +16830,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862574418}
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
-  m_Value: 0.9999974
-  m_Size: 0.30875018
+  m_Value: 0.99999833
+  m_Size: 0.30875003
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
