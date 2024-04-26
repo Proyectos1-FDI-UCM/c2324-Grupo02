@@ -9481,6 +9481,17 @@ MonoBehaviour:
   _collector: {fileID: 11400000, guid: 7c460c1b617734c49a67addc07752493, type: 2}
   _topText: {fileID: 100414172}
   _bottomText: {fileID: 7554191}
+  _navigationHintArray:
+  - {fileID: 701119576}
+  - {fileID: 588386777}
+  - {fileID: 1033049887}
+  - {fileID: 1485458199}
+  - {fileID: 1330556297}
+  - {fileID: 2142990545}
+  - {fileID: 1814117299}
+  - {fileID: 607247185}
+  - {fileID: 1291273435}
+  _hintSelector: {fileID: 428526989}
 --- !u!1001 &394595311
 PrefabInstance:
   m_ObjectHideFlags: 0
