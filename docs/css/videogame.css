@@ -10,8 +10,20 @@ body {
   color: #5a5a5a;
 }
 
+h1 {
+    font-family: Grunge;
+    font-size: 20rem;
+    letter-spacing: 0.1em;
+    color: rgb(190, 159, 126);
+}
 
+h2 {
+    color: rgb(255, 255, 255);
+}
 
+p {
+    color: rgb(200, 200, 200);
+}
 
 /* CUSTOMIZE THE HEADER
 -------------------------------------------------- */
@@ -26,7 +38,7 @@ img.img-header {
 
 /* Center align the text within the three columns below the carousel */
 .marketing {
-  margin-top: 1rem;
+  margin-top: 0rem;
 }
 
 .marketing h2 {
@@ -87,4 +99,11 @@ footer p {
   .featurette-heading {
     margin-top: 7rem;
   }
+}
+
+
+
+@font-face {
+    font-family: 'Grunge';
+    src: URL('./Grunge.ttf') format('truetype');
 }
