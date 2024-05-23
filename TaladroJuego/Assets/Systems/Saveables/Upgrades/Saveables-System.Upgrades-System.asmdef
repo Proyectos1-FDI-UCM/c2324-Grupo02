@@ -1,0 +1,19 @@
+{
+    "name": "Saveables-System.Upgrades-System",
+    "rootNamespace": "",
+    "references": [
+        "GUID:9889ed27a0595114dbddb3c894a49167",
+        "GUID:cde20ec42d3de3a44b00d0a6656359ac",
+        "GUID:3feb9ba737620d945b4e16a1ef158cf5",
+        "GUID:7bb5b74307eecb5469aebffee988c44f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

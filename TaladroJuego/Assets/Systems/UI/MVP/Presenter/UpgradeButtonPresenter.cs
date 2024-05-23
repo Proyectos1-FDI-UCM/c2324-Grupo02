@@ -5,7 +5,9 @@ using TMPro;
 using UISystem.MVP.Model;
 using UISystem.MVP.View;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UpgradesSystem.Flyweight;
 
 namespace UISystem.MVP.Presenter
 {
@@ -32,6 +34,12 @@ namespace UISystem.MVP.Presenter
         [SerializeField]
         private ResourcesContainer _resourcesContainer;
 
+        [field: SerializeField]
+        public UnityEvent<ResourceUpgradeFlyweight> PurchasedSuccessfully { get; private set; }
+
+        [field: SerializeField]
+        public UnityEvent<ResourceUpgradeFlyweight> PurchaseFailed { get; private set; }
+
         public bool TryPresentElementWith(UpgradeButton element, DescriptibleUpgradeFlyweight model)
         {
             DescriptibleEventTriggerView view = new DescriptibleEventTriggerView(
@@ -41,7 +49,10 @@ namespace UISystem.MVP.Presenter
             return view.TryUpdateWith(model.Capture().name)
                 && view.TryUpdateWith(new EventTriggerView.PressConfiuration((data) =>
                 {
-                    _resourcesContainer.TryPurchase(model.Create());
+                    if (_resourcesContainer.TryPurchase(model.Create()))
+                        PurchasedSuccessfully.Invoke(model);
+                    else
+                        PurchaseFailed.Invoke(model);
                 }));
         }
 
@@ -54,7 +65,10 @@ namespace UISystem.MVP.Presenter
             view.TryUpdateWith(model.Capture().name);
             view.TryUpdateWith(new EventTriggerView.PressConfiuration((data) =>
             {
-                _resourcesContainer.TryPurchase(model.Create());
+                if (_resourcesContainer.TryPurchase(model.Create()))
+                    PurchasedSuccessfully.Invoke(model);
+                else
+                    PurchaseFailed.Invoke(model);
             }));
 
             return view;
