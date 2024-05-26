@@ -20407,7 +20407,7 @@ PrefabInstance:
     - target: {fileID: 6212031651492641017, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: sharedProfile
       value: 
-      objectReference: {fileID: 11400000, guid: e316a1554faa1104d8af351a646f2bd4, type: 2}
+      objectReference: {fileID: 11400000, guid: d593a86a95ea99342934026e2670310c, type: 2}
     - target: {fileID: 8271184789955324771, guid: 28c943e18e9319241acc1a379984416f, type: 3}
       propertyPath: _song
       value: 
@@ -30634,7 +30634,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 3.828125
+      value: 5.609375
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -39221,8 +39221,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862574418}
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
-  m_Value: 0.9999944
-  m_Size: 0.30875
+  m_Value: 0.9999966
+  m_Size: 0.30875024
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
