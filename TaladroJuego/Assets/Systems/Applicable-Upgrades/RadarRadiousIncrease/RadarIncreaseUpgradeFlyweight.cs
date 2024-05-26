@@ -29,7 +29,7 @@ namespace ApplicableUpgradesSystem.RadarIncrease
 
             public void Apply()
             {
-                _radarMaterial.SetFloat("_VisibilityRadius", _value);
+                _radarMaterial.SetFloat("_VisionRadius", _value);
             }
         }
 

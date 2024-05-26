@@ -10,7 +10,7 @@ namespace MenusSystem
         [SerializeField] private GameObject _textOn;
         [SerializeField] private GameObject _textOff;
 
-        private bool _change = false;
+        private bool _change = true;
 
         public void OnButtonPressed()
         {
