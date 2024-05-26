@@ -9,13 +9,13 @@ namespace MusicSystem
     {
         [SerializeField] private AudioSource _song; 
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision != null)
-            {
-                ChangeVolumeUp();
-            }
-        }
+        //private void OnTriggerEnter2D(Collider2D collision)
+        //{
+        //    if (collision != null)
+        //    {
+        //        ChangeVolumeUp();
+        //    }
+        //}
 
 
         public void ChangeVolumeUp()

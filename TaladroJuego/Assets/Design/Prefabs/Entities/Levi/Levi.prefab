@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6571596338028143420}
   - component: {fileID: 7473219996773753147}
   - component: {fileID: 3060461239598862880}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 648787922535392985}
   - component: {fileID: 3095614383111198925}
   - component: {fileID: 4222191807647720470}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mining
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 6274193979891084891}
   - component: {fileID: 345696240294678121}
   - component: {fileID: 7464349416639194781}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChasePlayerBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 4467438866930940243}
   - component: {fileID: 1036773024526357865}
   - component: {fileID: 1893534547514158080}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4101758310364188788}
   - component: {fileID: 2136196112406022616}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pausable Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 6577415590446146781}
   - component: {fileID: 2389796087317858196}
   - component: {fileID: 2837594453585781668}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AI Behaviours
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1232725054659773445}
   - component: {fileID: 799106459534984503}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Levi Line Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 6051261567512845071}
   - component: {fileID: 3312879658760483796}
   - component: {fileID: 2679115442539923853}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Levi
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
@@ -709,7 +709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3159721776120661280}
   - component: {fileID: 9060100684779683844}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Directional Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 304172257869562262}
   - component: {fileID: 7018070863532075143}
   - component: {fileID: 6828218442004027971}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -816,7 +816,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5686732241934996094}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 3856900674821703551}
   - component: {fileID: 5206996888047133641}
   - component: {fileID: 4855858083888562071}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Scout Behaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,6 +941,10 @@ PrefabInstance:
     - target: {fileID: 2218359281998313603, guid: 1ebd7b21f6d23424eb394f84019d6a79, type: 3}
       propertyPath: m_Name
       value: LeviMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218359281998313603, guid: 1ebd7b21f6d23424eb394f84019d6a79, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5445781777303986123, guid: 1ebd7b21f6d23424eb394f84019d6a79, type: 3}
       propertyPath: m_LocalPosition.x
