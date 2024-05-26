@@ -10737,6 +10737,18 @@ PrefabInstance:
       propertyPath: <ValueSet>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1099722962}
+    - target: {fileID: 3382751107276925648, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: _healColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382751107276925648, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: _healColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382751107276925648, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: _healColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3467475116317657967, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: <ReachedMin>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10797,6 +10809,18 @@ PrefabInstance:
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 1328554549}
+    - target: {fileID: 5587662411439997753, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: _healColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5587662411439997753, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: _healColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5587662411439997753, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
+      propertyPath: _healColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8381280802828336797, guid: 48ce9324611843e4b8e4a8db4d2a52fa, type: 3}
       propertyPath: _observableTerrainDifferencesModificationsObject
       value: 
@@ -21224,7 +21248,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2180472067870827489, guid: 46fc56f57b109ad4f90f7d28e8c57fad, type: 3}
       propertyPath: _speed
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3971659833277478598, guid: 46fc56f57b109ad4f90f7d28e8c57fad, type: 3}
       propertyPath: m_Name
@@ -30638,7 +30662,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5649911925258521260, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: orthographic size
-      value: 3.828125
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 3941323445725436014, guid: 4d7a47855b2ebfa4c89cb408312b667d, type: 3}
       propertyPath: m_Name
@@ -39225,8 +39249,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862574418}
   m_HandleRect: {fileID: 862574417}
   m_Direction: 2
-  m_Value: 0.9999944
-  m_Size: 0.30875
+  m_Value: 0.9999947
+  m_Size: 0.30875018
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
